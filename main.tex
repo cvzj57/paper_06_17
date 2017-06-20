@@ -143,7 +143,7 @@ Next, we need to find a value for \( \langle r \rangle \), which we can extract 
 
 [DERIVATION NEEDED]
 
-Now we can see from (3) that \( \langle r \rangle \approx 1.7\) and therefore that \(Z_{eff} \approx 2.9\). However, the next complication is that this method assumes a complete overlap of the \(p_{z}\) orbital with the \(p_{z}\) pseudopotential which - given that the potential consists only of a single function as compared to the orbital's many - is unlikely to be the case. Therefore we define an overlap matrix \(S\) between \(MO\), the molecular orbital, and \(\chi\), taken from our pseudopotential definition
+Now we have \( \langle r \rangle \approx 1.7\) and therefore we can see from (3) that \(Z_{eff} \approx 2.9\). However, the next complication is that this method assumes a complete overlap of the \(p_{z}\) orbital with the \(p_{z}\) pseudopotential which - given that the potential consists only of a single function as compared to the orbital's many - is unlikely to be the case. Therefore we define an overlap matrix \(S\) between \(MO\), the molecular orbital, and \(\chi\), taken from our pseudopotential definition
 \begin{equation}
 S = \langle MO | \chi \rangle
 \end{equation}
@@ -155,18 +155,30 @@ We therefore have
 \begin{equation}
 \langle \widehat{Z} \rangle = \langle MO | \widehat{Z} | MO \rangle = \langle MO | Z_{pseudo} | \chi \rangle \langle \chi | MO \rangle = Z_{pseudo} S^{2}
 \end{equation}
-and finally
+Finally, knowing that our hydrogen-like pseudosystem already contains a charge, \(Z_{nucleus}\), of one we subtract this from the desired \(Z_{eff}\) we want to influence our \(p_{z}\) electron, leaving us with
 \begin{equation}
 Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
 We now have the power to choose a \(p_{z}\) pseudopotential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. 
 
-\subsection{Optimisation}
+\subsection{Computational Details}
 
-Optimisations were at first performed of the s and p-potentials to reach the lowest π-orbital energy of ethene. The best set of these potentials was then chosen and the values optimised to match the singlet-triplet energy difference, again of ethene. All optimisations used the Brent method in SciPy's optimisation library, and used standard Hartree-Fock calculations.
+Here summarised are details of the methods used in calculation. All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1. The basis set used throughout is the default def-SV(P). Wherever possible, planar (C\(_{S}\)) symmetry is used.The convergence energy is left at the defaults of \(10^{-7}\) (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\) for DFT. All other settings are left as default unless otherwise specified.
+
+When running these calculations, the occupation of orbitals must be specified manually in the TURBOMOLE control file, as the extended-Huckel-guess method used by the package to supply the initial guess does not work with the pseudo-carbon system, and will cause the program to crash if attempted.
+
+\textbf{Chain Alkenes.} In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSH functionals. The integration grid size is changed from TURBOMOLE's default of 3 to 4. Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) is switched on to avoid triplet instability.
+
+\subsubsection{Optimisation}
+
+In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
+
+Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the first ionisation energy. All optimisations used the Brent method in SciPy's optimisation library, and used standard Hartree-Fock calculations.
 
 \section{Results and discussion}
+
+We aim first at reproducing the values for CH\(_{3}\) as given in Table \ref{table:ref_values_1}.
 
 \begin{table}[ht]
 \caption{Reference Values for Relevant Orbital Energies} 
@@ -179,7 +191,7 @@ HF & -10.537 & -10.363 \\
 DFT & -6.726 & -6.632 \\
 \hline
 \end{tabular}
-\label{table:ref_values} % is used to refer this table in the text
+\label{table:ref_values_1} % is used to refer this table in the text
 \end{table}
 
 \begin{table}[ht]
@@ -283,7 +295,7 @@ Singlet-Cation difference & -0.334 & -9.091 \\
 \hline
 \(p_{z}\) potential & -3.267 & 0.295 \\
 \hline
-s-exponent & s-coefficient & Excitation (eV) & Ionisation (eV) & HOMO energy (eV) \\
+\(s\)-exponent & \(s\)-coefficient & Excitation (eV) & Ionisation (eV) & HOMO energy (eV) \\
 \hline 
 0.1 & 0.552 & -3.533 & -27.158 & -27.31 \\
 1.0 & 0.608 & -3.533 & -28.247 & -28.395 \\
@@ -296,12 +308,26 @@ s-exponent & s-coefficient & Excitation (eV) & Ionisation (eV) & HOMO energy (eV
 
 \begin{figure}
 %\includegraphics{properties.jpg}
-\caption{\label{fig:properties}%
-Comparison of the properties (in eV) obtained with pseudo potentials
+\caption{Comparison of the properties (in eV) obtained with pseudo-potentials
 and in all electron calculations.}
 \end{figure}
 
-\begin{figure}
+
+\begin{table}[ht]
+\caption{\%-errors across calculation types for chain alkenes}
+\begin{tabular}{c c c c c c c}
+\hline\hline
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
+\hline
+\(\pi - \pi*\) excitation error (\%) & \(\leq\) 12.5 &\(\leq\) 7.3 & \(\leq\) 12.8 & \(\leq\) 14.1 & \(\leq\) 17.2 & \(\leq\) 2.9 \\
+Ionisation error (\%) & \(\leq\) 7.3 & \(\leq\) 6.3 & \(\leq\) 9.0 & \(\leq\) 10.0 & \(\leq\) 9.7 & - \\
+Singlet HOMO error (\%) & \(\leq\) 3.0 & \(\leq\) 5.3 & \(\leq\) 9.8 & \(\leq\) 12.1 & \(\leq\) 11.4 & - \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[ht]
 \includegraphics[width=8cm]{hf_homo}
 \includegraphics[width=8cm]{pbe0_homo}
 \includegraphics[width=8cm]{hf_ionisation}
@@ -319,12 +345,10 @@ and in all electron calculations.}
 \includegraphics[width=8cm]{tpssh_homo}
 \includegraphics[width=8cm]{tpssh_ionisation}
 \includegraphics[width=8cm]{tpssh_excitation}
- \caption{\label{fig:hf_excitation}Comparison of reference and pseudosystem energies}
 \end{figure}
 \begin{figure}
 \includegraphics[width=8cm]{tddft_excitation_cd}
 \includegraphics[width=8cm]{tddft_excitation}
- \caption{\label{fig:hf_excitation}Comparison of [CD REF] and new TDDFT calculations}
 \end{figure}
 
 
