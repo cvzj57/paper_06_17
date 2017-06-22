@@ -260,7 +260,7 @@ DFT & 18.351 & 10.0 \\
 
 [SHOULD I HAVE SOME RESULTS TO SHOW THE SAME IS TRUE OF USING JUST THE P POTENTIALS?]
 
-Having successfully created the pseudo-ethene with the correct HOMO, our next task is to have our pseudo-system represent other properties of the real one. Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ref_ethene_exitation_energies}. Testing the relevant energies for our pseudo-systems, the early results are not promising, as we can see from Table \ref{table:early_ethene_excitations}. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" around which the correct values begin to emerge. We speculate in section \ref{section:po_overlap} as to the reason for this. Table [PUT THE TABLE IN ALEX] shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values from Table \ref{table:ref_ethene_exitation_energies}. 
+Having successfully created the pseudo-ethene with the correct HOMO, our next task is to have our pseudo-system represent other properties of the real one. Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ref_ethene_exitation_energies}. Testing the relevant energies for our pseudo-systems, the early results are not promising, as we can see from Table \ref{table:early_ethene_excitations}. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. We speculate in section \ref{section:po_overlap} as to the reason for this. Table [PUT THE TABLE IN ALEX] shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values from Table \ref{table:ref_ethene_exitation_energies}. 
 
 \begin{table}[ht]
 \caption{Pseudo-ethene results}
@@ -318,6 +318,28 @@ Singlet-Cation difference & -0.334 & -9.091 \\
 \label{table:early_ethene_excitations}
 \end{table}
 
+\begin{table}[ht]
+\caption{Pseudo-Ethene optimised with \(Z_{eff}\)-linked \(p_{z}\) potentials}
+\begin{tabular}{c c c}
+\hline\hline
+& coefficient & exponent \\
+\hline
+\(s\) potential & 1.5 & 0.5 \\
+\(p_{z}\) potential & -3.910 & 0.624 \\
+\hline
+State & E (H) & E (eV) \\
+\hline
+Singlet HOMO orbital & & -10.062 \\
+Singlet & -0.797 & \\
+Triplet & -0.667 & \\
+Singlet - Triplet & -0.130 & -3.533 \\
+Cation & -0.437 & \\
+Singlet - Cation & -0.360 & -9.806 \\
+\hline
+\end{tabular}
+\label{table:early_ethene_excitations}
+\end{table}
+
 Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of methods. In each case, the geometry of the reference system was optimised according to the method used (HF, DFT with TPSS, etc), before taking the the reference geometry and applying the pseudo-potentials in Table [PUT THE TABLE IN ALEX], optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing ionisation and excitation energies seen in the reference systems seems to be well replicated by the pseudo-alkenes, with the energies following the same gradient. [COMMENT on ERRORS]
 
 We also compared our TD-DFT results with those in [REFERENCE], which match to within 3\%. It seems we have replicated the previous results with our own system.
@@ -340,13 +362,13 @@ We also compared our TD-DFT results with those in [REFERENCE], which match to wi
 \includegraphics[width=8cm]{tpssh_homo}
 \includegraphics[width=8cm]{tpssh_ionisation}
 \includegraphics[width=8cm]{tpssh_excitation}
-\caption{\%-errors across calculation types for chain alkenes}
+\caption{Comparison on reference and pseudo-system energies across a range of chain alkenes and computational methods.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 \begin{figure}
 \includegraphics[width=8cm]{tddft_excitation_cd}
 \includegraphics[width=8cm]{tddft_excitation}
-\caption{\%-errors across calculation types for chain alkenes}
+\caption{Comparison on reference and pseudo-system TD-DFT energies across chain alkenes and with [REFERENCE].}
 \label{fig:alkenes_tddft}
 \end{figure}
 
