@@ -17,6 +17,10 @@
 \usepackage[T1]{fontenc}       % Use modern font encodings
 \usepackage{amsmath}	    % American Mathematical Society equation formatting
 \graphicspath{ {images/} }     % Path to images
+%TO REMOVE BEFORE SUBMISSION
+\usepackage{lineno} % add the line numbers
+\linenumbers
+%END TO REMOVE BEFORE SUBMISSION
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If issues arise when submitting your manuscript, you may want to
@@ -120,7 +124,84 @@ I make notes in [] as I go so I can come back and fill them in later. I use capi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-In \cite{Drujon2013}, \ldots .
+\newcounter{customItem}
+\newcommand{\showCustomItem}{\refstepcounter{customItem}\roman{customItem}}
+
+For most of the quantum chemistry calculations, the system can be divided into two parts:
+the active part, \emph{i.e.} the part of the molecule one is interested in and
+the inactive part, which is to be taken into account in order to fulfill chemical requirements.
+Based on this general statement, many successful approaches were developed.
+One can cite, (\showCustomItem) QM/QM' or QM/MM, which defines two (at least) regions: the active region
+treated at a high level of calculation and the inactive one treated at a lower level of
+theory.\cite{chung_oniom_2015}
+Frozen density embedding techniques (\showCustomItem) replace part of a molecule or its surrounding
+by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
+They are an extension of the frozen core approximation used in the early days to reduce
+the number of parameters to be optimized in the self consistent field calculation.
+In this article we shall focus on pseudo potential techniques, which also
+divide the problem to model into two parts.
+Effective core potentials (\showCustomItem) divide the atomic problem into two pieces: the core electrons are
+replaced by an operator fast to evaluate and the active electrons are treated
+explicitly.\cite{dolg_relativistic_2012}
+In the same vein, model potentials (\showCustomItem) replace a frozen electronic density (computed on the atom)
+by some operators the number of which depend on the level of
+refinement required.\cite{huzinaga_1994_1995}
+The effective group potentials (\showCustomItem) bridge the frozen density and the core potential
+approaches: using core potential extraction techniques, an electronic density is
+replaced by a mono electronic operator.\cite{carissan_what_2006}
+
+When effective core potentials and model potentials intend to reproduce atomic properties,
+effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
+bonds, for instance, the cyclopentadienyl group was successfully extracted.
+In this example, carbon atoms are hybridized: the core/valence distinction is no more defined.
+Let us follow Huzinaga in his enlightening work.\cite{huzinaga_effective_1991}
+In order to extract a meaningful potential, he states that for electron/electron interactions, 
+"the most important effect is that the exclusion principle prevents active electrons
+from collapsing into the dormant region.
+The second is the exchange energy terms between the dormant and active electrons
+through their electrostatic interaction."
+For an atom, the Hamiltonian reads:
+\begin{equation}
+\label{eq:atomicHamiltonian}
+\hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
+\end{equation}
+with $\frac{1}{r_{ij}}$ the bielectronic interaction
+between explicitly treated active electrons and
+the mono electronic operator:
+\begin{equation}
+\label{eq:monoElectronicOperator}
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
+\end{equation}
+where
+$\Delta_i$ is the laplacian of the coordinates of electron $i$,
+$Z_C$ is the number of core electrons withdrawn from the reference system,
+$\hat{V}(i)$ the pseudo potential which reproduce the electrostatic
+interaction between the dormant and active electrons
+and $\hat{\sigma}(i)$ the operator, which models the exclusion principle
+and prevents active electrons from collapsing into the dormant region.
+To take into account the fact that dormant electrons are removed from the
+system, the nuclear charge is modified by the $Z_c$ value.
+Yet, as the effective charge felt by the active electrons is likely not to be an integer,
+the modification of the value of the nuclear charge is scaled in $\hat{V}$.
+Depending on the version used, this modification differs.
+In this work, we take as a reference version 1 as defined in
+Huzinaga's lecture\cite{huzinaga_1994_1995}:
+\begin{equation}
+\label{eq:HuzinagaMPVersion1Potential}
+\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha r^2)+\sum_JB_Jr\exp(-\beta r^2)\right]
+\end{equation}
+In this model potential version, $\hat{\sigma}$ is defined as:
+\begin{equation}
+\label{eq:HuzinagaMPVersion1Sigma}
+\hat{\sigma} = -\sum f_c\epsilon_c\left|\phi_c\right>\left<\phi_c\right|
+\end{equation}
+with $\epsilon_c$ the eigenvalue of the core orbital $\phi_c$ and
+$f_c$ an optimized parameter.
+One can note that in the other versions of model potentials, $f_c=2$, as suggested
+earlier.\cite{houjer_aspects_1978}
+Whenever needed, we shall stick to this value.
+
+In \cite{drujon_pseudopotentials_2013}, we 
 
 \section{Method}
 

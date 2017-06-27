@@ -1,7 +1,7 @@
 radical=main
 latex=pdflatex
 
-defaut:
+defaut: clean
 	$(latex) $(radical).tex
 	bibtex $(radical)
 	$(latex) $(radical).tex
@@ -19,4 +19,4 @@ abstract:
 all:defaut suppl
 
 clean:
-	rm $(radical).aux $(radical).dvi $(radical).log $(radical).pdf $(radical).ps suppl.ps suppl.pdf suppl.dvi suppl.aux suppl.log
+	@(rm $(radical).{aux,log,pdf,bbl,blg} suppl.{pdf,dvi,aux,log};true)
