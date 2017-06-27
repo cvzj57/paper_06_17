@@ -153,18 +153,53 @@ replaced by a mono electronic operator.\cite{carissan_what_2006}
 When effective core potentials and model potentials intend to reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
 bonds, for instance, the cyclopentadienyl group was successfully extracted.
-In this example, carbon atoms are hybridized.
-Thus the core/valence distinction is no more defined.
+In this example, carbon atoms are hybridized: the core/valence distinction is no more defined.
 Let us follow Huzinaga in his enlightening work.\cite{huzinaga_effective_1991}
 In order to extract a meaningful potential, he states that for electron/electron interactions, 
 "the most important effect is that the exclusion principle prevents active electrons
 from collapsing into the dormant region.
 The second is the exchange energy terms between the dormant and active electrons
 through their electrostatic interaction."
-Furthermore, to take into account the fact that dormant electrons are removed from the
-system, the nuclear charge shall be modified.
-As the effective charge felt by the active electrons is likely not to be an integer,
-the modification of the value of Z is scaled by an exponential operator.
+For an atom, the Hamiltonian reads:
+\begin{equation}
+\label{eq:atomicHamiltonian}
+\hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
+\end{equation}
+with $\frac{1}{r_{ij}}$ the bielectronic interaction
+between explicitly treated active electrons and
+the mono electronic operator:
+\begin{equation}
+\label{eq:monoElectronicOperator}
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
+\end{equation}
+where
+$\Delta_i$ is the laplacian of the coordinates of electron $i$,
+$Z_C$ is the number of core electrons withdrawn from the reference system,
+$\hat{V}(i)$ the pseudo potential which reproduce the electrostatic
+interaction between the dormant and active electrons
+and $\hat{\sigma}(i)$ the operator, which models the exclusion principle
+and prevents active electrons from collapsing into the dormant region.
+To take into account the fact that dormant electrons are removed from the
+system, the nuclear charge is modified by the $Z_c$ value.
+Yet, as the effective charge felt by the active electrons is likely not to be an integer,
+the modification of the value of the nuclear charge is scaled in $\hat{V}$.
+Depending on the version used, this modification differs.
+In this work, we take as a reference version 1 as defined in
+Huzinaga's lecture\cite{huzinaga_1994_1995}:
+\begin{equation}
+\label{eq:HuzinagaMPVersion1Potential}
+\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha r^2)+\sum_JB_Jr\exp(-\beta r^2)\right]
+\end{equation}
+In this model potential version, $\hat{\sigma}$ is defined as:
+\begin{equation}
+\label{eq:HuzinagaMPVersion1Sigma}
+\hat{\sigma} = -\sum f_c\epsilon_c\left|\phi_c\right>\left<\phi_c\right|
+\end{equation}
+with $\epsilon_c$ the eigenvalue of the core orbital $\phi_c$ and
+$f_c$ an optimized parameter.
+One can note that in the other versions of model potentials, $f_c=2$, as suggested
+earlier.\cite{houjer_aspects_1978}
+Whenever needed, we shall stick to this value.
 
 In \cite{drujon_pseudopotentials_2013}, we 
 
