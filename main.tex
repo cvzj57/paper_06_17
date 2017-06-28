@@ -197,11 +197,36 @@ In this model potential version, $\hat{\sigma}$ is defined as:
 \end{equation}
 with $\epsilon_c$ the eigenvalue of the core orbital $\phi_c$ and
 $f_c$ an optimized parameter.
-One can note that in the other versions of model potentials, $f_c=2$, as suggested
-earlier.\cite{houjer_aspects_1978}
-Whenever needed, we shall stick to this value.
+In the other versions of model potentials, $f_c=2$, as suggested earlier.\cite{houjer_aspects_1978}
+In the present work, we shall optimize the parameters in $\hat{V}$ and $\hat{\sigma}$
+for hybridized atoms.
+Before going further, it is important to stress that hybridization implies that the
+$\left\{\phi_c\right\}_i$ are linear combination of atomic orbitals and that
+$\hat{V}$ should no more be spherical.
+This loss of isotropy combined with the loss of clear core/valence separation
+will imply constraints during the extraction process.
 
-In \cite{drujon_pseudopotentials_2013}, we 
+In this work, we aim at developing a method usable out of the box in any standard
+quantum chemistry software.
+Thus, no modification of the source code should be done.
+This supplementary constraint will be fulfilled by strategically positioning the pseudo potentials
+we intend to use. 
+We already successfully used this technique to extract pseudo potentials for hybridized carbon
+atoms.\cite{drujon_pseudopotentials_2013}
+However, in our extraction procedure, some pseudo potentials had to be put precisely at the center
+of each bond.
+Thus, those pseudo potentials could not be considered as atomic as they were not only defined
+with respect to the position of the atom they applied to.
+In this new version, the pseudo potentials are fully atomic: the position of the atom
+determines completely were the potentials are put in space in the best possible manner
+when dealing with hybridized atoms (as hybridization destroys anisotropy, the preferred orientations
+must be given to define the pseudo potential).
+
+This article is structured as follows.
+In the first part, the method is defined in details.
+The second part shows the results obtained from the most crude to the most refined
+version of the method.
+These are analyzed in the third part.
 
 \section{Method}
 
