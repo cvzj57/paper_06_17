@@ -295,7 +295,7 @@ Here summarised are details of the methods used in calculation. All Hartree-Fock
 
 When running these calculations, the package's extended-H\"uckel-guess method does not work for the pseudo-systems, and so the occupation of orbitals is be specified manually in the TURBOMOLE control file.
 
-\textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSH functionals. \cite{pbe0}\cite{pbe}\cite{tpss}\cite{tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
+\textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0}\cite{pbe}\cite{tpss}\cite{tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 \subsubsection{Optimisation}
 
@@ -498,7 +498,7 @@ Also compared are TD-DFT results for this system and that in Carissan and Drujon
 \caption{\%-errors across calculation types for chain alkenes}
 \begin{tabular}{c c c c c c c}
 \hline\hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh & TD-DFT \\
 \hline
 \(\pi - \pi*\) excitation error (\%) & \(\leq\) 12.5 &\(\leq\) 7.3 & \(\leq\) 12.8 & \(\leq\) 14.1 & \(\leq\) 17.2 & \(\leq\) 2.9 \\
 Ionisation error (\%) & \(\leq\) 7.3 & \(\leq\) 6.3 & \(\leq\) 9.0 & \(\leq\) 10.0 & \(\leq\) 9.7 & - \\
