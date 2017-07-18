@@ -348,7 +348,7 @@ We aim first at reproducing the values for the CH\(_{3}\) radical as given in Ta
 
 \subsection{Ethene}
 
-Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus . At the shorter range \(d = 0.5\), the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the use of the \(p_{z}\) potential. 
+Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\), the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the use of the \(p_{z}\) potential. 
 
 \begin{table}[ht]
 \caption{HOMO-optimised Pseudo-ethene using only \(s\)-potentials with an exponent of 10.0}
@@ -370,7 +370,7 @@ DFT & -7.679 & -8.447 \\
 \label{table:ethene_s_pseudo}
 \end{table}
 
-Our next step adds a \(p\)-shaped potential centred on the pseudo-carbon along the \(z\)-axis, with Table \ref{table:ch3_p_potentials} displaying the results. As before, \(d = 0.5\). The \(p_{z}\) potential is selected using the proceedure described in Section \ref{section:potential_derivation}, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital, and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap. The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(_{3}\). We again take these potentials to create a pseudo-ethene molecule, with the results shown in Table \ref{table:ethene_p_potentials}. We can see that these potentials seem to transfer more effectively from the CH\(_{3}\) system to the ethene, suggesting therefore that whilst the \(s\)-potentials can affect both the \(p_{z}\) and \(\pi\) orbitals, they cannot alone represent the relationship between them.
+The next step adds a \(p\)-shaped potential centred on the pseudo-carbon along the \(z\)-axis, with Table \ref{table:ch3_p_potentials} displaying the results. As before, \(d = 0.5\). The \(p_{z}\) potential is selected using the proceedure described in Section \ref{section:potential_derivation}, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital, and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap. The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(_{3}\). We again take these potentials to create a pseudo-ethene molecule, with the results shown in Table \ref{table:ethene_p_potentials}. We can see that these potentials seem to transfer more effectively from the CH\(_{3}\) system to the ethene, suggesting therefore that whilst the \(s\)-potentials can affect both the \(p_{z}\) and \(\pi\) orbitals, they cannot alone represent the relationship between them.
 
 \begin{table}[ht]
 \caption{Optimised s-orbital pseudopotentials for CH\(_{3}\)}
@@ -495,7 +495,7 @@ Also compared are TD-DFT results for this system and that in Carissan and Drujon
 \end{figure}
 
 \begin{table}[ht]
-\caption{\%-errors across calculation types for chain alkenes}
+\caption{\%-errors across calculation types for short chain alkenes  (C\(_{2}\)-C\(_{12}\))}
 \begin{tabular}{c c c c c c c}
 \hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
@@ -509,6 +509,38 @@ Singlet HOMO error (\%) & \(\leq\) 3.0 & \(\leq\) 5.3 & \(\leq\) 9.8 & \(\leq\) 
 \end{table}
 
 \subsection{Large Systems}
+
+The potentials derived abotve are also tested on larger systems. Figure [REF] shows the excitation, ionisation and HOMO energies for several ring systems. As with the short chain alkenes, the general trend of the results is well-replicated by the pseudo-systems, and the percentage errors, displayed in Table \ref{table:ring_system_errors}, are similar. 
+
+\begin{table}[ht]
+\caption{\%-errors across calculation types for ring-systems}
+\begin{tabular}{c c c c c c c}
+\hline\hline
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+\hline
+\(\pi - \pi*\) excitation error (\%) & \(\leq\)  &\(\leq\) & \(\leq\)  & \(\leq\)  & \(\leq\)  \\
+Ionisation error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  \\
+Singlet HOMO error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\) \\
+\hline
+\end{tabular}
+\label{table:ring_system_errors}
+\end{table}
+
+\begin{table}[ht]
+\caption{\%-errors across calculation types for long chain alkenes (C\(_{20}\)-C\(_{100}\))}
+\begin{tabular}{c c c c c c c}
+\hline\hline
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+\hline
+\(\pi - \pi*\) excitation error (\%) & \(\leq\)  &\(\leq\) & \(\leq\)  & \(\leq\)  & \(\leq\)  \\
+Ionisation error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  \\
+Singlet HOMO error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\) \\
+\hline
+\end{tabular}
+\label{table:long_alkene_errors}
+\end{table}
+
+Table \ref{table:long_alkene_errors} gives the same energy details for longer chain alkenes. The pattern of decreasing ionisation and excitation energies with increasing HOMO energy is still followed, with the absolute error remaining consistent. However, with chains of this length the excitation energies begin to become smaller than the systematic error between the pseudo-system and reference system results. It is apparent that the pseudo-potentials will need to be more accurate if they are to be useful for studying these molecules.
 
 %\begin{figure}
 %\includegraphics[width=8cm]{rings_pbe_excitation}
