@@ -232,7 +232,16 @@ These are analyzed in the third part.
 
 \subsection{Potentials \& Potential Geometry}
 
-As in Carissan and Drujon \cite{drujon_pseudopotentials_2013}, we take a CH\(_{3}\) as our starting system. In order to fulfil the criteria specified in [REF: INTRODUCTION HAMILTONIAN], we make use of two kinds of Gaussian pseudopotentials [REF], of \(s\) and \(p\) orbital shapes. The \(p\) pseudo-potential is added after we conclude that a system of only \(s\) potentials is unable to represent the real system with the desired accuracy. 
+As in our previous work\cite{drujon_pseudopotentials_2013},
+we take a CH\(_{3}\) as our starting system to be reproduced.
+It is the smallest system containing one and only one sp$^2$ hybridized carbon atom.
+This choice allows us to isolate the different electrostatic interactions
+to build a physically meaningful model.
+In order to fulfil the criteria specified in [REF: INTRODUCTION HAMILTONIAN],
+we make use of two kinds of Gaussian pseudopotentials [REF], of \(s\) and \(p\) orbital shapes.
+As will be discussed in the following sections,
+the \(p\) pseudo-potential allows to reproduce atomic properties, when the
+\(s\) potentials mimic electrostatic electron pair repulsion.
 
 \begin{figure}[ht]
 \includegraphics[width=8cm]{ch3.png}
@@ -242,9 +251,16 @@ As in Carissan and Drujon \cite{drujon_pseudopotentials_2013}, we take a CH\(_{3
 \label{figure:ref_pseudo_diagram}
 \end{figure}
 
-Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system. A hydrogen-like "pseudo-carbon", with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital, is surrounded by three potential sets at a planar distance of \(d\), each consisting of two \(s\)-shaped potentials with a distance above and below the \(xy\)-plane of \(c\). A further \(p\)-shaped potential is applied directly to the pseudo-carbon.
+Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system.
+A hydrogen-like "pseudo-carbon", with a nuclear charge of \(Z_{nucleus} = 1\),
+and one electron occupying the \(p_{z}\) orbital,
+is surrounded by three potential sets at a planar distance of \(d\),
+each consisting of two \(s\)-shaped potentials with a distance above and below the \(xy\)-plane of \(c\). A further \(p\)-shaped potential is applied directly to the pseudo-carbon.
 
-This gives multiple variables we can use to manipulate the properties of the system. We can alter the strength and diffuseness of the \(p\) and \(s\) potentials themselves, as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials. In this article we fix \(c = 0.25\).
+This gives multiple variables we can use to manipulate the properties of the system.
+We can alter the strength and diffuseness of the \(p\) and \(s\) potentials themselves,
+as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
+In this article we fix \(c = 0.25\;a.u.\).
 
 \subsection{Making Potentials Physically Meaningful}
 \label{section:potential_derivation}
