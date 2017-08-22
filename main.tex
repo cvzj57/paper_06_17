@@ -116,7 +116,7 @@ separate page at the end of the document.
 %% if an abstract is not used by the target journal.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-I make notes in [] as I go so I can come back and fill them in later. I use capital letters so the notes are obvious to the eye (I'm not actually shouting). That way you don't accidentally leave them in when you hand your papers in. That is not a good experience.
+A pseudo-potential system for recreating an sp\(_{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  This pseudo-system removes all non-valence electrons and has a central charge of 1. 1\textsuperscript{st} ionisation and excitation energies, as well as the HOMO energy, are found to be reproduced to a good accuracy by the pseudo-system.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -394,8 +394,6 @@ DFT & 3.483 & 1.0 \\
 \label{table:ch3_p_potentials}
 \end{table}
 
-[SHOULD I HAVE SOME RESULTS TO SHOW THE SAME IS TRUE OF USING JUST THE P POTENTIALS?]
-
 \subsection{C\(_{2n}\)H\(_{2n+2}\)}
 
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system. Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ref_ethene_excitation_energies}. Testing the relevant energies for the pseudo-systems, the early results are not promising, as we can see from Table \ref{table:early_ethene_excitations}. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ref_ethene_excitation_energies} shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values. 
@@ -510,7 +508,7 @@ Singlet HOMO error (\%) & \(\leq\) 3.0 & \(\leq\) 5.3 & \(\leq\) 9.8 & \(\leq\) 
 
 \subsection{Large Systems}
 
-The potentials derived abotve are also tested on larger systems. Figure [REF] shows the excitation, ionisation and HOMO energies for several ring systems. As with the short chain alkenes, the general trend of the results is well-replicated by the pseudo-systems, and the percentage errors, displayed in Table \ref{table:ring_system_errors}, are similar. 
+The potentials derived above are also tested on larger systems. Figure \ref{fig:rings_graphs} shows the excitation, ionisation and HOMO energies for several ring systems. As with the short chain alkenes, the general trend of the results is well-replicated by the pseudo-systems, and the percentage errors, displayed in Table \ref{table:ring_system_errors}, are similar. 
 
 \begin{table}[ht]
 \caption{\%-errors across calculation types for ring-systems}
@@ -542,19 +540,25 @@ Singlet HOMO error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq
 
 Table \ref{table:long_alkene_errors} gives the same energy details for longer chain alkenes. The pattern of decreasing ionisation and excitation energies with increasing HOMO energy is still followed, with the absolute error remaining consistent. However, with chains of this length the excitation energies begin to become smaller than the systematic error between the pseudo-system and reference system results. It is apparent that the pseudo-potentials will need to be more accurate if they are to be useful for studying these molecules.
 
-%\begin{figure}
-%\includegraphics[width=8cm]{rings_pbe_excitation}
-%\includegraphics[width=8cm]{rings_pbe_ionisation}
-%\includegraphics[width=8cm]{rings_pbe_homo}
-%\includegraphics[width=8cm]{rings_tpss_ionisation}
-%\includegraphics[width=8cm]{rings_tpss_excitation}
-%\includegraphics[width=8cm]{rings_tpss_homo}
-%\includegraphics[width=8cm]{rings_tpssh_excitation}
-%\includegraphics[width=8cm]{rings_tpssh_ionisation}
-%\includegraphics[width=8cm]{rings_tpssh_homo}
-%\caption{Comparison on reference and pseudo-system energies across a range of chain alkenes and computational methods.}
-%\label{fig:alkenes_hf_dft}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=8cm]{ring_hf_excitation}
+\includegraphics[width=8cm]{ring_hf_ionisation}
+\includegraphics[width=8cm]{ring_hf_homo}
+\includegraphics[width=8cm]{ring_pbe0_excitation}
+\includegraphics[width=8cm]{ring_pbe0_ionisation}
+\includegraphics[width=8cm]{ring_pbe0_homo}
+\includegraphics[width=8cm]{ring_pbe_excitation}
+\includegraphics[width=8cm]{ring_pbe_ionisation}
+\includegraphics[width=8cm]{ring_pbe_homo}
+\includegraphics[width=8cm]{ring_tpss_ionisation}
+\includegraphics[width=8cm]{ring_tpss_excitation}
+\includegraphics[width=8cm]{ring_tpss_homo}
+\includegraphics[width=8cm]{ring_tpssh_excitation}
+\includegraphics[width=8cm]{ring_tpssh_ionisation}
+\includegraphics[width=8cm]{ring_tpssh_homo}
+\caption{Comparison on reference and pseudo-system energies across a range of ring molecules and computational methods.}
+\label{fig:rings_graphs}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
