@@ -330,26 +330,55 @@ Here summarised are details of the methods used in calculation. All Hartree-Fock
 \section{Results, Development and Discussion}
 \subsection{CH\(_{3}\), with \(s\)-potentials}
 
+%\begin{table}[ht]
+%\caption{Reference values and \(s\)-only pseudo-system values for CH\(^{\bullet}_{3}\), optimised to give the correct HOMO energy. \(d = 0.5\) a.u.}
+%\begin{tabular}{c c c}
+%\hline
+%\multicolumn{3}{c}{Reference} \\
+%\hline\hline
+%Calculation Type & \multicolumn{2}{c}{CH\(^{\bullet}_{3}\)\, HOMO (\(p_{z}\)) energy (eV)} \\
+%\hline
+%HF & \multicolumn{2}{c}{-10.537} \\
+%PBE0 & \multicolumn{2}{c}{-6.726} \\
+%\hline
+%\multicolumn{3}{c}{Pseudo-system} \\
+%\hline\hline
+% & Coefficient & Exponent \\ [0.5ex]
+%\hline
+%HF & -2.594 & 1.0 \\
+% & -4.788 & 5.0 \\
+% & -7.524 & 10.0 \\
+%\hline
+%PBE0 & -2.605 & 1.0 \\
+% & -4.873 & 5.0 \\
+% & -7.678 & 10.0 \\
+%\hline
+%\end{tabular}
+%\label{table:ch3_s_potentials}
+%\end{table}
+
 \begin{table}[ht]
-\caption{Reference values and \(s\)-only pseudo-system values for CH\(^{\bullet}_{3}\), optimised to give the correct HOMO energy. \(d = 0.5\) a.u.}
+\caption{Coefficients and exponents for \(s\)-only pseudo-potentials for CH\(^{\bullet}_{3}\), optimised to give 
+the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0). 
+\(d = 0.5\) a.u., as defined in Figure~\ref{figure:ref_pseudo_diagram}.}
 \begin{tabular}{c c c}
 \hline
-\multicolumn{3}{c}{Reference} \\
-\hline\hline
-Calculation Type & \multicolumn{2}{c}{CH\(^{\bullet}_{3}\)\, HOMO (\(p_{z}\)) energy (eV)} \\
-\hline
-HF & \multicolumn{2}{c}{-10.537} \\
-DFT & \multicolumn{2}{c}{-6.726} \\
-\hline
-\multicolumn{3}{c}{Pseudo-system} \\
-\hline\hline
+%\multicolumn{3}{c}{Reference} \\
+%\hline\hline
+%Calculation Type & \multicolumn{2}{c}{CH\(^{\bullet}_{3}\)\, HOMO (\(p_{z}\)) energy (eV)} \\
+%\hline
+%HF & \multicolumn{2}{c}{-10.537} \\
+%PBE0 & \multicolumn{2}{c}{-6.726} \\
+%\hline
+%\multicolumn{3}{c}{Pseudo-system} \\
+%\hline\hline
  & Coefficient & Exponent \\ [0.5ex]
 \hline
 HF & -2.594 & 1.0 \\
  & -4.788 & 5.0 \\
  & -7.524 & 10.0 \\
 \hline
-DFT & -2.605 & 1.0 \\
+PBE0 & -2.605 & 1.0 \\
  & -4.873 & 5.0 \\
  & -7.678 & 10.0 \\
 \hline
@@ -369,30 +398,57 @@ We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as g
 
 Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) a.u. gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\) a.u., the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the additional use of the \(p_{z}\) potential \textit{alongside} the \(s\) potentials.
 
+%\begin{table}[ht]
+%\caption{Reference values and HOMO-optimised values for Pseudo-ethene using only \(s\)-potentials with an exponent of 10.0}
+%\begin{tabular}{c c c}
+%\hline
+%\multicolumn{3}{c}{Reference} \\
+%\hline\hline
+%Calculation Type & \multicolumn{2}{c}{C\(_{2}\)H\(_{4}\)\ HOMO )\(\pi\)) energy (eV)} \\
+%\hline
+%HF & \multicolumn{2}{c}{-10.363} \\
+%PBE0 & \multicolumn{2}{c}{-6.632} \\
+%\hline
+%\multicolumn{3}{c}{Pseudo-system} \\
+%\hline\hline
+% & \(s\) coefficient & \( \pi \) orbital energy (eV) \\
+%\hline
+%\multicolumn{3}{c}{d = 2.0 a.u.} \\
+%\hline
+%HF & -7.521 & -9597.0 \\
+%\hline
+%\multicolumn{3}{c}{d = 0.5 a.u.} \\
+%\hline
+%HF & -7.521 & -7.905 \\
+%PBE0 & -7.679 & -8.447 \\
+%\hline
+%\end{tabular}
+%\label{table:ethene_s_pseudo}
+%\end{table}
+
 \begin{table}[ht]
-\caption{Reference values and HOMO-optimised values for Pseudo-ethene using only \(s\)-potentials with an exponent of 10.0}
-\begin{tabular}{c c c}
+\caption{Reference values and HOMO-optimised values for Pseudo-ethene using only \(s\)-potentials with an exponent of 10.0.
+$d$ (a.u.) as defined in Figure~\ref{figure:ref_pseudo_diagram}.}
+\begin{tabular}{c c c c}
 \hline
-\multicolumn{3}{c}{Reference} \\
-\hline\hline
-Calculation Type & \multicolumn{2}{c}{C\(_{2}\)H\(_{4}\)\ HOMO )\(\pi\)) energy (eV)} \\
+%\multicolumn{3}{c}{Reference} \\
+%\hline\hline
+%Calculation Type & \multicolumn{2}{c}{C\(_{2}\)H\(_{4}\)\ HOMO )\(\pi\)) energy (eV)} \\
+%\hline
+%HF & \multicolumn{2}{c}{-10.363} \\
+%PBE0 & \multicolumn{2}{c}{-6.632} \\
+%\hline
+%\multicolumn{3}{c}{Pseudo-system} \\
+%\hline\hline
+& $d$ & \(s\) coefficient & \( \pi \) orbital energy (eV) \\
 \hline
-HF & \multicolumn{2}{c}{-10.363} \\
-DFT & \multicolumn{2}{c}{-6.632} \\
+HF$^a$   &     &        & -10.363 \\
+PBE0$^a$ &     &        & -6.632 \\
+HF       & 2.0 & -7.521 & -9597.0 \\
+HF       & 0.5 & 7.521  & -7.905 \\
+PBE0     & 0.5 &-7.679  & -8.447 \\
 \hline
-\multicolumn{3}{c}{Pseudo-system} \\
-\hline\hline
- & \(s\) coefficient & \( \pi \) orbital energy (eV) \\
-\hline
-\multicolumn{3}{c}{d = 2.0 a.u.} \\
-\hline
-HF & -7.521 & -9597.0 \\
-\hline
-\multicolumn{3}{c}{d = 0.5 a.u.} \\
-\hline
-HF & -7.521 & -7.905 \\
-DFT & -7.679 & -8.447 \\
-\hline
+\multicolumn{4}{l}{$^a$ All-electron reference values.}\\
 \end{tabular}
 \label{table:ethene_s_pseudo}
 \end{table}
@@ -408,26 +464,27 @@ Having successfully created a pseudo-ethene with the correct HOMO, we attempt to
 & \(p\) coefficient & \(p\) exponent \\
 \hline
 \(p_{z}\) potential & -3.267 & 0.295 \\
+%\hline
+%Calculation Type & \(s\) coefficient & \(s\) exponent &  \\
+%\hline
+%\multicolumn{3}{c}{CH\(^{\bullet}_{3}\)} \\
+%\hline\hline
+%HF & 2.772 & 1.0 &  \\
+% & 6.173 & 5.0 &  \\
+% & 10.381 & 10.0 &  \\
+%\hline
+%PBE0 & 3.483 & 1.0 &  \\
+% & 9.801 & 5.0 &  \\
+% & 18.351 & 10.0 &  \\
 \hline
-Calculation Type & \(s\) coefficient & \(s\) exponent &  \\
-\hline
-\multicolumn{3}{c}{CH\(^{\bullet}_{3}\)} \\
-\hline\hline
-HF & 2.772 & 1.0 &  \\
- & 6.173 & 5.0 &  \\
- & 10.381 & 10.0 &  \\
-\hline
-DFT & 3.483 & 1.0 &  \\
- & 9.801 & 5.0 &  \\
- & 18.351 & 10.0 &  \\
-\hline
-\multicolumn{3}{c}{Ethene} & \(\pi\) orbital energy (eV) \\
+%\multicolumn{3}{c}{Ethene} & \(\pi\) orbital energy (eV) \\
+Calculation Type & \(s\) coefficient & \(s\) exponent & \(\pi\) \\
 \hline\hline
 HF & 2.772 & 1.0 & -13.654 \\
  & 6.173 & 5.0 & -14.011 \\
  & 10.381 & 10.0 & -14.061 \\
 \hline
-DFT & 3.483 & 1.0 & -10.325 \\
+PBE0 & 3.483 & 1.0 & -10.325 \\
  & 9.801 & 5.0 & -10.409 \\
  & 18.351 & 10.0 & -12.543 \\
 \hline
@@ -441,12 +498,14 @@ DFT & 3.483 & 1.0 & -10.325 \\
 \hline
 \(s\)-coefficient & \(s\)-exponent & Excitation (eV) & Ionisation (eV) & HOMO energy (eV) \\
 \hline
-\multicolumn{5}{c}{Reference System} \\
-\hline\hline
-& & -3.533 & -9.091 & -10.363 \\
+%\multicolumn{5}{c}{Reference System} \\
+%\hline\hline
+%& & -3.533 & -9.091 & -10.363 \\
+%\hline
+%\multicolumn{5}{c}{Pseudo-Systems} \\
+%\hline\hline
+\multicolumn{2}{c}{Reference Values} & -3.533 & -9.091 & -10.363 \\
 \hline
-\multicolumn{5}{c}{Pseudo-Systems} \\
-\hline\hline
 \multicolumn{5}{c}{\(p\)-coefficient -3.267; \(p\)-exponent 0.295} \\
 \hline
 0.552 & 0.1 & -3.533 & -27.158 & -27.31 \\
@@ -463,7 +522,7 @@ DFT & 3.483 & 1.0 & -10.325 \\
 
 \subsection{C\(_{2n}\)H\(_{2n+2}\)}
 
-Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used (HF, DFT with TPSS, etc), before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}, optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing ionisation and excitation energies seen in the reference systems seems to be well replicated by the pseudo-alkenes, with the energies following the same gradient. [COMMENT on ERRORS]
+Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}, optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing ionisation and excitation energies seen in the reference systems seems to be well replicated by the pseudo-alkenes, with the energies following the same gradient. [COMMENT on ERRORS]
 
 Also compared are TD-DFT results for this system and that in Carissan and Drujon \cite{drujon_pseudopotentials_2013}, which match to within 3\%. It seems the previous results have been accurately replicated.
 Let us remind here that unlike in our previous work\ref{drujon_pseudopotentials_2013}
