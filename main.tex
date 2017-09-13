@@ -149,7 +149,7 @@ its surrounding
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used %in the early days 
 to reduce
-the number of parameters to be optimized in the self consistent field calculation.REF?
+the number of parameters to be optimized in the self consistent field calculation.
 
 In this article we shall focus on pseudo-potential techniques, which also
 divide the chemical problem into two parts.
@@ -199,7 +199,7 @@ to collapse into the dormant region. The operator $\hat{V}(i)$ reproduces the
 Coulomb and exchange interactions, for which Hunzinaga proposed a spectral formulation:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
-\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha r^2)+\sum_JB_Jr\exp(-\beta r^2)\right]
+\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
 \end{equation}
 
 To take into account the fact that dormant electrons are removed from the
@@ -310,7 +310,28 @@ It is the smallest system containing one and only one sp$^2$ hybridized carbon a
 This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
 In order to fulfil the criteria specified in Equation (\ref{eq:atomicHamiltonian}),
-we make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(1/r\) behaviour as in Huzinanaga's work. As will be discussed in the following sections,
+we make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(1/r\) behaviour as in Huzinanaga's work.
+The multicentered pseudopotentials that we build read as follows:
+\begin{equation}
+\label{eq:ourPP}
+\hat{W} = \frac{1}{r}\left[%
+\underbrace{\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
++%
+\underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
+\right]
+\end{equation}
+with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics (sum over $m$
+is not written explicitely to improve readability) and $r^0_J$ the relative fixed position of the $J^{th}$
+potential with respect to the origin of the pseudo atom, which carries the pseudo potentials.
+By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
+we can say that the $p$ projectors aim at mimicking a coulombic interaction
+when the $s$ potentials have the task to recover part of the bielectronic interaction
+between the dormant and the active electrons.
+Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as they aim at recovering
+the bieletronic interactions and the no-collapse term.
+This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
+
+As will be discussed in the following sections,
 the \(p\) pseudo-potential allows to reproduce atomic properties, when the
 \(s\)-potentials mimic electrostatic electron pair repulsion. The pseudo-potentials are monoelectronic operators, thus they shall not be able to reproduce fully bielectronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties are as close as possible to those of the reference system, such as spatial extent, energy and excitation energies.
 
