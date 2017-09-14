@@ -16,6 +16,9 @@ abstract:
 	$(latex) abstract.tex
 	$(latex) abstract.tex
 
+warn:
+	@(awk '/Warning/,/^$$/{if ($$0!~/^$$/) {print $0}}' main.log)
+
 all:defaut suppl
 
 clean:
