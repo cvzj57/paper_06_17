@@ -168,6 +168,18 @@ are reproduced by a mono-electronic operator.\cite{carissan_what_2006}
 However, while effective core potentials and model potentials intend to 
 reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
+<<<<<<< HEAD
+bonds. The cyclopentadienyl group was, for instance, successfully extracted. [REF]
+In this example, carbon atoms are hybridized and the core/valence distinction is not 
+strictly defined. [TRANSITION NEEDED HERE]
+Let us follow Huzinaga in his enlightening work.\cite{huzinaga_effective_1991}
+In order to extract a meaningful potential, he states that for electron/electron interactions, 
+"the most important effect is that the exclusion principle prevents active electrons
+from collapsing into the dormant region.
+The second is the exchange energy terms between the dormant and active electrons
+through their electrostatic interaction."
+For an atom, the Hamiltonian reads:
+=======
 bonds. The cyclopentadienyl group was, for instance, successfully extracted.
 In this example, the active part consisted of six electrons (the $\pi$ electrons) and six
 nuclear charges, with the pseudopotential replacing all the rest, including the hydrogen atoms. Here, 
@@ -180,6 +192,7 @@ to several contributions in the '80 and '90. In his work on this subject,
 Hunzinaga highlights that pseudopotentials should retrieve three effects of the
 'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
+>>>>>>> bb291a8a41afdaf573d7661905a3c007e45704f9
 \begin{equation}
 \label{eq:atomicHamiltonian}
 \hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
@@ -358,10 +371,10 @@ In this article, we fix \(c = 0.25\;a.u.\).
 \label{section:potential_derivation}
 
 It is possible to obtain the potential parameters entirely by empirical means. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
-%%	The generic forms of Gaussian Type Orbitals for \(s\) and \(p_{z}\) are [REF]
-%% \begin{equation}
-%% \psi_{s} = re^{-\alpha r^{2}},\qquad	\psi_{p_{z}} = r \cos \theta e^{-\alpha r^{2}}
-%% \end{equation}
+%	The generic forms of Gaussian Type Orbitals for \(s\) and \(p_{z}\) are [REF]
+%\begin{equation}
+%\psi_{s} = re^{-\alpha r^{2}},\qquad	\psi_{p_{z}} = r \cos \theta e^{-\alpha r^{2}}
+%\end{equation}
 
 The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
 \begin{equation}
@@ -373,13 +386,21 @@ and from this we obtain
 \langle \phi_{210} | r | \phi_{210} \rangle = \frac{5a_{0}}{Z_{eff}}
 \end{equation}
 Next, we need to find a value for \( \langle r \rangle \). We can do this by calculating
+
 \begin{equation}
-\langle r \rangle = \lambda B \lambda^{T}
+\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle
 \label{equation:exp_r}
 \end{equation}
-where \(\lambda\) are the Symmetrised Atomic Orbital Shells taken from the molecular orbital files of a reference Turbomole calculation of a CH\(^{\bullet}_{3}\) radical, and B is the matrix of \(\langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle\) values, appropriately normalised and contracted according to the basis set used (in this case, def-SV(P) \cite{defsvp}).
 
-From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudopotential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseud-opotential, we assume a non-local pseudo-potential definition. We define:
+%%
+%% \begin{equation}
+%% \langle r \rangle = \lambda B \lambda^{T}
+%% \label{equation:exp_r}
+%% \end{equation}
+%% where \(\lambda\) are the Symmetrised Atomic Orbital Shells taken from the molecular orbital files of a reference calculation of a CH\(^{\bullet}_{3}\) %% radical, and B is the matrix of \(\langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle\) values, appropriately normalised and contracted according to the basis %% set used (in this case, def-SV(P) \cite{defsvp}).
+%%
+
+ where \(\psi_{p_{z}}\) are the \(p\) orbitals extracted from a reference calculation of CH\(_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudopotential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
 \begin{equation}
 S = \langle \phi_{p_{z}} | \chi \rangle
 \end{equation}
@@ -608,24 +629,24 @@ the potentials optimized in this article are fully defined by the position
 of the pseudo atom: no potentials are placed at the center of any bond.
 
 \begin{figure}[h]
-\includegraphics[width=8cm]{hf_homo}
+% \includegraphics[width=8cm]{hf_homo}
 \includegraphics[width=8cm]{pbe0_homo}
-\includegraphics[width=8cm]{hf_ionisation}
+% \includegraphics[width=8cm]{hf_ionisation}
 \includegraphics[width=8cm]{pbe0_ionisation}
-\includegraphics[width=8cm]{hf_excitation}
+% \includegraphics[width=8cm]{hf_excitation}
 \includegraphics[width=8cm]{pbe0_excitation}
-\includegraphics[width=8cm]{pbe_homo}
-\includegraphics[width=8cm]{tpss_homo}
-\end{figure}
-\begin{figure}[h]
-\includegraphics[width=8cm]{pbe_ionisation}
-\includegraphics[width=8cm]{tpss_ionisation}
-\includegraphics[width=8cm]{pbe_excitation}
-\includegraphics[width=8cm]{tpss_excitation}
-\includegraphics[width=8cm]{tpssh_homo}
-\includegraphics[width=8cm]{tpssh_ionisation}
-\includegraphics[width=8cm]{tpssh_excitation}
-\caption{Comparison on reference and pseudo-system energies across a range of chain alkenes and computational methods.}
+%\includegraphics[width=8cm]{pbe_homo}
+% \includegraphics[width=8cm]{tpss_homo}
+%\end{figure}
+%\begin{figure}[h]
+%\includegraphics[width=8cm]{pbe_ionisation}
+%\includegraphics[width=8cm]{tpss_ionisation}
+%\includegraphics[width=8cm]{pbe_excitation}
+%\includegraphics[width=8cm]{tpss_excitation}
+%\includegraphics[width=8cm]{tpssh_homo}
+%\includegraphics[width=8cm]{tpssh_ionisation}
+%\includegraphics[width=8cm]{tpssh_excitation}
+\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes and computational methods.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 \begin{figure}[h]
@@ -673,9 +694,9 @@ Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
 \hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
-Mean \(\pi - \pi*\) Excitation error (\%) & \(\leq\)  &\(\leq\) & \(\leq\)  & \(\leq\)  & \(\leq\)  \\
-Mean Ionisation error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  \\
-Mean Singlet HOMO error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\) \\
+Mean \(\pi - \pi*\) Excitation error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2  \\
+Mean Ionisation error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
+Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
 \hline
 \end{tabular}
 \label{table:long_alkene_errors}
@@ -684,22 +705,31 @@ Mean Singlet HOMO error (\%) & \(\leq\)  & \(\leq\)  & \(\leq\)  & \(\leq\)  & \
 Table \ref{table:long_alkene_errors} gives the same energy details for longer chain alkenes. The pattern of decreasing ionisation and excitation energies with increasing HOMO energy is still followed, with the absolute error remaining consistent. However, with chains of this length the excitation energies begin to become smaller than the systematic error between the pseudo-system and reference system results. It is apparent that the pseudo-potentials will need to be more accurate if they are to be useful for studying these molecules.
 
 \begin{figure}[h]
-\includegraphics[width=8cm]{ring_hf_excitation}
-\includegraphics[width=8cm]{ring_hf_ionisation}
-\includegraphics[width=8cm]{ring_hf_homo}
+%\includegraphics[width=8cm]{ring_hf_excitation}
+%\includegraphics[width=8cm]{ring_hf_ionisation}
+%\includegraphics[width=8cm]{ring_hf_homo}
 \includegraphics[width=8cm]{ring_pbe0_excitation}
 \includegraphics[width=8cm]{ring_pbe0_ionisation}
 \includegraphics[width=8cm]{ring_pbe0_homo}
-\includegraphics[width=8cm]{ring_pbe_excitation}
-\includegraphics[width=8cm]{ring_pbe_ionisation}
-\includegraphics[width=8cm]{ring_pbe_homo}
-\includegraphics[width=8cm]{ring_tpss_ionisation}
-\includegraphics[width=8cm]{ring_tpss_excitation}
-\includegraphics[width=8cm]{ring_tpss_homo}
-\includegraphics[width=8cm]{ring_tpssh_excitation}
-\includegraphics[width=8cm]{ring_tpssh_ionisation}
-\includegraphics[width=8cm]{ring_tpssh_homo}
-\caption{Comparison on reference and pseudo-system energies across a range of ring molecules and computational methods.}
+%\includegraphics[width=8cm]{ring_pbe_excitation}
+%\includegraphics[width=8cm]{ring_pbe_ionisation}
+%\includegraphics[width=8cm]{ring_pbe_homo}
+%\includegraphics[width=8cm]{ring_tpss_ionisation}
+%\includegraphics[width=8cm]{ring_tpss_excitation}
+%\includegraphics[width=8cm]{ring_tpss_homo}
+%\includegraphics[width=8cm]{ring_tpssh_excitation}
+%\includegraphics[width=8cm]{ring_tpssh_ionisation}
+%\includegraphics[width=8cm]{ring_tpssh_homo}
+\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
+\label{fig:rings_graphs}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=8cm]{pbe0_excitation_long}
+\includegraphics[width=8cm]{pbe0_ionisation_long}
+\includegraphics[width=8cm]{pbe0_homo_long}
+\includegraphics[width=8cm]{tddft_excitation_long}
+\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:rings_graphs}
 \end{figure}
 
@@ -792,6 +822,22 @@ quick evaluation of overlap effects between the basis set and the pseudopotentia
 - maybe all the potential sets used could be consolidated into one table, easy to refer to?
 
 - some pictures of pseudomolecules
+
+- Reduce number of lines in tables
+
+- Review captions (more detail)
+
+- update d and c diagram DONE
+
+- Finish long chain calc graphs 
+
+- line 170 reference needed
+
+- 257: n not defined more detail
+
+- rewrite lambda B lambda bit
+
+- some comments on the increasing error with length of chain. blame alternating bond legth, compare with rings of equal bond length. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The same is true for Supporting Information, which should use the
