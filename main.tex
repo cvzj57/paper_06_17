@@ -149,12 +149,12 @@ its surrounding
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used %in the early days 
 to reduce
-the number of parameters to be optimized in the self consistent field calculation.REF?
+the number of parameters to be optimized in the self consistent field calculation.
 
 In this article we shall focus on pseudo-potential techniques, which also
 divide the chemical problem into two parts.
 Effective core potentials (\showCustomItem) are commonly employed for atoms: 
-core electrons are
+core electrons (and effects due to the corresponding nuclear charge) are
 replaced by an operator fast to evaluate and the active electrons are treated
 explicitly.\cite{dolg_relativistic_2012}
 In the same vein, model potentials (\showCustomItem) replace a frozen electronic density (computed on the atom)
@@ -163,10 +163,12 @@ refinement required.\cite{huzinaga_1994_1995}
 
 The effective group potentials (\showCustomItem) bridge the frozen density and the core potential
 approaches: using core potential extraction techniques, effects due to the implicit 
-electron density are reproduced by a mono-electronic operator.\cite{carissan_what_2006}
+electron density (and corresponding nuclear charge) 
+are reproduced by a mono-electronic operator.\cite{carissan_what_2006}
 However, while effective core potentials and model potentials intend to 
 reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
+<<<<<<< HEAD
 bonds. The cyclopentadienyl group was, for instance, successfully extracted. [REF]
 In this example, carbon atoms are hybridized and the core/valence distinction is not 
 strictly defined. [TRANSITION NEEDED HERE]
@@ -177,6 +179,20 @@ from collapsing into the dormant region.
 The second is the exchange energy terms between the dormant and active electrons
 through their electrostatic interaction."
 For an atom, the Hamiltonian reads:
+=======
+bonds. The cyclopentadienyl group was, for instance, successfully extracted.
+In this example, the active part consisted of six electrons (the $\pi$ electrons) and six
+nuclear charges, with the pseudopotential replacing all the rest, including the hydrogen atoms. Here, 
+even if the $\sigma / \pi$ separability suggested how to define the active and the inactive parts,
+carbon atoms are hybridized and the core/valence distinction is not 
+strictly defined.
+
+The theoretical background to extract effective group pseudopotentials  can be traced back 
+to several contributions in the '80 and '90. In his work on this subject, 
+Hunzinaga highlights that pseudopotentials should retrieve three effects of the
+'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
+Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
+>>>>>>> bb291a8a41afdaf573d7661905a3c007e45704f9
 \begin{equation}
 \label{eq:atomicHamiltonian}
 \hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
@@ -189,53 +205,106 @@ the mono electronic operator:
 \hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
 \end{equation}
 where
-$\Delta_i$ is the laplacian of the coordinates of electron $i$,
-$Z_C$ is the number of core electrons withdrawn from the reference system,
-$\hat{V}(i)$ the pseudo potential which reproduces the electrostatic
-interaction between the dormant and active electrons
-and $\hat{\sigma}(i)$ the operator, which models the exclusion principle
-and prevents active electrons from collapsing into the dormant region.
+$\Delta_i$ is the laplacian of the coordinates of electron $i$ and 
+$Z_C$ is the number of core electrons withdrawn from the reference system.
+The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that avoid active electons
+to collapse into the dormant region. The operator $\hat{V}(i)$ reproduces the 
+Coulomb and exchange interactions, for which Hunzinaga proposed a spectral formulation:
+\begin{equation}
+\label{eq:HuzinagaMPVersion1Potential}
+\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
+\end{equation}
+
 To take into account the fact that dormant electrons are removed from the
 system, the nuclear charge is modified by the $Z_c$ value.
 Yet, as the effective charge felt by the active electrons is likely not to be an integer,
 the modification of the value of the nuclear charge is scaled in $\hat{V}$.
-Depending on the version used, this modification differs.
-In this work, we take as a reference version 1 as defined in
-Huzinaga's lecture\cite{huzinaga_1994_1995}:
-\begin{equation}
-\label{eq:HuzinagaMPVersion1Potential}
-\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha r^2)+\sum_JB_Jr\exp(-\beta r^2)\right]
-\end{equation}
-In this model potential version, $\hat{\sigma}$ is defined as:
-\begin{equation}
-\label{eq:HuzinagaMPVersion1Sigma}
-\hat{\sigma} = -\sum f_c\epsilon_c\left|\phi_c\right>\left<\phi_c\right|
-\end{equation}
-with $\epsilon_c$ the eigenvalue of the core orbital $\phi_c$ and
-$f_c$ an optimized parameter.
-In the other versions of model potentials, $f_c=2$, as suggested earlier.\cite{houjer_aspects_1978}
-In the present work, we shall optimize the parameters in $\hat{V}$ and $\hat{\sigma}$
-for hybridized atoms.
-Before going further, it is important to stress that hybridization implies that the
-$\left\{\phi_c\right\}_i$ are linear combination of atomic orbitals and that
-$\hat{V}$ should no more be spherical.
-This loss of isotropy combined with the loss of clear core/valence separation
-will imply constraints during the extraction process.
+In this operator we notice that the 1/r behavior is mantained for the first term 
+(the Coulomb one).
 
-In this work, we aim at developing a method usable out of the box in any standard
-quantum chemistry software.
+%Let us follow Huzinaga in his enlightening work.\cite{huzinaga_effective_1991}
+%In order to extract a meaningful potential, he states that for electron/electron interactions, 
+%"the most important effect is that the exclusion principle prevents active electrons
+%from collapsing into the dormant region.
+%The second is the exchange energy terms between the dormant and active electrons
+%through their electrostatic interaction."
+%For an atom, the Hamiltonian reads:
+%\begin{equation}
+%\label{eq:atomicHamiltonian}
+%\hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
+%\end{equation}
+%with $\frac{1}{r_{ij}}$ the bielectronic interaction
+%between explicitly treated active electrons and
+%the mono electronic operator:
+%\begin{equation}
+%\label{eq:monoElectronicOperator}
+%\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
+%\end{equation}
+%where
+%$\Delta_i$ is the laplacian of the coordinates of electron $i$,
+%$Z_C$ is the number of core electrons withdrawn from the reference system,
+%$\hat{V}(i)$ the pseudo potential which reproduces the electrostatic
+%interaction between the dormant and active electrons
+%and $\hat{\sigma}(i)$ the operator, which models the exclusion principle
+%and prevents active electrons from collapsing into the dormant region.
+%To take into account the fact that dormant electrons are removed from the
+%system, the nuclear charge is modified by the $Z_c$ value.
+%Yet, as the effective charge felt by the active electrons is likely not to be an integer,
+%the modification of the value of the nuclear charge is scaled in $\hat{V}$.
+%Depending on the version used, this modification differs.
+%In this work, we take as a reference version 1 as defined in
+%Huzinaga's lecture\cite{huzinaga_1994_1995}:
+%\begin{equation}
+%\label{eq:HuzinagaMPVersion1Potential}
+%\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha r^2)+\sum_JB_Jr\exp(-\beta r^2)\right]
+%\end{equation}
+%In this model potential version, $\hat{\sigma}$ is defined as:
+%\begin{equation}
+%\label{eq:HuzinagaMPVersion1Sigma}
+%\hat{\sigma} = -\sum f_c\epsilon_c\left|\phi_c\right>\left<\phi_c\right|
+%\end{equation}
+%with $\epsilon_c$ the eigenvalue of the core orbital $\phi_c$ and
+%$f_c$ an optimized parameter.
+%In the other versions of model potentials, $f_c=2$, as suggested earlier.\cite{houjer_aspects_1978}
+
+%In the present work, we shall optimize the parameters in $\hat{V}$ and $\hat{\sigma}$
+%for hybridized atoms.
+%Before going further, it is important to stress that hybridization implies that the
+%$\left\{\phi_c\right\}_i$ are linear combination of atomic orbitals and that
+%$\hat{V}$ should no more be spherical.
+%This loss of isotropy combined with the loss of clear core/valence separation
+%will imply constraints during the extraction process.
+
+In the present work, the aim is not obtaining pseudo potentials for  specific
+chemical groups, as in the case of the cyclopentadienyl anion cited hereabove.
+Instead, we want to propose a methodology for extracting a potential for
+a hybridised carbon atom (here an $sp^2$ carbon atom), which can be then
+used as a building block for constructing chemical systems. This carbon atom
+will contain explicitely one nuclear charge and one electron.
+Moreover, the method should be usable 
+%In this work, we aim at developing a method usable 
+out of the box in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
 This supplementary constraint will be fulfilled by strategically positioning the pseudo potentials
 we intend to use. 
-We have already successfully used this technique to extract pseudo potentials for hybridized carbon
-atoms.\cite{drujon_pseudopotentials_2013}
-However, in our extraction procedure, some pseudo potentials had to be put precisely at the center
+
+Pseudo potentials for hybridized carbon
+atoms have been already succesfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
+There, our attention was focused on the 'no collapse' term, since 
+functions in the pseudo potential shift up unwanted orbitals and place correctly the energy of the
+wanted orbitals.
+%However, in our extraction procedure, some pseudo potentials had to be put precisely at the center
+%of each bond.
+However, some pseudo potentials had to be put precisely at the center
 of each bond.
 Thus, those pseudo potentials could not be considered as atomic as they were not only defined
 with respect to the position of the atom they applied to.
-In this new version, the pseudo potentials are fully atomic: the position of the atom
+In this new version, we include more physical meaning in our model, 
+by placing pseudo potentials that mimic Coulomb interactions among the active,
+the dormant electrons, and the shielded nuclear charge. 
+The new pseudo potentials are fully atomic: the position of the atom
 determines completely where the potentials are put in space in the best possible manner
-when dealing with hybridized atoms (as hybridization destroys anisotropy, the preferred orientations
+when dealing with hybridized atoms (as hybridization destroys isotropy, the preferred orientations
 must be given to define the pseudo potential).
 
 This article is structured as follows.
@@ -254,7 +323,28 @@ It is the smallest system containing one and only one sp$^2$ hybridized carbon a
 This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
 In order to fulfil the criteria specified in Equation (\ref{eq:atomicHamiltonian}),
-we make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(1/r\) behaviour as in Huzinanaga's work [MORE DETAIL, N IS NOT DEFINED]. As will be discussed in the following sections,
+we make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(1/r\) behaviour as in Huzinanaga's work.
+The multicentered pseudopotentials that we build read as follows:
+\begin{equation}
+\label{eq:ourPP}
+\hat{W} = \frac{1}{r}\left[%
+\underbrace{\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
++%
+\underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
+\right]
+\end{equation}
+with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics (sum over $m$
+is not written explicitely to improve readability) and $r^0_J$ the relative fixed position of the $J^{th}$
+potential with respect to the origin of the pseudo atom, which carries the pseudo potentials.
+By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
+we can say that the $p$ projectors aim at mimicking a coulombic interaction
+when the $s$ potentials have the task to recover part of the bielectronic interaction
+between the dormant and the active electrons.
+Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as they aim at recovering
+the bieletronic interactions and the no-collapse term.
+This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
+
+As will be discussed in the following sections,
 the \(p\) pseudo-potential allows to reproduce atomic properties, when the
 \(s\)-potentials mimic electrostatic electron pair repulsion. The pseudo-potentials are monoelectronic operators, thus they shall not be able to reproduce fully bielectronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties are as close as possible to those of the reference system, such as spatial extent, energy and excitation energies.
 
@@ -532,8 +622,9 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
 
 Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}, optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing ionisation and excitation energies seen in the reference systems seems to be well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
-Also compared are TD-DFT results for this system and that in Carissan and Drujon \cite{drujon_pseudopotentials_2013}, which match to within 3\%. It seems the previous results have been accurately replicated.
-Let us remind here that unlike in our previous work\ref{drujon_pseudopotentials_2013}
+Also compared are TD-DFT results for this system and results of a previous work of some of us, which match to within 3\%.
+It seems the previous results have been accurately replicated.\cite{drujon_pseudopotentials_2013}
+Let us remind here that unlike in our previous work
 the potentials optimized in this article are fully defined by the position
 of the pseudo atom: no potentials are placed at the center of any bond.
 
