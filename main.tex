@@ -77,7 +77,7 @@
 %% the title and author information, if needed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \abbreviations{IR,NMR,UV}
-\keywords{Pseudo potentials, Group potentials}
+\keywords{Pseudo-potentials, Group potentials}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The manuscript does not need to include \maketitle, which is
@@ -170,14 +170,14 @@ reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
 bonds. The cyclopentadienyl group was, for instance, successfully extracted.
 In this example, the active part consisted of six electrons (the $\pi$ electrons) and six
-nuclear charges, with the pseudopotential replacing all the rest, including the hydrogen atoms. Here, 
-even if the $\sigma / \pi$ separability suggested how to define the active and the inactive parts,
+nuclear charges, with the pseudo-potential replacing all the rest, including the hydrogen atoms.
+Even if the $\sigma / \pi$ separability suggested how to define the active and the inactive parts,
 carbon atoms are hybridized and the core/valence distinction is not 
 strictly defined.
 
-The theoretical background to extract effective group pseudopotentials  can be traced back 
-to several contributions in the '80 and '90. In his work on this subject, 
-Hunzinaga highlights that pseudopotentials should retrieve three effects of the
+The theoretical background to extract effective group pseudo-potentials  can be traced back 
+to several contributions in the 80's and 90's. In 1985 Katsuki built molecular potentials based on Huzinaga's model potentials.
+ In his work on this subject, Huzinaga highlights that pseudo-potentials should retrieve three effects of the
 'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
 \begin{equation}
@@ -194,19 +194,19 @@ the mono electronic operator:
 where
 $\Delta_i$ is the laplacian of the coordinates of electron $i$ and 
 $Z_C$ is the number of core electrons withdrawn from the reference system.
-The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that avoid active electons
-to collapse into the dormant region. The operator $\hat{V}(i)$ reproduces the 
+The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that prevents active electrons
+collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
 Coulomb and exchange interactions, for which Hunzinaga proposed a spectral formulation:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
-\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
+\hat{V} = r^{-n}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right];  n=1
 \end{equation}
 
 To take into account the fact that dormant electrons are removed from the
 system, the nuclear charge is modified by the $Z_c$ value.
 Yet, as the effective charge felt by the active electrons is likely not to be an integer,
 the modification of the value of the nuclear charge is scaled in $\hat{V}$.
-In this operator we notice that the 1/r behavior is mantained for the first term 
+In this operator we notice that the \(r^{n}\) behavior is mantained for the first term 
 (the Coulomb one).
 
 %Let us follow Huzinaga in his enlightening work.\cite{huzinaga_effective_1991}
@@ -230,7 +230,7 @@ In this operator we notice that the 1/r behavior is mantained for the first term
 %where
 %$\Delta_i$ is the laplacian of the coordinates of electron $i$,
 %$Z_C$ is the number of core electrons withdrawn from the reference system,
-%$\hat{V}(i)$ the pseudo potential which reproduces the electrostatic
+%$\hat{V}(i)$ the pseudo-potential which reproduces the electrostatic
 %interaction between the dormant and active electrons
 %and $\hat{\sigma}(i)$ the operator, which models the exclusion principle
 %and prevents active electrons from collapsing into the dormant region.
@@ -262,37 +262,37 @@ In this operator we notice that the 1/r behavior is mantained for the first term
 %This loss of isotropy combined with the loss of clear core/valence separation
 %will imply constraints during the extraction process.
 
-In the present work, the aim is not obtaining pseudo potentials for  specific
+In the present work, the aim is not to obtain pseudo-potentials for  specific
 chemical groups, as in the case of the cyclopentadienyl anion cited hereabove.
 Instead, we want to propose a methodology for extracting a potential for
-a hybridised carbon atom (here an $sp^2$ carbon atom), which can be then
+a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
 used as a building block for constructing chemical systems. This carbon atom
 will contain explicitely one nuclear charge and one electron.
 Moreover, the method should be usable 
 %In this work, we aim at developing a method usable 
 out of the box in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
-This supplementary constraint will be fulfilled by strategically positioning the pseudo potentials
+This supplementary constraint will be fulfilled by strategically positioning the pseudo-potentials
 we intend to use. 
 
-Pseudo potentials for hybridized carbon
+Pseudo-potentials for hybridised carbon
 atoms have been already succesfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
 There, our attention was focused on the 'no collapse' term, since 
-functions in the pseudo potential shift up unwanted orbitals and place correctly the energy of the
+functions in the pseudo-potential shift up unwanted orbitals and place correctly the energy of the
 wanted orbitals.
-%However, in our extraction procedure, some pseudo potentials had to be put precisely at the center
+%However, in our extraction procedure, some pseudo-potentials had to be put precisely at the center
 %of each bond.
-However, some pseudo potentials had to be put precisely at the center
+However, some pseudo-potentials had to be put precisely at the center
 of each bond.
-Thus, those pseudo potentials could not be considered as atomic as they were not only defined
-with respect to the position of the atom they applied to.
+Thus, those pseudo-potentials could not be considered as atomic as they were not only defined
+with respect to the position of the atom they applied to. The previous work should therefore be regarded as a proof-of-concept.
 In this new version, we include more physical meaning in our model, 
-by placing pseudo potentials that mimic Coulomb interactions among the active,
+by placing pseudo-potentials that mimic Coulomb interactions among the active,
 the dormant electrons, and the shielded nuclear charge. 
-The new pseudo potentials are fully atomic: the position of the atom
+The new pseudo-potentials are fully atomic: the position of the atom
 determines completely where the potentials are put in space in the best possible manner
 when dealing with hybridized atoms (as hybridization destroys isotropy, the preferred orientations
-must be given to define the pseudo potential).
+must be given to define the pseudo-potential).
 
 This article is structured as follows.
 In the first part, the method is defined in detail.
@@ -311,10 +311,10 @@ This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
 In order to fulfil the criteria specified in Equation (\ref{eq:atomicHamiltonian}),
 we make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(1/r\) behaviour as in Huzinanaga's work.
-The multicentered pseudopotentials that we build read as follows:
+The multicentered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
-\hat{W} = \frac{1}{r}\left[%
+\hat{W} = r^{-n}\left[%
 \underbrace{\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
 +%
 \underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
@@ -322,7 +322,7 @@ The multicentered pseudopotentials that we build read as follows:
 \end{equation}
 with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics (sum over $m$
 is not written explicitely to improve readability) and $r^0_J$ the relative fixed position of the $J^{th}$
-potential with respect to the origin of the pseudo atom, which carries the pseudo potentials.
+potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
 By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
 we can say that the $p$ projectors aim at mimicking a coulombic interaction
 when the $s$ potentials have the task to recover part of the bielectronic interaction
@@ -357,7 +357,7 @@ In this article, we fix \(c = 0.25\;a.u.\).
 \subsection{Making Potentials Physically Meaningful}
 \label{section:potential_derivation}
 
-It is possible to obtain the potential parameters entirely by empirical means. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
+It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
 %	The generic forms of Gaussian Type Orbitals for \(s\) and \(p_{z}\) are [REF]
 %\begin{equation}
 %\psi_{s} = re^{-\alpha r^{2}},\qquad	\psi_{p_{z}} = r \cos \theta e^{-\alpha r^{2}}
@@ -387,7 +387,7 @@ Next, we need to find a value for \( \langle r \rangle \). We can do this by cal
 %% where \(\lambda\) are the Symmetrised Atomic Orbital Shells taken from the molecular orbital files of a reference calculation of a CH\(^{\bullet}_{3}\) %% radical, and B is the matrix of \(\langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle\) values, appropriately normalised and contracted according to the basis %% set used (in this case, def-SV(P) \cite{defsvp}).
 %%
 
- where \(\psi_{p_{z}}\) are the \(p\) orbitals extracted from a reference calculation of CH\(_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudopotential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
+ where \(\psi_{p_{z}}\) are the \(p\) orbitals extracted from a reference calculation of CH\(_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
 \begin{equation}
 S = \langle \phi_{p_{z}} | \chi \rangle
 \end{equation}
@@ -404,7 +404,7 @@ Finally, knowing that our hydrogen-like pseudo-system already contains a charge,
 Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
-We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. 
+We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible (about 0.79).
 
 \subsection{Computational Details}
 
@@ -512,8 +512,9 @@ Next, we take some of these potentials to create a pseudo-ethene system, with th
 %\end{table}
 
 \begin{table}[ht]
-\caption{Reference values and HOMO-optimised values for Pseudo-ethene using only \(s\)-potentials with an exponent of 10.0.
-$d$ (a.u.) as defined in Figure~\ref{figure:ref_pseudo_diagram}.}
+\caption{Reference values and optimised values for Pseudo-ethene using only \(s\)-potentials with an exponent of 10.0.
+$d$ (a.u.) as defined in Figure~\ref{figure:ref_pseudo_diagram}. The Pseudo-ethene is optimised to give 
+the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0).}
 \begin{tabular}{c c c c}
 \hline
 %\multicolumn{3}{c}{Reference} \\
@@ -543,7 +544,7 @@ The next step adds a \(p\)-potential centred on the pseudo-carbon, with Table \r
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system. Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the pseudo-systems, the early results are not promising, as we can see from Table \ref{table:ethene_excitations}. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values. 
 
 \begin{table}[ht]
-\caption{Optimised s-orbital pseudopotentials for pseudo-CH\(^{\bullet}_{3}\) and pseudo-ethene. \(d = 0.5\) a.u.}
+\caption{Optimised s-orbital pseudo-potentials for pseudo-CH\(^{\bullet}_{3}\) and pseudo-ethene. \(d = 0.5\) a.u. The Pseudo-ethene is optimised to give the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0).}
 \begin{tabular}{c c c c}
 \hline
 & \(p\) coefficient & \(p\) exponent \\
@@ -581,7 +582,7 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
 \caption{\(s\)-potential fits to ethene \(\pi-\pi*\) excitation}
 \begin{tabular}{c c c c c}
 \hline
-\(s\)-coefficient & \(s\)-exponent & Excitation (eV) & Ionisation (eV) & HOMO energy (eV) \\
+\(s\)-coefficient & \(s\)-exponent & Triplet - Singlet (eV) & Triplet - Ion (eV) & HOMO energy (eV) \\
 \hline
 %\multicolumn{5}{c}{Reference System} \\
 %\hline\hline
@@ -613,7 +614,7 @@ Also compared are TD-DFT results for this system and results of a previous work 
 It seems the previous results have been accurately replicated.\cite{drujon_pseudopotentials_2013}
 Let us remind here that unlike in our previous work
 the potentials optimized in this article are fully defined by the position
-of the pseudo atom: no potentials are placed at the center of any bond.
+of the pseudo-atom: no potentials are placed at the center of any bond.
 
 \begin{figure}[h]
 % \includegraphics[width=8cm]{hf_homo}
@@ -649,8 +650,8 @@ of the pseudo atom: no potentials are placed at the center of any bond.
 \hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh & TD-DFT \\
 \hline\hline
-Mean \(\pi - \pi*\) Excitation error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 & 2.6 \\
-Mean Ionisation error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 & - \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 & 2.6 \\
+Mean Triplet-Ion error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 & - \\
 Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 & - \\
 \hline
 \end{tabular}
@@ -667,8 +668,8 @@ The potentials derived above are also tested on larger systems. Figure \ref{fig:
 \hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline\hline
-Mean \(\pi - \pi*\) Excitation error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
-Mean Ionisation error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
+Mean Triplet-Ion error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
 Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
 \hline
 \end{tabular}
@@ -681,8 +682,8 @@ Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
 \hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
-Mean \(\pi - \pi*\) Excitation error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2  \\
-Mean Ionisation error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2  \\
+Mean Triplet-Ion error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
 Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
 \hline
 \end{tabular}
@@ -724,7 +725,7 @@ Table \ref{table:long_alkene_errors} gives the same energy details for longer ch
 
 In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
 
-Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the first ionisation energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\) \cite{scipy}, and used standard Hartree-Fock calculations.
+Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the first ionisation energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The "Acknowledgement" section can be given in all manuscript
@@ -741,7 +742,7 @@ The authors thank \ldots
 
 - C - H distiance in optimised radical (+optimisation details)
 
-- line 73 "As we want to avoid to modifiy the quantum chemistry software itself, the pseudopotentials have a semilocal form and we choose a value of n=1 to preserve the 1/r behaviour as huzinanaga's work". DONE
+- line 73 "As we want to avoid to modifiy the quantum chemistry software itself, the pseudo-potentials have a semilocal form and we choose a value of n=1 to preserve the 1/r behaviour as huzinanaga's work". DONE
 
 - We are not aiming to exactly reproduce reference values. We aim to give physically relevant effects to the potentials. To go further than huckel or tight-binding models, allowing the study of more than first-neighbour effects. our systems is completely delocalised. (We aren't actually making use of the physical assumptions of the mdoel to probe new systems here, one of the posited potential uses of it). And computational time.
 
@@ -767,8 +768,8 @@ The authors thank \ldots
 
 - line 101-104: Query reference
 
-- line 101-104: Rather than sentence beginning however: "Even if we shall use the semi-local pseudopotential definition for the calculations, for a 
-quick evaluation of overlap effects between the basis set and the pseudopotential, we assume a non-local psedopotential definition. We define: S = [Equation], ..." DONE
+- line 101-104: Rather than sentence beginning however: "Even if we shall use the semi-local pseudo-potential definition for the calculations, for a 
+quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local psedopotential definition. We define: S = [Equation], ..." DONE
 
 - Section 2.3.1 refers to calculationss yet to come, and can be moved to after section 3. DONE
 
@@ -806,7 +807,7 @@ quick evaluation of overlap effects between the basis set and the pseudopotentia
 
 - Need final coeffs and exps DONE
 
-- maybe all the potential sets used could be consolidated into one table, easy to refer to?
+- maybe all the potential sets used could be consolidated into one table, easy to refer to? NOPE
 
 - some pictures of pseudomolecules
 
@@ -816,15 +817,24 @@ quick evaluation of overlap effects between the basis set and the pseudopotentia
 
 - update d and c diagram DONE
 
-- Finish long chain calc graphs 
+- Finish long chain calc graphs DONE
 
-- line 170 reference needed
+- line 170 reference needed DONE
 
-- 257: n not defined more detail
+- 257: n not defined more detail DONE
 
 - rewrite lambda B lambda bit
 
 - some comments on the increasing error with length of chain. blame alternating bond legth, compare with rings of equal bond length. 
+
+- "exponenet shoudl be chosen to give us a strong overlap" make explicit somehow, this is referenced later on
+
+- Computational details can move to the end with the optimisation
+
+- Triplet - Singlet, not excitation
+
+- Citations at end of sentence? 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The same is true for Supporting Information, which should use the
