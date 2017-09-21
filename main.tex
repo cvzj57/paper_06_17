@@ -727,6 +727,32 @@ In earlier calculations with only \(s\)-potentials, optimisation was performed b
 
 Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the first ionisation energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
+\section{Conclusion}
+In this work, we tackled the two main problems of the initial version of our
+molecular potentials.
+Firstly, we managed to extract pseudo potentials for sp$^2$ hybridized
+atoms in a completely atomic way, \emph{i.e.} potentials
+are to positioned only relatively to the pseudo atom center and not
+relatively to any bond.
+Secondly, we gave a physical meaning to all the pseudo potential
+terms.
+On the contrary of our previous attempt, we do not rely on the "no collapse" term,
+which is modeled by forcing the molecular occupation (\emph{vide infra}).
+We could show that not only the occupied orbitals were well reproduced
+by use of these new potentials, but also that the virtual space is of good quality
+for excited states calculation.
+
+The next steps to be done in the framework of this studies is threefold: the addition of an explicit
+"no collapse" term, the reproduction of the gradient through the parametrization
+of additional terms and finally the use of such potentials in the framework
+of QM/MM calculations as a replacement of hydrogen based link atoms.
+We are confident that the first step could be easily done, as we have already extracted such
+terms in the previous version of our potentials.
+The reproduction of the gradient is more of a challenge as many electrons were removed from the
+system and long range the bielectronic terms shall be very hard to reproduce by monoelectronic
+operators.
+However, the QM/MM tests shall be quickly started as we could fix the local geometry of the potentials
+in the QM part, the MM part would be taken care of without modification of the standard parameters.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The "Acknowledgement" section can be given in all manuscript
 %% classes.  This should be given within the "acknowledgement"
