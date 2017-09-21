@@ -135,17 +135,17 @@ are found to be reproduced to a good accuracy by the pseudo-system.
 %For most of the quantum chemistry calculations, the system can be divided into two parts:
 %the active part, \emph{i.e.} the part of the molecule one is interested in and
 %the inactive part, which is to be taken into account in order to fulfill chemical requirements.
-It is a common idea that a chemical system can be thought as constituted by (at least) 
+It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
 an active one, where most of the chemistry takes place, and an (apparently) inactive
 one, which must be taken into account in order to fulfill chemical requirements.
-Based on this general statement, many successful theoretical approaches were developped.
-Among them,  QM/QM' or QM/MM methods (\showCustomItem) can be cited, where 
-the active region that usually contains several atoms, is
+Based on this general statement, many successful theoretical approaches have been developed.
+Among them can be cited QM/QM' or QM/MM methods (\showCustomItem), where 
+the active region that usually contains several atoms is
 treated at a high level of calculation, while the inactive part is treated at a 
 lower level of theory.\cite{chung_oniom_2015}
-Frozen density embedding techniques (\showCustomItem) replace part of a molecule or 
-its surrounding
+Frozen density embedding techniques (\showCustomItem) replace part of a molecule, or 
+its surroundings,
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used %in the early days 
 to reduce
@@ -157,7 +157,7 @@ Effective core potentials (\showCustomItem) are commonly employed for atoms:
 core electrons (and effects due to the corresponding nuclear charge) are
 replaced by an operator fast to evaluate and the active electrons are treated
 explicitly.\cite{dolg_relativistic_2012}
-In the same vein, model potentials (\showCustomItem) replace a frozen electronic density (computed on the atom)
+In the same vein, model potentials (\showCustomItem) replace a frozen electronic density (computed from the atom)
 by some operators, the number of which depends on the level of
 refinement required.\cite{huzinaga_1994_1995}
 
@@ -168,7 +168,7 @@ are reproduced by a mono-electronic operator.\cite{carissan_what_2006}
 However, while effective core potentials and model potentials intend to 
 reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
-bonds. The cyclopentadienyl group was, for instance, successfully extracted.
+bonds. The cyclopentadienyl group has, for instance, been successfully extracted.
 In this example, the active part consisted of six electrons (the $\pi$ electrons) and six
 nuclear charges, with the pseudo-potential replacing all the rest, including the hydrogen atoms.
 Even if the $\sigma / \pi$ separability suggested how to define the active and the inactive parts,
@@ -177,7 +177,7 @@ strictly defined.
 
 The theoretical background to extract effective group pseudo-potentials  can be traced back 
 to several contributions in the 80's and 90's. In 1985 Katsuki built molecular potentials based on Huzinaga's model potentials.
- In his work on this subject, Huzinaga highlights that pseudo-potentials should retrieve three effects of the
+ In his work on this subject, Huzinaga emphasises that pseudo-potentials should maintain three effects of the
 'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
 \begin{equation}
@@ -186,13 +186,13 @@ Following his proposal, for an atom where active and dormant electrons have been
 \end{equation}
 with $\frac{1}{r_{ij}}$ the bielectronic interaction
 between explicitly treated active electrons and
-the mono electronic operator:
+the mono-electronic operator:
 \begin{equation}
 \label{eq:monoElectronicOperator}
 \hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
 \end{equation}
 where
-$\Delta_i$ is the laplacian of the coordinates of electron $i$ and 
+$\Delta_i$ is the Laplacian of the coordinates of electron $i$, and 
 $Z_C$ is the number of core electrons withdrawn from the reference system.
 The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that prevents active electrons
 collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
@@ -267,7 +267,7 @@ chemical groups, as in the case of the cyclopentadienyl anion cited hereabove.
 Instead, we want to propose a methodology for extracting a potential for
 a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
 used as a building block for constructing chemical systems. This carbon atom
-will contain explicitely one nuclear charge and one electron.
+will contain explicitly one nuclear charge and one electron.
 Moreover, the method should be usable 
 %In this work, we aim at developing a method usable 
 out of the box in any standard quantum chemistry software.
@@ -277,18 +277,17 @@ we intend to use.
 
 Pseudo-potentials for hybridised carbon
 atoms have been already succesfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
-There, our attention was focused on the 'no collapse' term, since 
-functions in the pseudo-potential shift up unwanted orbitals and place correctly the energy of the
+There, our attention was focused on the 'no-collapse' term, and 
+functions in the pseudo-potential shift up unwanted orbitals and correctly place the energy of the
 wanted orbitals.
 %However, in our extraction procedure, some pseudo-potentials had to be put precisely at the center
 %of each bond.
 However, some pseudo-potentials had to be put precisely at the center
 of each bond.
-Thus, those pseudo-potentials could not be considered as atomic as they were not only defined
+Thus, those pseudo-potentials could not be considered as atomic as they were not defined solely
 with respect to the position of the atom they applied to. The previous work should therefore be regarded as a proof-of-concept.
 In this new version, we include more physical meaning in our model, 
-by placing pseudo-potentials that mimic Coulomb interactions among the active,
-the dormant electrons, and the shielded nuclear charge. 
+by placing pseudo-potentials that mimic Coulomb interactions among the active and dormant electrons, and the shielded nuclear charge. 
 The new pseudo-potentials are fully atomic: the position of the atom
 determines completely where the potentials are put in space in the best possible manner
 when dealing with hybridized atoms (as hybridization destroys isotropy, the preferred orientations
@@ -305,13 +304,13 @@ These are analyzed in the third part.
 \subsection{Potentials \& Potential Geometry}
 
 As in our previous work\cite{drujon_pseudopotentials_2013},
-we take a CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
+we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridized carbon atom.
 This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
 In order to fulfil the criteria specified in Equation (\ref{eq:atomicHamiltonian}),
 we make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(1/r\) behaviour as in Huzinanaga's work.
-The multicentered pseudo-potentials that we build read as follows:
+The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
 \hat{W} = r^{-n}\left[%
@@ -320,15 +319,15 @@ The multicentered pseudo-potentials that we build read as follows:
 \underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
 \right]
 \end{equation}
-with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics (sum over $m$
-is not written explicitely to improve readability) and $r^0_J$ the relative fixed position of the $J^{th}$
+with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics (the sum over $m$
+is not written explicitly to improve readability) and $r^0_J$, the relative fixed position of the $J^{th}$
 potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
 By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
-we can say that the $p$ projectors aim at mimicking a coulombic interaction
-when the $s$ potentials have the task to recover part of the bielectronic interaction
+we can say that the $p$ projectors aim at mimicking a coulombic interaction,
+while the $s$ potentials have the task of recovering part of the bielectronic interaction
 between the dormant and the active electrons.
 Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as they aim at recovering
-the bieletronic interactions and the no-collapse term.
+the bi-eletronic interactions and the no-collapse term.
 This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
 
 As will be discussed in the following sections,
@@ -405,12 +404,6 @@ Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
 We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible (about 0.79).
-
-\subsection{Computational Details}
-
-Here summarised are details of the methods used in calculation. All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
-
-\textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 \section{Results, Development and Discussion}
 \subsection{CH\(_{3}\), with \(s\)-potentials}
@@ -721,6 +714,12 @@ Table \ref{table:long_alkene_errors} gives the same energy details for longer ch
 \label{fig:rings_graphs}
 \end{figure}
 
+\subsection{Computational Details}
+
+Here summarised are details of the methods used in calculation. All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
+
+\textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
+
 \subsection{Optimisation}
 
 In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
@@ -829,11 +828,13 @@ quick evaluation of overlap effects between the basis set and the pseudo-potenti
 
 - "exponenet shoudl be chosen to give us a strong overlap" make explicit somehow, this is referenced later on
 
-- Computational details can move to the end with the optimisation
+- Computational details can move to the end with the optimisation DONE
 
 - Triplet - Singlet, not excitation
 
 - Citations at end of sentence? 
+
+- write abstract
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
