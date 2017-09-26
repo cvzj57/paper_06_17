@@ -586,14 +586,6 @@ Having successfully created a pseudo-ethene with the correct HOMO, we attempt to
 
 \subsection{C\(_{2n}\)H\(_{2n+2}\)}
 
-Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}, optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing ionisation and excitation energies seen in the reference systems seems to be well replicated by the pseudo-alkenes, with the energies following the same gradient.
-
-Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.
-It seems the previous results have been accurately replicated.\cite{drujon_pseudopotentials_2013}
-Let us recall here that, unlike in our previous work,
-the potentials optimised in this article are fully defined by the position
-of the pseudo-atom: no potentials are placed at the center of any bond.
-
 \begin{figure}[h]
 \includegraphics[width=8cm]{pbe0_homo}
 \includegraphics[width=8cm]{pbe0_ionisation}
@@ -622,20 +614,27 @@ Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 & - \\
 \label{table:alkene_errors}
 \end{table}
 
+Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}, optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems seems to be well replicated by the pseudo-alkenes, with the energies following the same gradient.
+
+Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.
+It seems the previous results have been accurately replicated.\cite{drujon_pseudopotentials_2013}
+Let us recall here that, unlike in our previous work,
+the potentials optimised in this article are fully defined by the position
+of the pseudo-atom: no potentials are placed at the center of any bond.
 
 \subsection{Large Systems}
 
-The potentials derived above are also tested on larger systems. Figure \ref{fig:rings_graphs} shows the excitation, ionisation and HOMO energies for several ring systems. As with the short chain alkenes, the general trend of the results is well-replicated by the pseudo-systems, and the percentage errors, displayed in Table \ref{table:ring_system_errors}, are similar.
+The potentials derived above are also tested on larger systems. Figure \ref{fig:rings_graphs} shows the triplet-singlet, cation-singlet and HOMO energies for several ring systems. As with the short chain alkenes, the general trend of the results is well-replicated by the pseudo-systems, and the percentage errors, displayed in Table \ref{table:ring_system_errors}, are similar.
 
 \begin{table}[h]
 \caption{\%-errors across calculation types for ring-systems}
 \begin{tabular}{c c c c c c c}
 \hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
 \hline\hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
-Mean Triplet-Ion error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
-Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 & 0.099 \\
+Mean Triplet-Ion error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 & - \\
+Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 & - \\
 \hline
 \end{tabular}
 \label{table:ring_system_errors}
@@ -645,35 +644,25 @@ Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
 \caption{\%-errors across calculation types for long chain alkenes (C\(_{20}\)-C\(_{100}\))}
 \begin{tabular}{c c c c c c c}
 \hline\hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
 \hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2  \\
-Mean Triplet-Ion error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
-Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2 & 0.005 \\
+Mean Triplet-Ion error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 & - \\
+Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 & - \\
 \hline
 \end{tabular}
 \label{table:long_alkene_errors}
 \end{table}
 
-Table \ref{table:long_alkene_errors} gives the same energy details for longer chain alkenes. The pattern of decreasing ionisation and excitation energies with increasing HOMO energy is still followed, with the absolute error remaining consistent. However, with chains of this length the excitation energies begin to become smaller than the systematic error between the pseudo-system and reference system results. It is apparent that the pseudo-potentials will need to be more accurate if they are to be useful for studying these molecules.
+Table \ref{table:long_alkene_errors} gives the same energy details for longer chain alkenes. The pattern of decreasing cation-singlet and triplet-singlet energies with increasing HOMO energy is still followed, with the absolute error remaining consistent. However, with chains of this length we begin to see a divergence in the triplet-singlet energy between the reference and pseudo-systems. 
+
+ the triplet-singlet energies begin to become smaller than the systematic error between the pseudo-system and reference system results. It is apparent that the pseudo-potentials will need to be more accurate if they are to be useful for studying these molecules.
 
 \begin{figure}[h]
-%\includegraphics[width=8cm]{ring_hf_excitation}
-%\includegraphics[width=8cm]{ring_hf_ionisation}
-%\includegraphics[width=8cm]{ring_hf_homo}
 \includegraphics[width=8cm]{ring_pbe0_excitation}
 \includegraphics[width=8cm]{ring_pbe0_ionisation}
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_tddft_excitation}
-%\includegraphics[width=8cm]{ring_pbe_excitation}
-%\includegraphics[width=8cm]{ring_pbe_ionisation}
-%\includegraphics[width=8cm]{ring_pbe_homo}
-%\includegraphics[width=8cm]{ring_tpss_ionisation}
-%\includegraphics[width=8cm]{ring_tpss_excitation}
-%\includegraphics[width=8cm]{ring_tpss_homo}
-%\includegraphics[width=8cm]{ring_tpssh_excitation}
-%\includegraphics[width=8cm]{ring_tpssh_ionisation}
-%\includegraphics[width=8cm]{ring_tpssh_homo}
 \caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
 \label{fig:rings_graphs}
 \end{figure}
@@ -697,7 +686,7 @@ Here summarised are details of the methods used in calculation. All Hartree-Fock
 
 In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
 
-Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the first ionisation energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
 \section{Conclusion}
 In this work, we tackled the two main problems of the initial version of our
