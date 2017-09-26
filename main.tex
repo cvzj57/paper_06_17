@@ -403,7 +403,7 @@ Finally, knowing that our hydrogen-like pseudo-system already contains a charge,
 Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
-We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible (about 0.79).
+We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
 
 \section{Results, Development and Discussion}
 \subsection{CH\(_{3}\), with \(s\)-potentials}
@@ -470,7 +470,7 @@ PBE0 & -2.605 & 1.0 \\
 \label{fig:long_r_ethene}
 \end{figure}
 
-We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy with coefficients and exponents of the same order of magnitude as the basis set.
+We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.% with coefficients and exponents of the same order of magnitude as the basis set.
 
 \subsection{Ethene, with \(s\) and \(p\)-potentials}
 
@@ -559,10 +559,10 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system. Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values. 
 
 \begin{table}[ht]
-\caption{\(s\)-potential fits to ethene \(\pi-\pi*\) excitation}
+\caption{\(s\)-potential fits to ethene \(\pi-\pi*\) excitation (eV).}
 \begin{tabular}{c c c c c}
 \hline
-\(s\)-coefficient & \(s\)-exponent & Triplet - Singlet (eV) & Triplet - Ion (eV) & HOMO energy (eV) \\
+\(s\)-coefficient & \(s\)-exponent & Triplet - Singlet  & Triplet - Ion  & HOMO  \\
 \hline
 %\multicolumn{5}{c}{Reference System} \\
 %\hline\hline
@@ -572,13 +572,13 @@ Having successfully created a pseudo-ethene with the correct HOMO, we attempt to
 %\hline\hline
 \multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
 \hline
-\multicolumn{5}{c}{\(p\)-coefficient -3.267; \(p\)-exponent 0.295} \\
+&& \multicolumn{3}{l}{\(p\)-coefficient -3.267; \(p\)-exponent 0.295} \\
 \hline
 0.552 & 0.1 & -3.533 & -27.158 & -27.31 \\
 0.608 & 1.0 & -3.533 & -28.247 & -28.395 \\
 0.936 & 5.0 & -3.533 & -29.583 & -29.722 \\
 \hline
-\multicolumn{5}{c}{\(p\)-coefficient -3.91; \(p\)-exponent 0.624} \\
+\multicolumn{2}{c}{\textit{Optimal Values}} &\multicolumn{3}{l}{\(p\)-coefficient -3.91; \(p\)-exponent 0.624} \\
 \hline
 1.5 & 0.5 & -3.533 & -9.806 & -10.062 \\
 \hline
