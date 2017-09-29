@@ -589,7 +589,7 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 \label{table:ethene_excitations}
 \end{table}
 
-\subsection{C\(_{2n}\)H\(_{2n+2}\)}
+\subsection{C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{n=2-12}\)}
 
 \begin{figure}[h]
 \includegraphics[width=8cm]{pbe0_homo}
@@ -619,18 +619,21 @@ Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 & - \\
 \label{table:alkene_errors}
 \end{table}
 
-Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}, optimised for ethene under HF. Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
+Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
+before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
+Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
 Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
-Let us recall here that, unlike in our previous work,
-the potentials optimised in this article are fully defined by the position
-of the pseudo-atom: no potentials are placed at the center of any bond.
+Let us recall here that in our previous work potentials were placed at the center of any bond.
+%, unlike in our previous work,
+%the potentials optimised in this article are fully defined by the position
+%of the pseudo-atom: no potentials are placed at the center of any bond.
 
 \subsection{Large Systems}
 
 The potentials derived above are also tested on larger systems.
-Figure \ref{fig:rings_graphs} shows the triplet-singlet excitation energy, cation-singlet and
-HOMO energies for several ring systems.
+Figure \ref{fig:rings_graphs} shows the $\Delta_{ST}$, the IE and
+HOMO energy values for several ring systems.
 As with the short chain alkenes, the general trend of the results is well-replicated
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
@@ -650,7 +653,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{pbe0_homo_long}
 \includegraphics[width=8cm]{tddft_excitation_long}
 \caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
-\label{fig:rings_graphs}
+\label{fig:long_chain_graphs}
 \end{figure}
 
 \begin{table}[h]
@@ -681,40 +684,41 @@ Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 & - \\
 \label{table:long_alkene_errors}
 \end{table}
 
-Table \ref{table:long_alkene_errors} gives the same energy details for longer chain alkenes.
-The pattern of decreasing cation-singlet and triplet-singlet energies with increasing HOMO
+Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refer to longer 
+alkene chains (n up to 100).
+The pattern of decreasing ionisation potentials and $\Delta_{ST}$ with increasing HOMO
 energy is still followed, with the absolute error remaining consistent.
-However, with chains of this length we begin to see a divergence in the triplet-singlet
-energy between the reference and pseudo-systems. 
+However, differences in the triplet-singlet energies between the reference and pseudo-systems 
+become significant, notably for the largest case.
 
-Unlike for the previous systems, there is a large discrepancy between delta SCF
+Unlike for the previous systems, there is a large discrepancy between $\Delta_{ST}$
 and TD-DFT results.
 This apparent failure of the pseudo potentials is to be found in the representation
-of the triplet state.
-If we plot the eigenvalue of the $S^2$ operator for the triplet calculations,
-we can see (Figure \ref{fig:ssquare}) that: the spin contamination
+of the triplet state. The expectation values of the $S^2$ operator for the triplet calculations
+are plotted in Figure \ref{fig:ssquare}, which shows that the spin contamination
 of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
-framework) increases in both reference and pseudopotential cases.
-Yet, this is strenghten in the pseudpotential calculations.
+framework) increases in both reference and pseudo potential cases.
+Yet, this effect is strenghtened in the pseudo potential calculations.
 These results suggest that the triplet state cannot be represented as one configuration
 but as a linear combination of monoelectronic excitations as done throught TD-DFT.
 
-Furthermore, in order to show that the recovering of the agreement between the pseudopotential
+In order to show that the recovering of the agreement between the pseudo potential
 and the reference calculations is not an artifact, we give in Table~\ref{tab:coef},
 the weight and nature of each excitation (weight larger than 3\%)
-in the description of the triplet excited state in the prototypical
-case of C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
-As can be seen, the qualitative description of the state is in perfect agreement.
-Numbers differ slightly because the singlet closed shell differs as well between the two calculations.
-Three extra excitations with a weight lower than 3\% appear in the description
-in the pseudopotential calculation.
-Such small numbers are not relevant.
+in the description of the triplet excited state for
+C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
+As can be seen, the agreement is very good. 
+%qualitative description of the state is in perfect agreement.
+%Numbers differ slightly because the singlet closed shell differs as well between the two calculations.
+%Three extra excitations with a weight lower than 3\% appear in the description
+%in the pseudopotential calculation.
+%Such small numbers are not relevant.
 
 \begin{table}
 \caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudopotentials)
 of the excitations obtained with TD-DFT
 to represent the triplet excited state from the closed shell singlet state.
-Example case of C$_{50}$H$_{52}$}
+Example case of C$_{50}$H$_{52}$.}
 \begin{tabular}{|l|l|r|r|}
 \hline
 From    & To       & \multicolumn{2}{c|}{Weight(\%)}\\
@@ -727,13 +731,13 @@ MO      & MO       & Ref. & Pseudo.\\\hline\hline
 
 \begin{figure}[h]
 \includegraphics[width=8cm]{ssquare}
-\caption{Comparison of the eigenvalue of the $S^2$ operator obtained for the calculation
+\caption{Comparison of $S^2$ expectation values obtained for the calculation
 of the first triplet configuration in a SCF formalism, for reference
 and pseudo systems.}
 \label{fig:ssquare}
 \end{figure}
 
-These results show that the potentials that we have extracted are able to reproduce the
+These results show that the pseudo potentials that we have extracted are able to reproduce the
 $\pi$ systems in a variety of situations which are not part of their extraction set.
 The molecular orbital virtual space is also well described (cf. Table~\ref{tab:coef}),
 which demonstrates that the good agreement with reference calculations is
@@ -754,14 +758,17 @@ Once we started to look at excitation and ionisation energies however, optimisat
 \section{Conclusion}
 In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
-Firstly, we managed to extract pseudo potentials for sp$^2$ hybridized
-atoms in a completely atomic way, \emph{i.e.} potentials
-are to positioned only relatively to the pseudo atom center and not
-relatively to any bond.
+Firstly, the new pseudo potentials for sp$^2$ hybridized
+atoms are completely atomic and, even if the directionality of the bonding pattern
+has to be fullfilled by correctly postioning the s potentials, no potentials need to
+be added relatively to the position of two atoms.
+%, \emph{i.e.} potentials
+%are to positioned only relatively to the pseudo atom center and not
+%relatively to any bond.
 Secondly, we gave a physical meaning to all the pseudo potential
 terms.
 On the contrary of our previous attempt, we do not rely on the "no collapse" term,
-which is modeled by forcing the molecular occupation (\emph{vide infra}).
+which is modeled here by forcing the molecular occupation (\emph{vide infra}).
 We could show that not only the occupied orbitals were well reproduced
 by use of these new potentials, but also that the virtual space is of good quality
 for excited states calculation.
@@ -770,6 +777,8 @@ The next steps to be done in the framework of this studies is threefold: the add
 "no collapse" term, the reproduction of the gradient through the parametrization
 of additional terms and finally the use of such potentials in the framework
 of QM/MM calculations as a replacement of hydrogen based link atoms.
+The first step is needed in order to avoid to force the molecular orbital occupation and
+to avoid spurious virtual orbitals in the active space.
 We are confident that the first step could be easily done, as we have already extracted such
 terms in the previous version of our potentials.
 The reproduction of the gradient is more of a challenge as many electrons were removed from the
