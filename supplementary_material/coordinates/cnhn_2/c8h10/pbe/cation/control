@@ -1,0 +1,68 @@
+$operating system unix
+$title
+$symmetry cs
+$redundant    file=coord
+$coord    file=coord
+$user-defined bonds    file=coord
+$atoms
+c  1-8                                                                         \
+   basis =c def-SV(P)                                                          \
+   ecp   =c ecp-p
+h  9-56                                                                        \
+   basis =none                                                                 \
+   ecp   =h ecp-s
+$basis    file=basis
+$ecp    file=basis
+$rundimensions
+   dim(fock,dens)=7428
+   natoms=56
+   nshell=48
+   nbf(CAO)=120
+   dim(trafo[SAO<-->AO/CAO])=136
+   rhfshells=2
+$uhf
+$uhfmo_alpha   file=alpha
+$uhfmo_beta   file=beta
+$scfiterlimit       30
+$thize     0.10000000E-04
+$thime        5
+$scfdump
+$scfintunit
+ unit=30       size=0        file=twoint
+$scfdiis
+$maxcor      500
+$drvopt
+   cartesian  on
+   basis      off
+   global     off
+   hessian    on
+   dipole     on
+   nuclear polarizability
+$optimize
+   internal   off
+   cartesian  on
+   global     off
+   basis      off   logarithm
+$last SCF energy change = -.68754869E-01
+$charge from dscf
+          1.000 (not to be modified here)
+$ssquare from dscf
+          0.807 (not to be modified here)
+$alpha shells
+ a"      1-3                                    ( 1 )
+$beta shells
+ a"      1-4                                    ( 1 )
+$energy    file=energy
+$grad    file=gradient
+$dft
+   functional pbe
+   gridsize   m4
+$scfconv   6
+$scfdamp   start=0.700  step=0.050  min=0.050
+$scforbitalshift  closedshell=.05
+$last step     dscf
+$dipole from dscf
+  x    -0.00019449572049    y    -0.00003906157275    z     0.00000000000000    a.u.
+   | dipole | =    0.0005042340  debye
+$orbital_max_rnorm 0.23338256218459E-03
+$end
