@@ -559,7 +559,7 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
 
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
 the singlet-triplet excitation energy ($\Delta_{ST}$) in the $\Delta$SCF framework (energy difference between the triplet and the singlet monoreference
-calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values. 
+calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
 
 \begin{table}[ht]
 \caption{\(s\)-potential fits to ethene properties as defined in the text (eV).}
@@ -595,7 +595,7 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 \includegraphics[width=8cm]{pbe0_homo}
 \includegraphics[width=8cm]{pbe0_ionisation}
 \includegraphics[width=8cm]{pbe0_excitation}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes and computational methods.}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes and computational methods.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 \begin{figure}[h]
@@ -607,13 +607,14 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 
 \begin{table}[h]
 \caption{\%-errors across calculation types for short chain alkenes  (C\(_{2}\)-C\(_{12}\))}
-\begin{tabular}{c c c c c c c}
+\begin{tabular}{c c c c c c }
 \hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh & TD-DFT \\
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline\hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 & 2.6 \\
-Mean Triplet-Ion error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 & - \\
-Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 & - \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 \\
+Mean Triplet-Ion error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 \\
+Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 \\
+Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\ 
 \hline
 \end{tabular}
 \label{table:alkene_errors}
@@ -643,7 +644,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{ring_pbe0_ionisation}
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_tddft_excitation}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
 \label{fig:rings_graphs}
 \end{figure}
 
@@ -652,19 +653,20 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{pbe0_ionisation_long}
 \includegraphics[width=8cm]{pbe0_homo_long}
 \includegraphics[width=8cm]{tddft_excitation_long}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
 
 \begin{table}[h]
 \caption{\%-errors across calculation types for ring-systems}
-\begin{tabular}{c c c c c c c}
+\begin{tabular}{c c c c c c }
 \hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline\hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 & 0.099 \\
-Mean Triplet-Ion error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 & - \\
-Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 & - \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
+Mean Triplet-Ion error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
+Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
+Mean TD-DFT Excitation error (\%) & - & 0.099 & - & - & - \\ 
 \hline
 \end{tabular}
 \label{table:ring_system_errors}
@@ -672,13 +674,14 @@ Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 & - \\
 
 \begin{table}[h]
 \caption{\%-errors across calculation types for long chain alkenes (C\(_{20}\)-C\(_{100}\))}
-\begin{tabular}{c c c c c c c}
+\begin{tabular}{c c c c c c }
 \hline\hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH & TD-DFT \\
+Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2 & 0.005 \\
-Mean Triplet-Ion error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 & - \\
-Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 & - \\
+Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2 \\
+Mean Triplet-Ion error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
+Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
+Mean TD-DFT Excitation error (\%) & - & 0.005 & - & - & - \\ 
 \hline
 \end{tabular}
 \label{table:long_alkene_errors}
@@ -693,17 +696,17 @@ become significant, notably for the largest case.
 
 Unlike for the previous systems, there is a large discrepancy between $\Delta_{ST}$
 and TD-DFT results.
-This apparent failure of the pseudo potentials is to be found in the representation
+This apparent failure of the pseudo-potentials is to be found in the representation
 of the triplet state. The expectation values of the $S^2$ operator for the triplet calculations
 are plotted in Figure \ref{fig:ssquare}, which shows that the spin contamination
 of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
-framework) increases in both reference and pseudo potential cases.
-Yet, this effect is strenghtened in the pseudo potential calculations.
+framework) increases in both reference and pseudo-potential cases.
+Yet, this effect is strengthened in the pseudo potential calculations.
 These results suggest that the triplet state cannot be represented as one configuration
 but as a linear combination of monoelectronic excitations as done throught TD-DFT.
 
-In order to show that the recovering of the agreement between the pseudo potential
-and the reference calculations is not an artifact, we give in Table~\ref{tab:coef},
+In order to show that the recovering of the agreement between the pseudo-potential
+and the reference calculations is not an artefact, we give in Table~\ref{tab:coef}
 the weight and nature of each excitation (weight larger than 3\%)
 in the description of the triplet excited state for
 C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
@@ -715,7 +718,7 @@ As can be seen, the agreement is very good.
 %Such small numbers are not relevant.
 
 \begin{table}
-\caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudopotentials)
+\caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudo-potentials)
 of the excitations obtained with TD-DFT
 to represent the triplet excited state from the closed shell singlet state.
 Example case of C$_{50}$H$_{52}$.}
@@ -733,7 +736,7 @@ MO      & MO       & Ref. & Pseudo.\\\hline\hline
 \includegraphics[width=8cm]{ssquare}
 \caption{Comparison of $S^2$ expectation values obtained for the calculation
 of the first triplet configuration in a SCF formalism, for reference
-and pseudo systems.}
+and pseudo-systems.}
 \label{fig:ssquare}
 \end{figure}
 
@@ -797,98 +800,23 @@ The authors thank \ldots
 
 \end{acknowledgement}
 
-- radical dot in CH3 DONE
-
 - C - H distiance in optimised radical (+optimisation details)
-
-- line 73 "As we want to avoid to modifiy the quantum chemistry software itself, the pseudo-potentials have a semilocal form and we choose a value of n=1 to preserve the 1/r behaviour as huzinanaga's work". DONE
 
 - We are not aiming to exactly reproduce reference values. We aim to give physically relevant effects to the potentials. To go further than huckel or tight-binding models, allowing the study of more than first-neighbour effects. our systems is completely delocalised. (We aren't actually making use of the physical assumptions of the mdoel to probe new systems here, one of the posited potential uses of it). And computational time.
 
-- line 74 make explicit that we aren't aiming to duplicate a bielctronic interaction with a mono-electric one. DONE
-
-- line 75: The PPs are monoelectronic operators, thus they shall not be able to reproduce fully bielectronic interactions. Knowing this, we adjust the parameters of the s potentials for the pseudosystem to have a wavefunction in which properties are as close as possible to those of the reference system, such as spatial extent, energy and excitation energies. DONE
-
-- line 76-80. emphasise lack of H atoms. Colon line 76. DONE
-
-- line 83 Here / in this article. Potatoes. DONE
-
-- line 87 Slater reference DONE
-
-- line 88 details of z = 2.4 calc?
-
-- lie 91 Zeff is Z. Define it. DONE
-
-- you might not need line 92. these equations are not used again. comment out for now DONE
-
-- line 95. state exactly what the mean r is from or for. "our" calculation? DONE
-
-- line 101-104: Don't need sentence beginning "However, ..". Remove word "matrix". DONE
-
-- line 101-104: Query reference
-
-- line 101-104: Rather than sentence beginning however: "Even if we shall use the semi-local pseudo-potential definition for the calculations, for a 
-quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local psedopotential definition. We define: S = [Equation], ..." DONE
-
-- Section 2.3.1 refers to calculationss yet to come, and can be moved to after section 3. DONE
-
-- line 120: delete the reasons, nobody cares. DONE
-
-- sections 3.1 and 3.2 emphasise in titles the use of s and p potentials DONE
-
 - table 1: some detail of geometry optimisation (and functional / basis set)
-
-- table 4 and 5 can be unified DONE
-
-- Merge reference values in table 1 into the relevant pseudotables
-
-- line 145: ONLY s potentials DONE
-
-- a.u. for all distances DONE
 
 - more detail (d) in table 2 title
 
-- section 3.3. header can move downa  bit to after ethene optimisation DONE
-
-- emphasise addition of p potential DONE
-
-- line 158 "along the z axis" no. DONE
-
-- line 160 proceeeeeeeeeeeeeeeeeeeeeeeeeeedure. DONE
-
-- table 4 is not needed. DONE
-
-- table 5: d = 0.5 DONE
-
 - line 186 c + D
-
-- tables 6 and 7 could be merged, table 6 needs ref values, or table 7 could be before 6 DONE
-
-- Need final coeffs and exps DONE
-
-- maybe all the potential sets used could be consolidated into one table, easy to refer to? NOPE
 
 - some pictures of pseudomolecules
 
-- Reduce number of lines in tables
-
 - Review captions (more detail)
-
-- update d and c diagram DONE
-
-- Finish long chain calc graphs DONE
-
-- line 170 reference needed DONE
-
-- 257: n not defined more detail DONE
 
 - rewrite lambda B lambda bit
 
 - some comments on the increasing error with length of chain. blame alternating bond legth, compare with rings of equal bond length. 
-
-- "exponenet shoudl be chosen to give us a strong overlap" make explicit somehow, this is referenced later on
-
-- Computational details can move to the end with the optimisation DONE
 
 - Triplet - Singlet, not excitation
 
