@@ -559,7 +559,7 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
 
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
 the singlet-triplet excitation energy ($\Delta_{ST}$) in the $\Delta$SCF framework (energy difference between the triplet and the singlet monoreference
-calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, excitation and ionisation energies closest to the reference values. 
+calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
 
 \begin{table}[ht]
 \caption{\(s\)-potential fits to ethene properties as defined in the text (eV).}
@@ -595,7 +595,7 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 \includegraphics[width=8cm]{pbe0_homo}
 \includegraphics[width=8cm]{pbe0_ionisation}
 \includegraphics[width=8cm]{pbe0_excitation}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes and computational methods.}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes and computational methods.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 \begin{figure}[h]
@@ -643,7 +643,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{ring_pbe0_ionisation}
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_tddft_excitation}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
 \label{fig:rings_graphs}
 \end{figure}
 
@@ -652,7 +652,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{pbe0_ionisation_long}
 \includegraphics[width=8cm]{pbe0_homo_long}
 \includegraphics[width=8cm]{tddft_excitation_long}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
 
@@ -693,17 +693,17 @@ become significant, notably for the largest case.
 
 Unlike for the previous systems, there is a large discrepancy between $\Delta_{ST}$
 and TD-DFT results.
-This apparent failure of the pseudo potentials is to be found in the representation
+This apparent failure of the pseudo-potentials is to be found in the representation
 of the triplet state. The expectation values of the $S^2$ operator for the triplet calculations
 are plotted in Figure \ref{fig:ssquare}, which shows that the spin contamination
 of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
-framework) increases in both reference and pseudo potential cases.
-Yet, this effect is strenghtened in the pseudo potential calculations.
+framework) increases in both reference and pseudo-potential cases.
+Yet, this effect is strengthened in the pseudo potential calculations.
 These results suggest that the triplet state cannot be represented as one configuration
 but as a linear combination of monoelectronic excitations as done throught TD-DFT.
 
-In order to show that the recovering of the agreement between the pseudo potential
-and the reference calculations is not an artifact, we give in Table~\ref{tab:coef},
+In order to show that the recovering of the agreement between the pseudo-potential
+and the reference calculations is not an artefact, we give in Table~\ref{tab:coef}
 the weight and nature of each excitation (weight larger than 3\%)
 in the description of the triplet excited state for
 C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
@@ -715,7 +715,7 @@ As can be seen, the agreement is very good.
 %Such small numbers are not relevant.
 
 \begin{table}
-\caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudopotentials)
+\caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudo-potentials)
 of the excitations obtained with TD-DFT
 to represent the triplet excited state from the closed shell singlet state.
 Example case of C$_{50}$H$_{52}$.}
@@ -733,7 +733,7 @@ MO      & MO       & Ref. & Pseudo.\\\hline\hline
 \includegraphics[width=8cm]{ssquare}
 \caption{Comparison of $S^2$ expectation values obtained for the calculation
 of the first triplet configuration in a SCF formalism, for reference
-and pseudo systems.}
+and pseudo-systems.}
 \label{fig:ssquare}
 \end{figure}
 
