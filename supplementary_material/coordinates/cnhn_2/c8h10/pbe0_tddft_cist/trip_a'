@@ -1,0 +1,8 @@
+$title
+$symmetry cs
+$tensor space dimension      112
+$scfinstab rpat
+$current subspace dimension        3
+$current iteration        1
+$eigenpairs
+$end
