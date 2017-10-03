@@ -465,13 +465,14 @@ PBE0 & -2.605 & 1.0 \\
 \end{table}
 
 \begin{figure}
-\includegraphics[width=8cm]{long_r_ethene_diagram.png}
-\caption{Diagram of pseudo-ethene displaying pseudo-carbon atoms (grey) and \(s\) pseudo-potentials (white).}
+\includegraphics[width=8cm, height=8cm]{long_r_ethene_diagram.png}
+\includegraphics[width=8cm, height=8cm]{short_r_ethene_diagram.png}
+\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). Pseudo-carbon atoms are displayed in grey and \(s\) pseudo-potentials are displayed in white.}
 \label{fig:long_r_ethene}
 \end{figure}
 
 We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
-This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.% with coefficients and exponents of the same order of magnitude as the basis set.
+This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.% with coefficients and exponents of the same order of magnitude as the basis set.
 
 \subsection{Ethene, with \(s\) and \(p\)-potentials}
 
@@ -562,10 +563,10 @@ the singlet-triplet excitation energy ($\Delta_{ST}$) in the $\Delta$SCF framewo
 calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
 
 \begin{table}[ht]
-\caption{\(s\)-potential fits to ethene properties as defined in the text (eV).}
+\caption{\(s\)-potential fits to ethene properties as defined in the text (eV). All values are from HF calculations, and \(d = 0.5\) a.u.}
 \begin{tabular}{c c c c c}
 \hline
-\(s\)-coefficient & \(s\)-exponent & $\Delta_{ST}$  & Triplet - Ion  & $\varepsilon_{HOMO}$  \\
+\(s\) coefficient & \(s\) exponent & $\Delta_{ST}$  & Ionisation  & $\varepsilon_{HOMO}$  \\
 \hline
 %\multicolumn{5}{c}{Reference System} \\
 %\hline\hline
@@ -575,13 +576,13 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 %\hline\hline
 \multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
 \hline
-&& \multicolumn{3}{l}{\(p\)-coefficient -3.267; \(p\)-exponent 0.295} \\
+&& \multicolumn{3}{l}{\(p\) coefficient -3.267; \(p\) exponent 0.295} \\
 \hline
 0.552 & 0.1 & -3.533 & -27.158 & -27.31 \\
 0.608 & 1.0 & -3.533 & -28.247 & -28.395 \\
 0.936 & 5.0 & -3.533 & -29.583 & -29.722 \\
 \hline
-\multicolumn{2}{c}{\textit{Optimal Values}} &\multicolumn{3}{l}{\(p\)-coefficient -3.91; \(p\)-exponent 0.624} \\
+\multicolumn{2}{c}{\textit{Optimal Values}} &\multicolumn{3}{l}{\(p\) coefficient -3.91; \(p\) exponent 0.624} \\
 \hline
 1.5 & 0.5 & -3.533 & -9.806 & -10.062 \\
 \hline
@@ -612,7 +613,7 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline\hline
 Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 \\
-Mean Triplet-Ion error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 \\
+Mean Ionisation error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 \\
 Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 \\
 Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\ 
 \hline
@@ -644,7 +645,8 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{ring_pbe0_ionisation}
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_tddft_excitation}
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules.}
+\includegraphics[width=5cm]{19_ring_diagram}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. C\(_{54}\)H\(_{18}\) is a seriess of concencric rings of benzene as shown (bottom).}
 \label{fig:rings_graphs}
 \end{figure}
 
@@ -664,7 +666,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline\hline
 Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
-Mean Triplet-Ion error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
+Mean Ionisation error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
 Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
 Mean TD-DFT Excitation error (\%) & - & 0.099 & - & - & - \\ 
 \hline
@@ -679,7 +681,7 @@ Mean TD-DFT Excitation error (\%) & - & 0.099 & - & - & - \\
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
 Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2 \\
-Mean Triplet-Ion error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
+Mean Ionisation error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
 Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
 Mean TD-DFT Excitation error (\%) & - & 0.005 & - & - & - \\ 
 \hline
@@ -701,7 +703,7 @@ of the triplet state. The expectation values of the $S^2$ operator for the tripl
 are plotted in Figure \ref{fig:ssquare}, which shows that the spin contamination
 of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
 framework) increases in both reference and pseudo-potential cases.
-Yet, this effect is strengthened in the pseudo potential calculations.
+Yet, this effect is strengthened in the pseudo-potential calculations.
 These results suggest that the triplet state cannot be represented as one configuration
 but as a linear combination of monoelectronic excitations as done throught TD-DFT.
 
@@ -740,7 +742,7 @@ and pseudo-systems.}
 \label{fig:ssquare}
 \end{figure}
 
-These results show that the pseudo potentials that we have extracted are able to reproduce the
+These results show that the pseudo-potentials that we have extracted are able to reproduce the
 $\pi$ systems in a variety of situations which are not part of their extraction set.
 The molecular orbital virtual space is also well described (cf. Table~\ref{tab:coef}),
 which demonstrates that the good agreement with reference calculations is
@@ -761,14 +763,14 @@ Once we started to look at excitation and ionisation energies however, optimisat
 \section{Conclusion}
 In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
-Firstly, the new pseudo potentials for sp$^2$ hybridized
+Firstly, the new pseudo-potentials for sp$^2$ hybridized
 atoms are completely atomic and, even if the directionality of the bonding pattern
 has to be fullfilled by correctly postioning the s potentials, no potentials need to
 be added relatively to the position of two atoms.
 %, \emph{i.e.} potentials
-%are to positioned only relatively to the pseudo atom center and not
+%are to positioned only relatively to the pseudo-atom center and not
 %relatively to any bond.
-Secondly, we gave a physical meaning to all the pseudo potential
+Secondly, we gave a physical meaning to all the pseudo-potential
 terms.
 On the contrary of our previous attempt, we do not rely on the "no collapse" term,
 which is modeled here by forcing the molecular occupation (\emph{vide infra}).
@@ -800,27 +802,11 @@ The authors thank \ldots
 
 \end{acknowledgement}
 
-- C - H distiance in optimised radical (+optimisation details)
-
 - We are not aiming to exactly reproduce reference values. We aim to give physically relevant effects to the potentials. To go further than huckel or tight-binding models, allowing the study of more than first-neighbour effects. our systems is completely delocalised. (We aren't actually making use of the physical assumptions of the mdoel to probe new systems here, one of the posited potential uses of it). And computational time.
-
-- table 1: some detail of geometry optimisation (and functional / basis set)
-
-- more detail (d) in table 2 title
-
-- line 186 c + D
-
-- some pictures of pseudomolecules
 
 - Review captions (more detail)
 
 - rewrite lambda B lambda bit
-
-- some comments on the increasing error with length of chain. blame alternating bond legth, compare with rings of equal bond length. 
-
-- Triplet - Singlet, not excitation
-
-- Citations at end of sentence? 
 
 - write abstract
 
