@@ -68,8 +68,8 @@
 %% a running title from the author: this should be supplied as an
 %% optional argument to \title.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[A great physically meaningful pseudo-potential for sp\(^{2}\) carbon]
-  {A great physically meaningful pseudo-potential for sp\(^{2}\) carbon}
+\title[A great title]
+  {Atomic pseudo-potentials for sp$^2$ carbon atoms}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Some journals require a list of abbreviations or keywords to be
@@ -507,7 +507,7 @@ Next, we take some of these potentials to create a pseudo-ethene system, with th
 %\end{table}
 
 \begin{table}[ht]
-\caption{HOMO energies for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
+\caption{HOMO energies ($\pi$, eV) for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
 pseudo-CH\(^{\bullet}_{3}\) with only \(s\)-potentials and an exponent of 10.0.}
 \begin{tabular}{c c c c}
 \hline
@@ -520,7 +520,7 @@ pseudo-CH\(^{\bullet}_{3}\) with only \(s\)-potentials and an exponent of 10.0.}
 %\hline
 %\multicolumn{3}{c}{Pseudo-system} \\
 %\hline\hline
-& $d$ & \(s\) coefficient & \( \pi \) orbital energy (eV) \\
+& $d$ & \(s\) coefficient & \( \pi \)  \\
 \hline
 HF$^a$   &     &        & -10.363 \\
 PBE0$^a$ &     &        & -6.632 \\
@@ -537,7 +537,7 @@ The next step adds a \(p\)-potential centred on the pseudo-carbon, with Table \r
 cannot alone describe the relationship between them.
 
 \begin{table}[ht]
-\caption{Optimised \(s\)-orbital pseudo-potentials for pseudo-CH\(^{\bullet}_{3}\) and pseudo-ethene. \(d = 0.5\) a.u. The pseudo-ethene is optimised to give the all-electron HOMO reference energies in Table \ref{table:ethene_s_pseudo}.}
+\caption{\(pi\) orbital energy values (eV) for pseudo-thene, using s and p pseudo-potentials. The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimised to give the correct all-electron HOMO energy.}
 \begin{tabular}{c c c c}
 \hline
 & \(p\) coefficient & \(p\) exponent \\
@@ -621,7 +621,7 @@ Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\
 \label{table:alkene_errors}
 \end{table}
 
-Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
+Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
@@ -646,7 +646,8 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_tddft_excitation}
 \includegraphics[width=5cm]{19_ring_diagram}
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. C\(_{54}\)H\(_{18}\) is a seriess of concencric rings of benzene as shown (bottom).}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
+C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \label{fig:rings_graphs}
 \end{figure}
 
@@ -750,7 +751,7 @@ physically grounded.
 
 \subsection{Computational Details}
 
-Here summarised are details of the methods used in calculation. All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
+All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
 
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
@@ -781,16 +782,16 @@ for excited states calculation.
 In the framework of this study, there are three logical next steps: the addition of an explicit
 "no collapse" term, the reproduction of the gradient through the parameterisation
 of additional terms, and finally the use of such potentials in the framework
+
 of QM/MM calculations as a replacement of hydrogen based link atoms.
 The first step is needed in order to avoid forcing the molecular orbital occupation and
 to avoid spurious virtual orbitals in the active space.
 We are confident that the first step could be easily done, as we have already extracted such
 terms in the previous version of our potentials.
-The reproduction of the gradient is more of a challenge as many electrons were removed from the
-system and long range the bi-electronic terms shall be very hard to reproduce by mono-electronic
-operators.
+The reproduction of the gradient is more of a challenge as many electrons were removed from the system.
 Finally, QM/MM tests can be started quickly, as we could fix the local geometry of the potentials
 in the QM part. The MM part would be taken care of without modification of the standard parameters.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The "Acknowledgement" section can be given in all manuscript
 %% classes.  This should be given within the "acknowledgement"
@@ -805,6 +806,10 @@ The authors thank \ldots
 - We are not aiming to exactly reproduce reference values. We aim to give physically relevant effects to the potentials. To go further than huckel or tight-binding models, allowing the study of more than first-neighbour effects. our systems is completely delocalised. (We aren't actually making use of the physical assumptions of the mdoel to probe new systems here, one of the posited potential uses of it). And computational time.
 
 - write abstract
+
+- references in introduction
+
+- remove lines in tables
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
