@@ -68,8 +68,8 @@
 %% a running title from the author: this should be supplied as an
 %% optional argument to \title.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[A great title]
-  {A great title}
+\title[A great physically meaningful pseudo-potential for sp\(^{2}\) carbon]
+  {A great physically meaningful pseudo-potential for sp\(^{2}\) carbon}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Some journals require a list of abbreviations or keywords to be
@@ -77,7 +77,7 @@
 %% the title and author information, if needed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \abbreviations{IR,NMR,UV}
-\keywords{Pseudo-potentials, Group potentials}
+\keywords{Pseudo-potentials, Group potentials, sp2 carbon}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The manuscript does not need to include \maketitle, which is
@@ -119,9 +119,9 @@ separate page at the end of the document.
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built 
 and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
 This pseudo-system has a central charge of 1, thus it contains only one
-electron. It has been employed in \textsl{ab-initio} calculations:
-1\textsuperscript{st} ionisation and excitation energies, as well as the HOMO energy, 
-are found to be reproduced to a good accuracy by the pseudo-system.
+electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics
+including 1\textsuperscript{st} ionisation and excitation energies, as well as the HOMO energy, 
+are found to be well-reproduced by the pseudo-system.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -465,9 +465,9 @@ PBE0 & -2.605 & 1.0 \\
 \end{table}
 
 \begin{figure}
-\includegraphics[width=8cm, height=8cm]{long_r_ethene_diagram.png}
-\includegraphics[width=8cm, height=8cm]{short_r_ethene_diagram.png}
-\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). Pseudo-carbon atoms are displayed in grey and \(s\) pseudo-potentials are displayed in white.}
+\includegraphics[width=8cm, height=5cm]{long_r_diag.png}
+\includegraphics[width=8cm, height=5cm]{short_r_diag.png}
+\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
 \label{fig:long_r_ethene}
 \end{figure}
 
@@ -705,7 +705,7 @@ of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
 framework) increases in both reference and pseudo-potential cases.
 Yet, this effect is strengthened in the pseudo-potential calculations.
 These results suggest that the triplet state cannot be represented as one configuration
-but as a linear combination of monoelectronic excitations as done throught TD-DFT.
+but as a linear combination of monoelectronic excitations as done through TD-DFT.
 
 In order to show that the recovering of the agreement between the pseudo-potential
 and the reference calculations is not an artefact, we give in Table~\ref{tab:coef}
@@ -765,32 +765,32 @@ In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
 Firstly, the new pseudo-potentials for sp$^2$ hybridized
 atoms are completely atomic and, even if the directionality of the bonding pattern
-has to be fullfilled by correctly postioning the s potentials, no potentials need to
-be added relatively to the position of two atoms.
+has to be fullfilled by correctly positioning the s potentials, no potentials need to
+be added relative to the position of two atoms.
 %, \emph{i.e.} potentials
 %are to positioned only relatively to the pseudo-atom center and not
 %relatively to any bond.
 Secondly, we gave a physical meaning to all the pseudo-potential
 terms.
-On the contrary of our previous attempt, we do not rely on the "no collapse" term,
+Contrary to our previous attempt, we do not rely on the "no collapse" term,
 which is modeled here by forcing the molecular occupation (\emph{vide infra}).
-We could show that not only the occupied orbitals were well reproduced
-by use of these new potentials, but also that the virtual space is of good quality
+We could show that not only were the occupied orbitals well reproduced
+by the use of these new potentials, but also that the virtual space is of good quality
 for excited states calculation.
 
-The next steps to be done in the framework of this studies is threefold: the addition of an explicit
-"no collapse" term, the reproduction of the gradient through the parametrization
-of additional terms and finally the use of such potentials in the framework
+In the framework of this study, there are three logical next steps: the addition of an explicit
+"no collapse" term, the reproduction of the gradient through the parameterisation
+of additional terms, and finally the use of such potentials in the framework
 of QM/MM calculations as a replacement of hydrogen based link atoms.
-The first step is needed in order to avoid to force the molecular orbital occupation and
+The first step is needed in order to avoid forcing the molecular orbital occupation and
 to avoid spurious virtual orbitals in the active space.
 We are confident that the first step could be easily done, as we have already extracted such
 terms in the previous version of our potentials.
 The reproduction of the gradient is more of a challenge as many electrons were removed from the
-system and long range the bielectronic terms shall be very hard to reproduce by monoelectronic
+system and long range the bi-electronic terms shall be very hard to reproduce by mono-electronic
 operators.
-However, the QM/MM tests shall be quickly started as we could fix the local geometry of the potentials
-in the QM part, the MM part would be taken care of without modification of the standard parameters.
+Finally, QM/MM tests can be started quickly, as we could fix the local geometry of the potentials
+in the QM part. The MM part would be taken care of without modification of the standard parameters.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The "Acknowledgement" section can be given in all manuscript
 %% classes.  This should be given within the "acknowledgement"
@@ -803,10 +803,6 @@ The authors thank \ldots
 \end{acknowledgement}
 
 - We are not aiming to exactly reproduce reference values. We aim to give physically relevant effects to the potentials. To go further than huckel or tight-binding models, allowing the study of more than first-neighbour effects. our systems is completely delocalised. (We aren't actually making use of the physical assumptions of the mdoel to probe new systems here, one of the posited potential uses of it). And computational time.
-
-- Review captions (more detail)
-
-- rewrite lambda B lambda bit
 
 - write abstract
 
@@ -825,9 +821,8 @@ publications, refer to the journal's Instructions for Authors.
 The following files are available free of charge.
 \begin{itemize}
   \item Results \& Graphs.ods: Complete results of calculations and associated graphs.
-  \item Calculations folder: Contains all calculations used to generate the results in "Results \& Graphs.ods", ordered by molecule
+  \item Calculations folder: Contains all coordinate files used to generate the results in "Results \& Graphs.ods", ordered by molecule
   shape, all-electron/pseudo-molecular calculation and functional/method.
-  \item chem\_scripts folder: Contains original scripts used to place and optimise pseudo-potentials.
 \end{itemize}
 
 \end{suppinfo}
