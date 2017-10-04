@@ -69,7 +69,7 @@
 %% optional argument to \title.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[A great title]
-  {A great title}
+  {Atomic pseudo-potentials for sp$^2$ carbon atoms}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Some journals require a list of abbreviations or keywords to be
@@ -507,7 +507,7 @@ Next, we take some of these potentials to create a pseudo-ethene system, with th
 %\end{table}
 
 \begin{table}[ht]
-\caption{HOMO energies for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
+\caption{HOMO energies ($\pi$, eV) for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
 pseudo-CH\(^{\bullet}_{3}\) with only \(s\)-potentials and an exponent of 10.0.}
 \begin{tabular}{c c c c}
 \hline
@@ -520,7 +520,7 @@ pseudo-CH\(^{\bullet}_{3}\) with only \(s\)-potentials and an exponent of 10.0.}
 %\hline
 %\multicolumn{3}{c}{Pseudo-system} \\
 %\hline\hline
-& $d$ & \(s\) coefficient & \( \pi \) orbital energy (eV) \\
+& $d$ & \(s\) coefficient & \( \pi \)  \\
 \hline
 HF$^a$   &     &        & -10.363 \\
 PBE0$^a$ &     &        & -6.632 \\
@@ -621,7 +621,7 @@ Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\
 \label{table:alkene_errors}
 \end{table}
 
-Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
+Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
@@ -646,7 +646,8 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_tddft_excitation}
 \includegraphics[width=5cm]{19_ring_diagram}
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. C\(_{54}\)H\(_{18}\) is a seriess of concencric rings of benzene as shown (bottom).}
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
+C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \label{fig:rings_graphs}
 \end{figure}
 
@@ -750,7 +751,7 @@ physically grounded.
 
 \subsection{Computational Details}
 
-Here summarised are details of the methods used in calculation. All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
+All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
 
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
@@ -776,9 +777,9 @@ On the contrary of our previous attempt, we do not rely on the "no collapse" ter
 which is modeled here by forcing the molecular occupation (\emph{vide infra}).
 We could show that not only the occupied orbitals were well reproduced
 by use of these new potentials, but also that the virtual space is of good quality
-for excited states calculation.
+for excited state calculations.
 
-The next steps to be done in the framework of this studies is threefold: the addition of an explicit
+The next steps to be done in the framework of this study are the following: the addition of an explicit
 "no collapse" term, the reproduction of the gradient through the parametrization
 of additional terms and finally the use of such potentials in the framework
 of QM/MM calculations as a replacement of hydrogen based link atoms.
@@ -787,8 +788,9 @@ to avoid spurious virtual orbitals in the active space.
 We are confident that the first step could be easily done, as we have already extracted such
 terms in the previous version of our potentials.
 The reproduction of the gradient is more of a challenge as many electrons were removed from the
-system and long range the bielectronic terms shall be very hard to reproduce by monoelectronic
-operators.
+system. 
+%and long range the bielectronic terms shall be very hard to reproduce by monoelectronic
+%operators.
 However, the QM/MM tests shall be quickly started as we could fix the local geometry of the potentials
 in the QM part, the MM part would be taken care of without modification of the standard parameters.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
