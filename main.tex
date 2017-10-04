@@ -167,7 +167,7 @@ are reproduced by a mono-electronic operator.\cite{carissan_what_2006}
 However, while effective core potentials and model potentials intend to 
 reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
-bonds. The cyclopentadienyl group has, for instance, been successfully extracted.
+bonds. The cyclopentadienyl group has, for instance, been successfully extracted.\cite{carissan_what_2006}
 In this example, the active part consisted of six electrons (the $\pi$ electrons) and six
 nuclear charges, with the pseudo-potential replacing all the rest, including the hydrogen atoms.
 Even if the $\sigma / \pi$ separability suggested how to define the active and the inactive parts,
@@ -175,7 +175,8 @@ carbon atoms are hybridized and the core/valence distinction is not
 strictly defined.
 
 The theoretical background to extract effective group pseudo-potentials  can be traced back 
-to several contributions in the 80's and 90's. In 1985 Katsuki built molecular potentials based on Huzinaga's model potentials.
+to several contributions in the 80's and  90's.\cite{Nicolas1980a, huzinaga_effective_1991, huzinaga_1994_1995}
+In 1992 Katsuki built molecular potentials based on Huzinaga's model potentials.\cite{katsuki_molecular_1992,katsuki_spectral_1993}
  In his work on this subject, Huzinaga emphasises that pseudo-potentials should maintain three effects of the
 'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
@@ -425,8 +426,8 @@ PBE0 & -2.605 & 1.0 \\
 \end{table}
 
 \begin{figure}
-\includegraphics[width=8cm, height=8cm]{hires_long_r.png}
-\includegraphics[width=8cm, height=8cm]{hires_short_r.png}
+\fbox{\includegraphics[width=0.45\textwidth]{hires_long_r_crop.png}}%
+\fbox{\includegraphics[width=0.45\textwidth]{hires_short_r_crop.png}}
 \caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
 \label{fig:long_r_ethene}
 \end{figure}
@@ -460,7 +461,8 @@ The next step adds a \(p\)-potential centred on the pseudo-carbon, with Table \r
 cannot alone describe the relationship between them.
 
 \begin{table}[ht]
-\caption{\(\pi\) orbital energy values (eV) for pseudo-thene, using s and p pseudo-potentials. The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimised to give the correct all-electron HOMO energy.}
+\caption{\(\pi\) orbital energy values (eV) for pseudo-ethene, using \(s\) and \(p\) pseudo-potentials.
+The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimised to give the correct all-electron HOMO energy.}
 \begin{tabular}{c c c c}
 \hline
 & \(p\) coefficient & \(p\) exponent \\
@@ -482,7 +484,7 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
 \end{table}
 
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
-the singlet-triplet excitation energy ($\Delta_{ST}$) in the $\Delta$SCF framework (energy difference between the triplet and the singlet mono-reference
+the singlet-triplet excitation energy ($\Delta_{ST}$) in the SCF framework (energy difference between the triplet and the singlet mono-reference
 calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
 
 \begin{table}[ht]
