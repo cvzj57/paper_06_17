@@ -92,23 +92,28 @@
 %% be automatically moved as appropriate.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tocentry}
-
-Some journals require a graphical entry for the Table of Contents.
-This should be laid out ``print ready'' so that the sizing of the
-text is correct.
-
-Inside the \texttt{tocentry} environment, the font used is Helvetica
-8\,pt, as required by \emph{Journal of the American Chemical
-Society}.
-
-The surrounding frame is 9\,cm by 3.5\,cm, which is the maximum
-permitted for  \emph{Journal of the American Chemical Society}
-graphical table of content entries. The box will not resize if the
-content is too big: instead it will overflow the edge of the box.
-
-This box and the associated title will always be printed on a
-separate page at the end of the document.
-
+%{\includegraphics[height=35mm]{hires_long_r_crop.png}}%
+{\begin{minipage}[b]{4.0cm}
+{\includegraphics[height=17.5mm]{ring_pbe0_ionisation.png}}\\
+{\includegraphics[height=17.5mm]{ring_tddft_excitation.png}}
+\end{minipage}}%
+{\includegraphics[height=35mm]{hires_short_r_crop.png}}
+%Some journals require a graphical entry for the Table of Contents.
+%This should be laid out ``print ready'' so that the sizing of the
+%text is correct.
+%
+%Inside the \texttt{tocentry} environment, the font used is Helvetica
+%8\,pt, as required by \emph{Journal of the American Chemical
+%Society}.
+%
+%The surrounding frame is 9\,cm by 3.5\,cm, which is the maximum
+%permitted for  \emph{Journal of the American Chemical Society}
+%graphical table of content entries. The box will not resize if the
+%content is too big: instead it will overflow the edge of the box.
+%
+%This box and the associated title will always be printed on a
+%separate page at the end of the document.
+%
 \end{tocentry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,11 +149,15 @@ Among them can be cited QM/QM' or QM/MM methods (\showCustomItem), where
 the active region that usually contains several atoms is
 treated at a high level of calculation, while the inactive part is treated at a 
 lower level of theory.\cite{chung_oniom_2015}
+Fragmentation methods split the complete problem into smaller parts and combine individual calculations
+on these fragments to recover the properties of the overall system.\cite{gordon_effective_2001,steinmann_effective_2012}
 Frozen density embedding techniques (\showCustomItem) replace part of a molecule, or 
 its surroundings,
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used to reduce
 the number of parameters to be optimised in the self consistent field calculation.
+In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentionned:
+the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
 
 In this article we shall focus on pseudo-potential techniques, which also
 divide the chemical problem into two parts.
@@ -163,7 +172,7 @@ refinement required.\cite{huzinaga_1994_1995}
 The effective group potentials (\showCustomItem) bridge the frozen density and the core potential
 approaches: using core potential extraction techniques, effects due to the implicit 
 electron density (and corresponding nuclear charge) 
-are reproduced by a mono-electronic operator.\cite{carissan_what_2006}
+are reproduced by a mono-electronic operator.\cite{carissan_what_2006, raynaud_multicentered_2010}
 However, while effective core potentials and model potentials intend to 
 reproduce atomic properties,
 effective group potentials aim at mimicking the effect of atoms involved in one or more chemical
@@ -175,7 +184,7 @@ carbon atoms are hybridized and the core/valence distinction is not
 strictly defined.
 
 The theoretical background to extract effective group pseudo-potentials  can be traced back 
-to several contributions in the 80's and  90's.\cite{Nicolas1980a, huzinaga_effective_1991, huzinaga_1994_1995}
+to several contributions in the 80's and  90's.\cite{Nicolas1980a, huzinaga_effective_1991, huzinaga_1994_1995, EGP5, EGP6, EGP9}
 In 1992 Katsuki built molecular potentials based on Huzinaga's model potentials.\cite{katsuki_molecular_1992,katsuki_spectral_1993}
  In his work on this subject, Huzinaga emphasises that pseudo-potentials should maintain three effects of the
 'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
@@ -707,20 +716,11 @@ in the QM part. The MM part would be taken care of without modification of the s
 %% classes.  This should be given within the "acknowledgement"
 %% environment, which will make the correct section or running title.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{acknowledgement}
-
-The authors thank \ldots
-
-\end{acknowledgement}
-
-- We are not aiming to exactly reproduce reference values. We aim to give physically relevant effects to the potentials. To go further than huckel or tight-binding models, allowing the study of more than first-neighbour effects. our systems is completely delocalised. (We aren't actually making use of the physical assumptions of the mdoel to probe new systems here, one of the posited potential uses of it). And computational time.
-
-- write abstract
-
-- references in introduction
-
-- remove lines in tables
-
+%\begin{acknowledgement}
+%
+%The authors thank \ldots
+%
+%\end{acknowledgement}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The same is true for Supporting Information, which should use the
