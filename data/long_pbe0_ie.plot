@@ -1,6 +1,6 @@
 set title "I.E."
 set ylabel 'eV'
-set auto x
+set xrange [-.5:4.5]
 set yrange [0:8]
 set style data histogram
 set style histogram cluster gap 1
@@ -11,7 +11,7 @@ set grid ytics ls -1
 set key top right
 plot 'long_pbe0_ie.dat'   using 2:xtic(1) lt rgb "#ff950e" t 'Reference alkenes',\
      ''                    u     3         lt rgb "#ff420e" t 'Pseudo-alkenes'
-set terminal postscript enhanced eps color "Helvetica" 30
+set terminal postscript enhanced eps color "Helvetica bold" 30
 set output 'long_pbe0_ie.eps'
 replot
 

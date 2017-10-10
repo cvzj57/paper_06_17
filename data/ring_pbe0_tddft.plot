@@ -1,6 +1,6 @@
 set title "TD-DFT Excitation (PBE0)"
 set ylabel 'eV'
-set auto x
+set xrange [-.5:5.5]
 set yrange [0:5]
 set style data histogram
 set style histogram cluster gap 1
@@ -11,7 +11,7 @@ set grid ytics ls -1
 set key top right
 plot 'ring_pbe0_tddft.dat'   using 2:xtic(1) lt rgb "#aecf00" t 'Reference rings',\
      ''                       u     3         lt rgb "#579d1c" t 'Pseudo-rings'
-set terminal postscript enhanced eps color "Helvetica" 30
+set terminal postscript enhanced eps color "Helvetica bold" 30
 set output 'ring_pbe0_tddft.eps'
 replot
 
