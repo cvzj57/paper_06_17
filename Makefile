@@ -2,6 +2,7 @@ radical=main
 latex=pdflatex
 
 defaut: clean
+	(cd data; make)
 	$(latex) $(radical).tex
 	bibtex $(radical)
 	$(latex) $(radical).tex
