@@ -17,7 +17,7 @@
 \usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
 \usepackage[T1]{fontenc}       % Use modern font encodings
 \usepackage{amsmath}	    % American Mathematical Society equation formatting
-\graphicspath{ {images/} }     % Path to images
+\graphicspath{ {data/},{images/} }     % Path to images
 %TO REMOVE BEFORE SUBMISSION
 \listfiles
 %\usepackage{lineno} % add the line numbers
@@ -95,10 +95,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tocentry}
 %{\includegraphics[height=35mm]{hires_long_r_crop.png}}%
-{\begin{minipage}[b]{4.0cm}
-{\includegraphics[height=17.5mm]{ring_pbe0_ionisation.png}}\\
-{\includegraphics[height=17.5mm]{ring_tddft_excitation.png}}
-\end{minipage}}%
+%{\begin{minipage}[b]{4.0cm}
+%{\includegraphics[height=17.5mm]{ring_pbe0_ie.png}}\\
+{\includegraphics[height=35.0mm]{ring_pbe0_tddft.png}}
+%\end{minipage}}%
 {\includegraphics[height=35mm]{hires_short_r_crop.png}}
 %Some journals require a graphical entry for the Table of Contents.
 %This should be laid out ``print ready'' so that the sizing of the
@@ -523,15 +523,15 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 \subsection{C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{n=2-12}\)}
 
 \begin{figure}[h]
-\includegraphics[width=8cm]{pbe0_homo}
-\includegraphics[width=8cm]{pbe0_ionisation}
-\includegraphics[width=8cm]{pbe0_excitation}
+\includegraphics[width=8cm]{short_pbe0_homo}
+\includegraphics[width=8cm]{short_pbe0_ie}
+\includegraphics[width=8cm]{short_pbe0_st}
 \caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 \begin{figure}[h]
-\includegraphics[width=8cm]{tddft_excitation_cd}
-\includegraphics[width=8cm]{tddft_excitation}
+\includegraphics[width=8cm]{short_pbe0_tddft_2013}
+\includegraphics[width=8cm]{short_pbe0_tddft}
 \caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
 \label{fig:alkenes_tddft}
 \end{figure}
@@ -568,10 +568,10 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
 
 \begin{figure}[h]
-\includegraphics[width=8cm]{ring_pbe0_excitation}
-\includegraphics[width=8cm]{ring_pbe0_ionisation}
+\includegraphics[width=8cm]{ring_pbe0_st}
+\includegraphics[width=8cm]{ring_pbe0_ie}
 \includegraphics[width=8cm]{ring_pbe0_homo}
-\includegraphics[width=8cm]{ring_tddft_excitation}
+\includegraphics[width=8cm]{ring_pbe0_tddft}
 %\includegraphics[width=5cm]{19_ring_diagram}
 \fbox{\includegraphics[width=5cm]{c54h18}}
 \caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
@@ -580,10 +580,10 @@ C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=8cm]{pbe0_excitation_long}
-\includegraphics[width=8cm]{pbe0_ionisation_long}
-\includegraphics[width=8cm]{pbe0_homo_long}
-\includegraphics[width=8cm]{tddft_excitation_long}
+\includegraphics[width=8cm]{long_pbe0_st}
+\includegraphics[width=8cm]{long_pbe0_ie}
+\includegraphics[width=8cm]{long_pbe0_homo}
+\includegraphics[width=8cm]{long_pbe0_tddft}
 \caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
@@ -661,7 +661,7 @@ Example case of C$_{50}$H$_{52}$.}
 \end{table}
 
 \begin{figure}
-\includegraphics[width=8cm]{ssquare}
+\includegraphics[width=8cm]{long_pbe0_s2}
 \caption{Comparison of $S^2$ expectation values obtained for the calculation
 of the first triplet configuration in a SCF formalism, for reference
 and pseudo-systems.}
