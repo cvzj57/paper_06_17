@@ -19,7 +19,8 @@
 \definecolor{background-color}{gray}{0.98}
 \graphicspath{{data/}{images/}}
 
-\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
+%\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
+\title{Atomic pseudo-potentials for reproducing the valence electron behaviour of sp$^2$ carbon atoms}
 \author{Alexander Punter\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Paola Nava\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Yannick Carissan \thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}}
 
 \begin{document}
@@ -32,7 +33,7 @@ A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built
 and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
 This pseudo-system has a central charge of 1, thus it contains only one
 electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics
-including 1\textsuperscript{st} ionisation and excitation energies, as well as the HOMO energy, 
+including first ionisation and excitation energies, as well as the HOMO energy, 
 are found to be well-reproduced by the pseudo-system.
 \end{abstract}
 
@@ -489,49 +490,6 @@ in the QM part. The MM part would be taken care of without modification of the s
 
 %%%%% FIGURE ---- cc.eps
 \begin{figure}
-\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
-\label{figure:ref_pseudo_diagram}
-\end{figure}
-
-\begin{figure}
-\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
-\label{fig:long_r_ethene}
-\end{figure}
-
-\begin{figure}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
-\label{fig:alkenes_hf_dft}
-\end{figure}
-
-\begin{figure}
-\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
-\label{fig:alkenes_tddft}
-\end{figure}
-
-\begin{figure}
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
-C\(_{54}\)H\(_{18}\) is shown in the bottom.}
-\label{fig:rings_graphs}
-\end{figure}
-
-\begin{figure}
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
-\label{fig:long_chain_graphs}
-\end{figure}
-
-\begin{figure}
-\caption{Comparison of $S^2$ expectation values obtained for the calculation
-of the first triplet configuration in a SCF formalism, for reference
-and pseudo-systems.}
-\label{fig:ssquare}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FIGURE FILES
-
-\clearpage
-
 %\vspace*{0.1in}   %%% FIGURE 1
 \begin{center}
 %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
@@ -543,17 +501,11 @@ and pseudo-systems.}
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 1 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
+\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
+\label{figure:ref_pseudo_diagram}
+\end{figure}
 
-\clearpage
-
+\begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 2
 \begin{center}
 %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
@@ -564,17 +516,12 @@ J.\ Comput.\ Chem.
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 2 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
 
-\clearpage
+\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
+\label{fig:long_r_ethene}
+\end{figure}
 
+\begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 3
 \begin{center}
 \includegraphics[width=8cm]{short_pbe0_homo}
@@ -585,17 +532,12 @@ J.\ Comput.\ Chem.
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 3 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
 
-\clearpage
+\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
+\label{fig:alkenes_hf_dft}
+\end{figure}
 
+\begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 4
 \begin{center}
 \includegraphics[width=8cm]{short_pbe0_tddft_2013}
@@ -605,17 +547,12 @@ J.\ Comput.\ Chem.
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 4 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
 
-\clearpage
+\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
+\label{fig:alkenes_tddft}
+\end{figure}
 
+\begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 5
 \begin{center}
 \includegraphics[width=8cm]{ring_pbe0_st}
@@ -630,17 +567,13 @@ J.\ Comput.\ Chem.
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 5 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
 
-\clearpage
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
+C\(_{54}\)H\(_{18}\) is shown in the bottom.}
+\label{fig:rings_graphs}
+\end{figure}
 
+\begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 6
 \begin{center}
 \includegraphics[width=8cm]{long_pbe0_st}
@@ -652,17 +585,12 @@ J.\ Comput.\ Chem.
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 6 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
 
-\clearpage
+\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
+\label{fig:long_chain_graphs}
+\end{figure}
 
+\begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 7
 \begin{center}
 \includegraphics[width=8cm]{long_pbe0_s2}
@@ -673,15 +601,168 @@ J.\ Comput.\ Chem.
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 7 \\
-Alexander Punter, Paola Nava, Yannick Carissan \\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
+\caption{Comparison of $S^2$ expectation values obtained for the calculation
+of the first triplet configuration in a SCF formalism, for reference
+and pseudo-systems.}
+\label{fig:ssquare}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% FIGURES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIGURES % FIGURE FILES
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 1
+% FIGURES \begin{center}
+% FIGURES %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
+% FIGURES \includegraphics[width=8cm]{ch3.png}
+% FIGURES \includegraphics[width=8cm]{pseudoch3.png}
+% FIGURES \includegraphics[width=8cm]{tm_sp2_potentials.png}
+% FIGURES %\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
+% FIGURES %\label{figure:ref_pseudo_diagram}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 1 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 2
+% FIGURES \begin{center}
+% FIGURES %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
+% FIGURES \fbox{\includegraphics[width=0.45\textwidth]{hires_long_r_crop.png}}%
+% FIGURES \fbox{\includegraphics[width=0.45\textwidth]{hires_short_r_crop.png}}
+% FIGURES %\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
+% FIGURES %\label{fig:long_r_ethene}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 2 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 3
+% FIGURES \begin{center}
+% FIGURES \includegraphics[width=8cm]{short_pbe0_homo}
+% FIGURES \includegraphics[width=8cm]{short_pbe0_ie}
+% FIGURES \includegraphics[width=8cm]{short_pbe0_st}
+% FIGURES %\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
+% FIGURES %\label{fig:alkenes_hf_dft}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 3 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 4
+% FIGURES \begin{center}
+% FIGURES \includegraphics[width=8cm]{short_pbe0_tddft_2013}
+% FIGURES \includegraphics[width=8cm]{short_pbe0_tddft}
+% FIGURES %\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
+% FIGURES %\label{fig:alkenes_tddft}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 4 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 5
+% FIGURES \begin{center}
+% FIGURES \includegraphics[width=8cm]{ring_pbe0_st}
+% FIGURES \includegraphics[width=8cm]{ring_pbe0_ie}
+% FIGURES \includegraphics[width=8cm]{ring_pbe0_homo}
+% FIGURES \includegraphics[width=8cm]{ring_pbe0_tddft}
+% FIGURES %\includegraphics[width=5cm]{19_ring_diagram}
+% FIGURES \fbox{\includegraphics[width=5cm]{c54h18}}
+% FIGURES %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
+% FIGURES %C\(_{54}\)H\(_{18}\) is shown in the bottom.}
+% FIGURES %\label{fig:rings_graphs}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 5 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 6
+% FIGURES \begin{center}
+% FIGURES \includegraphics[width=8cm]{long_pbe0_st}
+% FIGURES \includegraphics[width=8cm]{long_pbe0_ie}
+% FIGURES \includegraphics[width=8cm]{long_pbe0_homo}
+% FIGURES \includegraphics[width=8cm]{long_pbe0_tddft}
+% FIGURES %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
+% FIGURES %\label{fig:long_chain_graphs}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 6 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
+% FIGURES \clearpage
+% FIGURES 
+% FIGURES %\vspace*{0.1in}   %%% FIGURE 7
+% FIGURES \begin{center}
+% FIGURES \includegraphics[width=8cm]{long_pbe0_s2}
+% FIGURES %\caption{Comparison of $S^2$ expectation values obtained for the calculation
+% FIGURES %of the first triplet configuration in a SCF formalism, for reference
+% FIGURES %and pseudo-systems.}
+% FIGURES %\label{fig:ssquare}
+% FIGURES \end{center}
+% FIGURES \vspace{0.25in}
+% FIGURES \hspace*{3in}
+% FIGURES {\Large
+% FIGURES \begin{minipage}[t]{3in}
+% FIGURES \baselineskip = .5\baselineskip
+% FIGURES Figure 7 \\
+% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
+% FIGURES J.\ Comput.\ Chem.
+% FIGURES \end{minipage}
+% FIGURES }
+% FIGURES 
 \clearpage
 
 %\begin{table}
@@ -713,6 +794,8 @@ the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0).
 \label{table:ch3_s_potentials}
 \end{table}
 
+\newpage
+
 \begin{table}[ht]
 \begin{tabular}{c c c c}
 \hline
@@ -731,6 +814,8 @@ pseudo-CH\(^{\bullet}_{3}\) with only \(s\)-potentials and an exponent of 10.0. 
 in Figure~\ref{figure:ref_pseudo_diagram}.}
 \label{table:ethene_s_pseudo}
 \end{table}
+
+\newpage
 
 \begin{table}[ht]
 \begin{tabular}{c c c c}
@@ -755,6 +840,8 @@ The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimi
 \label{table:p_potentials}
 \end{table}
 
+\newpage
+
 \begin{table}[ht]
 \begin{tabular}{c c c c c}
 \hline
@@ -777,6 +864,8 @@ The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimi
 \label{table:ethene_excitations}
 \end{table}
 
+\newpage
+
 \begin{table}[h]
 \begin{tabular}{c c c c c c }
 \hline
@@ -791,6 +880,8 @@ Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\
 \caption{\%-errors across calculation types for short chain alkenes  (C\(_{2}\)-C\(_{12}\))}
 \label{table:alkene_errors}
 \end{table}
+
+\newpage
 
 \begin{table}[h]
 \begin{tabular}{c c c c c c }
@@ -807,6 +898,8 @@ Mean TD-DFT Excitation error (\%) & - & 0.099 & - & - & - \\
 \label{table:ring_system_errors}
 \end{table}
 
+\newpage
+
 \begin{table}[h]
 \begin{tabular}{c c c c c c }
 \hline
@@ -821,6 +914,8 @@ Mean TD-DFT Excitation error (\%) & - & 0.005 & - & - & - \\
 \caption{\%-errors across calculation types for long chain alkenes (C\(_{20}\)-C\(_{100}\))}
 \label{table:long_alkene_errors}
 \end{table}
+
+\newpage
 
 \begin{table}
 \begin{tabular}{c c c c}
