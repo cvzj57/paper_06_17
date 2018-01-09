@@ -255,13 +255,13 @@ Perspectives are presented in the conclusion.
 
 \section*{\sffamily \Large METHODOLOGY}
 
-\subsection*{\sffamily \large Pseudo-potential definition}
+\subsection*{\sffamily \large General pseudo-potential definition}
 
-As in our previous work\cite{drujon_pseudopotentials_2013},
-we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
-It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
-This choice allows us to isolate the different electrostatic interactions
-to build a physically meaningful model.
+%As in our previous work\cite{drujon_pseudopotentials_2013},
+%we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
+%It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
+%This choice allows us to isolate the different electrostatic interactions
+%to build a physically meaningful model.
 We make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
@@ -287,6 +287,13 @@ As will be discussed in the following sections,
 the \(p\) pseudo-potential allows to reproduce atomic properties, when the
 \(s\)-potentials mimic electrostatic electron pair repulsion. The pseudo-potentials are mono-electronic operators, thus they shall not be able to reproduce fully bi-electronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties, such as spatial extent, energy and excitation energies, are as close as possible to those of the reference system.
 
+\subsection*{\sffamily \large Extraction for the CH$_3^\bullet$ radical}
+\label{section:potential_derivation}
+As in our previous work\cite{drujon_pseudopotentials_2013},
+we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
+It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
+This choice allows us to isolate the different electrostatic interactions
+to build a physically meaningful model.
 Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by
 a hydrogen-like "pseudo-carbon", with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
 There are now no H atoms, and the system is surrounded by three potential sets at a planar distance of \(d\), each consisting of 
@@ -298,8 +305,8 @@ We can alter the strength and diffuseness of the \(p\) and \(s\) potentials them
 as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
 In this article, we fix \(c = 0.25\;a.u.\).
 
-\subsection*{\sffamily \large Making Potentials Physically Meaningful}
-\label{section:potential_derivation}
+%\subsection*{\sffamily \large Making Potentials Physically Meaningful}
+%\label{section:potential_derivation}
 
 It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
 %	The generic forms of Gaussian Type Orbitals for \(s\) and \(p_{z}\) are [REF]
@@ -348,12 +355,25 @@ Finally, knowing that our hydrogen-like pseudo-system already contains a charge,
 Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
-We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
+We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian
+exponent, and the \(Z_{eff}\) then follows from the above.
+Clearly, the exponent should be chosen to give us a strong overlap with the molecular
+orbital we wish to influence.
+Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful.
+The maximum overlap possible ($\approx$ 0.79) was obtained with an exponent
+of 0.295 a.u., which leads to a coefficient of -3.267 a.u.
 
-
-\section*{\sffamily \Large RESULTS, DEVELOPMENT AND DISCUSSION}
-
-\subsection*{\sffamily \large Definition of the pseudo potential}
+\subsection*{\sffamily \large Extraction in the general case for C sp$^2$ atoms}
+\label{section:csp2_extraction}
+The CH$_3^\bullet$ proof of concept allowed us to test our model but is not useful
+when dealing with $\pi$ molecular interactions as it does not contain
+any $\pi$ bond.
+We intend to extract a pseudo-potential, which interacts properly with 
+other $\pi$ carrying atoms, would they be pseudo-system or real systems.
+Furthermore, we we expect our hypothesis to be grounded and should be able to
+extract parameters on as few as possible data.
+Thus, we extracted the optimal pseudo-potential by a step by step procedure described in 
+the supplementry materials on the smallest $\pi$ system: the ethylene molecule.
 Based on Equation \ref{eq:ourPP}, we define the complete pseudo potential as:
 
 \begin{equation}
@@ -394,9 +414,12 @@ Optimal pseudo potential &  & -3.533 & -9.806 & -10.062 \\
 \caption{\label{tab:res_ourPP}Comparison of the properties of the referecen ethylen molecule and its reproduction with the optimal pseudo potential obtained in this work. Calculations are performed at the HF level, values are in atomic eV.}
 \end{table}
 
+
+\section*{\sffamily \Large RESULTS, DEVELOPMENT AND DISCUSSION}
+
 \subsection*{\sffamily \large C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
-Taking these new potentials we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
+Taking these optimal parameters we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
