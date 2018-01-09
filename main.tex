@@ -1,11 +1,11 @@
 % Modified for use with JCC - Madhusudan Singh Copyright (C) (2012). All rights reserved.
-\documentclass[12pt]{article}
+\documentclass[12pt]{revtex4-1}
 
 \setlength{\oddsidemargin}{0in}  %left margin position, reference is one inch
 \setlength{\textwidth}{6.5in}    %width of text=8.5-1in-1in for margin
 \setlength{\topmargin}{-0.5in}    %reference is at 1.5in, -.5in gives a start of about 1in from top
 \setlength{\textheight}{9in}     %length of text=11in-1in-1in (top and bot. marg.) 
-\newenvironment{wileykeywords}{\textsf{Keywords:}\hspace{\stretch{1}}}{\hspace{\stretch{1}}\rule{1ex}{1ex}}
+%\newenvironment{wileykeywords}{\textsf{Keywords:}\hspace{\stretch{1}}}{\hspace{\stretch{1}}\rule{1ex}{1ex}}
 
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}% Include figure files
@@ -13,19 +13,20 @@
 \usepackage{color}% Include colors for document elements
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[numbers,super,comma,sort&compress]{natbib}
+%\usepackage[numbers,super,comma,sort&compress]{natbib}
 %\usepackage[nolists, nomarkers, figuresfirst]{endfloat}
 
 \definecolor{background-color}{gray}{0.98}
 \graphicspath{{data/}{images/}}
 
+\begin{document}
+
 %\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
 \title{Atomic pseudo-potentials for reproducing the valence electron behaviour of sp$^2$ carbon atoms}
 \author{Alexander Punter\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Paola Nava\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Yannick Carissan \thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}}
 
-\begin{document}
 
-\maketitle
+
 
 
 \begin{abstract}
@@ -36,10 +37,10 @@ electron. It is employed in \textsl{ab-initio} calculations in which several phy
 including first ionisation and excitation energies, as well as the HOMO energy, 
 are found to be well-reproduced by the pseudo-system.
 \end{abstract}
-
-\begin{wileykeywords}
-Anisotropy, Pseudo-potential, $\pi$ system, Quantum Chemistry, Spin contamination
-\end{wileykeywords}
+\maketitle
+%\begin{wileykeywords}
+%Anisotropy, Pseudo-potential, $\pi$ system, Quantum Chemistry, Spin %contamination
+%\end{wileykeywords}
 
 \clearpage
 
@@ -77,10 +78,9 @@ are found to be well-reproduced by the pseudo-system.
 
 
 \clearpage
+% 
 
-
-\section*{\sffamily \Large INTRODUCTION}
-
+\section{INTRODUCTION}
 \newcounter{customItem}
 \newcommand{\showCustomItem}{\refstepcounter{customItem}\roman{customItem}}
 
@@ -253,9 +253,9 @@ version of the method.
 The extracted pseudo-potentials are then employed for extended systems.
 Perspectives are presented in the conclusion.
 
-\section*{\sffamily \Large METHODOLOGY}
+\section{METHODOLOGY}
 
-\subsection*{\sffamily \large General pseudo-potential definition}
+\subsection{General pseudo-potential definition}
 
 %As in our previous work\cite{drujon_pseudopotentials_2013},
 %we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
@@ -287,7 +287,7 @@ As will be discussed in the following sections,
 the \(p\) pseudo-potential allows to reproduce atomic properties, when the
 \(s\)-potentials mimic electrostatic electron pair repulsion. The pseudo-potentials are mono-electronic operators, thus they shall not be able to reproduce fully bi-electronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties, such as spatial extent, energy and excitation energies, are as close as possible to those of the reference system.
 
-\subsection*{\sffamily \large Extraction for the CH$_3^\bullet$ radical}
+\subsection{Extraction for the CH$_3^\bullet$ radical}
 \label{section:potential_derivation}
 As in our previous work\cite{drujon_pseudopotentials_2013},
 we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
@@ -305,7 +305,7 @@ We can alter the strength and diffuseness of the \(p\) and \(s\) potentials them
 as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
 In this article, we fix \(c = 0.25\;a.u.\).
 
-%\subsection*{\sffamily \large Making Potentials Physically Meaningful}
+%\subsection{Making Potentials Physically Meaningful}
 %\label{section:potential_derivation}
 
 It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
@@ -363,7 +363,7 @@ Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful.
 The maximum overlap possible ($\approx$ 0.79) was obtained with an exponent
 of 0.295 a.u., which leads to a coefficient of -3.267 a.u.
 
-\subsection*{\sffamily \large Extraction in the general case for C sp$^2$ atoms}
+\subsection{Extraction in the general case for C sp$^2$ atoms}
 \label{section:csp2_extraction}
 The CH$_3^\bullet$ proof of concept allowed us to test our model but is not useful
 when dealing with $\pi$ molecular interactions as it does not contain
@@ -415,9 +415,9 @@ Optimal pseudo potential &  & -3.533 & -9.806 & -10.062 \\
 \end{table}
 
 
-\section*{\sffamily \Large RESULTS, DEVELOPMENT AND DISCUSSION}
+\section{RESULTS, DEVELOPMENT AND DISCUSSION}
 
-\subsection*{\sffamily \large C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
+\subsection{C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
 Taking these optimal parameters we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
@@ -426,7 +426,7 @@ Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. T
 Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
 Let us recall here that in our previous work potentials were placed at the center of bonds.
 
-\subsection*{\sffamily \large Large Systems}
+\subsection{Large Systems}
 
 The potentials derived above are also tested on larger systems.
 Figure \ref{fig:rings_graphs} shows the $\Delta_{ST}$, the IE and
@@ -468,19 +468,19 @@ physically grounded.
 
 \clearpage
 
-\subsection*{\sffamily \large Computational Details}
+\subsection{Computational Details}
 
 All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
 
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
-\subsection*{\sffamily \large Optimisation}
+\subsection{Optimisation}
 
 In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
 
 Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
-\section*{\sffamily \Large CONCLUSION}
+\section{CONCLUSION}
 In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
 Firstly, the new pseudo-potentials for sp$^2$ hybridised
@@ -508,12 +508,12 @@ Finally, QM/MM tests can be started quickly, as we could fix the local geometry 
 in the QM part. The MM part would be taken care of without modification of the standard parameters.
 
 \clearpage
-\subsection*{\sffamily \large CH\(_{3}\), with \(s\)-potentials}
+\subsection{CH\(_{3}\), with \(s\)-potentials}
 
 We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
 This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.
 
-\subsection*{\sffamily \large Ethene, with \(s\) and \(p\)-potentials}
+\subsection{Ethene, with \(s\) and \(p\)-potentials}
 
 Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) a.u. gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\) a.u., the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the additional use of the \(p_{z}\) potential \textit{alongside} the \(s\) potentials.
 
@@ -1002,7 +1002,7 @@ to represent the triplet excited state from the closed shell singlet state.
 Example case of C$_{50}$H$_{52}$.}
 \end{table}
 
-\subsection*{\sffamily \large Geometry Optimisation}
+\subsection{Geometry Optimisation}
 \label{section:geometry_optimisation}
 
 Using pseudo-potential calculations for geometry optimisation presents some difficulties. Designing pseudo-potentials such that the explicitly-treated parts of the molecule experience the correct attraction and repulsion at a particular geometry is one thing, designing them such that the same is true at any (reasonable) geometry is quite another. With a little knowledge of the all-electron system however, we can ensure that the pseudo-system will fall into the correct geometry.
