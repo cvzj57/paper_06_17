@@ -350,22 +350,49 @@ Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 
 We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
 
+
 \section*{\sffamily \Large RESULTS, DEVELOPMENT AND DISCUSSION}
-\subsection*{\sffamily \large CH\(_{3}\), with \(s\)-potentials}
 
-We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
-This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.
+\subsection*{\sffamily \large Definition of the pseudo potential}
+Based on Equation \ref{eq:ourPP}, we define the complete pseudo potential as:
 
-\subsection*{\sffamily \large Ethene, with \(s\) and \(p\)-potentials}
+\begin{equation}
+\label{eq:ourPPwithparams}
+\hat{W} = \frac{1}{r}\left[%
+\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|+
+\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|
+\right]
+\end{equation}
 
-Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) a.u. gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\) a.u., the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the additional use of the \(p_{z}\) potential \textit{alongside} the \(s\) potentials.
+\begin{table}
+\begin{tabular}{c c c c}
+\hline
+$s$ potential & $C_J$ & $\gamma_J$ & $r^0_J$ \\
+\hline
+& 1.5 & 0.5   & 0.5590\\
+\hline
+$p$ potential & $A_I$ & $\alpha_I$ \\ 
+\hline
+& -3.91 & 0.624  \\
+\hline
+\end{tabular}
+\caption{\label{tab:params}Optimal parameters obtained for the pseudo 
+$\pi$ carbon atom (values in atomic units) at the HF level of theory.}
+\end{table}
 
-The next step adds a \(p\)-potential centred on the pseudo-carbon, with Table \ref{table:p_potentials} displaying the results. As before, \(d = 0.5\) a.u.. The \(p_{z}\) potential is selected using the procedure described in Section \ref{section:potential_derivation}, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital, and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap. The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\). We again take these potentials to create a pseudo-ethene molecule, with the results shown in Table \ref{table:p_potentials}. We can see that these potentials seem to transfer more effectively from the CH\(^{\bullet}_{3}\) system to the ethene, suggesting therefore that whilst the \(s\)-potentials can affect both the \(p_{z}\) and \(\pi\) orbitals, they 
-cannot alone describe the relationship between them.
+With parameters defined in Table \ref{tab:params}, the potential reproduces the properties of the ethylen $\pi$ cloud system with a good accuracy: relative errors on the ionisation energy and the energies of the HOMO orbital of 8\% and 3\% respectively (Table \ref{tab:res_ourPP}).
 
-Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
-the singlet-triplet excitation energy ($\Delta_{ST}$) in the SCF framework (energy difference between the triplet and the singlet mono-reference
-calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
+\begin{table}[ht]
+\begin{tabular}{c c c c c}
+& & $\Delta_{ST}$  & Ionisation  & $\varepsilon_{HOMO}$  \\
+\hline
+\multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
+\hline
+Optimal pseudo potential &  & -3.533 & -9.806 & -10.062 \\
+\hline
+\end{tabular}
+\caption{\label{tab:res_ourPP}Comparison of the properties of the referecen ethylen molecule and its reproduction with the optimal pseudo potential obtained in this work. Calculations are performed at the HF level, values are in atomic eV.}
+\end{table}
 
 \subsection*{\sffamily \large C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
@@ -458,11 +485,29 @@ Finally, QM/MM tests can be started quickly, as we could fix the local geometry 
 in the QM part. The MM part would be taken care of without modification of the standard parameters.
 
 \clearpage
+\subsection*{\sffamily \large CH\(_{3}\), with \(s\)-potentials}
+
+We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
+This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.
+
+\subsection*{\sffamily \large Ethene, with \(s\) and \(p\)-potentials}
+
+Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) a.u. gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\) a.u., the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the additional use of the \(p_{z}\) potential \textit{alongside} the \(s\) potentials.
+
+The next step adds a \(p\)-potential centred on the pseudo-carbon, with Table \ref{table:p_potentials} displaying the results. As before, \(d = 0.5\) a.u.. The \(p_{z}\) potential is selected using the procedure described in Section \ref{section:potential_derivation}, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital, and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap. The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\). We again take these potentials to create a pseudo-ethene molecule, with the results shown in Table \ref{table:p_potentials}. We can see that these potentials seem to transfer more effectively from the CH\(^{\bullet}_{3}\) system to the ethene, suggesting therefore that whilst the \(s\)-potentials can affect both the \(p_{z}\) and \(\pi\) orbitals, they 
+cannot alone describe the relationship between them.
+
+Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
+the singlet-triplet excitation energy ($\Delta_{ST}$) in the SCF framework (energy difference between the triplet and the singlet mono-reference
+calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
+
+\clearpage
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAPHY
 
-\bibliography{biblio_pseudo_alex.bib}   % Produces the bibliography via BibTeX.
+\bibliography{biblio_pseudo_alex}   % Produces the bibliography via BibTeX.
 
 %\begin{thebibliography}{99}
 %
@@ -933,6 +978,26 @@ of the excitations obtained with TD-DFT
 to represent the triplet excited state from the closed shell singlet state.
 Example case of C$_{50}$H$_{52}$.}
 \end{table}
+
+\subsection*{\sffamily \large Geometry Optimisation}
+\label{section:geometry_optimisation}
+
+Using pseudo-potential calculations for geometry optimisation presents some difficulties. Designing pseudo-potentials such that the explicitly-treated parts of the molecule experience the correct attraction and repulsion at a particular geometry is one thing, designing them such that the same is true at any (reasonable) geometry is quite another. With a little knowledge of the all-electron system however, we can ensure that the pseudo-system will fall into the correct geometry.
+
+We begin by finding curves of dissociation for the explicit and pseudo-potential parts of the molecule, as well as another for the same parts of the all-electron molecule (see Fig \ref{fig:dissociation_diagram}). We then use a nonlinear least-squares Marquardt-Levenburg algorithm to fit a simple, exponentially-decreasing function to the difference between thsese two curves. We can now use this to make an energy correction to the pseudo-system. 
+ 
+We want the total energy of the system to be a minimum and the energy gradients on the explicitly-treated atoms to be zero at the true geometry (this needn't be true of the pseudo-atoms, see below). We have the correction for the total energy, and by taking the derivative of the fitted function, we have a measure of whether the explicit and pseudo-potential parts of the molecule experience an overall attraction or repulsion, as well as an estimate of its magnitude. We assume the effect of the potentials on the explicit hydrogen atoms is small, and add our gradient correction directly to the potential felt along the carbon-pseudo-carbon axis by one carbon, whilst subtracting it from the potential felt by the other. By doing this at every step of the optimisation, the carbon-pseudo-carbon distance should naturally reach the correct value.
+
+Finally, the pseudo-atoms are fixed relative to each other before starting the optimisation.
+
+\begin{figure}
+\begin{center}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Diagram of dissociation curves for all-electron and pseudo-molecular calculations.}
+\label{figure:dissociation_diagram}
+\end{figure}
 
 \end{document}
 
