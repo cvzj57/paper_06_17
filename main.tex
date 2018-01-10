@@ -1,5 +1,6 @@
 % Modified for use with JCC - Madhusudan Singh Copyright (C) (2012). All rights reserved.
-\documentclass[12pt,aip]{revtex4-1}
+%\documentclass[aip,reprint]{revtex4-1}
+\documentclass[aip]{revtex4-1}
 
 \setlength{\oddsidemargin}{0in}  %left margin position, reference is one inch
 \setlength{\textwidth}{6.5in}    %width of text=8.5-1in-1in for margin
@@ -27,9 +28,6 @@
 \author{Paola Nava}
 \author{Yannick Carissan}
 \affiliation{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}
-
-
-
 
 \begin{abstract}
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built 
@@ -153,10 +151,10 @@ where $\Delta_i$ is the Laplacian of the coordinates of electron $i$, and
 $Z_C$ is the number of core electrons withdrawn from the reference system.
 The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that prevents active electrons
 collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
-Coulomb and exchange interactions, for which Hunzinaga proposed a spectral formulation:
+Coulomb and exchange interactions:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
-\hat{V} = r^{-n}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right] \text{with}\;n=1
+\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
 \end{equation}
 
 To take into account the fact that dormant electrons are removed from the
@@ -262,11 +260,11 @@ for extended systems.
 %It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
 %This choice allows us to isolate the different electrostatic interactions
 %to build a physically meaningful model.
-We make use of two kinds of gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+We make use of two kinds of gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
-\hat{W} = r^{-n}\left[%
+\hat{W} = \frac{1}{r}\left[%
 \underbrace{\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\sum_m\left<Y_{1,m}\right|}_{\text{p projectors}}%
 +%
 \underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
@@ -396,7 +394,7 @@ Based on Equation \ref{eq:ourPP}, we define the complete pseudo potential as:
 \end{equation}
 
 \begin{table}[ht]
-\begin{tabular}{c c c c}
+\begin{tabular}{llll}
 \hline\hline
 $s$ potential & $C_J=1.5$ & $\gamma_J=0.5$   & $r^0_J=0.5590$\\
 $p$ potential & $A_I=-3.91$ & $\alpha_I=0.624$ &  \\
@@ -410,7 +408,7 @@ $\pi$ carbon atom (values in atomic units) at the HF level of theory.}
 With parameters defined in Table \ref{tab:params}, the potential reproduces the properties of the ethylene $\pi$ cloud system with a good accuracy: relative errors on the ionisation energy and the energies of the HOMO orbital of 8\% and 3\% respectively (Table \ref{tab:res_ourPP}).
 
 \begin{table}[ht]
-\begin{tabular}{c c c c}
+\begin{tabular}{llll}
 \hline\hline
 & $\Delta_{ST}$  & IP  & $\varepsilon_{HOMO}$  \\
 \hline
@@ -463,10 +461,14 @@ Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for e
 \includegraphics[width=8cm]{short_pbe0_homo}
 \includegraphics[width=8cm]{short_pbe0_ie}
 \includegraphics[width=8cm]{short_pbe0_st}
-%\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
-%\label{fig:alkenes_hf_dft}
 \end{center}
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
+\caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$), the ionisation energy (I.E.) and
+the first singlet-triplet excitation energy ($\Delta_{ST}$) between the
+all electron reference system and the optimal pseudo-potential across a range of chain alkenes.
+The $\Delta_{ST}$ values were obtained as the difference
+between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
+(in a restricted formalism).
+Calculations were done with the PBE0 functional.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
@@ -484,7 +486,7 @@ Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for e
 \end{figure}
 
 \begin{table}[ht]
-\begin{tabular}{c c c c c c }
+\begin{tabular}{l r r r r r }
 \hline \hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline
@@ -529,7 +531,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
 
 \begin{table}[ht]
-\begin{tabular}{c c c c c c }
+\begin{tabular}{l r r r r r }
 \hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
@@ -561,7 +563,7 @@ alkene chains (\(n\) up to 100).
 \end{figure}
 
 \begin{table}[ht]
-\begin{tabular}{c c c c c c }
+\begin{tabular}{l r r r r r }
 \hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
@@ -606,7 +608,7 @@ and pseudo-systems.}
 \end{figure}
 
 \begin{table}[ht]
-\begin{tabular}{c c c c}
+\begin{tabular}{c c r r}
 \hline\hline
 \multicolumn{2}{c}{Excitation} & \multicolumn{2}{c}{Weight(\%)}\\
 \multicolumn{2}{c}{MO} & Ref. & Pseudo.\\
