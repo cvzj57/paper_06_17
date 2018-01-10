@@ -460,7 +460,7 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 
 Taking these optimal parameters we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{tab:res_ourPP}. 
-Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results.
+Figure \ref{fig:alkenes_hf_dft} shows the results.
 Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
 \begin{figure}
@@ -468,28 +468,19 @@ Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for e
 \includegraphics[width=8cm]{short_pbe0_homo}
 \includegraphics[width=8cm]{short_pbe0_ie}
 \includegraphics[width=8cm]{short_pbe0_st}
+\includegraphics[width=8cm]{short_pbe0_tddft}
 \end{center}
-\caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$), the ionisation energy (I.E.) and
-the first singlet-triplet excitation energy ($\Delta_{ST}$) between the
+\caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$),
+the ionisation energy (I.E.),
+the first singlet-triplet excitation energy ($\Delta_{ST}$) and
+the TD-DFT first excitation energy
+between the
 all electron reference system and the optimal pseudo-potential across a range of chain alkenes.
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
 Calculations were done with the PBE0 functional.}
 \label{fig:alkenes_hf_dft}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=8cm]{short_pbe0_tddft_2013}
-\includegraphics[width=8cm]{short_pbe0_tddft}
-%\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
-%\label{fig:alkenes_tddft}
-\end{center}
-%\hspace*{3in}
-
-\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
-\label{fig:alkenes_tddft}
 \end{figure}
 
 \begin{table}[ht]
@@ -518,16 +509,27 @@ Let us recall here that in our previous work potentials were placed at the cente
 \includegraphics[width=8cm]{ring_pbe0_ie}
 \includegraphics[width=8cm]{ring_pbe0_homo}
 \includegraphics[width=8cm]{ring_pbe0_tddft}
-%\includegraphics[width=5cm]{19_ring_diagram}
-\fbox{\includegraphics[width=5cm]{c54h18}}
-%\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
-%C\(_{54}\)H\(_{18}\) is shown in the bottom.}
-%\label{fig:rings_graphs}
 \end{center}
 
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
-C\(_{54}\)H\(_{18}\) is shown in the bottom.}
+\caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$),
+the ionisation energy (I.E.),
+the first singlet-triplet excitation energy ($\Delta_{ST}$) and
+the TD-DFT first excitation energy
+between the
+all electron reference system and the optimal pseudo-potential across a range of ring molecules.
+The $\Delta_{ST}$ values were obtained as the difference
+between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
+(in a restricted formalism).
+Calculations were done with the PBE0 functional.
+The C\(_{54}\)H\(_{18}\) molecule is represented in figure \ref{fig:c54h18}}
 \label{fig:rings_graphs}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\fbox{\includegraphics[width=5cm]{c54h18}}
+\end{center}
+\caption{\label{fig:c54h18}The C\(_{54}\)H\(_{18}\) molecule.}
 \end{figure}
 
 The potentials derived above are also tested on larger systems.
@@ -565,7 +567,17 @@ alkene chains (\(n\) up to 100).
 %\label{fig:long_chain_graphs}
 \end{center}
 
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
+\caption{
+\caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$),
+the ionisation energy (I.E.),
+the first singlet-triplet excitation energy ($\Delta_{ST}$) and
+the TD-DFT first excitation energy
+between the
+all electron reference system and the optimal pseudo-potential across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).
+The $\Delta_{ST}$ values were obtained as the difference
+between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
+(in a restricted formalism).
+Calculations were done with the PBE0 functional.}
 \label{fig:long_chain_graphs}
 \end{figure}
 
@@ -700,12 +712,13 @@ in the QM part. The MM part would be taken care of without modification of the s
 
 \clearpage
 \section{Supplementary materials}
-\subsection{CH\(_{3}\), with \(s\)-potentials}
+\subsection{Details on the extraction process}
+\subsubsection{CH\(_{3}\), with \(s\)-potentials}
 
 We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
 This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.
 
-\subsection{Ethene, with \(s\) and \(p\)-potentials}
+\subsubsection{Ethene, with \(s\) and \(p\)-potentials}
 
 Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) a.u. gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\) a.u., the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the additional use of the \(p_{z}\) potential \textit{alongside} the \(s\) potentials.
 
@@ -716,11 +729,21 @@ Having successfully created a pseudo-ethene with the correct HOMO, we attempt to
 the singlet-triplet excitation energy ($\Delta_{ST}$) in the SCF framework (energy difference between the triplet and the singlet mono-reference
 calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
 
-\subsection{Optimisation}
+\subsubsection{Optimisation}
 
 In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
 
 Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+
+\subsection{Comparison with our previous study}
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{short_pbe0_tddft_2013}
+\includegraphics[width=8cm]{short_pbe0_tddft}
+\end{center}
+\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
+\label{fig:alkenes_tddft}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FIGURE CAPTIONS

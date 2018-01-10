@@ -1,4 +1,4 @@
-set title "TD-DFT Excitation (PBE0)"
+set title "TD-DFT Excitation"
 set ylabel 'eV'
 set xrange [-.5:4.5]
 set yrange [0:1.5]
