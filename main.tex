@@ -1,5 +1,5 @@
 % Modified for use with JCC - Madhusudan Singh Copyright (C) (2012). All rights reserved.
-\documentclass[12pt]{revtex4-1}
+\documentclass[12pt,aip]{revtex4-1}
 
 \setlength{\oddsidemargin}{0in}  %left margin position, reference is one inch
 \setlength{\textwidth}{6.5in}    %width of text=8.5-1in-1in for margin
@@ -23,8 +23,10 @@
 
 %\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
 \title{Atomic pseudo-potentials for reproducing the valence electron behaviour of sp$^2$ carbon atoms}
-\author{Alexander Punter\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Paola Nava\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Yannick Carissan \thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}}
-
+\author{Alexander Punter}
+\author{Paola Nava}
+\author{Yannick Carissan}
+\affiliation{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}
 
 
 
@@ -87,9 +89,9 @@ are found to be well-reproduced by the pseudo-system.
 %For most of the quantum chemistry calculations, the system can be divided into two parts:
 %the active part, \emph{i.e.} the part of the molecule one is interested in and
 %the inactive part, which is to be taken into account in order to fulfill chemical requirements.
-It is a common idea that a chemical system can be thought of as comprised of (at least) 
+It is a common idea that a chemical system can be thought of as comprised of
 two parts:
-an active one, where most of the chemistry takes place, and an (apparently) inactive
+an active one, where most of the chemistry takes place, and an inactive
 one, which must be taken into account in order to fulfill chemical requirements.
 Based on this general statement, many successful theoretical approaches have been developed.
 Among them can be cited QM/QM' or QM/MM methods (\showCustomItem), where 
@@ -217,9 +219,8 @@ In this operator we notice that the \(r^{-1}\) behavior is mantained for the fir
 %This loss of isotropy combined with the loss of clear core/valence separation
 %will imply constraints during the extraction process.
 
-In the present work, the aim is not to obtain pseudo-potentials for  specific
-chemical groups, as in the case of the cyclopentadienyl anion cited hereabove.
-Instead, we want to propose a methodology for extracting a potential for
+In the present work, the aim is 
+to propose a methodology for extracting a potential for
 a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
 used as a building block for constructing chemical systems. This carbon atom
 will contain explicitly one nuclear charge and one electron.
@@ -235,6 +236,7 @@ atoms have been already successfully extracted in a previous work of ours.\cite{
 There, our attention was focused on the 'no-collapse' term, and 
 functions in the pseudo-potential shift up unwanted orbitals and correctly place the energy of the
 wanted orbitals.
+We show in this work that for our purpose, this term is not needed.
 However, some pseudo-potentials had to be put precisely at the center
 of each bond.
 Thus, those pseudo-potentials could not be considered as atomic as they were not defined solely
@@ -248,10 +250,8 @@ must be given to define the pseudo-potential).
 
 This article is structured as follows.
 In the first part, the method is defined in detail.
-The second part shows the results obtained, from the most crude to the most refined
-version of the method.
-The extracted pseudo-potentials are then employed for extended systems.
-Perspectives are presented in the conclusion.
+The second part shows the results obtained with the optimal pseudo-potential, 
+for extended systems.
 
 \section{METHODOLOGY}
 
@@ -262,26 +262,23 @@ Perspectives are presented in the conclusion.
 %It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
 %This choice allows us to isolate the different electrostatic interactions
 %to build a physically meaningful model.
-We make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+We make use of two kinds of gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
 \hat{W} = r^{-n}\left[%
-\underbrace{\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
+\underbrace{\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\sum_m\left<Y_{1,m}\right|}_{\text{p projectors}}%
 +%
 \underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
 \right]
 \end{equation}
-with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics (the sum over $m$
-is not written explicitly to improve readability) and $r^0_J$ the relative fixed position of the $J^{th}$
+with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics
+and $r^0_J$ the relative fixed position of the $J^{th}$
 potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
 By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
 we can say that the $p$ projectors aim to mimic a coulombic interaction,
 while the $s$ potentials have the task of recovering part of the bi-electronic interaction
 between the dormant and the active electrons.
-Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as they aim at recovering
-the bi-eletronic interactions and the no-collapse term.
-This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
 
 As will be discussed in the following sections,
 the \(p\) pseudo-potential allows to reproduce atomic properties, when the
@@ -296,7 +293,6 @@ This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 1
 \begin{center}
 %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
 \includegraphics[width=8cm]{ch3.png}
@@ -305,13 +301,11 @@ to build a physically meaningful model.
 %\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
 %\label{figure:ref_pseudo_diagram}
 \end{center}
-\vspace{0.25in}
-%\hspace*{3in}
 \caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
 \label{figure:ref_pseudo_diagram}
 \end{figure}
 
-Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by
+Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system: the CH\(^{\bullet}_{3}\) radical has been replaced by
 a hydrogen-like "pseudo-carbon", with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
 There are now no H atoms, and the system is surrounded by three potential sets at a planar distance of \(d\), each consisting of 
 two \(s\)-shaped potentials with a distance above and below the \(xy\)-plane of \(c\). A further \(p\)-shaped potential is applied
@@ -387,10 +381,10 @@ when dealing with $\pi$ molecular interactions as it does not contain
 any $\pi$ bond.
 We intend to extract a pseudo-potential, which interacts properly with 
 other $\pi$ carrying atoms, would they be pseudo-system or real systems.
-Furthermore, we we expect our hypothesis to be grounded and should be able to
-extract parameters on as few as possible data.
+Furthermore, we expect our hypothesis to be grounded and should be able to
+extract parameters on as few data as possible.
 Thus, we extracted the optimal pseudo-potential by a step by step procedure described in 
-the supplementry materials on the smallest $\pi$ system: the ethylene molecule.
+the supplementary materials on the smallest $\pi$ system: the ethylene molecule.
 Based on Equation \ref{eq:ourPP}, we define the complete pseudo potential as:
 
 \begin{equation}
@@ -401,34 +395,35 @@ Based on Equation \ref{eq:ourPP}, we define the complete pseudo potential as:
 \right]
 \end{equation}
 
-\begin{table}
+\begin{table}[ht]
 \begin{tabular}{c c c c}
+\hline\hline
+$s$ potential & $C_J=1.5$ & $\gamma_J=0.5$   & $r^0_J=0.5590$\\
+$p$ potential & $A_I=-3.91$ & $\alpha_I=0.624$ &  \\
 \hline
-$s$ potential & $C_J$ & $\gamma_J$ & $r^0_J$ \\
-\hline
-& 1.5 & 0.5   & 0.5590\\
-\hline
-$p$ potential & $A_I$ & $\alpha_I$ \\ 
-\hline
-& -3.91 & 0.624  \\
 \hline
 \end{tabular}
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
 $\pi$ carbon atom (values in atomic units) at the HF level of theory.}
 \end{table}
 
-With parameters defined in Table \ref{tab:params}, the potential reproduces the properties of the ethylen $\pi$ cloud system with a good accuracy: relative errors on the ionisation energy and the energies of the HOMO orbital of 8\% and 3\% respectively (Table \ref{tab:res_ourPP}).
+With parameters defined in Table \ref{tab:params}, the potential reproduces the properties of the ethylene $\pi$ cloud system with a good accuracy: relative errors on the ionisation energy and the energies of the HOMO orbital of 8\% and 3\% respectively (Table \ref{tab:res_ourPP}).
 
 \begin{table}[ht]
-\begin{tabular}{c c c c c}
-& & $\Delta_{ST}$  & Ionisation  & $\varepsilon_{HOMO}$  \\
+\begin{tabular}{c c c c}
+\hline\hline
+& $\Delta_{ST}$  & IP  & $\varepsilon_{HOMO}$  \\
 \hline
-\multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
-\hline
-Optimal pseudo potential &  & -3.533 & -9.806 & -10.062 \\
-\hline
+Reference Values & -3.533 & -9.091 & -10.363 \\
+Optimal pseudo potential & -3.533 & -9.806 & -10.062 \\
+\hline\hline
 \end{tabular}
-\caption{\label{tab:res_ourPP}Comparison of the properties of the referecen ethylen molecule and its reproduction with the optimal pseudo potential obtained in this work. Calculations are performed at the HF level, values are in atomic eV.}
+\caption{\label{tab:res_ourPP}Comparison of the
+singlet-triplet splitting ($\Delta_{ST}$), ionisation
+potential (IP) and energy of the HOMO orbital ($\varepsilon_{HOMO}$)
+of the reference ethylene molecule
+and its reproduction with the optimal pseudo potential obtained in this work.
+Calculations are performed at the HF level, values are in atomic eV.}
 \end{table}
 
 
@@ -436,35 +431,34 @@ Optimal pseudo potential &  & -3.533 & -9.806 & -10.062 \\
 
 \subsection{C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
-\begin{table}[ht]
-\begin{tabular}{c c c c c}
-\hline
-\(s\) coefficient & \(s\) exponent & $\Delta_{ST}$  & Ionisation  & $\varepsilon_{HOMO}$  \\
-\hline
-\multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
-\hline
-&& \multicolumn{3}{l}{\(p\) coefficient -3.267; \(p\) exponent 0.295} \\
-\hline
-0.552 & 0.1 & -3.533 & -27.158 & -27.31 \\
-0.608 & 1.0 & -3.533 & -28.247 & -28.395 \\
-0.936 & 5.0 & -3.533 & -29.583 & -29.722 \\
-\hline
-\multicolumn{2}{c}{\textit{Optimal Values}} &\multicolumn{3}{l}{\(p\) coefficient -3.91; \(p\) exponent 0.624} \\
-\hline
-1.5 & 0.5 & -3.533 & -9.806 & -10.062 \\
-\hline
-\end{tabular}
-\caption{\(s\)-potential fits to ethene properties as defined in the text (eV). All values are from HF calculations, and \(d = 0.5\) a.u.}
-\label{table:ethene_excitations}
-\end{table}
+%\begin{table}[ht]
+%\begin{tabular}{c c c c c}
+%\hline
+%\(s\) coefficient & \(s\) exponent & $\Delta_{ST}$  & Ionisation  & $\varepsilon_{HOMO}$  \\
+%\hline
+%\multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
+%\hline
+%&& \multicolumn{3}{l}{\(p\) coefficient -3.267; \(p\) exponent 0.295} \\
+%\hline
+%0.552 & 0.1 & -3.533 & -27.158 & -27.31 \\
+%0.608 & 1.0 & -3.533 & -28.247 & -28.395 \\
+%0.936 & 5.0 & -3.533 & -29.583 & -29.722 \\
+%\hline
+%\multicolumn{2}{c}{\textit{Optimal Values}} &\multicolumn{3}{l}{\(p\) coefficient -3.91; \(p\) exponent 0.624} \\
+%\hline
+%1.5 & 0.5 & -3.533 & -9.806 & -10.062 \\
+%\hline
+%\end{tabular}
+%\caption{\(s\)-potential fits to ethene properties as defined in the text (eV). All values are from HF calculations, and \(d = 0.5\) a.u.}
+%\label{table:ethene_excitations}
+%\end{table}
 
 Taking these optimal parameters we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
-before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
+before taking the reference geometry and applying the pseudo-potentials from Table \ref{tab:res_ourPP}. 
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results.
 Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 3
 \begin{center}
 \includegraphics[width=8cm]{short_pbe0_homo}
 \includegraphics[width=8cm]{short_pbe0_ie}
@@ -472,37 +466,33 @@ Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for e
 %\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
 %\label{fig:alkenes_hf_dft}
 \end{center}
-\vspace{0.25in}
-%\hspace*{3in}
 \caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 4
 \begin{center}
 \includegraphics[width=8cm]{short_pbe0_tddft_2013}
 \includegraphics[width=8cm]{short_pbe0_tddft}
 %\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
 %\label{fig:alkenes_tddft}
 \end{center}
-\vspace{0.25in}
 %\hspace*{3in}
 
 \caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
 \label{fig:alkenes_tddft}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{tabular}{c c c c c c }
-\hline
+\hline \hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline
 Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 \\
 Mean Ionisation error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 \\
 Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 \\
 Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\ 
-\hline
+\hline\hline
 \end{tabular}
 \caption{\%-errors across calculation types for short chain alkenes  (C\(_{2}\)-C\(_{12}\))}
 \label{table:alkene_errors}
@@ -514,7 +504,6 @@ Let us recall here that in our previous work potentials were placed at the cente
 \subsection{Large Systems}
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 5
 \begin{center}
 \includegraphics[width=8cm]{ring_pbe0_st}
 \includegraphics[width=8cm]{ring_pbe0_ie}
@@ -526,8 +515,6 @@ Let us recall here that in our previous work potentials were placed at the cente
 %C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 %\label{fig:rings_graphs}
 \end{center}
-\vspace{0.25in}
-%\hspace*{3in}
 
 \caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
 C\(_{54}\)H\(_{18}\) is shown in the bottom.}
@@ -541,16 +528,16 @@ As with the short chain alkenes, the general trend of the results is well-replic
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{tabular}{c c c c c c }
-\hline
+\hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
 Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
 Mean Ionisation error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
 Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
 Mean TD-DFT Excitation error (\%) & - & 0.099 & - & - & - \\ 
-\hline
+\hline\hline
 \end{tabular}
 \caption{\%-errors across calculation types for ring-systems}
 \label{table:ring_system_errors}
@@ -560,7 +547,6 @@ Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refe
 alkene chains (\(n\) up to 100).
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 6
 \begin{center}
 \includegraphics[width=8cm]{long_pbe0_st}
 \includegraphics[width=8cm]{long_pbe0_ie}
@@ -569,23 +555,21 @@ alkene chains (\(n\) up to 100).
 %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 %\label{fig:long_chain_graphs}
 \end{center}
-\vspace{0.25in}
-%\hspace*{3in}
 
 \caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{tabular}{c c c c c c }
-\hline
+\hline\hline
 Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
 Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2 \\
 Mean Ionisation error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
 Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
 Mean TD-DFT Excitation error (\%) & - & 0.005 & - & - & - \\ 
-\hline
+\hline\hline
 \end{tabular}
 \caption{\%-errors across calculation types for long chain alkenes (C\(_{20}\)-C\(_{100}\))}
 \label{table:long_alkene_errors}
@@ -608,7 +592,6 @@ These results suggest that the triplet state cannot be represented as one config
 but as a linear combination of mono-electronic excitations as done through TD-DFT.
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 7
 \begin{center}
 \includegraphics[width=8cm]{long_pbe0_s2}
 %\caption{Comparison of $S^2$ expectation values obtained for the calculation
@@ -616,24 +599,22 @@ but as a linear combination of mono-electronic excitations as done through TD-DF
 %and pseudo-systems.}
 %\label{fig:ssquare}
 \end{center}
-\vspace{0.25in}
-%\hspace*{3in}
 \caption{Comparison of $S^2$ expectation values obtained for the calculation
 of the first triplet configuration in a SCF formalism, for reference
 and pseudo-systems.}
 \label{fig:ssquare}
 \end{figure}
 
-\begin{table}
+\begin{table}[ht]
 \begin{tabular}{c c c c}
-\hline
+\hline\hline
 \multicolumn{2}{c}{Excitation} & \multicolumn{2}{c}{Weight(\%)}\\
 \multicolumn{2}{c}{MO} & Ref. & Pseudo.\\
 \hline
 \multicolumn{2}{c}{25 a" \(\rightarrow\) 26 a"} & 77.0 &   67.1  \\
 \multicolumn{2}{c}{24 a" \(\rightarrow\) 27 a"} & 10.5 &   13.1  \\
 \multicolumn{2}{c}{23 a" \(\rightarrow\) 28 a"} & 3.6  &    5.2  \\
-\hline
+\hline\hline
 \end{tabular}
 \caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudo-potentials)
 of the excitations obtained with TD-DFT
@@ -743,7 +724,6 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 
 %%%%% FIGURE ---- cc.eps
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 2
 \begin{center}
 %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
 \fbox{\includegraphics[width=0.45\textwidth]{hires_long_r_crop.png}}%
@@ -751,9 +731,6 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 %\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
 %\label{fig:long_r_ethene}
 \end{center}
-\vspace{0.25in}
-%\hspace*{3in}
-
 \caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
 \label{fig:long_r_ethene}
 \end{figure}
@@ -771,7 +748,7 @@ calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\
 
 \begin{table}[ht]
 \begin{tabular}{c c c}
-\hline
+\hline\hline
  & Coefficient & Exponent \\ 
 \hline
 HF & -2.594 & 1.0 \\
@@ -781,7 +758,7 @@ HF & -2.594 & 1.0 \\
 PBE0 & -2.605 & 1.0 \\
  & -4.873 & 5.0 \\
  & -7.678 & 10.0 \\
-\hline
+\hline\hline
 \end{tabular}
 \caption{Coefficients and exponents for \(s\)-only pseudo-potentials for CH\(^{\bullet}_{3}\), optimised to give 
 the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0). 
@@ -793,7 +770,7 @@ the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0).
 
 \begin{table}[ht]
 \begin{tabular}{c c c c}
-\hline
+\hline\hline
 & $d$ & \(s\) coefficient & \( \pi \)  \\
 \hline
 HF$^a$   &     &        & -10.363 \\
@@ -801,7 +778,7 @@ PBE0$^a$ &     &        & -6.632 \\
 HF       & 2.0 & -7.521 & -9597.0 \\
 HF       & 0.5 & -7.521  & -7.905 \\
 PBE0     & 0.5 &-7.678  & -8.447 \\
-\hline
+\hline\hline
 \multicolumn{4}{l}{$^a$ All-electron reference values.}\\
 \end{tabular}
 \caption{HOMO energies ($\pi$, eV) for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
@@ -814,7 +791,7 @@ in Figure~\ref{figure:ref_pseudo_diagram}.}
 
 \begin{table}[ht]
 \begin{tabular}{c c c c}
-\hline
+\hline\hline
 & \(p\) coefficient & \(p\) exponent \\
 \hline
 \(p_{z}\) potential & -3.267 & 0.295 \\
@@ -828,7 +805,7 @@ HF & 2.772 & 1.0 & -13.654 \\
 PBE0 & 3.483 & 1.0 & -10.325 \\
  & 9.801 & 5.0 & -10.409 \\
  & 18.351 & 10.0 & -12.543 \\
-\hline
+\hline\hline
 \end{tabular}
 \caption{\(\pi\) orbital energy values (eV) for pseudo-ethene, using \(s\) and \(p\) pseudo-potentials.
 The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimised to give the correct all-electron HOMO energy.}
@@ -849,8 +826,6 @@ The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimi
 %\begin{figure}
 %\begin{center}
 %\end{center}
-%\vspace{0.25in}
-%\hspace*{3in}
 %\caption{Diagram of dissociation curves for all-electron and pseudo-molecular calculations.}
 %\label{figure:dissociation_diagram}
 %\end{figure}
