@@ -294,7 +294,7 @@ the \(p\) pseudo-potential allows to reproduce atomic properties, when the
 \subsection{Extraction for the CH$_3^\bullet$ radical}
 \label{section:potential_derivation}
 As in our previous work\cite{drujon_pseudopotentials_2013},
-we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
+we take CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466 a.u.$) as our starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
 This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
@@ -308,7 +308,11 @@ to build a physically meaningful model.
 %\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
 %\label{figure:ref_pseudo_diagram}
 \end{center}
-\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
+\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\)
+(right, below) molecules.
+The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions,
+and the distances \(d\) and \(c\).
+In this article $d=2.0 a.u.$ and $c=0.25 a.u.$}
 \label{figure:ref_pseudo_diagram}
 \end{figure}
 
@@ -383,7 +387,7 @@ of 0.295 a.u., which leads to a coefficient of -3.267 a.u.
 
 \subsection{Extraction in the general case for C sp$^2$ atoms}
 \label{section:csp2_extraction}
-The CH$_3^\bullet$ proof of concept allowed us to test our model but is not useful
+The CH$_3^\bullet$ radical allowed us to test our model but is not useful
 when dealing with $\pi$ molecular interactions as it does not contain
 any $\pi$ bond.
 We intend to extract a pseudo-potential, which interacts properly with 
@@ -419,17 +423,20 @@ With parameters defined in Table \ref{tab:params}, the potential reproduces the 
 \begin{table}[ht]
 \begin{tabular}{llll}
 \hline\hline
-& $\Delta_{ST}$  & IP  & $\varepsilon_{HOMO}$  \\
+& $\Delta_{ST}$  & I.E.  & $\varepsilon_{HOMO}$  \\
 \hline
 Reference Values & -3.533 & -9.091 & -10.363 \\
-Optimal pseudo potential & -3.533 & -9.806 & -10.062 \\
+Optimal pseudo-potential & -3.533 & -9.806 & -10.062 \\
 \hline\hline
 \end{tabular}
 \caption{\label{tab:res_ourPP}Comparison of the
 singlet-triplet splitting ($\Delta_{ST}$), ionisation
-potential (IP) and energy of the HOMO orbital ($\varepsilon_{HOMO}$)
+energy (I.E.) and energy of the HOMO orbital ($\varepsilon_{HOMO}$)
 of the reference ethylene molecule
 and its reproduction with the optimal pseudo potential obtained in this work.
+The $\Delta_{ST}$ values were obtained as the difference
+between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
+(in a restricted formalism).
 Calculations are performed at the HF level, values are in atomic eV.}
 \end{table}
 
@@ -443,7 +450,7 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 
-\subsection{C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
+\subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
 %\begin{table}[ht]
 %\begin{tabular}{c c c c c}
@@ -495,15 +502,16 @@ Calculations were done with the PBE0 functional.}
 \begin{table}[ht]
 \begin{tabular}{l r r r r r }
 \hline \hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSh \\
+                        & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 \\
-Mean Ionisation error (\%) & 5.3 & 6.0 & 8.1 & 10.1 & 9.0 \\
-Mean Singlet HOMO error (\%) & 1.3 & 4.0 & 8.5 & 12.0 & 9.7 \\
-Mean TD-DFT Excitation error (\%) & - & 2.6 & - & - & - \\ 
+$\varepsilon_{HOMO}$    & 1.3 & 4.0 & 8.5 & 12.0 &  9.7 \\
+I.E.                    & 5.3 & 6.0 & 8.1 & 10.1 &  9.0 \\
+$\Delta_{ST}$           & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 \\
+TD-DFT First Excitation &   - & 2.6 &   - &    - &    - \\ 
 \hline\hline
 \end{tabular}
-\caption{\%-errors across calculation types for short chain alkenes  (C\(_{2}\)-C\(_{12}\))}
+\caption{Mean relative errors (in percent) across methods (HF or different functionals)
+for short chain alkenes  (C\(_{2}\)-C\(_{12}\)).}
 \label{table:alkene_errors}
 \end{table}
 
@@ -514,9 +522,9 @@ Let us recall here that in our previous work potentials were placed at the cente
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8cm]{ring_pbe0_st}
-\includegraphics[width=8cm]{ring_pbe0_ie}
 \includegraphics[width=8cm]{ring_pbe0_homo}
+\includegraphics[width=8cm]{ring_pbe0_ie}
+\includegraphics[width=8cm]{ring_pbe0_st}
 \includegraphics[width=8cm]{ring_pbe0_tddft}
 \end{center}
 
@@ -551,15 +559,16 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \begin{table}[ht]
 \begin{tabular}{l r r r r r }
 \hline\hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+                        & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
-Mean Ionisation error (\%) & 7.4 & 10.0 & 12.5 & 14.4 & 13.0 \\
-Mean Singlet HOMO error (\%) & 3.4  & 9.3  & 13.4 & 17.1 & 14.7 \\
-Mean TD-DFT Excitation error (\%) & - & 0.099 & - & - & - \\ 
+$\varepsilon_{HOMO}$    & 3.4 &  9.3  & 13.4 & 17.1 & 14.7 \\
+I.E.                    & 7.4 & 10.0  & 12.5 & 14.4 & 13.0 \\
+$\Delta_{ST}$           & 3.3 &  1.9  &  1.7 &  6.8 &  6.7 \\
+TD-DFT First Excitation &   - & 0.099 &    - &    - &    - \\ 
 \hline\hline
 \end{tabular}
-\caption{\%-errors across calculation types for ring-systems}
+\caption{Mean relative errors (in percent) across methods (HF or different functionals)
+for ring-systems.}
 \label{table:ring_system_errors}
 \end{table}
 
@@ -568,12 +577,10 @@ alkene chains (\(n\) up to 100).
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8cm]{long_pbe0_st}
-\includegraphics[width=8cm]{long_pbe0_ie}
 \includegraphics[width=8cm]{long_pbe0_homo}
+\includegraphics[width=8cm]{long_pbe0_ie}
+\includegraphics[width=8cm]{long_pbe0_st}
 \includegraphics[width=8cm]{long_pbe0_tddft}
-%\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
-%\label{fig:long_chain_graphs}
 \end{center}
 
 \caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$),
@@ -592,15 +599,16 @@ Calculations were done with the PBE0 functional.}
 \begin{table}[ht]
 \begin{tabular}{l r r r r r }
 \hline\hline
-Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+                 & HF & PBE0 & PBE & TPSS & TPSSH \\
 \hline
-Mean \(\pi - \pi*\) Triplet-Singlet error (\%) & 55.3 & 85.8 & 83.4 & 239.8 & 320.2 \\
-Mean Ionisation error (\%) & 25.1 & 6.7 & 9.4 & 10.3 & 11.6 \\
-Mean Singlet HOMO error (\%) & 1.8 & 7.3 & 11.3 & 16.7 & 13.6 \\
-Mean TD-DFT Excitation error (\%) & - & 0.005 & 0.043 & 0.033 & 0.001 \\ 
+$\varepsilon_{HOMO}$    &  1.8 &  7.3   &  11.3   &  16.7    &  13.6 \\
+I.E.                    & 25.1 &  6.7   &   9.4   &  10.3    &  11.6 \\
+$\Delta_{ST}$           & 55.3 & 85.8   &  83.4   & 239.8    & 320.2 \\
+TD-DFT First Excitation &    - &  0.005 &   0.043 &    0.033 &   0.001 \\ 
 \hline\hline
 \end{tabular}
-\caption{\%-errors across calculation types for long chain alkenes (C\(_{20}\)-C\(_{100}\))}
+\caption{Mean relative errors (in percent) across methods (HF or different functionals)
+for long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{table:long_alkene_errors}
 \end{table}
 
