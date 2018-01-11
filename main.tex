@@ -166,70 +166,22 @@ the modification of the value of the nuclear charge is scaled in $\hat{V}$.
 In this operator we notice that the \(r^{-1}\) behavior is mantained for the first term 
 (the Coulomb one).
 
-%Let us follow Huzinaga in his enlightening work.\cite{huzinaga_effective_1991}
-%In order to extract a meaningful potential, he states that for electron/electron interactions, 
-%"the most important effect is that the exclusion principle prevents active electrons
-%from collapsing into the dormant region.
-%The second is the exchange energy terms between the dormant and active electrons
-%through their electrostatic interaction."
-%For an atom, the Hamiltonian reads:
-%\begin{equation}
-%\label{eq:atomicHamiltonian}
-%\hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
-%\end{equation}
-%with $\frac{1}{r_{ij}}$ the bi-electronic interaction
-%between explicitly treated active electrons and
-%the mono electronic operator:
-%\begin{equation}
-%\label{eq:monoElectronicOperator}
-%\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
-%\end{equation}
-%where
-%$\Delta_i$ is the laplacian of the coordinates of electron $i$,
-%$Z_C$ is the number of core electrons withdrawn from the reference system,
-%$\hat{V}(i)$ the pseudo-potential which reproduces the electrostatic
-%interaction between the dormant and active electrons
-%and $\hat{\sigma}(i)$ the operator, which models the exclusion principle
-%and prevents active electrons from collapsing into the dormant region.
-%To take into account the fact that dormant electrons are removed from the
-%system, the nuclear charge is modified by the $Z_c$ value.
-%Yet, as the effective charge felt by the active electrons is likely not to be an integer,
-%the modification of the value of the nuclear charge is scaled in $\hat{V}$.
-%Depending on the version used, this modification differs.
-%In this work, we take as a reference version 1 as defined in
-%Huzinaga's lecture\cite{huzinaga_1994_1995}:
-%\begin{equation}
-%\label{eq:HuzinagaMPVersion1Potential}
-%\hat{V} = \frac{1}{r}\left[\sum_IA_I\exp(-\alpha r^2)+\sum_JB_Jr\exp(-\beta r^2)\right]
-%\end{equation}
-%In this model potential version, $\hat{\sigma}$ is defined as:
-%\begin{equation}
-%\label{eq:HuzinagaMPVersion1Sigma}
-%\hat{\sigma} = -\sum f_c\epsilon_c\left|\phi_c\right>\left<\phi_c\right|
-%\end{equation}
-%with $\epsilon_c$ the eigenvalue of the core orbital $\phi_c$ and
-%$f_c$ an optimised parameter.
-%In the other versions of model potentials, $f_c=2$, as suggested earlier.\cite{houjer_aspects_1978}
-
-%In the present work, we shall optimise the parameters in $\hat{V}$ and $\hat{\sigma}$
-%for hybridised atoms.
-%Before going further, it is important to stress that hybridisation implies that the
-%$\left\{\phi_c\right\}_i$ are linear combination of atomic orbitals and that
-%$\hat{V}$ should no more be spherical.
-%This loss of isotropy combined with the loss of clear core/valence separation
-%will imply constraints during the extraction process.
-
 In the present work, the aim is 
 to propose a methodology for extracting a potential for
 a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
 used as a building block for constructing chemical systems. This carbon atom
 will contain explicitly one nuclear charge and one electron.
 Moreover, the method should be usable 
-%In this work, we aim at developing a method usable 
 out of the box in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
 This supplementary constraint will be fulfilled by strategically positioning the pseudo-potentials
 we intend to use. 
+We want to stress here that the gain in computational time is not our goal.
+It is clear that replacing bielectronic by a set of monoelectronic integrals
+will result in drastic gains on timings.
+But our puropose is more to check whether our approach of extracting pseudo-potentials
+for hybridised atoms is possible with strictly local pseudo-potentials.
+A study of timings is available in the supplementary materials.
 
 Pseudo-potentials for hybridised carbon
 atoms have been already successfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
@@ -264,11 +216,6 @@ For these cases, a solution is provided.
 
 \subsection{General pseudo-potential definition}
 
-%As in our previous work\cite{drujon_pseudopotentials_2013},
-%we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
-%It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
-%This choice allows us to isolate the different electrostatic interactions
-%to build a physically meaningful model.
 We make use of two kinds of gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
@@ -348,15 +295,7 @@ Next, we need to find a value for \( \langle r \rangle \). We can do this by cal
 \label{equation:exp_r}
 \end{equation}
 
-%%
-%% \begin{equation}
-%% \langle r \rangle = \lambda B \lambda^{T}
-%% \label{equation:exp_r}
-%% \end{equation}
-%% where \(\lambda\) are the Symmetrised Atomic Orbital Shells taken from the molecular orbital files of a reference calculation of a CH\(^{\bullet}_{3}\) %% radical, and B is the matrix of \(\langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle\) values, appropriately normalised and contracted according to the basis %% set used (in this case, def-SV(P) \cite{defsvp}).
-%%
-
- where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
+where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
 \begin{equation}
 S = \langle \psi_{p_{z}} | \chi \rangle
 \end{equation}
@@ -404,13 +343,6 @@ with $R_i$ the radius relative to the position of the $s$ pseudo-potential.
 As represented in Figure \ref{figure:ref_pseudo_diagram}, 6 pseudo-potentials are positionned around
 the pseudo-nucleus at positions given in Table \ref{tab:params}.
 \begin{table}[ht]
-%\begin{tabular}{lll}
-%\hline\hline
-%$s$ potential & $C=1.5$   & $\gamma=0.5$   \\
-%$p$ potential & $A=-3.91$ & $\alpha=0.624$ \\
-%\hline
-%\hline
-%\end{tabular}
 \begin{tabular}{ccccrr}
 \hline\hline
 Type & x & y & z & Coeff. & Exp. \\
@@ -625,10 +557,6 @@ but as a linear combination of mono-electronic excitations as done through TD-DF
 \begin{figure}
 \begin{center}
 \includegraphics[width=8cm]{long_pbe0_s2}
-%\caption{Comparison of $S^2$ expectation values obtained for the calculation
-%of the first triplet configuration in a SCF formalism, for reference
-%and pseudo-systems.}
-%\label{fig:ssquare}
 \end{center}
 \caption{Comparison of $S^2$ expectation values obtained for the calculation
 of the first triplet configuration in a SCF formalism, for reference
@@ -682,7 +610,7 @@ by the use of these new potentials, but also that the virtual space is of good q
 for excited states calculation.
 The model defined here can be used in any wuantum chemistry package, which
 implements atomic pseudo-potentials as we provide all the necessary parameters.
-We are now working in extending our extraction method to other hybridized atoms
+We are now working on extending our extraction method to other hybridized atoms
 in order to provide a library of such potentials.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -690,24 +618,7 @@ in order to provide a library of such potentials.
 
 \bibliography{biblio_pseudo_alex}   % Produces the bibliography via BibTeX.
 
-%\begin{thebibliography}{99}
-%
-%
-%\bibitem{Coulson}
-%Coulson, C. A., Rev. Mod. Phys., \textbf{1960}, 32,170-177.
-%\bibitem{Malrieu}
-%Malrieu, J.-P., J. Mol. Struct., \textbf{1998}, 424, 1-2,83-91.
-%\bibitem{Shaik}
-%Shaik, S., New. J. Chem., \textbf{2007}, 31,2015-2028.
-%\bibitem{Hoffmann}
-%Hoffman, R., Schleyer, P. v. R., Schaefer III, H. F., \textbf{2008}, 47, 7164-7167.
-%\bibitem{Perdew}
-%Perdew, J. P., Ruzsinszky, A., Constantin, L., Sun, J., Csonka, G., J. Chem. Theory Comput., \textbf{2009}, 5, 902-908.
-%\bibitem{Koros}
-%Koros, W. J.; Chern, R. T. In Handbook of Separation Process Technology; Rousseau, E. D.; Russell, B., Eds.; Wiley: New York, \textbf{1987}; Vol. 2, Chapter 20, pp 34-45.
-%\end{thebibliography}
-
-
+%\end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
@@ -827,23 +738,31 @@ The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimi
 \label{table:p_potentials}
 \end{table}
 
-%\subsection{Geometry Optimisation}
-%\label{section:geometry_optimisation}
-%
-%Using pseudo-potential calculations for geometry optimisation presents some difficulties. Designing pseudo-potentials such that the explicitly-treated parts of the molecule experience the correct attraction and repulsion at a particular geometry is one thing, designing them such that the same is true at any (reasonable) geometry is quite another. With a little knowledge of the all-electron system however, we can ensure that the pseudo-system will fall into the correct geometry.
-%
-%We begin by finding curves of dissociation for the explicit and pseudo-potential parts of the molecule, as well as another for the same parts of the all-electron molecule (see Fig \ref{fig:dissociation_diagram}). We then use a nonlinear least-squares Marquardt-Levenburg algorithm to fit a simple, exponentially-decreasing function to the difference between thsese two curves. We can now use this to make an energy correction to the pseudo-system. 
-% 
-%We want the total energy of the system to be a minimum and the energy gradients on the explicitly-treated atoms to be zero at the true geometry (this needn't be true of the pseudo-atoms, see below). We have the correction for the total energy, and by taking the derivative of the fitted function, we have a measure of whether the explicit and pseudo-potential parts of the molecule experience an overall attraction or repulsion, as well as an estimate of its magnitude. We assume the effect of the potentials on the explicit hydrogen atoms is small, and add our gradient correction directly to the potential felt along the carbon-pseudo-carbon axis by one carbon, whilst subtracting it from the potential felt by the other. By doing this at every step of the optimisation, the carbon-pseudo-carbon distance should naturally reach the correct value.
-%
-%Finally, the pseudo-atoms are fixed relative to each other before starting the optimisation.
-%
-%\begin{figure}
-%\begin{center}
-%\end{center}
-%\caption{Diagram of dissociation curves for all-electron and pseudo-molecular calculations.}
-%\label{figure:dissociation_diagram}
-%\end{figure}
+\subsection{Timings}
+The question of timings was not our initial aim.
+Yet, the model that we develop in this work allows for gain in computational time.
+To illustrate this, we provide herein a small study done on the C$_{50}$H$_{52}$
+alkene chain.
+Calculations were performed with two different basis sets: def-SV(P) and QZVPPD.
+WHen using the pseudo-potential, the basis set was truncated by removing all
+basis functions not necessary to the reproduction of the
+$\pi$ system.
+In other terms, only $p$ functions and higher angular momentum were kept.
+As can be seen from Table \ref{tab:time}, the gain increases
+with the size of the basis set as expected.
+The gain ranges from 3 (def-SV(P)) to 8 (QZVPPD).
+
+\begin{table}[ht]
+\begin{tabular}{lrr}
+\hline\hline
+Model            & def-SV(P) & QZVPP \\
+\hline
+All electrons    &        67 & 68928 \\
+Pseudo-potential &        28 &  8566 \\
+\hline\hline
+\end{tabular}
+\caption{\label{tab:time}Time (in second) per SCF iteration.} 
+\end{table}
 
 \end{document}
 
