@@ -293,26 +293,22 @@ the \(p\) pseudo-potential allows to reproduce atomic properties, when the
 
 \subsection{Extraction for the CH$_3^\bullet$ radical}
 \label{section:potential_derivation}
-As in our previous work\cite{drujon_pseudopotentials_2013},
-we take CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466 a.u.$) as our starting system to be reproduced.
+Let us take the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466 a.u.$) as starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
 This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
 
 \begin{figure}
 \begin{center}
-%\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
 \includegraphics[width=8cm]{ch3.png}
 \includegraphics[width=8cm]{pseudoch3.png}
 \includegraphics[width=8cm]{tm_sp2_potentials.png}
-%\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
-%\label{figure:ref_pseudo_diagram}
 \end{center}
 \caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\)
 (right, below) molecules.
 The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions,
 and the distances \(d\) and \(c\).
-In this article $d=2.0 a.u.$ and $c=0.25 a.u.$}
+In this article $d=2.0\;a.u.$ and $c=0.25\;a.u.$}
 \label{figure:ref_pseudo_diagram}
 \end{figure}
 
@@ -327,14 +323,14 @@ We can alter the strength and diffuseness of the \(p\) and \(s\) potentials them
 as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
 In this article, we fix \(c = 0.25\;a.u.\).
 
-%\subsection{Making Potentials Physically Meaningful}
-%\label{section:potential_derivation}
-
-It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
-%	The generic forms of Gaussian Type Orbitals for \(s\) and \(p_{z}\) are [REF]
-%\begin{equation}
-%\psi_{s} = re^{-\alpha r^{2}},\qquad	\psi_{p_{z}} = r \cos \theta e^{-\alpha r^{2}}
-%\end{equation}
+It is possible to obtain the potential parameters entirely by empirical means, in principle.
+However, we can make a more informed guess at some starting parameters from which to optimise.
+Clearly the assumption that \(Z = 1\) is unrealistic.
+Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\)
+electron of a carbon atom should experience a charge of \(Z = 2.4\).
+To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential.
+In order to make an educated guess of the parameters of this new potential, we 
+need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
 
 The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
 \begin{equation}
@@ -400,22 +396,40 @@ Based on Equation \ref{eq:ourPP}, we define the complete pseudo potential as:
 
 \begin{equation}
 \label{eq:ourPPwithparams}
-\hat{W} = \frac{1}{r}\left[%
-\sum_IA_I\exp(-\alpha_I r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|+
-\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|
-\right]
+\hat{W} = \frac{1}{r}
+A\exp(-\alpha r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|+
+\sum_{i=1}^6C\exp(-\gamma R_i^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|
 \end{equation}
-
+with $R_i$ the radius relative to the position of the $s$ pseudo-potential.
+As represented in Figure \ref{figure:ref_pseudo_diagram}, 6 pseudo-potentials are positionned around
+the pseudo-nucleus at positions given in Table \ref{tab:params}.
 \begin{table}[ht]
-\begin{tabular}{llll}
+%\begin{tabular}{lll}
+%\hline\hline
+%$s$ potential & $C=1.5$   & $\gamma=0.5$   \\
+%$p$ potential & $A=-3.91$ & $\alpha=0.624$ \\
+%\hline
+%\hline
+%\end{tabular}
+\begin{tabular}{ccccrr}
 \hline\hline
-$s$ potential & $C_J=1.5$ & $\gamma_J=0.5$   & $r^0_J=0.5590$\\
-$p$ potential & $A_I=-3.91$ & $\alpha_I=0.624$ &  \\
+Type & x & y & z & Coeff. & Exp. \\
 \hline
-\hline
+$s$  & $-c$                   & $0$            & $ d$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $-c$                   & $0$            & $-d$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{ c\sqrt{3}}{2}$  & $\frac{c}{2}$  & $ d$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{ c\sqrt{3}}{2}$  & $\frac{c}{2}$  & $-d$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{-c\sqrt{3}}{2}$ & $\frac{c}{2}$  & $ d$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{-c\sqrt{3}}{2}$ & $\frac{c}{2}$  & $-d$ & $C=1.5$   & $\gamma=0.5$   \\
+$p$  & $0$                    & $0$            & $0$  & $A=-3.91$ & $\alpha=0.624$ \\
+\hline\hline
 \end{tabular}
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
-$\pi$ carbon atom (values in atomic units) at the HF level of theory.}
+$\pi$ carbon atom (values in atomic units) at the HF level of theory.
+Coordinates are relative to the position of the nucleus.
+In this work, $c=0.25\;a.u.$ and $d=2.0\;a.u.$.
+Coefficients are in a.u.
+}
 \end{table}
 
 With parameters defined in Table \ref{tab:params}, the potential reproduces the properties of the ethylene $\pi$ cloud system with a good accuracy: relative errors on the ionisation energy and the energies of the HOMO orbital of 8\% and 3\% respectively (Table \ref{tab:res_ourPP}).
@@ -425,8 +439,8 @@ With parameters defined in Table \ref{tab:params}, the potential reproduces the 
 \hline\hline
 & $\Delta_{ST}$  & I.E.  & $\varepsilon_{HOMO}$  \\
 \hline
-Reference Values & -3.533 & -9.091 & -10.363 \\
-Optimal pseudo-potential & -3.533 & -9.806 & -10.062 \\
+Reference Values & 3.533 & 9.091 & -10.363 \\
+Optimal pseudo-potential & 3.533 & 9.806 & -10.062 \\
 \hline\hline
 \end{tabular}
 \caption{\label{tab:res_ourPP}Comparison of the
@@ -553,9 +567,6 @@ for ring-systems.}
 \label{table:ring_system_errors}
 \end{table}
 
-Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refer to longer 
-alkene chains (\(n\) up to 100).
-
 \begin{figure}
 \begin{center}
 \includegraphics[width=8cm]{long_pbe0_homo}
@@ -593,6 +604,8 @@ for long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{table:long_alkene_errors}
 \end{table}
 
+Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refer to longer 
+alkene chains (\(n\) up to 100).
 The pattern of decreasing ionisation potentials and $\Delta_{ST}$ with increasing HOMO
 energy is still followed, with the absolute error remaining consistent.
 However, differences in the triplet-singlet energies between the reference and pseudo-systems 
