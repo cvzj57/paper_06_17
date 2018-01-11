@@ -453,7 +453,6 @@ When running these calculations the occupation of orbitals is specified manually
 
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
-
 \subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
 Taking these optimal parameters we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
@@ -477,7 +476,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done with the PBE0 functional.}
+Calculations were done at the PBE0/def-SV(P) level.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
@@ -519,7 +518,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done with the PBE0 functional.
+Calculations were done at the PBE0/def-SV(P) level.
 The C\(_{54}\)H\(_{18}\) molecule is represented in figure \ref{fig:c54h18}}
 \label{fig:rings_graphs}
 \end{figure}
@@ -574,7 +573,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done with the PBE0 functional.}
+Calculations were done at the PBE0/def-SV(P) level.}
 \label{fig:long_chain_graphs}
 \end{figure}
 
@@ -752,23 +751,12 @@ Once we started to look at excitation and ionisation energies however, optimisat
 %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
 \fbox{\includegraphics[width=0.45\textwidth]{hires_long_r_crop.png}}%
 \fbox{\includegraphics[width=0.45\textwidth]{hires_short_r_crop.png}}
-%\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
-%\label{fig:long_r_ethene}
 \end{center}
 \caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
 \label{fig:long_r_ethene}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-
-%\begin{table}
-%\begin{tabular}{|c|c|c|c|}\hline
-%\textbf{Quantity} & \textbf{Calculated} & \textbf{Observed} & \textbf{Error} \\ \hline
-%  Density & 5.3 & 6.3 & Within limits \\ \hline
-%  Optical magnification & 8.3 & 90.9 & Utterly unacceptable\! \\ \hline
-%\end{tabular}
-%\caption{\label{tbl1} Place table caption here.}
-%\end{table}
 
 \begin{table}[ht]
 \begin{tabular}{c c c}
