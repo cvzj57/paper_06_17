@@ -234,22 +234,31 @@ atoms have been already successfully extracted in a previous work of ours.\cite{
 There, our attention was focused on the 'no-collapse' term, and 
 functions in the pseudo-potential shift up unwanted orbitals and correctly place the energy of the
 wanted orbitals.
-We show in this work that for our purpose, this term is not needed.
-However, some pseudo-potentials had to be put precisely at the center
+A drawback of this method was that some pseudo-potentials had to be put precisely at the center
 of each bond.
-Thus, those pseudo-potentials could not be considered as atomic as they were not defined solely
-with respect to the position of the atom they applied to. The previous work should therefore be regarded as a proof-of-concept.
+Thus, those pseudo-potentials could not be considered as purely local as they were not defined solely
+with respect to the position of the atom they applied to.
+This previous work should therefore be regarded as a proof-of-concept.
 In this new version, we include more physical meaning in our model, 
 by placing pseudo-potentials that mimic Coulomb interactions among both the active and dormant electrons, and the shielded nuclear charge. 
 The new pseudo-potentials are fully atomic: the position of the atom
 determines completely where the potentials are placed in space in the best possible manner
 when dealing with hybridised atoms (as hybridisation destroys isotropy, the preferred orientations
 must be given to define the pseudo-potential).
+Furthermore, the way we define the pseudo-potentials in the current work, do not require
+the no-collapse term.
 
 This article is structured as follows.
-In the first part, the method is defined in detail.
-The second part shows the results obtained with the optimal pseudo-potential, 
-for extended systems.
+In the methodology part firstly gives the general definition of the pseudo-potential, which
+we develop.
+Secondly the particular case of the CH$_3^\bullet$ radical is detailed as it gives access
+to some phisically grounded values.
+In a third part, the optimal pseudo-potential is defined. Details of the step by step extraction
+are given in the supplementary materials.
+The application part focuses on the performances of the optimal pseudo-potential.
+It is shown that the properties can be well reproduced except when dealing with
+systems in which spin contamination is large.
+For these cases, a solution is provided.
 
 \section{METHODOLOGY}
 
