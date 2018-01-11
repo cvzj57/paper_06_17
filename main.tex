@@ -80,7 +80,7 @@ are found to be well-reproduced by the pseudo-system.
 \clearpage
 % 
 
-\section{INTRODUCTION}
+\section{Introduction}
 \newcounter{customItem}
 \newcommand{\showCustomItem}{\refstepcounter{customItem}\roman{customItem}}
 
@@ -260,7 +260,7 @@ It is shown that the properties can be well reproduced except when dealing with
 systems in which spin contamination is large.
 For these cases, a solution is provided.
 
-\section{METHODOLOGY}
+\section{Methodology}
 
 \subsection{General pseudo-potential definition}
 
@@ -440,39 +440,21 @@ between the lowest triplet (in an unrestricted formalism) and the lowest singlet
 Calculations are performed at the HF level, values are in atomic eV.}
 \end{table}
 
-
-\section{RESULTS, DEVELOPMENT AND DISCUSSION}
+\section{Results and discussion}
 
 \subsection{Computational Details}
 
-All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
+All Hartree-Fock (HF), Density Functional Theory (DFT) and Time-Dependent DFT (TD-DFT) calculations
+are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}.
+The basis set used throughout is def-SV(P) \cite{defsvp}.
+Wherever possible, planar (C\(_{S}\)) symmetry is used.
+The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT.
+When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
 
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 
 \subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
-
-%\begin{table}[ht]
-%\begin{tabular}{c c c c c}
-%\hline
-%\(s\) coefficient & \(s\) exponent & $\Delta_{ST}$  & Ionisation  & $\varepsilon_{HOMO}$  \\
-%\hline
-%\multicolumn{2}{c}{\textit{Reference Values}} & -3.533 & -9.091 & -10.363 \\
-%\hline
-%&& \multicolumn{3}{l}{\(p\) coefficient -3.267; \(p\) exponent 0.295} \\
-%\hline
-%0.552 & 0.1 & -3.533 & -27.158 & -27.31 \\
-%0.608 & 1.0 & -3.533 & -28.247 & -28.395 \\
-%0.936 & 5.0 & -3.533 & -29.583 & -29.722 \\
-%\hline
-%\multicolumn{2}{c}{\textit{Optimal Values}} &\multicolumn{3}{l}{\(p\) coefficient -3.91; \(p\) exponent 0.624} \\
-%\hline
-%1.5 & 0.5 & -3.533 & -9.806 & -10.062 \\
-%\hline
-%\end{tabular}
-%\caption{\(s\)-potential fits to ethene properties as defined in the text (eV). All values are from HF calculations, and \(d = 0.5\) a.u.}
-%\label{table:ethene_excitations}
-%\end{table}
 
 Taking these optimal parameters we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{tab:res_ourPP}. 
@@ -518,7 +500,7 @@ for short chain alkenes  (C\(_{2}\)-C\(_{12}\)).}
 Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
 Let us recall here that in our previous work potentials were placed at the center of bonds.
 
-\subsection{Large Systems}
+\subsection{Larger chains and fused rings}
 
 \begin{figure}
 \begin{center}
@@ -674,7 +656,7 @@ physically grounded.
 
 \clearpage
 
-\section{CONCLUSION}
+\section{Conclusion}
 In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
 Firstly, the new pseudo-potentials for sp$^2$ hybridised
