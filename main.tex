@@ -42,8 +42,6 @@ are found to be well-reproduced by the pseudo-system.
 %Anisotropy, Pseudo-potential, $\pi$ system, Quantum Chemistry, Spin %contamination
 %\end{wileykeywords}
 
-\clearpage
-
 %*****************Graphical Table of Contents******************** THIS IS MANDATORY *******************
 
 
@@ -245,8 +243,6 @@ The new pseudo-potentials are fully atomic: the position of the atom
 determines completely where the potentials are placed in space in the best possible manner
 when dealing with hybridised atoms (as hybridisation destroys isotropy, the preferred orientations
 must be given to define the pseudo-potential).
-Furthermore, the way we define the pseudo-potentials in the current work, do not require
-the no-collapse term.
 
 This article is structured as follows.
 In the methodology part firstly gives the general definition of the pseudo-potential, which
@@ -666,8 +662,6 @@ The molecular orbital virtual space is also well described (cf. Table~\ref{tab:c
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
 
-\clearpage
-
 \section{Conclusion}
 In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
@@ -677,23 +671,15 @@ has to be fullfilled by correctly positioning the \(s\) potentials, no potential
 be added relative to the position of two atoms.
 Secondly, we gave a physical meaning to all the pseudo-potential
 terms.
-Contrary to our previous attempt, we do not rely on the "no collapse" term,
-which is modeled here by forcing the molecular occupation (\emph{vide infra}).
+Contrary to our previous attempt, we do not rely on the "no collapse" term.
+In fact, in this work we did not need such a term.
 We could show that not only were the occupied orbitals well-reproduced
 by the use of these new potentials, but also that the virtual space is of good quality
 for excited states calculation.
-
-In the framework of this study, there are three logical next steps: the addition of an explicit
-"no collapse" term, the reproduction of the gradient through the parameterisation
-of additional terms, and finally the use of such potentials in the framework
-of QM/MM calculations as a replacement of hydrogen based link atoms.
-The first step is needed in order to avoid forcing the molecular orbital occupation and
-to avoid spurious virtual orbitals in the active space.
-We are confident that the first step could be easily done, as we have already extracted such
-terms in the previous version of our potentials.
-The reproduction of the gradient is more of a challenge as many electrons were removed from the system.
-Finally, QM/MM tests can be started quickly, as we could fix the local geometry of the potentials
-in the QM part. The MM part would be taken care of without modification of the standard parameters.
+The model defined here can be used in any wuantum chemistry package, which
+implements atomic pseudo-potentials as we provide all the necessary parameters.
+We are now working in extending our extraction method to other hybridized atoms
+in order to provide a library of such potentials.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAPHY
