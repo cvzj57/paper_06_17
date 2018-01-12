@@ -217,14 +217,15 @@ For these cases, a solution is provided.
 
 We make use of two kinds of gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form.
 The multi-centered pseudo-potentials that we build read as follows:
-\begin{equation}
+\begin{align}
 \label{eq:ourPP}
-\hat{W} = \frac{1}{r}\left[%
+\hat{W} =& \frac{1}{r}\left[%
 \underbrace{\sum_IA_I\exp(-\alpha_I r^2)\sum_{m=-1}^{m=+1}\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
-+%
-\underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
-\right]
-\end{equation}
+\right.
++\\
+&\left.\underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
+\right]\nonumber
+\end{align}
 with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics
 and $r^0_J$ the relative fixed position of the $J^{th}$
 potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
