@@ -105,17 +105,17 @@ its surroundings,
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used to reduce
 the number of parameters to be optimised in the self consistent field calculation.
-In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentionned:
-the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
+In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentioned:
+the total wave function is optimised with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
 
 In this article we shall focus on pseudo-potential techniques, which also
 divide the chemical problem into two parts.
 Effective core potentials (\showCustomItem) are commonly employed for atoms: 
 core electrons (and effects due to the corresponding nuclear charge) are
-replaced by an operator fast to evaluate and the active electrons are treated
+replaced by an operator which is quick to evaluate and the active electrons are treated
 explicitly.\cite{dolg_relativistic_2012}
 In the same vein, model potentials (\showCustomItem) replace a frozen electronic density (computed from the atom)
-by some operators, the number of which depends on the level of
+by a series of operators, the which depend on the level of
 refinement required.\cite{huzinaga_1994_1995}
 
 The effective group potentials (\showCustomItem) bridge the frozen density and the core potential
@@ -129,7 +129,7 @@ bonds. The cyclopentadienyl group has, for instance, been successfully extracted
 In this example, the active part consisted of six electrons (the $\pi$ electrons) and six
 nuclear charges, with the pseudo-potential replacing all the rest, including the hydrogen atoms.
 Even if the $\sigma / \pi$ separability suggested how to define the active and the inactive parts,
-carbon atoms are hybridized and the core/valence distinction is not 
+carbon atoms are hybridised and the core/valence distinction is not 
 strictly defined.
 
 The theoretical background to extract effective group pseudo-potentials  can be traced back 
@@ -170,18 +170,18 @@ In the present work, the aim is
 to propose a methodology for extracting a potential for
 a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
 used as a building block for constructing chemical systems. This carbon atom
-will contain explicitly one nuclear charge and one electron.
+will contain exactly one explicit nuclear charge and one explicit electron.
 Moreover, the method should be usable 
 out of the box in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
 This supplementary constraint will be fulfilled by strategically positioning the pseudo-potentials
 we intend to use. 
 We want to stress here that the gain in computational time is not our goal.
-It is clear that replacing bielectronic by a set of monoelectronic integrals
-will result in drastic gains on timings.
-But our puropose is more to check whether our approach of extracting pseudo-potentials
+It is clear that replacing the bi-electronic interactions with a set of mono-electronic integrals
+will result in drastic gains in timings.
+But our puropose is more to see whether our approach of extracting pseudo-potentials
 for hybridised atoms is possible with strictly local pseudo-potentials.
-A study of timings is available in the supplementary materials.
+A study of timings is available in the supplementary material.
 
 Pseudo-potentials for hybridised carbon
 atoms have been already successfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
@@ -201,14 +201,13 @@ when dealing with hybridised atoms (as hybridisation destroys isotropy, the pref
 must be given to define the pseudo-potential).
 
 This article is structured as follows.
-In the methodology part firstly gives the general definition of the pseudo-potential, which
-we develop.
-Secondly the particular case of the CH$_3^\bullet$ radical is detailed as it gives access
-to some phisically grounded values.
-In a third part, the optimal pseudo-potential is defined. Details of the step by step extraction
-are given in the supplementary materials.
+The first part (Methodology) gives the general definition of the pseudo-potential, which we subsequently develop.
+Secondly, the particular case of the CH$_3^\bullet$ radical is detailed as it gives access
+to some physically grounded values.
+In a third part, the optimal pseudo-potential is defined. Details of the step-by-step extraction
+are given in the supplementary material.
 The application part focuses on the performances of the optimal pseudo-potential.
-It is shown that the properties can be well reproduced except when dealing with
+It is shown that the properties can be well reproduced save when dealing with
 systems in which spin contamination is large.
 For these cases, a solution is provided.
 
@@ -235,7 +234,7 @@ while the $s$ potentials have the task of recovering part of the bi-electronic i
 between the dormant and the active electrons.
 
 As will be discussed in the following sections,
-the \(p\) pseudo-potential allows to reproduce atomic properties, when the
+the \(p\) pseudo-potential allows us to reproduce atomic properties, when the
 \(s\)-potentials mimic electrostatic electron pair repulsion. The pseudo-potentials are mono-electronic operators, thus they shall not be able to reproduce fully bi-electronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties, such as spatial extent, energy and excitation energies, are as close as possible to those of the reference system.
 
 \subsection{Extraction for the CH$_3^\bullet$ radical}
@@ -326,7 +325,7 @@ The CH$_3^\bullet$ radical allowed us to test our model but is not useful
 when dealing with $\pi$ molecular interactions as it does not contain
 any $\pi$ bond.
 We intend to extract a pseudo-potential, which interacts properly with 
-other $\pi$ carrying atoms, would they be pseudo-system or real systems.
+other $\pi$ carrying atoms, be they pseudo-systems or real systems.
 Furthermore, we expect our hypothesis to be grounded and should be able to
 extract parameters on as few data as possible.
 Thus, we extracted the optimal pseudo-potential by a step by step procedure described in 
@@ -340,7 +339,7 @@ A\exp(-\alpha r^2)\left|Y_{1,m}\right>\left<Y_{1,m}\right|+
 \sum_{i=1}^6C\exp(-\gamma R_i^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|
 \end{equation}
 with $R_i$ the radius relative to the position of the $s$ pseudo-potential.
-As represented in Figure \ref{figure:ref_pseudo_diagram}, 6 pseudo-potentials are positionned around
+As represented in Figure \ref{figure:ref_pseudo_diagram}, 6 pseudo-potentials are positioned around
 the pseudo-nucleus at positions given in Table \ref{tab:params}.
 \begin{table}[ht]
 \begin{tabular}{ccccrr}
@@ -359,7 +358,7 @@ $p$  & $0$                    & $0$            & $0$  & $A=-3.91$ & $\alpha=0.62
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
 $\pi$ carbon atom (values in atomic units) at the HF level of theory.
 Coordinates are relative to the position of the nucleus.
-In this work, $c=0.25\;a.u.$ and $d=2.0\;a.u.$.
+In this work, $c=0.25\;a.u.$ and $d=0.5\;a.u.$.
 Coefficients are in a.u.
 }
 \end{table}
@@ -415,12 +414,12 @@ Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for e
 \end{center}
 \caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$),
 the ionisation energy (I.E.),
-the first singlet-triplet excitation energy ($\Delta_{ST}$) and
+the first singlet-triplet $\pi-\pi*$ excitation energy ($\Delta_{ST}$) and
 the TD-DFT first excitation energy
 between the
 all electron reference system and the optimal pseudo-potential across a range of chain alkenes.
 The $\Delta_{ST}$ values were obtained as the difference
-between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
+between the lowest $\pi*$ triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
 Calculations were done at the PBE0/def-SV(P) level.}
 \label{fig:alkenes_hf_dft}
@@ -442,7 +441,7 @@ for short chain alkenes  (C\(_{2}\)-C\(_{12}\)).}
 \label{table:alkene_errors}
 \end{table}
 
-Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
+Also compared are TD-DFT results for this system and results of some of the authors' previous work, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
 %Let us recall here that in our previous work potentials were placed at the center of bonds.
 
 \subsection{Larger chains and fused rings}
@@ -509,12 +508,12 @@ for ring-systems.}
 
 \caption{Comparison of the HOMO energy ($\varepsilon_{HOMO}$),
 the ionisation energy (I.E.),
-the first singlet-triplet excitation energy ($\Delta_{ST}$) and
+the first $\pi-\pi*$ singlet-triplet excitation energy ($\Delta_{ST}$) and
 the TD-DFT first excitation energy
 between the
 all electron reference system and the optimal pseudo-potential across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).
 The $\Delta_{ST}$ values were obtained as the difference
-between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
+between the lowest $\pi*$  triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
 Calculations were done at the PBE0/def-SV(P) level.}
 \label{fig:long_chain_graphs}
@@ -608,9 +607,9 @@ In fact, in this work we did not need such a term.
 We could show that not only were the occupied orbitals well-reproduced
 by the use of these new potentials, but also that the virtual space is of good quality
 for excited states calculation.
-The model defined here can be used in any wuantum chemistry package, which
+The model defined here can be used in any quantum chemistry package which
 implements atomic pseudo-potentials as we provide all the necessary parameters.
-We are now working on extending our extraction method to other hybridized atoms
+We are now working on extending our extraction method to other hybridised atoms
 in order to provide a library of such potentials.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
