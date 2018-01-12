@@ -10,7 +10,7 @@ set xtic rotate by -45 scale 0
 set grid ytics ls -1
 set key top right
 plot 'ring_pbe0_st.dat'   using 2:xtic(1) lt rgb "#aecf00" t 'Reference rings',\
-     ''                    u     3         lt rgb "#579d1c" t 'Pseudo-rings'
+     ''                    u     3        lt rgb "#579d1c" t 'Pseudo-rings'
 set terminal postscript enhanced eps color "Helvetica bold" 30
 set output 'ring_pbe0_st.eps'
 replot
