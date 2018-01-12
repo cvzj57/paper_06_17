@@ -582,13 +582,16 @@ become significant, notably for the largest case.
 Unlike for the previous systems, there is a large discrepancy between $\Delta_{ST}$
 and TD-DFT results.
 This apparent failure of the pseudo-potentials is to be found in the representation
-of the triplet state. The expectation values of the $S^2$ operator for the triplet calculations
+of the triplet state.
+The expectation values of the $S^2$ operator for the triplet calculations
 are plotted in Figure \ref{fig:ssquare}, which shows that the spin contamination
 of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
 framework) increases in both reference and pseudo-potential cases.
 Yet, this effect is strengthened in the pseudo-potential calculations.
-These results suggest that the triplet state cannot be represented as one configuration
-but as a linear combination of mono-electronic excitations as done through TD-DFT.
+The triplet instability of the system represented with pseudo-potentials
+is exacerbated.
+As already shown, this is fixed by using the Tamm-Dancoff approximation,
+as can bee seen from the excellent agreement obtained with TD-DFT.\ref{tammdancoff}
 
 \begin{figure}
 \begin{center}
