@@ -239,7 +239,7 @@ the \(p\) pseudo-potential allows us to reproduce atomic properties, when the
 
 \subsection{Extraction for the CH$_3^\bullet$ radical}
 \label{section:potential_derivation}
-Let us take the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466 a.u.$) as starting system to be reproduced.
+Let us take the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466$ $a.u.$, HF/def-SV(P)) as starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
 This choice allows us to isolate the different electrostatic interactions
 to build a physically meaningful model.
@@ -270,8 +270,8 @@ as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
 In this article, we fix \(c = 0.25\;a.u.\).
 
 \subsubsection{Extraction of the $p$ potential parameters}
-It is possible to obtain the potential parameters entirely by empirical means, in principle.
-However, we can make a more informed guess at some starting parameters from which to optimise.
+It is possible to obtain the potential parameters entirely by empirical means, which is what we do for the $s$-potentials.
+However for the $p$-potentials, we can make a more informed guess at some starting parameters from which to optimise.
 Clearly the assumption that \(Z = 1\) is unrealistic.
 Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\)
 electron of a carbon atom should experience a charge of \(Z = 2.4\).
@@ -325,7 +325,7 @@ Now that we setup the $p$ potential placed at the nucleus, we shall define
 the parameters for the $s$ potentials surrounding the nucleus.
 To do so, we decide to focus on the reproduction of the energy of the singly
 occupied HOMO of this system.
-At the HF/def2-SV(P) level, the energy of this orbital is $-10.537\;eV$.
+At the HF/def-SV(P) level, the energy of this orbital is $-10.537\;eV$.
 This value can be reproduced exactly with a coefficient of $-7.524\;a.u.$
 and an exponent of $10.0$.
 
@@ -356,17 +356,17 @@ the pseudo-nucleus at positions given in Table \ref{tab:params}.
 \hline\hline
 Type & x & y & z & Coeff. & Exp. \\
 \hline
-$s$  & $-c$                   & $0$            & $ d$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $-c$                   & $0$            & $-d$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{ c\sqrt{3}}{2}$  & $\frac{c}{2}$  & $ d$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{ c\sqrt{3}}{2}$  & $\frac{c}{2}$  & $-d$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{-c\sqrt{3}}{2}$ & $\frac{c}{2}$  & $ d$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{-c\sqrt{3}}{2}$ & $\frac{c}{2}$  & $-d$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $-d$                   & $0$            & $ c$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $-d$                   & $0$            & $-c$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{ d\sqrt{3}}{2}$  & $\frac{d}{2}$  & $ c$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{ d\sqrt{3}}{2}$  & $\frac{d}{2}$  & $-c$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{-d\sqrt{3}}{2}$ & $\frac{d}{2}$  & $ c$ & $C=1.5$   & $\gamma=0.5$   \\
+$s$  & $\frac{-d\sqrt{3}}{2}$ & $\frac{d}{2}$  & $-c$ & $C=1.5$   & $\gamma=0.5$   \\
 $p$  & $0$                    & $0$            & $0$  & $A=-3.91$ & $\alpha=0.624$ \\
 \hline\hline
 \end{tabular}
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
-$\pi$ carbon atom at the HF/def2-SV(P) level of theory.
+$\pi$ carbon atom at the HF/def-SV(P) level of theory.
 Coordinates are relative to the position of the nucleus.
 In this work, $c=0.25\;a.u.$ and $d=0.5\;a.u.$.
 Coefficients are in a.u.
@@ -392,7 +392,7 @@ and its reproduction with the optimal pseudo potential obtained in this work.
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations are performed at the HF/def2-SV(P) level, values are in atomic eV.}
+Calculations are performed at the HF/def-SV(P) level, values are in atomic eV.}
 \end{table}
 
 \section{Results and discussion}
@@ -401,7 +401,7 @@ Calculations are performed at the HF/def2-SV(P) level, values are in atomic eV.}
 
 All Hartree-Fock (HF), Density Functional Theory (DFT) and Time-Dependent DFT (TD-DFT) calculations
 are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}.
-The basis set used throughout is def2-SV(P) \cite{defsvp}.
+The basis set used throughout is def-SV(P) \cite{defsvp}.
 Wherever possible, planar (C\(_{S}\)) symmetry is used.
 The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT.
 When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
@@ -431,7 +431,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest $\pi*$ triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done at the PBE0/def2-SV(P) level.}
+Calculations were done at the PBE0/def-SV(P) level.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
@@ -448,7 +448,7 @@ TD-DFT First Excitation &   - & 2.6 & 2.8 &  6.3 &  6.9 \\
 \end{tabular}
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
 for short chain alkenes  (C\(_{2}\)-C\(_{12}\)).
-The basis set is def2-SV(P).}
+The basis set is def-SV(P).}
 \label{table:alkene_errors}
 \end{table}
 
@@ -474,7 +474,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done at the PBE0/def2-SV(P) level.
+Calculations were done at the PBE0/def-SV(P) level.
 The C\(_{54}\)H\(_{18}\) molecule is represented in Figure \ref{fig:c54h18}.}
 \label{fig:rings_graphs}
 \end{figure}
@@ -506,7 +506,7 @@ TD-DFT First Excitation &   - &  3.6  &  2.7 &  6.3 &  7.0 \\
 \end{tabular}
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
 for ring-systems.
-The basis set is def2-SV(P).}
+The basis set is def-SV(P).}
 \label{table:ring_system_errors}
 \end{table}
 
@@ -527,7 +527,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest $\pi*$  triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done at the PBE0/def2-SV(P) level.}
+Calculations were done at the PBE0/def-SV(P) level.}
 \label{fig:long_chain_graphs}
 \end{figure}
 
@@ -544,7 +544,7 @@ TD-DFT First Excitation &    - &  1.0   &   6.1   &   5.6    &   2.9 \\
 \end{tabular}
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
 for long chain alkenes (C\(_{20}\)-C\(_{100}\)).
-The basis set is def2-SV(P).}
+The basis set is def-SV(P).}
 \label{table:long_alkene_errors}
 \end{table}
 
