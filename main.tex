@@ -255,7 +255,7 @@ to build a physically meaningful model.
 (right, below) molecules.
 The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions,
 and the distances \(d\) and \(c\).
-In this article $d=2.0\;a.u.$ and $c=0.25\;a.u.$}
+In this article $d=0.5\;a.u.$ and $c=0.25\;a.u.$}
 \label{figure:ref_pseudo_diagram}
 \end{figure}
 
@@ -270,6 +270,7 @@ We can alter the strength and diffuseness of the \(p\) and \(s\) potentials them
 as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
 In this article, we fix \(c = 0.25\;a.u.\).
 
+\subsubsection{Extraction of the $p$ potential parameters}
 It is possible to obtain the potential parameters entirely by empirical means, in principle.
 However, we can make a more informed guess at some starting parameters from which to optimise.
 Clearly the assumption that \(Z = 1\) is unrealistic.
@@ -318,7 +319,16 @@ Clearly, the exponent should be chosen to give us a strong overlap with the mole
 orbital we wish to influence.
 Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful.
 The maximum overlap possible ($\approx$ 0.79) was obtained with an exponent
-of 0.295 a.u., which leads to a coefficient of -3.267 a.u.
+of $0.295$., which leads to a coefficient of $-3.267\;a.u.$.
+
+\subsubsection{Extraction of the six $s$ potentials parameters}
+Now that we setup the $p$ potential placed at the nucleus, we shall define
+the parameters for the $s$ potentials surrounding the nucleus.
+To do so, we decide to focus on the reproduction of the energy of the singly
+occupied HOMO of this system.
+At the HF/def2-SV(P) level, the energy of this orbital is $-10.537\;eV$.
+This value can be reproduced exactly with a coefficient of $-7.524\;a.u.$
+and an exponent of $10.0$.
 
 \subsection{Extraction in the general case for C sp$^2$ atoms}
 \label{section:csp2_extraction}
@@ -359,7 +369,7 @@ $p$  & $0$                    & $0$            & $0$  & $A=-3.91$ & $\alpha=0.62
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
 $\pi$ carbon atom (values in atomic units) at the HF level of theory.
 Coordinates are relative to the position of the nucleus.
-In this work, $c=0.25\;a.u.$ and $d=2.0\;a.u.$.
+In this work, $c=0.25\;a.u.$ and $d=0.5\;a.u.$.
 Coefficients are in a.u.
 }
 \end{table}
@@ -392,7 +402,7 @@ Calculations are performed at the HF level, values are in atomic eV.}
 
 All Hartree-Fock (HF), Density Functional Theory (DFT) and Time-Dependent DFT (TD-DFT) calculations
 are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}.
-The basis set used throughout is def-SV(P) \cite{defsvp}.
+The basis set used throughout is def2-SV(P) \cite{defsvp}.
 Wherever possible, planar (C\(_{S}\)) symmetry is used.
 The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT.
 When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
@@ -422,7 +432,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done at the PBE0/def-SV(P) level.}
+Calculations were done at the PBE0/def2-SV(P) level.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
@@ -464,7 +474,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done at the PBE0/def-SV(P) level.
+Calculations were done at the PBE0/def2-SV(P) level.
 The C\(_{54}\)H\(_{18}\) molecule is represented in Figure \ref{fig:c54h18}.}
 \label{fig:rings_graphs}
 \end{figure}
@@ -516,7 +526,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations were done at the PBE0/def-SV(P) level.}
+Calculations were done at the PBE0/def2-SV(P) level.}
 \label{fig:long_chain_graphs}
 \end{figure}
 
@@ -743,19 +753,19 @@ The question of timings was not our initial aim.
 Yet, the model that we develop in this work allows for gain in computational time.
 To illustrate this, we provide herein a small study done on the C$_{50}$H$_{52}$
 alkene chain.
-Calculations were performed with two different basis sets: def-SV(P) and QZVPPD.
+Calculations were performed with two different basis sets: def2-SV(P) and QZVPPD.
 WHen using the pseudo-potential, the basis set was truncated by removing all
 basis functions not necessary to the reproduction of the
 $\pi$ system.
 In other terms, only $p$ functions and higher angular momentum were kept.
 As can be seen from Table \ref{tab:time}, the gain increases
 with the size of the basis set as expected.
-The gain ranges from 3 (def-SV(P)) to 8 (QZVPPD).
+The gain ranges from 3 (def2-SV(P)) to 8 (QZVPPD).
 
 \begin{table}[ht]
 \begin{tabular}{lrr}
 \hline\hline
-Model            & def-SV(P) & QZVPP \\
+Model            & def2-SV(P) & QZVPP \\
 \hline
 All electrons    &        67 & 68928 \\
 Pseudo-potential &        28 &  8566 \\
