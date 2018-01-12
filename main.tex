@@ -501,7 +501,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 $\varepsilon_{HOMO}$    & 3.4 &  9.3  & 13.4 & 17.1 & 14.7 \\
 I.E.                    & 7.4 & 10.0  & 12.5 & 14.4 & 13.0 \\
 $\Delta_{ST}$           & 3.3 &  1.9  &  1.7 &  6.8 &  6.7 \\
-TD-DFT First Excitation &   - &  3.6  &    - &    - &    - \\ 
+TD-DFT First Excitation &   - &  3.6  &  2.7 &  6.3 &  7.0 \\ 
 \hline\hline
 \end{tabular}
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
@@ -751,15 +751,15 @@ The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimi
 \end{table}
 
 \subsection{Timings}
-The question of timings was not our initial aim.
+The reduction of computational was not our primary aim.
 Yet, the model that we develop in this work allows for gain in computational time.
-To illustrate this, we provide herein a small study done on the C$_{50}$H$_{52}$
+To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
 alkene chain.
 Calculations were performed with two different basis sets: def2-SV(P) and QZVPPD.
-WHen using the pseudo-potential, the basis set was truncated by removing all
-basis functions not necessary to the reproduction of the
+When using the pseudo-potential, the basis set was truncated by removing all
+basis functions not necessary to reproduce the
 $\pi$ system.
-In other terms, only $p$ functions and higher angular momentum were kept.
+In other words, only $p$ functions or those of higher angular momentum were kept.
 As can be seen from Table \ref{tab:time}, the gain increases
 with the size of the basis set as expected.
 The gain ranges from 3 (def2-SV(P)) to 8 (QZVPPD).
@@ -773,7 +773,7 @@ All electrons    &        67 & 68928 \\
 Pseudo-potential &        28 &  8566 \\
 \hline\hline
 \end{tabular}
-\caption{\label{tab:time}Time (in second) per SCF iteration.} 
+\caption{\label{tab:time}Time (in seconds) per SCF iteration.} 
 \end{table}
 
 \end{document}
