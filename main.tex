@@ -36,7 +36,7 @@ This pseudo-system has a central charge of one, thus it contains only one
 electron. It is employed in \textsl{ab-initio} calculations 
 on small hydrocarbons to polycyclic aromatic hydrocarbons.
 The relative errors obtained with the PBE0 functional range from
-0.01\% on TD-DFT first excitation energy to 10\% on ionisation
+1.0\% on TD-DFT first excitation energy to 10\% on ionisation
 energy.
 \end{abstract}
 \maketitle
@@ -62,7 +62,7 @@ This pseudo-system has a central charge of 1, thus it contains only one
 electron. It is employed in \textsl{ab-initio} calculations 
 on small hydrocarbons to polycyclic aromatic hydrocarbons.
 The relative errors obtained with the PBE0 functional range from
-0.01\% on TD-DFT first excitation energy to 10\% on ionisation
+1.0\% on TD-DFT first excitation energy to 10\% on ionisation
 energy.
 \end{minipage}
 }}
@@ -214,34 +214,41 @@ For these cases, a solution is provided.
 \subsection{General pseudo-potential definition}
 
 We make use of two kinds of gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form.
-The multi-centered pseudo-potentials that we build read as follows:
+For a pseudo-carbon atom,
+the multi-centered pseudo-potential that we built reads as follows:
 \begin{align}
 \label{eq:ourPP}
-\hat{W} =& \frac{1}{r}\left[%
-\underbrace{\sum_IA_I\exp(-\alpha_I r^2)\sum_{m=-1}^{m=+1}\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
-\right.
+\hat{W} =&
+\underbrace{\frac{1}{r} A\exp(-\alpha r^2)\sum_{m=-1}^{m=+1}\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{p \ \text{projector}}%
 +\\
-&\left.\underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
-\right]\nonumber
+&\underbrace{\sum_J \frac{1}{r'_J} A'_J\exp(-\alpha'_J (r'_J)^2)\left|Y_{0,0}^J\right>\left<Y_{0,0}^J\right|}_{s \ \text{projectors}}%
+\nonumber
 \end{align}
-with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics
-and $r^0_J$ the relative fixed position of the $J^{th}$
-potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
-By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
-we can say that the $p$ projectors aim to mimic a coulombic interaction,
-while the $s$ potentials have the task of recovering part of the bi-electronic interaction
-between the dormant and the active electrons.
+The $p$ projector is centered on the pseudo-atom and it is entirely defined by the $A$ coefficient
+and the $\alpha$ exponent, $Y_{1,m}$ are the $p$ real solid harmonics. The $s$ projectors are
+placed about the pseudo-atom. The $J^{th} \ s$ projector is defined by its $A'_J$ coefficient, its
+$\alpha'_J$ exponent and its position $r^0_J$ relative to the pseudo-atom, so that $r'_J = r-r^0_J$.
+$Y_{0,0}^J$ is the $s$ real solid harmonics centered at $r^0_J$.
 
-As will be discussed in the following sections,
-the \(p\) pseudo-potential allows us to reproduce atomic properties, when the
-\(s\)-potentials mimic electrostatic electron pair repulsion. The pseudo-potentials are mono-electronic operators, thus they shall not be able fully to reproduce bi-electronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which relevant properties, such as spatial extent, energy and excitation energies, are as close as possible to those of the reference system.
+By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
+we can say that our projectors have a coulombic nature.
+%are built to mimic coulombic interactions.
+%As will be discussed in the following sections,
+The \(p\) pseudo-potential allows us to reproduce atomic properties (see hereafter), while the
+\(s\)-potentials mimic electrostatic electron pair repulsion, in particular they 
+recover part of the bi-electronic interaction
+between the dormant and the active electrons. The pseudo-potentials are mono-electronic operators, thus they shall not be able fully to reproduce bi-electronic interactions. Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which relevant properties, such as spatial extent, energy and excitation energies, are as close as possible to those of the reference system.
 
 \subsection{Extraction for the CH$_3^\bullet$ radical}
 \label{section:potential_derivation}
-Let us take the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466$ $a.u.$, HF/def-SV(P)) as the starting system to be reproduced.
+
+In a first step we use the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466$ $a.u.$, HF/def-SV(P)) as 
+a case study.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
-This choice allows us to isolate the different electrostatic interactions
-to build a physically meaningful model.
+%This choice allows us to isolate the different electrostatic interactions
+%to build a physically meaningful model.
+This will provide us with physically meaningful parameters, which are then employed as
+initial guess for the extraction of a pseudo-potential for a general $\pi$ carbon atom.
 
 \begin{figure}
 \begin{center}
@@ -252,7 +259,8 @@ to build a physically meaningful model.
 \caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\)
 (right, below) molecules.
 The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions,
-and the distances \(d\) and \(c\).
+and the distances \(d\) and \(c\). White potentials are above the $xy$ plane, 
+gray potentials are below.
 In this article $d=0.5\;a.u.$ and $c=0.25\;a.u.$}
 \label{figure:ref_pseudo_diagram}
 \end{figure}
@@ -263,20 +271,78 @@ There are now no H atoms, and the system is surrounded by three potential sets a
 two \(s\)-shaped potentials with a distance above and below the \(xy\)-plane of \(c\). A further \(p\)-shaped potential is applied
 directly to the pseudo-carbon.
 
-This gives multiple variables we can use to manipulate the properties of the system.
-We can alter the strength and diffuseness of the \(p\) and \(s\) potentials themselves,
-as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
-In this article, we fix \(c = 0.25\;a.u.; d=0.5\;a.u.\).
+Based on Equation~\ref{eq:ourPP}, the complete pseudo-potential reads as:
 
-\subsubsection{Extraction of the $p$ potential parameters}
-It is possible to obtain the potential parameters entirely by empirical means, which is what we do for the $s$-potentials.
-However for the $p$-potentials, we can make a more informed guess at some starting parameters from which to optimise.
+\begin{align}
+\label{eq:ourPP}
+\hat{W} =&
+\frac{1}{r} A\exp(-\alpha r^2)\sum_{m=-1}^{m=+1}\left|Y_{1,m}\right>\left<Y_{1,m}\right|%
++\\
+&\sum_{J=1}^{6} \frac{1}{r'_J} A'\exp(-\alpha' (r'_J)^2)\left|Y_{0,0}^J\right>\left<Y_{0,0}^J\right|%
+\nonumber
+\end{align}
+
+In this article, we fix \(c = 0.25\;a.u.; d=0.5\;a.u.\), Table~\ref{tab:pos}.
+This gives us four variables to manipulate the properties of the system, 
+notably the $A$ coefficient and the $\alpha$ exponent for the $p$ potential and
+the $A'$ coefficient and $\alpha'$ exponent for the six $s$ potentials.
+
+\begin{table}[ht]
+\caption{\label{tab:pos}Position of the $s$ potentials around the pseudo carbon atom, $c=0.25\;a.u.$ and $d=0.5\;a.u.$ as in Figure~\ref{figure:ref_pseudo_diagram}.
+}
+\begin{tabular}{ccc}
+\hline\hline
+ x & y & z                                       \\
+\hline
+ $-d$                   & $0$            & $ c$ \\
+ $-d$                   & $0$            & $-c$ \\
+ $\frac{ d\sqrt{3}}{2}$  & $\frac{d}{2}$  & $ c$ \\
+ $\frac{ d\sqrt{3}}{2}$  & $\frac{d}{2}$  & $-c$ \\
+ $\frac{-d\sqrt{3}}{2}$ & $\frac{d}{2}$  & $ c$ \\
+ $\frac{-d\sqrt{3}}{2}$ & $\frac{d}{2}$  & $-c$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+%We start by searching the $p$ potential parameters and, once fixed, we focused on the $s$ potentials. 
+For this case study, we first determine the $p$ potential parameters by using a criterion based 
+on the concept of the effective nucelar charge felt by the explicit electron.
 Clearly the assumption that \(Z = 1\) is unrealistic.
 Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\)
-electron of a carbon atom should experience a charge of \(Z = 2.4\).
-To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential.
+electron of an isolated carbon atom should experience a charge of \(Z = 2.4\). Starting
+from this consideration we shall show in the following paragraph how we could get
+a guess for the  $p$ potential parameters
+ and, once fixed those,
+the $s$ potential will be extracted on some energy criteria.
+
+
+\subsubsection{Extraction of the $p$ potential parameters}
+
+%It is possible to obtain the potential parameters entirely by empirical means, which is what we do for the $s$-potentials.
+%However for the $p$-potentials, we can make a more informed guess at some starting parameters from which to optimise.
+%Clearly the assumption that \(Z = 1\) is unrealistic.
+%Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\)
+%electron of a carbon atom should experience a charge of \(Z = 2.4\).
+%To mimic the effect of an electron-screened nucleus, we use the \(p_{z}\) pseudo-potential.
+
+The  \(p_{z}\) pseudo-potential is thought here to mimic the effect of an electron-screened nucleus.
 In order to make an educated guess of the parameters of this new potential, we 
-need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
+consider a simplification of the pz component of the p potential and we write it as:
+\begin{equation}
+\chi = e^{-\alpha r^{2}},\qquad \widehat{p} = Z_{pseudo} | \chi \rangle \langle \chi |
+\end{equation}
+
+We need to find an expression that can give us a value for \(Z_{eff}\). From an all-electron HF
+reference calculation on the CH\(^{\bullet}_{3}\) system, the expected distance of the electron 
+from the nucleus \( \langle r \rangle \) can be computed, defined as 
+\begin{equation}
+\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle
+\label{equation:exp_r}
+\end{equation}
+
+where \(\psi_{p_{z}}\) is the $\pi$ molecular orbital.
+
+%need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
 
 The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
 \begin{equation}
@@ -287,32 +353,36 @@ and from this we obtain
 \label{equation:PsirPsi}
 \langle \phi_{210} | r | \phi_{210} \rangle = \frac{5a_{0}}{Z_{eff}}
 \end{equation}
-Next, we need to find a value for \( \langle r \rangle \). We can do this by calculating
+%Next, we need to find a value for \( \langle r \rangle \). We can do this by calculating
+%
+%\begin{equation}
+%\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle
+%\label{equation:exp_r}
+%\end{equation}
+%
+%where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). 
 
-\begin{equation}
-\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle
-\label{equation:exp_r}
-\end{equation}
+From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). 
 
-where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). 
+%%TO BE DISCUSSED BEFORE
+%It isn't sufficient simply to use this value however, as our simple pseudo-potential will not overlap neatly with the $2p_{z}$ orbital itself. It is therefore necessary to correct for the imperfect overlap. Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
+%\begin{equation}
+%S = \langle \psi_{p_{z}} | \chi \rangle
+%\end{equation}
+%the overlap between a molecular orbital \(\psi_{p_{z}}\), and \(\chi\), taken from our non-local pseudo-potential definition \cite{huzinaga_effective_1991}
+%\begin{equation}
+%\chi = e^{-\alpha r^{2}},\qquad \widehat{p} = Z_{pseudo} | \chi \rangle \langle \chi |
+%\end{equation}
+%leading us to
+%\begin{equation}
+%\langle \widehat{Z} \rangle = \langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} | Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = Z_{pseudo} S^{2}
+%\end{equation}
+%Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), which we subtract from the desired \(Z_{eff}\) with whch we want to influence our \(p_{z}\) electron, leaving us with
+%\begin{equation}
+%Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
+%\end{equation}
 
-It isn't sufficient simply to use this value however, as our simple pseudo-potential will not overlap neatly with the $2p_{z}$ orbital itself. It is therefore necessary to correct for the imperfect overlap. Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
-\begin{equation}
-S = \langle \psi_{p_{z}} | \chi \rangle
-\end{equation}
-the overlap between a molecular orbital \(\psi_{p_{z}}\), and \(\chi\), taken from our non-local pseudo-potential definition \cite{huzinaga_effective_1991}
-\begin{equation}
-\chi = e^{-\alpha r^{2}},\qquad \widehat{p} = Z_{pseudo} | \chi \rangle \langle \chi |
-\end{equation}
-leading us to
-\begin{equation}
-\langle \widehat{Z} \rangle = \langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} | Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = Z_{pseudo} S^{2}
-\end{equation}
-Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), which we subtract from the desired \(Z_{eff}\) with whch we want to influence our \(p_{z}\) electron, leaving us with
-\begin{equation}
-Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
-\end{equation}
-
+TO REVIEW WITH TRUE NUMBERS
 We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian
 exponent, and the \(Z_{eff}\) then follows from the above.
 Clearly, the exponent should be chosen to give us a strong overlap with the molecular
@@ -363,15 +433,10 @@ Coefficients are in a.u..
 }
 \begin{tabular}{ccccrr}
 \hline\hline
-Type & x & y & z & Coeff. & Exp. \\
+Type &  Coeff. & Exp. \\
 \hline
-$s$  & $-d$                   & $0$            & $ c$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $-d$                   & $0$            & $-c$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{ d\sqrt{3}}{2}$  & $\frac{d}{2}$  & $ c$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{ d\sqrt{3}}{2}$  & $\frac{d}{2}$  & $-c$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{-d\sqrt{3}}{2}$ & $\frac{d}{2}$  & $ c$ & $C=1.5$   & $\gamma=0.5$   \\
-$s$  & $\frac{-d\sqrt{3}}{2}$ & $\frac{d}{2}$  & $-c$ & $C=1.5$   & $\gamma=0.5$   \\
-$p$  & $0$                    & $0$            & $0$  & $A=-3.91$ & $\alpha=0.624$ \\
+$p$  & $A=-3.91$ & $\alpha=0.624$ \\
+$s$  & $A'=1.5$   & $\alpha'=0.5$   \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -431,7 +496,7 @@ When running these calculations the occupation of orbitals is specified manually
 
 \textbf{Chain Alkenes, Ring Molecules}. In addition to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The multiple m4 grid is used for integration. Also performed are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
-\subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
+\subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 6}\)}
 
 Taking the optimal parameters we test them against a series of chain alkenes up to
 length C\(_{12}\)H\(_{14}\), using a variety of functionals.
