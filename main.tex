@@ -434,11 +434,27 @@ When running these calculations the occupation of orbitals is specified manually
 \subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
 Taking the optimal parameters we test them against a series of chain alkenes up to
-length C\(_{12}\)H\(_{14}\), using a variety of functionals. 
+length C\(_{12}\)H\(_{14}\), using a variety of functionals.
+
+We discuss here the results obtained with the PBE0 functional presented in Figure~\ref{fig:alkenes_hf_dft}.
+The properties computed with the optimal pseudo-potential are in very good
+agreement with the reference values.
+The HOMO energy and the ionisation potential are quantities very difficult to reproduce
+owing the fact that the atomic charges of the pseudo-atoms were drastically modified.
+However, the agreement between pseudo and reference calculations is satisfactory
+(average error $\le 6\%$).
+Thus, the addition or withdrawal of an electron from the pseudo-molecule are well reproduced.
+Furthermore, the first singlet-triplet $\pi-\pi*$ excitations agree very well in either
+the $\Delta_{ST}$ or TD-DFT framework (average error $\le 3.6\%$).
+
 In each case, the geometry of the reference system is optimised according to the method used,
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{tab:params}.
 Figure \ref{fig:alkenes_hf_dft} shows the results.
-Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
+Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method
+across all molecules tested.
+The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet
+energies seen in the reference systems is well replicated by the pseudo-alkenes,
+with the energies following the same gradient.
 
 \begin{figure}
 \begin{center}
