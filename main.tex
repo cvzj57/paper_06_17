@@ -147,12 +147,14 @@ between explicitly treated active electrons and
 the mono-electronic operator:
 \begin{equation}
 \label{eq:monoElectronicOperator}
-\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
+%\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i} + \hat{W}
 \end{equation}
 where $\Delta_i$ is the Laplacian of the coordinates of electron $i$, and 
 $Z_C$ is the number of core electrons withdrawn from the reference system.
-The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that prevents active electrons
-collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
+The operator $\hat{W}$ contains two terms: the 
+$\hat{\sigma}$  'no-collapse' term that prevents active electrons
+collapsing into the dormant region and the operator $\hat{V}$ that reproduces the 
 Coulomb and exchange interactions:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
@@ -338,7 +340,7 @@ S = \langle \psi_{p_{z}} | \chi \rangle
 \end{equation}
 Knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), 
 we subtract this \(Z_{nucleus}\)  from the desired effective nucleus charge \(Z_{eff}\),
-and we correct by the overlap influence by writing: 
+and we correct by the overlap by writing: 
 \begin{equation}
 \label{eq:Zeff}
 Z_{pseudo} = -A = (Z_{eff} - Z_{nucleus})S^{-2}
@@ -353,7 +355,7 @@ distance of the electron from the nucleus is computed:
 \end{equation}
 
 In the pseudo-system there is only one explicit electron in a $p_z$ orbital. 
-The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
+The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{me_structure_theory}
 \begin{equation}
 \phi_{210} = \frac{1}{\sqrt{\pi}} \frac{Z_{eff}}{2a_{0}} ^{\frac{5}{2}} re^{-\frac{Z_{eff}r}{2a_{0}}} \cos \theta
 \end{equation}
@@ -376,7 +378,7 @@ Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful.
 The optimal values that we found,
 % those which best reproduced the chosen 
 %physical characteristics of the system,
-were a coefficient of $A=-2.81$ for 
+were a coefficient of $A=-2.81 \ a.u.$ for 
 an exponent of $0.261$ and an overlap of $0.79$. 
 It should be noted here that the choice of a different exponent would lead to another value
 of $A$ trougth Equation~\ref{eq:Zeff}.
@@ -409,7 +411,6 @@ section and the ones of Table~\ref{tab:params}.
 As can be seen, the optimal exponent is found to be $0.624$ (it was $0.261$ for
 CH$_3^\bullet$), which decreases the overlap with the $p_z$ orbital.
 This is compensated by a larger absolute value of the coefficient ($-3.91\;a.u.$ \textsl{v.s.} $-2.81\;a.u.$).
-Note that with the reoptimized values, the effective charge is found to be $Z_{eff}=3.61$.
 
 We intend to extract a pseudo-potential, which interacts properly with 
 other $\pi$-carrying atoms, be they pseudo-systems or real systems.
@@ -722,7 +723,7 @@ Secondly, we gave a physical meaning to all the pseudo-potential
 terms.
 Contrary to our previous attempt, we do not rely on the "no collapse" term.
 In fact, in this work we did not need such a term.
-We could show that not only were the occupied orbitals well-reproduced
+We could show that not only the occupied orbitals were well-reproduced
 by the use of these new potentials, but also that the virtual space is of good quality
 for excited states calculation.
 The model defined here can be used in any quantum chemistry package which
@@ -731,7 +732,7 @@ We are now working on extending our extraction method to other hybridised atoms
 in order to provide a library of such potentials.
 
 \section{Acknowledgments}
-The authors acknowledge the french Ministère de l'éducation
+The authors acknowledge the french Minist\`ere de l'\'education
 nationale et de la recherche for providing the PhD grant of A. Punter.
 
 \section{Supplementary materials}
