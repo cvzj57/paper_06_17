@@ -165,7 +165,7 @@ To take into account the fact that dormant electrons are removed from the
 system, the nuclear charge is modified by the $Z_c$ value.
 Yet, as the effective charge felt by the active electrons is likely not to be an integer,
 the modification of the value of the nuclear charge is scaled in $\hat{V}$.
-In this operator we notice that the \(r^{-1}\) behavior is mantained for the first term 
+In this operator we notice that the \(r^{-1}\) behavior is maintained for the first term 
 (the Coulomb one).
 
 In the present work, the aim is 
@@ -307,7 +307,7 @@ the $A'$ coefficient and $\alpha'$ exponent, which will be common to the six $s$
 \end{table}
 
 For this case study, we first determine the $p$ potential parameters by using a criterion based 
-on the concept of the effective nucelar charge felt by the explicit electron.
+on the concept of the effective nuclear charge felt by the explicit electron.
 Clearly the assumption that \(Z = 1\) is unrealistic.
 Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\)
 electron of an isolated carbon atom should experience a charge of \(Z = 2.4\). Starting
@@ -326,7 +326,7 @@ consider  the $p_z$ component of the $p$ potential and we write it as:
 \widehat{p_z} = -\frac{Z_{pseudo}}{r} | \chi_{p_z} \rangle \langle \chi_{p_z} |
 \end{equation}
 
-where $\chi_{p_z}$ is a $p_z$ gaussian function with exponent $\alpha$,
+where $\chi_{p_z}$ is a $p_z$ Gaussian function with exponent $\alpha$,
 and $-{Z_{pseudo}}$ corresponds to the $A$ parameter. 
 If $\chi_{p_z}$ were exactly the $\pi$ molecular orbital \(\psi_{p_{z}}\), which hosts the
 radical, the expected value of the $\widehat{p_z}$ operator for \(\psi_{p_{z}}\) would
@@ -381,7 +381,7 @@ The optimal values that we found,
 were a coefficient of $A=-2.81 \ a.u.$ for 
 an exponent of $0.261$ and an overlap of $0.79$. 
 It should be noted here that the choice of a different exponent would lead to another value
-of $A$ trougth Equation~\ref{eq:Zeff}.
+of $A$ trough Equation~\ref{eq:Zeff}.
 The overlap would differ but the effective charge would be the exact same.
 In fact, the diffuseness of $\chi$ does really matter.
 As we shall see in the extraction for a pseudo-carbon atom, which interacts with other
@@ -406,7 +406,7 @@ As discussed earlier, the exponent extracted for CH$_3^\bullet$ is too diffuse
 and the $p$ pseudo-potential interacts with neighbouring atoms.
 Thus, a reparametrisation is necessary with previous parameters used as a reliable
 and physically sound values.
-This explains the difference between the paramters obtained in the previous
+This explains the difference between the parameters obtained in the previous
 section and the ones of Table~\ref{tab:params}.
 As can be seen, the optimal exponent is found to be $0.624$ (it was $0.261$ for
 CH$_3^\bullet$), which decreases the overlap with the $p_z$ orbital.
@@ -479,7 +479,7 @@ match the reference calculations from both the quantitative (excitation energies
 and qualitative (excitations are described by the same orbitals) point of view.
 Finally, despite the fact that the extraction was done on a non-aromatic system,
 we perform calculations on fused ring aromatic systems.
-Again, these calculations are succesful.
+Again, these calculations are successful.
 As a consequence, one can say that the potential extracted on ethene at the HF/def2-SV(P)
 level is free of obvious transferability problems.
 
@@ -493,6 +493,16 @@ The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10
 %When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
 
 \textbf{Chain Alkenes, Ring Molecules}. In addition to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The multiple m4 grid is used for integration. Also performed are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
+
+\subsection{General discussion about the performance of the chosen functionals}
+As mentioned in the previous section, in addition to HF, four functionals were used.
+As HF was the method used to extract the parameters of the pseudo-potential, one could expect
+this method to outperform the others.
+It is not particularly true.
+It turns out that PBE0 performs better on the average than any other method used in this work.
+Thus, in the following sections, we shall preferably discuss the PBE0 results.
+The mean absolute errors for the other methods are given as a reference.
+The complete set of results is in the supplementary materials.
 
 \subsection{Alkene chains: C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 6}\)}
 
@@ -548,7 +558,8 @@ Also compared are TD-DFT results for this system and results of some of the auth
 which match to within 3\% (see supplementary materials).\cite{drujon_pseudopotentials_2013}
 %Let us recall here that in our previous work potentials were placed at the center of bonds.
 
-We discuss here the more in details the results obtained with the PBE0 functional presented in Figure~\ref{fig:alkenes_hf_dft}.
+We discuss here the more in details the results obtained with the PBE0 functional presented
+in Figure~\ref{fig:alkenes_hf_dft}.
 The properties computed with the optimal pseudo-potential are in very good
 agreement with the reference values.
 The HOMO energy and the ionisation potential are quantities very difficult to reproduce
@@ -559,7 +570,6 @@ Thus, the addition or withdrawal of an electron from the pseudo-molecule are wel
 Furthermore, the first singlet-triplet $\pi-\pi*$ excitations agree very well in either
 the $\Delta_{ST}$ or TD-DFT framework (average error $\le 3.6\%$).
 
-
 \subsection{Fused rings and larger chains}
 
 \begin{figure}
@@ -569,7 +579,6 @@ the $\Delta_{ST}$ or TD-DFT framework (average error $\le 3.6\%$).
 \includegraphics[width=7cm]{ring_pbe0_st}
 \includegraphics[width=7cm]{ring_pbe0_tddft}
 \end{center}
-
 \caption{Comparison of the HOMO ($\varepsilon_{HOMO}$),
 the ionisation (I.E.),
 the first singlet-triplet $\pi-\pi*$ excitation ($\Delta_{ST}$ and TD-DFT) energies
@@ -596,6 +605,20 @@ HOMO energy values for several ring systems.
 As with the short chain alkenes, the general trend of the results is well-replicated
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
+
+The results shown in Figure~\ref{fig:rings_graph}.
+The properties computed with the optimal pseudo-potential are in very good
+agreement with the reference values.
+Here one can see that the HOMO energy and the ionisation potential
+are more difficult properties to reproduce than excitation energies.
+To take the PBE0 example, mean average errors raise up to $10\%$ for them
+whereas they stay below $3.6\%$ for excitation energies independently of the way they are computed
+($\Delta_{ST}$ or TD-DFT).
+In the case of ionisation, the loss of aromaticity due to the variation of the number of
+electrons leads to larger discrepancies.
+Yet, the agreement between reference and pseudo-potential calculations is very good.
+The modeling through our pseudo-potential does not suffer of error accumulation: a pseudo-system
+made of two or 54 pseudo-atoms lead to similar errors on the computed property.
 
 \begin{table}[ht]
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
@@ -657,8 +680,10 @@ The pattern of decreasing ionisation potentials and $\Delta_{ST}$ with increasin
 energy is still followed, with the absolute error remaining consistent.
 However, differences in the triplet-singlet energies between the reference and pseudo-systems 
 become significant, notably for the largest case.
+Here again, ionisation energy and $\Epsilon_{HOMO}$ agree with mean average errors lower than
+$10\%$ for PBE0.
 
-Unlike for the previous systems, there is a large discrepancy between $\Delta_{ST}$
+Unlike for the previous systems, the larger the system, the larger becomes the discrepancy between $\Delta_{ST}$
 and TD-DFT results.
 This apparent failure of the pseudo-potentials is to be found in the representation
 of the triplet state.
@@ -717,7 +742,7 @@ In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
 Firstly, the new pseudo-potentials for sp$^2$ hybridised
 atoms are completely atomic and, even if the directionality of the bonding pattern
-has to be fullfilled by correctly positioning the \(s\)-potentials. No potentials need to
+has to be fulfilled by correctly positioning the \(s\)-potentials. No potentials need to
 be added relative to the position of more than one atom.
 Secondly, we gave a physical meaning to all the pseudo-potential
 terms.
