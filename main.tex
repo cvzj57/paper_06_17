@@ -316,7 +316,8 @@ the $s$ potential will be extracted on some energy criteria.
 
 \subsubsection{Extraction of the $p$ potential parameters}
 
-The  \(p_{z}\) pseudo-potential is thought here to mimic the effect of an electron-screened nucleus.
+The  \(p_{z}\) pseudo-potential is here to fill the gap between the pseudo and the real system 
+for the effective charge of the nucleus. 
 In order to make an educated guess of the parameters of this new potential, we 
 consider  the $p_z$ component of the $p$ potential and we write it as:
 \begin{equation}
@@ -327,8 +328,9 @@ where $\chi_{p_z}$ is a $p_z$ gaussian function with exponent $\alpha$,
 and $-{Z_{pseudo}}$ corresponds to the $A$ parameter. 
 If $\chi_{p_z}$ were exactly the $\pi$ molecular orbital \(\psi_{p_{z}}\), which hosts the
 radical, the expected value of the $\widehat{p_z}$ operator for \(\psi_{p_{z}}\) would
-give us the effect of the screened nucleus. Since we want a simple expression for
-$\chi_{p_z}$, by only one function, the $-{Z_{pseudo}}$ parameter should contain a
+give us the effect of the screened nucleus. 
+As $\chi_{p_z}$ is one function only, 
+the $-{Z_{pseudo}}$ parameter should contain a
 correction for the overlap of the $\chi_{p_z}$ and the reference \(\psi_{p_{z}}\) 
 molecular orbital. We define:
 \begin{equation}
@@ -367,7 +369,7 @@ We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the
 exponent, and the \(Z_{eff}\) then follows from the above.
 For this case study, 
 the exponent was chosen to give us a strong overlap with the molecular
-orbital we wish to influence.
+orbital we wish to mimic.
 Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. 
 The optimal values that we found, those which best reproduced the chosen 
 physical characteristics of the system, were a coefficient of $A=-2.81$ for 
@@ -378,7 +380,7 @@ Now that we have set up the $p$ potential placed at the nucleus, we shall define
 the parameters for the $s$ potentials surrounding the nucleus.
 To do so, we decide to focus on the reproduction of the energy of the singly
 occupied HOMO of this system
-at the HF/def-SV(P) level. The energy of this orbital is $-10.537\;eV$.
+at the HF/def2-SV(P) level. The energy of this orbital is $-10.537\;eV$.
 This value can be reproduced exactly with a coefficient of $-7.524\;a.u.$
 and an exponent of $10.0$.
 
@@ -402,7 +404,7 @@ The position of the $s$ potential is kept the same (Table~\ref{tab:pos}).
 Values for the optimized parameters are reported in Table~\ref{tab:params}.
 \begin{table}[ht]
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
-$\pi$ carbon atom at the HF/def-SV(P) level of theory.
+$\pi$ carbon atom at the HF/def2-SV(P) level of theory.
 Coordinates are relative to the position of the nucleus.
 In this work, $c=0.25\;a.u.$ and $d=0.5\;a.u.$.
 Coefficients are in a.u..
@@ -430,7 +432,7 @@ and its reproduction with the optimal pseudo potential obtained in this work.
 The $\Delta_{ST}$ values were obtained as the difference
 between the lowest triplet (in an unrestricted formalism) and the lowest singlet state
 (in a restricted formalism).
-Calculations are performed at the HF/def-SV(P) level, values are in atomic eV.}
+Calculations are performed at the HF/def2-SV(P) level, values are in eV.}
 \begin{tabular}{llll}
 \hline\hline
 & $\Delta_{ST}$  & I.E.  & $\varepsilon_{HOMO}$  \\
@@ -444,7 +446,7 @@ Optimal pseudo-potential & 3.533 & 9.806 & -10.062 \\
 \section{Results and discussion}
 
 \subsection{Preliminary note}
-The extraction done in the previous section was at the HF/def-SV(P) level.
+The extraction done in the previous section was at the HF/def2-SV(P) level.
 We intend to show that there is no need for reparametrisation of the potential
 when used with other methods.
 Thus, in the following sections, we use HF and four functionals in the DFT framework:
@@ -459,16 +461,17 @@ and qualitative (excitations are described by the same orbitals) point of view.
 Finally, despite the fact that the extraction was done on a non-aromatic system,
 we perform calculations on fused ring aromatic systems.
 Again, these calculations are succesful.
-As a consequence, one can say that the potential extracted on ethene at the HF/def-SV(P)
+As a consequence, one can say that the potential extracted on ethene at the HF/def2-SV(P)
 level is free of obvious transferability problems.
 
 \subsection{Computational Details}
 All Hartree-Fock (HF), Density Functional Theory (DFT) and Time-Dependent DFT (TD-DFT) calculations
 are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}.
-The basis set used throughout is def-SV(P) \cite{defsvp}.
+The basis set used throughout is def2-SV(P) \cite{defsvp}.
 Wherever possible, planar (C\(_{S}\)) symmetry is used.
 The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT.
-When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
+%%PN
+%When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
 
 \textbf{Chain Alkenes, Ring Molecules}. In addition to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The multiple m4 grid is used for integration. Also performed are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
@@ -476,17 +479,6 @@ When running these calculations the occupation of orbitals is specified manually
 
 Taking the optimal parameters we test them against a series of chain alkenes up to
 length C\(_{12}\)H\(_{14}\), using a variety of functionals.
-
-We discuss here the results obtained with the PBE0 functional presented in Figure~\ref{fig:alkenes_hf_dft}.
-The properties computed with the optimal pseudo-potential are in very good
-agreement with the reference values.
-The HOMO energy and the ionisation potential are quantities very difficult to reproduce
-owing the fact that the atomic charges of the pseudo-atoms were drastically modified.
-However, the agreement between pseudo and reference calculations is satisfactory
-(average error $\le 6\%$).
-Thus, the addition or withdrawal of an electron from the pseudo-molecule are well reproduced.
-Furthermore, the first singlet-triplet $\pi-\pi*$ excitations agree very well in either
-the $\Delta_{ST}$ or TD-DFT framework (average error $\le 3.6\%$).
 
 In each case, the geometry of the reference system is optimised according to the method used,
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{tab:params}.
@@ -512,14 +504,14 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values are the difference
 between the lowest $\pi*$ triplet (unrestricted formalism) and the lowest singlet state
 (restricted formalism).
-Calculations are at the PBE0/def-SV(P) level.}
+Calculations are at the PBE0/def2-SV(P) level.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
 \begin{table}[ht]
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
 for short chain alkenes  (C\(_{2}\)-C\(_{12}\)).
-The basis set is def-SV(P).}
+The basis set is def2-SV(P).}
 \begin{tabular}{l r r r r r }
 \hline \hline
 \%-error                & HF & PBE0 & PBE & TPSS & TPSSh \\
@@ -536,6 +528,18 @@ TD-DFT $\pi-\pi*$       & 11.6 & 2.6 & 2.8 &  6.3 &  6.9 \\
 Also compared are TD-DFT results for this system and results of some of the authors' previous work,
 which match to within 3\% (see supplementary materials).\cite{drujon_pseudopotentials_2013}
 %Let us recall here that in our previous work potentials were placed at the center of bonds.
+
+We discuss here the more in details the results obtained with the PBE0 functional presented in Figure~\ref{fig:alkenes_hf_dft}.
+The properties computed with the optimal pseudo-potential are in very good
+agreement with the reference values.
+The HOMO energy and the ionisation potential are quantities very difficult to reproduce
+owing the fact that the atomic charges of the pseudo-atoms were drastically modified.
+However, the agreement between pseudo and reference calculations is satisfactory
+(average error $\le 6\%$).
+Thus, the addition or withdrawal of an electron from the pseudo-molecule are well reproduced.
+Furthermore, the first singlet-triplet $\pi-\pi*$ excitations agree very well in either
+the $\Delta_{ST}$ or TD-DFT framework (average error $\le 3.6\%$).
+
 
 \subsection{Fused rings and larger chains}
 
@@ -555,7 +559,7 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values are the difference
 between the lowest triplet (unrestricted formalism) and the lowest singlet state
 (restricted formalism).
-Calculations are at the PBE0/def-SV(P) level.
+Calculations are at the PBE0/def2-SV(P) level.
 The C\(_{54}\)H\(_{18}\) molecule is represented in Figure \ref{fig:c54h18}.}
 \label{fig:rings_graphs}
 \end{figure}
@@ -577,7 +581,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \begin{table}[ht]
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
 for ring-systems.
-The basis set is def-SV(P).}
+The basis set is def2-SV(P).}
 \begin{tabular}{l r r r r r }
 \hline\hline
 \%-error                & HF & PBE0 & PBE & TPSS & TPSSh \\
@@ -607,14 +611,14 @@ all electron reference system and the optimal pseudo-potential across a range of
 The $\Delta_{ST}$ values are the difference
 between the lowest $\pi*$  triplet (unrestricted formalism) and the lowest singlet state
 (restricted formalism).
-Calculations are at the PBE0/def-SV(P) level.}
+Calculations are at the PBE0/def2-SV(P) level.}
 \label{fig:long_chain_graphs}
 \end{figure}
 
 \begin{table}[ht]
 \caption{Mean relative errors (in percent) across methods (HF or different functionals)
 for long chain alkenes (C\(_{20}\)-C\(_{100}\)).
-The basis set is def-SV(P).}
+The basis set is def2-SV(P).}
 \begin{tabular}{l r r r r r }
 \hline\hline
 \%-error          & HF & PBE0 & PBE & TPSS & TPSSh \\
