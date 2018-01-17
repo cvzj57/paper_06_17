@@ -340,6 +340,7 @@ Knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nuc
 we subtract this \(Z_{nucleus}\)  from the desired effective nucleus charge \(Z_{eff}\),
 and we correct by the overlap influence by writing: 
 \begin{equation}
+\label{eq:Zeff}
 Z_{pseudo} = -A = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
@@ -368,12 +369,22 @@ that \(Z_{eff} \approx 3.6\).
 We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian
 exponent, and the \(Z_{eff}\) then follows from the above.
 For this case study, 
-the exponent was chosen to give us a strong overlap with the molecular
-orbital we wish to mimic.
+the exponent was chosen to maximize the overlap with the molecular
+orbital we wish to mimic (a maximum overlap of $1$ would lead to
+$A=Z_{nucleus}-Z_{eff}$).
 Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. 
-The optimal values that we found, those which best reproduced the chosen 
-physical characteristics of the system, were a coefficient of $A=-2.81$ for 
-an exponent of $0.261$ and an overlap of 0.79. 
+The optimal values that we found,
+% those which best reproduced the chosen 
+%physical characteristics of the system,
+were a coefficient of $A=-2.81$ for 
+an exponent of $0.261$ and an overlap of $0.79$. 
+It should be noted here that the choice of a different exponent would lead to another value
+of $A$ trougth Equation~\ref{eq:Zeff}.
+The overlap would differ but the effective charge would be the exact same.
+In fact, the diffuseness of $\chi$ does really matter.
+As we shall see in the extraction for a pseudo-carbon atom, which interacts with other
+$\pi$ electron systems, more constraints will apply on the system and the exponent
+will be chosen to obey some more constraints.
 
 \subsubsection{Extraction of the six $s$ potentials parameters}
 Now that we have set up the $p$ potential placed at the nucleus, we shall define
@@ -386,12 +397,19 @@ and an exponent of $10.0$.
 
 \subsection{Extraction in the general case for C sp$^2$ atoms}
 \label{section:csp2_extraction}
-The CH$_3^\bullet$ radical allowed us to test our model but is not useful
-when dealing with $\pi$ molecular interactions as it does not contain
+The CH$_3^\bullet$ radical allowed us to test our model but cannot be used
+as such when dealing with $\pi$ molecular interactions as it does not contain
 information about $\pi$ bond.
-In fact, the use of the pseudo-potential extracted in the previous section on CH$_3^\bullet$
-leads to catastrophic results when used to reproduce the ethene $\pi$ cloud (not shown here).
-Thus, a reparametrisation is necessary.
+As discussed earlier, the exponent extracted for CH$_3^\bullet$ is too diffuse
+and the $p$ pseudo-potential interacts with neighbouring atoms.
+Thus, a reparametrisation is necessary with previous parameters used as a reliable
+and physically sound values.
+This explains the difference between the paramters obtained in the previous
+section and the ones of Table~\ref{tab:params}.
+As can be seen, the optimal exponent is found to be $0.624$ (it was $0.261$ for
+CH$_3^\bullet$), which decreases the overlap with the $p_z$ orbital.
+This is compensated by a larger absolute value of the coefficient ($-3.91\;a.u.$ \textsl{v.s.} $-2.81\;a.u.$).
+Note that with the reoptimized values, the effective charge is found to be $Z_{eff}=3.61$.
 
 We intend to extract a pseudo-potential, which interacts properly with 
 other $\pi$-carrying atoms, be they pseudo-systems or real systems.
