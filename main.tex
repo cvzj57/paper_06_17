@@ -777,7 +777,7 @@ the optimal pseudo-potential.
 \subsection{Details on the extraction process}
 \subsubsection{CH\(_{3}\), with \(s\)-potentials}
 
-We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
+We aim first to reproduce the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
 This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.
 
 \subsubsection{Ethene, with \(s\) and \(p\)-potentials}
@@ -789,7 +789,7 @@ cannot alone describe the relationship between them.
 
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
 the singlet-triplet excitation energy ($\Delta_{ST}$) in the SCF framework (energy difference between the triplet and the singlet mono-reference
-calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:ethene_excitations}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:ethene_excitations} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
+calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{tab:res_ourPP}. Testing the relevant energies for the optimised pseudo-systems above, we found that the early results were not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a "sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Tables \ref{tab:params} and  \ref{tab:res_ourPP} show our optimal result, chosen to give HOMO, ($\Delta_{ST}$) and ionisation energies closest to the reference values. 
 
 \subsubsection{Optimisation}
 
@@ -890,8 +890,7 @@ The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimi
 \end{table}
 
 \subsection{Timings}
-The reduction of computational was not our primary aim.
-Yet, the model that we develop in this work allows for gain in computational time.
+The reduction of computational time necessary for calculations was not our primary aim, however the model that we develop in this work does allow significant gains.
 To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
 alkene chain.
 Calculations were performed with two different basis sets: def2-SV(P) and QZVPPD.
