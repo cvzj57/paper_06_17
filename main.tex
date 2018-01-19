@@ -33,7 +33,7 @@
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built 
 and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
 This pseudo-system has a central charge of one, thus it contains only one
-electron. It is employed in \textsl{ab-initio} calculations on a variety of hydrocarbons, from small chains to polycyclic aromatics.
+electron. It is employed in various calculations on a range of hydrocarbons, from small chains to polycyclic aromatics.
 The relative errors obtained with the PBE0 functional range from
 1.0\% on TD-DFT first excitation energy to 10\% on ionisation
 energy.
@@ -58,7 +58,7 @@ energy.
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built 
 and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
 This pseudo-system has a central charge of 1, thus it contains only one
-electron. It is employed in \textsl{ab-initio} calculations on a variety of hydrocarbons, from small chains to polycyclic aromatics.
+electron. It is employed in various calculations on a range of hydrocarbons, from small chains to polycyclic aromatics.
 The relative errors obtained with the PBE0 functional range from
 1.0\% on TD-DFT first excitation energy to 10\% on ionisation
 energy.
@@ -179,7 +179,7 @@ we intend to use.
 The replacement of bi-electronic interactions with a set of mono-electronic integrals
 will result in drastic gains in timings, a study of which is available in the supplementary material.
 However, the main purpose of the current work is not to study the time gain from the use of our pseudo-potentials but to show that our approach of extracting pseudo-potentials
-for hybridised atoms is possible with strictly local pseudo-potentials.
+for hybridised atoms is possible with atomic pseudo-potentials.
 
 Pseudo-potentials for hybridised carbon
 atoms have been already successfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
@@ -188,7 +188,7 @@ functions in the pseudo-potential shift up unwanted orbitals and correctly place
 wanted orbitals.
 A drawback of this method was that some pseudo-potentials had to be put precisely at the center
 of each bond.
-Thus, those pseudo-potentials could not be considered as purely local as they were not defined solely
+Thus, those pseudo-potentials could not be considered as purely atomic as they were not defined solely
 with respect to the position of the atom they applied to.
 This previous work should therefore be regarded as a proof-of-concept.
 In this new version, we include more physical meaning in our model, 
@@ -243,7 +243,7 @@ between the dormant and the active electrons. The pseudo-potentials are mono-ele
 \subsection{Extraction for the CH$_3^\bullet$ radical}
 \label{section:potential_derivation}
 
-In a first step we use the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466$ $a.u.$, HF/def-SV(P)) as 
+In a first step we use the planar CH\(^{\bullet}_{3}\) (d$_{CH}=2.0466$ $a.u.$) as 
 a case study.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
 This will provide us with physically meaningful parameters, which are then employed as
@@ -280,9 +280,7 @@ Based on Equation~\ref{eq:ourPP_init}, the complete pseudo-potential reads as:
 \nonumber
 \end{align}
 
-In this article, we fix \(c = 0.25\;a.u.; d=0.5\;a.u.\), Table~\ref{tab:pos}.
-This gives us four variables to manipulate the properties of the system, 
-notably the $A$ coefficient and the $\alpha$ exponent for the $p$ potential, and
+In this article, we fix \(c = 0.25\;a.u.; d=0.5\;a.u.\), Table~\ref{tab:pos}. For dicussion of other possible $c$ and $d$ values, see the supplementary material. This leaves us four variables with which to manipulate the properties of the system, notably the $A$ coefficient and the $\alpha$ exponent for the $p$ potential, and
 the $A'$ coefficient and $\alpha'$ exponent, which will be common to the six $s$ potentials.
 
 \begin{table}[ht]
@@ -332,7 +330,7 @@ the $-{Z_{pseudo}}$ parameter should contain a
 correction for the overlap of the $\chi_{p_z}$ and the reference \(\psi_{p_{z}}\) 
 molecular orbital. We define:
 \begin{equation}
-S = \langle \psi_{p_{z}} | \chi \rangle
+S = \langle \psi_{p_{z}} | \chi_{p_z} \rangle
 \end{equation}
 Knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), 
 we subtract this \(Z_{nucleus}\)  from the desired effective nuclear charge \(Z_{eff}\),
@@ -342,7 +340,7 @@ and we correct by the overlap by writing:
 Z_{pseudo} = -A = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
-We need now to find an expression for \(Z_{eff}\). From an all-electron HF
+We need now to find an expression for \(Z_{eff}\). From an all-electron Hartree-Fock HF/def-SV(P)
 reference calculation on the CH\(^{\bullet}_{3}\) system, the expected 
 distance of the electron from the nucleus is computed: 
 \begin{equation}
@@ -378,7 +376,7 @@ an exponent of $0.261$ and an overlap of $0.79$.
 It should be noted here that the choice of a different exponent would lead to another value
 of $A$ via Equation~\ref{eq:Zeff}.
 The overlap would differ but the effective charge would be exactly the same.
-We shall see later that the diffuseness of $\chi$ does matter. In the extraction of a pseudo-carbon atom which interacts with other
+We shall see later that the diffuseness of $\chi_{p_z}$ does matter. In the extraction of a pseudo-carbon atom which interacts with other
 $\pi$ electron systems, more constraints on the system will apply and the exponent
 will be chosen to reflect this.
 
@@ -410,10 +408,9 @@ extract parameters on as few data as possible.
 We extracted the optimal pseudo-potential by a step-by-step procedure on the smallest $\pi$ system: the ethene molecule.
 Formally, the pseudo-potential has the same shape as in Equation~\ref{eq:ourPP}.
 The position of the $s$ potential is kept the same (Table~\ref{tab:pos}).
-We began by optimising sets of potentials from different starting guesses to obtain the exact $\Delta_{ST}$ gap (the $\Delta_{ST}$ value is the difference
-between the lowest $\pi^*$ triplet, ground state in the triplet space, and the lowest singlet state, the ground state). We then picked the potential set that also gave the best HOMO and ionisation energies, and used this potential as the starting guess for a final optimisation aimed at minimising the total error across all three values.
-Values for the optimised parameters are reported in Table~\ref{tab:params}. Ultimately, the optimal potential found maintained a very accurate $\Delta_{ST}$.
-See the supplementary materials for further details.
+We began by optimising sets of potentials from different starting guesses to obtain a HOMO energy close to the reference value. Of these, we then picked the potential set that also gave the best ionisation energy and $\Delta_{ST}$ (the $\Delta_{ST}$ value is the difference
+between the lowest $\pi^*$ triplet, ground state in the triplet space, and the lowest singlet state, the ground state), and used this potential as the starting guess for a final optimisation aimed at obtaining the exact $\Delta_{ST}$ gap.
+Values for the optimised parameters are reported in Table~\ref{tab:params}. See the supplementary materials for further details.
 
 \begin{table}[ht]
 \caption{\label{tab:params}Optimal parameters obtained for the pseudo 
@@ -459,15 +456,12 @@ Optimal pseudo-potential & 3.533 & 9.806 & -10.062 \\
 \section{Results and discussion}
 
 \subsection{Computational Details}
-All Hartree-Fock (HF), Density Functional Theory (DFT) and Time-Dependent DFT (TD-DFT) calculations
+In addition to Hartree-Fock (HF) calculations, Density Functional Theory (DFT) is used with PBE0, PBE, TPSS and TPSSh functionals.\cite{pbe0,pbe,tpss,tpssh} All HF, DFT and Time-Dependent DFT (TD-DFT) calculations
 are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}.
 The basis set used throughout is def-SV(P) \cite{defsvp}.
 Wherever possible, planar (C\(_{S}\)) symmetry is used.
 The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT.
-%%PN
-%When running these calculations the occupation of orbitals is specified manually in the TURBOMOLE control file.
-
-\textbf{Chain Alkenes, Ring Molecules}. In addition to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The multiple m4 grid is used for integration. Also performed are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
+The multiple m4 grid is used for integration. Also performed are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 \subsection{Preliminary note}
 The extraction done in the previous section was at the HF/def-SV(P) level.
