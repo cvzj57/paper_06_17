@@ -15,8 +15,8 @@ data:
 	(cd data; make)
 
 suppl:
-	$(latex) suppl.tex
-	$(latex) suppl.tex
+	$(latex) supplementary_material.tex
+	$(latex) supplementary_material.tex
 
 abstract:
 	$(latex) abstract.tex
