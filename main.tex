@@ -437,7 +437,7 @@ energy and the energies of the HOMO orbital of 8\% and 3\% respectively (Table \
 \begin{table}[ht]
 \caption{\label{tab:res_ourPP}Comparison of the
 singlet-triplet splitting ($\Delta_{ST}$), ionisation
-energy (I.E.) and energy of the HOMO orbital ($\varepsilon_{HOMO}$)
+energy (IE) and energy of the HOMO orbital ($\varepsilon_{HOMO}$)
 of the reference ethene molecule
 and its reproduction with the optimal pseudo potential obtained in this work.
 The $\Delta_{ST}$ values are the difference
@@ -446,7 +446,7 @@ between the lowest $\pi^*$ triplet (in an unrestricted formalism) and the lowest
 Calculations are performed at the HF/def-SV(P) level, values are in eV.}
 \begin{tabular}{llll}
 \hline\hline
-& $\Delta_{ST}$  & I.E.  & $\varepsilon_{HOMO}$  \\
+& $\Delta_{ST}$  & IE  & $\varepsilon_{HOMO}$  \\
 \hline
 Reference Values & 3.533 & 9.091 & -10.363 \\
 Optimal pseudo-potential & 3.533 & 9.806 & -10.062 \\
@@ -513,7 +513,7 @@ with the energies following the same gradient.
 %\includegraphics[width=7cm]{short_pbe0_tddft}
 \end{center}
 \caption{Comparison of the HOMO ($\varepsilon_{HOMO}$),
-the ionisation (I.E.), and
+the ionisation (IE), and
 the first singlet-triplet $\pi-\pi^*$ excitation ($\Delta_{ST}$ and TD-DFT) energies
 between the
 all-electron reference and optimal pseudo-potential systems across a range of chain alkenes.
@@ -533,7 +533,7 @@ The basis set is def-SV(P).}
 \%-error                & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline
 $\varepsilon_{HOMO}$    & 1.3 & 4.0 & 8.5 & 12.0 &  9.7 \\
-I.E.                    & 5.3 & 6.0 & 8.1 & 10.1 &  9.0 \\
+IE                    & 5.3 & 6.0 & 8.1 & 10.1 &  9.0 \\
 $\Delta_{ST}$           & 4.1 & 3.6 & 7.5 & 13.3 & 11.4 \\
 TD-DFT $\pi-\pi^*$       & 11.6 & 2.6 & 2.8 &  6.3 &  6.9 \\ 
 \hline\hline
@@ -560,13 +560,17 @@ the $\Delta_{ST}$ or TD-DFT framework (average error $\le 3.6\%$).
 
 \begin{figure}
 \begin{center}
+\fbox{\includegraphics[width=8cm]{molecules}}
+\end{center}
+\caption{\label{fig:molecules}Representation of the molecules \textbf{[1]} to \textbf{[6]}.}
+\end{figure}
+
+\begin{figure}
+\begin{center}
 \includegraphics[width=7cm]{ring_pbe0}
-%\includegraphics[width=7cm]{ring_pbe0_ie}
-%\includegraphics[width=7cm]{ring_pbe0_st}
-%\includegraphics[width=7cm]{ring_pbe0_tddft}
 \end{center}
 \caption{Comparison of the HOMO ($\varepsilon_{HOMO}$),
-the ionisation (I.E.),
+the ionisation (IE),
 the first singlet-triplet $\pi-\pi^*$ excitation ($\Delta_{ST}$ and TD-DFT) energies
 between the
 all electron reference system and the optimal pseudo-potential across a range of ring molecules.
@@ -574,21 +578,13 @@ The $\Delta_{ST}$ values are the difference
 between the lowest $\pi^*$ triplet (unrestricted formalism) and the lowest singlet state
 (restricted formalism).
 Calculations are at the PBE0/def-SV(P) level.
-Molecule \textbf{[1]} to \textbf{[6]} are is represented in Figure \ref{fig:molecules}.}
+Molecules \textbf{[1]} to \textbf{[6]} are represented in Figure \ref{fig:molecules}.}
 \label{fig:rings_graphs}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-%\fbox{\includegraphics[width=5cm]{c54h18}}
-\fbox{\includegraphics[width=5cm]{molecules}}
-\end{center}
-\caption{\label{fig:molecules}Representation of the molecules \textbf{[1]} to \textbf{[6]}.}
 \end{figure}
 
 The potentials derived above are also tested on larger systems.
 Figure \ref{fig:rings_graphs} shows the $\Delta_{ST}$, the IE and
-HOMO energy values for several ring systems, the largest of which is C$_{54}$H$_{18}$, shown in Figure~\ref{fig:molecules}.
+HOMO energy values for several ring systems, shown in Figure~\ref{fig:molecules}, the largest of which is \textbf{[6]}: C$_{54}$H$_{18}$.
 As with the short chain alkenes, the general trend of the results is well-replicated
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar. For PBE0, Figure~\ref{fig:rings_graphs}, mean average errors are below 3.6\% for excitation energies, independently of the way they are computed
@@ -607,7 +603,7 @@ The basis set is def-SV(P).}
 \%-error                & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline
 $\varepsilon_{HOMO}$    & 3.4 &  9.3  & 13.4 & 17.1 & 14.7 \\
-I.E.                    & 7.4 & 10.0  & 12.5 & 14.4 & 13.0 \\
+IE                    & 7.4 & 10.0  & 12.5 & 14.4 & 13.0 \\
 $\Delta_{ST}$           & 3.3 &  1.9  &  1.7 &  6.8 &  6.7 \\
 TD-DFT $\pi-\pi^*$       & 13.5 &  3.6  &  2.7 &  6.3 &  7.0 \\ 
 \hline\hline
@@ -624,7 +620,7 @@ TD-DFT $\pi-\pi^*$       & 13.5 &  3.6  &  2.7 &  6.3 &  7.0 \\
 \end{center}
 
 \caption{Comparison of the HOMO ($\varepsilon_{HOMO}$),
-the ionisation (I.E.),
+the ionisation (IE),
 the first singlet-triplet $\pi-\pi^*$ excitation ($\Delta_{ST}$ and TD-DFT) energies
 between the
 all electron reference system and the optimal pseudo-potential across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).
@@ -644,7 +640,7 @@ The basis set is def-SV(P).}
 \%-error          & HF & PBE0 & PBE & TPSS & TPSSh \\
 \hline
 $\varepsilon_{HOMO}$    &  1.8 &  7.3   &  11.3   &  16.7    &  13.6 \\
-I.E.                    & 25.1 &  6.7   &   9.4   &  10.3    &  11.6 \\
+IE                    & 25.1 &  6.7   &   9.4   &  10.3    &  11.6 \\
 $\Delta_{ST}$           & 55.3 & 85.8   &  83.4   & 239.8    & 320.2 \\
 TD-DFT $\pi-\pi^*$       & 30.1 &  1.0   &   6.1   &   5.6    &   2.9 \\ 
 \hline\hline
