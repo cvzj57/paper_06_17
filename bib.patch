@@ -1,0 +1,96 @@
+diff --git a/biblio_pseudo_alex.bib b/biblio_pseudo_alex.bib
+index 8389504..ca5e23f 100644
+--- a/biblio_pseudo_alex.bib
++++ b/biblio_pseudo_alex.bib
+@@ -4346,7 +4346,7 @@
+   groups = {these}
+ }
+ 
+-@book{turbomole,
++@book{turbomole_book,
+   publisher = {{University of Karlsruhe, Germany}},
+   author = {Ahlrichs, R. and B"ar, M. and Baron, H.-P. and Bauerschmitt, R. and B"ocker, S. and Ehrig, M. and Eichkorn, K. and Elliott, S. and Furche, F. and Haase, F. and H"aser, M. and Horn, H. and Huber, C. and Huniar, U. and Kattannek, M. and K"olmel, C. and Kollwitz, M. and May, K. and Ochsenfeld, C. and "Ohm, H. and Sch"afer, A. and Schneider, U. and Treutler, O. and von Arnim, M. and Weigend, F. and Weis, P. and Weiss, H.},
+   year = {2000},
+@@ -5030,6 +5030,82 @@
+   groups = {biblio\_pseudo\_alex}
+ }
+ 
++@article{pbe0,
++  volume = {105},
++  language = {en},
++  number = {9982},
++  journal = {Journal of Chemical Physics},
++  author = {Perdew, J.P. and Ernzerhof, M. and Burke, K.},
++  year = {1996},
++  groups = {biblio\_pseudo\_alex}
++}
++
++@article{pbe,
++  volume = {77},
++  language = {en},
++  number = {3865},
++  journal = {Physical Review letters},
++  author = {Perdew, J.P. and Burke, K. and Ernzerhof, M.},
++  year = {1996},
++  groups = {biblio\_pseudo\_alex}
++}
++
++@article{tpss,
++  volume = {91},
++  language = {en},
++  number = {146401},
++  journal = {Physical Review letters},
++  author = {Tao, J. and Perdew, J.P. and Staroverov, V.N. and Scuseria, G.E},
++  year = {2003},
++  groups = {biblio\_pseudo\_alex}
++}
++
++@article{tpssh,
++  volume = {119},
++  language = {en},
++  number = {12129},
++  journal = {Journal of Chemical Physics},
++  author = {Staroverov, V.N. and Scuseria, G.E and Tao, J. and Perdew, J.P.},
++  year = {2003},
++  groups = {biblio\_pseudo\_alex}
++}
++
++@article{tammdancoff,
++ volume = {7},
++ number = {3578},
++ journal = {Journal of Chemical Theory and Computation},
++ author = {M. J. G. Peach and M. J. Williamson and D. J. Tozer},
++ year = {2011},
++ groups = {biblio\_pseudo\_alex}
++}
++
++@misc{nyu_h_solutions,
++ language = {en},
++ url = {http://www.nyu.edu/classes/tuckerman/adv.chem/lectures/lecture_8/},
++ author = {Mark E. Tuckerman},
++ title = {CHEM-UA 127: Advanced General Chemistry I},
++ year = {2011},
++ groups = {biblio\_pseudo\_alex}
++}
++
++@article{defsvp,
++ volume = {97},
++ number = {2571},
++ journal = {Journal of Chemical Physics},
++ author = {A. Schäfer and H. Horn and R. Ahlrichs; J.},
++ year = {1992},
++ groups = {biblio\_pseudo\_alex}
++}
++
++@misc{scipy,
++  language = {en},
++  author =    {Eric Jones and Travis Oliphant and Pearu Peterson},
++  title =     {SciPy: Open source scientific tools for Python},
++  year =      {2001},
++  url = {http://www.scipy.org/},
++  groups = {biblio\_pseudo\_alex}
++}
++
+ @comment{jabref-meta: databaseType:bibtex;}
+ @comment{jabref-meta: groupstree:
+ 0 AllEntriesGroup:;

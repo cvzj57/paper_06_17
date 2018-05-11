@@ -1,0 +1,170 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrlttr2
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Address
+Université Aix-Marseille (Aix-Marseille III)
+\begin_inset Newline newline
+\end_inset
+
+ISM2, UMR-CNRS-7313
+\begin_inset Newline newline
+\end_inset
+
+Campus St.
+ Jérôme service 561
+\begin_inset Newline newline
+\end_inset
+
+F-13397 Marseille cedex 20
+\begin_inset Newline newline
+\end_inset
+
+France
+\begin_inset Newline newline
+\end_inset
+
+E-mail Yannick.Carissan@univ-amu.fr
+\begin_inset Newline newline
+\end_inset
+
+Tel (33) +4.91.28.91.68
+\begin_inset Newline newline
+\end_inset
+
+Fax (33) +4.91.28.91.79
+\end_layout
+
+\begin_layout Name
+Dr.
+ Yannick Carissan
+\end_layout
+
+\begin_layout Opening
+Dear editor,
+\end_layout
+
+\begin_layout Standard
+In the submitted article, entitled 
+\series bold
+
+\begin_inset Quotes eld
+\end_inset
+
+Pseudo-potentials for hybridized carbon atoms
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+, we develop a new kind of pseudo-potentials for hybridized atoms.
+ We focus on sp
+\begin_inset Formula $^{2}$
+\end_inset
+
+ carbon atoms and the properties of polyenes and polycyclic aromatic hydrocarbon
+s.
+ We show that the use of these potentials does not deteriorate the performance
+ of the ab-initio methods we used, namely TD-DFT with 5 functionals and
+ TD-HF, CASSCF, CASPT2.
+ The differences we obtain between all electron and pseudo-potential calculation
+s are 0.8 pm on geometrical parameters, 1.8 kcal /mol on a -27.1 kcal/mol reaction
+ energy and a minimum average error of 0.2 eV on excitation energies and
+ ionization potentials.
+\end_layout
+
+\begin_layout Standard
+We think, this work is in line with aims and scope of the Journal of Computation
+al Chemistry.
+\end_layout
+
+\begin_layout Standard
+The authors are :
+\end_layout
+
+\begin_layout Itemize
+Dr.
+ Yannick Carissan, corresponding author (see address in the header)
+\end_layout
+
+\begin_layout Itemize
+Jean Drujon, same address
+\end_layout
+
+\begin_layout Standard
+We suggested a set of 5 reviewers in the SholarOne Manuscirpts application,
+ with no preference.
+ According to us, the five of them are relevant to review this paper.
+ Four of them have themselves extracted pseudo-potentials in the past and
+ Maurizio Persico has a broad culture in quantum chemistry, which makes
+ him at ease with this kind of work.
+\end_layout
+
+\begin_layout Closing
+With our Best Regards,
+\end_layout
+
+\begin_layout Signature
+Yannick Carissan
+\end_layout
+
+\end_body
+\end_document

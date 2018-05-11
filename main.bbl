@@ -1,0 +1,211 @@
+\begin{thebibliography}{26}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Chung et~al.}(2015)\citenamefont{Chung, Sameera,
+  Ramozzi, Page, Hatanaka, Petrova, Harris, Li, Ke, Liu
+  et~al.}}]{chung_oniom_2015}
+\bibinfo{author}{\bibfnamefont{L.~W.} \bibnamefont{Chung}},
+  \bibinfo{author}{\bibfnamefont{W.~M.~C.} \bibnamefont{Sameera}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Ramozzi}},
+  \bibinfo{author}{\bibfnamefont{A.~J.} \bibnamefont{Page}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Hatanaka}},
+  \bibinfo{author}{\bibfnamefont{G.~P.} \bibnamefont{Petrova}},
+  \bibinfo{author}{\bibfnamefont{T.~V.} \bibnamefont{Harris}},
+  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Li}},
+  \bibinfo{author}{\bibfnamefont{Z.}~\bibnamefont{Ke}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Liu}}, \bibnamefont{et~al.},
+  \bibinfo{journal}{Chem. Rev.} \textbf{\bibinfo{volume}{115}},
+  \bibinfo{pages}{5678} (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{Gordon et~al.}(2001)\citenamefont{Gordon, Freitag,
+  Bandyopadhyay, Jensen, Kairys, and Stevens}}]{gordon_effective_2001}
+\bibinfo{author}{\bibfnamefont{M.~S.} \bibnamefont{Gordon}},
+  \bibinfo{author}{\bibfnamefont{M.~A.} \bibnamefont{Freitag}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Bandyopadhyay}},
+  \bibinfo{author}{\bibfnamefont{J.~H.} \bibnamefont{Jensen}},
+  \bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{Kairys}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{W.~J.} \bibnamefont{Stevens}},
+  \bibinfo{journal}{J. Phys. Chem. A} \textbf{\bibinfo{volume}{105}},
+  \bibinfo{pages}{293} (\bibinfo{year}{2001}).
+
+\bibitem[{\citenamefont{Steinmann et~al.}(2012)\citenamefont{Steinmann,
+  Fedorov, and Jensen}}]{steinmann_effective_2012}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Steinmann}},
+  \bibinfo{author}{\bibfnamefont{D.~G.} \bibnamefont{Fedorov}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~H.}
+  \bibnamefont{Jensen}}, \bibinfo{journal}{PLoS ONE}
+  \textbf{\bibinfo{volume}{7}} (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Wesolowski et~al.}(2015)\citenamefont{Wesolowski,
+  Shedge, and Zhou}}]{wesolowski_frozen-density_2015}
+\bibinfo{author}{\bibfnamefont{T.~A.} \bibnamefont{Wesolowski}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Shedge}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Zhou}},
+  \bibinfo{journal}{Chem. Rev.} \textbf{\bibinfo{volume}{115}},
+  \bibinfo{pages}{5891} (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{Assfeld and Rivail}(1996)}]{ASSFELD1996100}
+\bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Assfeld}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.-L.} \bibnamefont{Rivail}},
+  \bibinfo{journal}{Chem. Phys. Lett.} \textbf{\bibinfo{volume}{263}},
+  \bibinfo{pages}{100 } (\bibinfo{year}{1996}), ISSN \bibinfo{issn}{0009-2614}.
+
+\bibitem[{\citenamefont{Dolg and Cao}(2012)}]{dolg_relativistic_2012}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Dolg}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Cao}},
+  \bibinfo{journal}{Chem. Rev.} \textbf{\bibinfo{volume}{112}},
+  \bibinfo{pages}{403} (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Huzinaga}(1995)}]{huzinaga_1994_1995}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Huzinaga}},
+  \bibinfo{journal}{Can. J. Chem.} \textbf{\bibinfo{volume}{73}},
+  \bibinfo{pages}{619} (\bibinfo{year}{1995}).
+
+\bibitem[{\citenamefont{Carissan et~al.}(2006)\citenamefont{Carissan, Bessac,
+  Alary, Heully, and Poteau}}]{carissan_what_2006}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Carissan}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Bessac}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Alary}},
+  \bibinfo{author}{\bibfnamefont{J.-L.} \bibnamefont{Heully}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Poteau}},
+  \bibinfo{journal}{Int. J. Quantum Chem.} \textbf{\bibinfo{volume}{106}},
+  \bibinfo{pages}{727} (\bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{Raynaud et~al.}(2010)\citenamefont{Raynaud, {del
+  Rosal}, Jolibois, Maron, and Poteau}}]{raynaud_multicentered_2010}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Raynaud}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{{del Rosal}}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Jolibois}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Maron}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Poteau}},
+  \bibinfo{journal}{Theor. Chem. Acc.} \textbf{\bibinfo{volume}{126}},
+  \bibinfo{pages}{151} (\bibinfo{year}{2010}).
+
+\bibitem[{\citenamefont{Nicolas and Durand}(1980)}]{Nicolas1980a}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Nicolas}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Durand}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{72}},
+  \bibinfo{pages}{453} (\bibinfo{year}{1980}).
+
+\bibitem[{\citenamefont{Huzinaga}(1991)}]{huzinaga_effective_1991}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Huzinaga}},
+  \bibinfo{journal}{J. Mol. Struct. THEOCHEM} \textbf{\bibinfo{volume}{234}},
+  \bibinfo{pages}{51} (\bibinfo{year}{1991}).
+
+\bibitem[{\citenamefont{Hernandez and Sanz}(2000)}]{EGP5}
+\bibinfo{author}{\bibfnamefont{N.~C.} \bibnamefont{Hernandez}}
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Sanz}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{113}},
+  \bibinfo{pages}{6082} (\bibinfo{year}{2000}).
+
+\bibitem[{\citenamefont{Romero and Sanz}(1993)}]{EGP6}
+\bibinfo{author}{\bibfnamefont{J.~A.~M.} \bibnamefont{Romero}}
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Sanz}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{99}},
+  \bibinfo{pages}{1255} (\bibinfo{year}{1993}).
+
+\bibitem[{\citenamefont{Mejias and Sanz}(1994)}]{EGP9}
+\bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Mejias}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Sanz}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{102}},
+  \bibinfo{pages}{327} (\bibinfo{year}{1994}).
+
+\bibitem[{\citenamefont{Katsuki}(1992)}]{katsuki_molecular_1992}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Katsuki}, \bibfnamefont{S.}},
+  \bibinfo{journal}{Can. J. Chem.} \textbf{\bibinfo{volume}{70}},
+  \bibinfo{pages}{285} (\bibinfo{year}{1992}).
+
+\bibitem[{\citenamefont{Katsuki}(1993)}]{katsuki_spectral_1993}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Katsuki}}, \bibinfo{journal}{J.
+  Chem. Phys.} \textbf{\bibinfo{volume}{98}}, \bibinfo{pages}{496}
+  (\bibinfo{year}{1993}).
+
+\bibitem[{\citenamefont{Drujon and
+  Carissan}(2013)}]{drujon_pseudopotentials_2013}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Drujon}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Carissan}},
+  \bibinfo{journal}{J. Comput. Chem.} \textbf{\bibinfo{volume}{34}},
+  \bibinfo{pages}{49} (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Helgaker et~al.}(2002)\citenamefont{Helgaker,
+  J{\o}rgensen, and Olsen}}]{me_structure_theory}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Helgaker}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{J{\o}rgensen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Olsen}},
+  \emph{\bibinfo{title}{Molecular Electronic-Structure Theory}}
+  (\bibinfo{publisher}{{John Wiley and Sons Ltd}}, \bibinfo{address}{Baffins
+  Lane, Chichester, West Sussex PO19 1UD, England}, \bibinfo{year}{2002}).
+
+\bibitem[{\citenamefont{Slater}(1930)}]{slatersrules}
+\bibinfo{author}{\bibfnamefont{J.~C.} \bibnamefont{Slater}},
+  \bibinfo{journal}{Phys. Rev.} \textbf{\bibinfo{volume}{1}}
+  (\bibinfo{year}{1930}).
+
+\bibitem[{\citenamefont{Perdew et~al.}(1996{\natexlab{a}})\citenamefont{Perdew,
+  Ernzerhof, and Burke}}]{pbe0}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Perdew}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ernzerhof}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Burke}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{105}}
+  (\bibinfo{year}{1996}{\natexlab{a}}).
+
+\bibitem[{\citenamefont{Perdew et~al.}(1996{\natexlab{b}})\citenamefont{Perdew,
+  Burke, and Ernzerhof}}]{pbe}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Perdew}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Burke}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ernzerhof}},
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{77}}
+  (\bibinfo{year}{1996}{\natexlab{b}}).
+
+\bibitem[{\citenamefont{Tao et~al.}(2003)\citenamefont{Tao, Perdew, Staroverov,
+  and Scuseria}}]{tpss}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Tao}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Perdew}},
+  \bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{Staroverov}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Scuseria}},
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{91}}
+  (\bibinfo{year}{2003}).
+
+\bibitem[{\citenamefont{Staroverov et~al.}(2003)\citenamefont{Staroverov,
+  Scuseria, Tao, and Perdew}}]{tpssh}
+\bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{Staroverov}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Scuseria}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Tao}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Perdew}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{119}}
+  (\bibinfo{year}{2003}).
+
+\bibitem[{TUR(2016)}]{TURBOMOLE}
+\emph{\bibinfo{title}{TURBOMOLE V7.1 2016}} (\bibinfo{publisher}{a development
+  of University of Karlsruhe and {Forschungszentrum Karlsruhe GmbH}, 1989-2007,
+  {TURBOMOLE GmbH}, since 2007; available from http://www.turbomole.com.},
+  \bibinfo{year}{2016}).
+
+\bibitem[{\citenamefont{Sch{\"a}fer et~al.}(1992)\citenamefont{Sch{\"a}fer,
+  Horn, and Ahlrichs}}]{defsvp}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Sch{\"a}fer}},
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Horn}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Ahlrichs}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{97}}
+  (\bibinfo{year}{1992}).
+
+\bibitem[{\citenamefont{Peach et~al.}(2011)\citenamefont{Peach, Williamson, and
+  Tozer}}]{tammdancoff}
+\bibinfo{author}{\bibfnamefont{M.~J.~G.} \bibnamefont{Peach}},
+  \bibinfo{author}{\bibfnamefont{M.~J.} \bibnamefont{Williamson}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{Tozer}},
+  \bibinfo{journal}{J. Chem. Theory Comput.} \textbf{\bibinfo{volume}{7}}
+  (\bibinfo{year}{2011}).
+
+\end{thebibliography}
