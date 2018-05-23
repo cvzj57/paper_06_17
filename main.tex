@@ -20,6 +20,7 @@
 \graphicspath{{./}{data/}{images/}}
 \listfiles
 
+\usepackage{soul}
 \begin{document}
 
 %\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
@@ -103,8 +104,40 @@ its surroundings,
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used to reduce
 the number of parameters to be optimised in the self consistent field calculation.
-In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentioned:
-the total wave function is optimised with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
+In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentionned:
+the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
+
+\hl{The QM/MM caping methods are to be cited.}\cite{ihrig_specific_2011,
+zhang_pseudobond_1998,
+dilabio_simple_2002,
+dilabio_efficient_2005,
+gao_generalized_1998,
+assfeld_quantum_1996,
+jacob_calculation_2006,
+von_lilienfeld_variational_2004,
+von_lilienfeld_performance_2005,
+von_lilienfeld_optimization_2004,
+goedecker_separable_1996,
+hartwigsen_relativistic_1998,
+singh_combined_1986,
+zhang_pseudobond_1998-1,
+zhang_improved_2004,
+parks_pseudobond_2008,
+dilabio_simple_2002-1,
+hitzenberger_optimizing_2016,
+hitzenberger_probing_2015,
+collins_energy-based_2015,
+pezeshki_recent_2015,
+von_lilienfeld_force_2013}%
+
+\hl{As the aforementioned methods intend to fill the valence of dandling bonds
+or to improve over the H-capping methods, the reference is the ground state
+potential energy surface.
+Sopme years ago, Sebastiani included successfully vibrational excited states in the pseudo potential
+extraction method focusing on vibrational excitations.
+We want to treat properly electronic excited states with our method.
+The reproduction of the ground state potential energy surface will be the subject of a further
+study on top of the current work.}
 
 In this article we shall focus on pseudo-potential techniques, which also
 divide the chemical problem into two parts.
@@ -711,6 +744,31 @@ The molecular orbital virtual space is also well described (cf. Table~\ref{tab:c
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
 
+\subsection*{\sffamily \large Reproduction of the excited space}
+\hl{The previous calculations show that the pseudo potentials that we have extracted
+are able to reproduce the low lying first excited state as well as the ionisation potential
+of a large range of polycyclic hydrocarbons.
+We could even show that the virtual space was reproduced properly.
+In this section, we study the space of the low energy excited states.
+To do so, we compute a large number of $\pi$ excited states and compare
+our results to reference calculations with the PBE0 functional.
+As can be seen from }Figure~\ref{cnhn_uv},\hl{the excitation energies as well as the
+intensities of the excitations computed by TD-DFT are in extremely good agreement.}
+
+\begin{figure}
+%\vspace*{0.1in}   %%% FIGURE 8
+\begin{center}
+\includegraphics[width=12cm,angle=270]{cnhn_uv}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the UV spectra obtained with pseudo potentials and reference
+calculations def2-TZVP/TD-PBE0.
+Pseudo potential calculations were shifted by a factor of 1.15.}
+\label{fig:cnhn_uv}
+\end{figure}
+
+\clearpage
 \section{Conclusion}
 In this work, we tackled the two main problems of the initial version of our
 molecular potentials.
