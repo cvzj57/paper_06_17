@@ -97,11 +97,8 @@ the number of parameters to be optimised in the self consistent field calculatio
 In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentionned:
 the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
 
-In this article, we intend to split the electronic structure of molecule with $\pi$
-electrons into two parts: $\sigma$ electrons as the inactive part and the $\pi$ electrons
-as the active part.
-The Schrödinger equation is solved for the later part only in the field of the dormant part.
-The inactive electrons are replaced by strategically placed atomic pseudo potentials.
+HALOGENES
+
 In 1992 Katsuki built molecular potentials based on Huzinaga's model potentials.\cite{katsuki_molecular_1992,katsuki_spectral_1993}
  In his work on this subject, Huzinaga emphasises that pseudo-potentials should maintain three effects of the
 'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
@@ -134,15 +131,19 @@ In this operator we notice that the \(r^{-1}\) behavior is mantained for the fir
 (the Coulomb one).
 %
 
-In the present work, the aim is to propose a methodology for extracting a potential for
+In this article, we intend to split the electronic structure of molecule with $\pi$
+electrons into two parts: $\sigma$ electrons as the inactive part and the $\pi$ electrons
+as the active part.
+The Schr\"odinger equation is solved for the later part only in the field of the dormant part.
+The aim is to propose a methodology for extracting a potential for
 a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
 used as a building block for constructing chemical systems. This carbon atom
 will contain explicitly one nuclear charge and one electron.
 Moreover, the method should be usable 
 out of the box in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
-This supplementary constraint will be fulfilled by strategically positioning the pseudo-potentials
-we intend to use. 
+This supplementary constraint will be fulfilled by strategically positioning the pseudo-potentials.
+We intend to produce basic properties of the electronic structure of the sp$^2$ carbon in a molecular framework (HOMO energy, ionization potential and excitation energies).
 
 %Pseudo-potentials for hybridised carbon
 %atoms have been already successfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
@@ -159,6 +160,8 @@ we intend to use.
 %determines completely where the potentials are placed in space in the best possible manner
 %when dealing with hybridised atoms (as hybridisation destroys isotropy, the preferred orientations
 %must be given to define the pseudo-potential).
+
+difference from the HALOGENES
 
 This article is structured as follows.
 In the first part, the method is defined in detail.
