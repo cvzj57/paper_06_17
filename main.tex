@@ -219,13 +219,36 @@ In this article, we fix \(c = 0.25\;a.u.\).
 
 \section*{\sffamily \Large RESULTS, DEVELOPMENT AND DISCUSSION}
 \subsection*{\sffamily \large Step by step extraction}
+In order to determine the quality of the pseudo-potentials that we extract, we base our
+reasoning on Figure~\ref{figure:diagram}.
+In a first step, we focus our work on getting guess potentials, which reproduce the
+$p_z$ orbital of an sp$^2$ carbon in the field of surrounding electron pairs.
+We chose the CH$_3^\bullet$ system for that.
+This will provide us with a guess that we will use as a starting point in
+molecular frameworks were this $p_z$ orbital will be involved in $\pi$ bonds.
+Hence the $\epsilon_{CH_3}$ parameter is relevant to the extraction.
+
+In a second time, starting from this guess, we will optimize parameters for the smallest $\pi$
+bonded system, ethylene.
+Thus, as in this molecule more constraint apply to the $\pi$ space, we optimize
+the full set of the pseudo-potentials we have setup in order to reproduce
+$\epsilon_{HOMO}$, IP and $\Delta_{ST}$.
+As shown in Figure~\ref{figure:diagram}, these parameters allow us to fully define the energetical
+bond parameters.
+$\epsilon_{HOMO}$ ensures that the orbital should be energetically well positioned to interact
+with chemical moieties.
+The reproduction of the ionization potential shows to what extent, the system with pseudo-potentials
+can rearrange when losing one electron.
+Finally, $\Delta_{ST}$ ensures that the first virtual orbitals are well positioned, which is an
+indicator of the quality of the system in the reproduction of spectroscopic and chemical interactions.
+
+In the following subsections, the following steps are detailed: extraction of a guess pseudo-potential
+for the CH$_3^\bullet$ system, extraction of the complete set of parameters on the ethylene molecule,
+application on different PAH.
+
 \subsubsection*{\sffamily \large Obtaining a guess for a minimal pseudo-potential}
 
 It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
-%	The generic forms of Gaussian Type Orbitals for \(s\) and \(p_{z}\) are [REF]
-%\begin{equation}
-%\psi_{s} = re^{-\alpha r^{2}},\qquad	\psi_{p_{z}} = r \cos \theta e^{-\alpha r^{2}}
-%\end{equation}
 
 The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
 \begin{equation}
@@ -243,15 +266,7 @@ Next, we need to find a value for \( \langle r \rangle \). We can do this by cal
 \label{equation:exp_r}
 \end{equation}
 
-%%
-%% \begin{equation}
-%% \langle r \rangle = \lambda B \lambda^{T}
-%% \label{equation:exp_r}
-%% \end{equation}
-%% where \(\lambda\) are the Symmetrised Atomic Orbital Shells taken from the molecular orbital files of a reference calculation of a CH\(^{\bullet}_{3}\) %% radical, and B is the matrix of \(\langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle\) values, appropriately normalised and contracted according to the basis %% set used (in this case, def-SV(P) \cite{defsvp}).
-%%
-
- where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
+where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
 \begin{equation}
 S = \langle \psi_{p_{z}} | \chi \rangle
 \end{equation}
@@ -263,7 +278,7 @@ leading us to
 \begin{equation}
 \langle \widehat{Z} \rangle = \langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} | Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = Z_{pseudo} S^{2}
 \end{equation}
-Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), which we subtract from the desired \(Z_{eff}\) with whch we want to influence our \(p_{z}\) electron, leaving us with
+Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), which we subtract from the desired \(Z_{eff}\) with which we want to influence our \(p_{z}\) electron, leaving us with
 \begin{equation}
 Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
