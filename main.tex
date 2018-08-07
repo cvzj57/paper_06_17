@@ -95,9 +95,17 @@ by a frozen electronic density extracted on a reference system.\cite{wesolowski_
 They are an extension of the frozen core approximation, already used to reduce
 the number of parameters to be optimised in the self consistent field calculation.
 In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentionned:
-the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}
+the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}.
+
+
+The problem of treating the QM/MM boundary is well-known and several groups of methods have been developed to try to resolve it. The most common method involves substituting the boundary atoms by Hydrogen capping atoms. However, another approach is to use pseudo-potential atoms. Among the earliest were Philipp and Friesner in 1999 REF, whose approach involved placing point charges along frontier bonds to optimise bond length. At about the same time came the pseudo-bond method developed by Zhang \emph{et al.} REF, in which they create pseudo-carbon atoms with 7 valence electrons, and an ECP designed to reproduce geometric characteristics of bonds between Carbon and other atoms. There have also been the "Quantum Capping Potentials" (QCPs) of Dilabio \emph{et al.} REF, in which they take a pseudo-carbon with four electrons, pushing three into the core by means of an ECP, and adding shielding and Pauli repulsion terms in order to reproduce the Mulliken charges of a methyl group. More recently, in 2011, Ihrig \emph{et al.} had been working on refining the QCP method via stochastic algorithms for use with biomolecular groups, with a view to preserving the electronic density of QM fragments in QM/MM calculations.
+
+[THOUGHTS: 
+- I could make some comment here about the way in which all these methods have tried to reproduce different molecular features, bond length, mulliken etc. and then make some comparisons with what we do?
+- Also questino f optimisation algorithm, pseudobonds use training set and powell, sebastiani uses the artificial bee colony]
 
 HALOGENES
+
 
 In 1992 Katsuki built molecular potentials based on Huzinaga's model potentials.\cite{katsuki_molecular_1992,katsuki_spectral_1993}
  In his work on this subject, Huzinaga emphasises that pseudo-potentials should maintain three effects of the
