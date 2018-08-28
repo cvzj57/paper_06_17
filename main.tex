@@ -23,7 +23,7 @@
 
 %\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
 \title{Atomic pseudo-potentials for reproducing the valence electron behaviour of sp$^2$ carbon atoms}
-\author{Alexander Punter\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Paola Nava\thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}, Yannick Carissan \thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}}
+\author{Alexander Punter, Paola Nava, Yannick Carissan \thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}}
 
 \begin{document}
 
@@ -33,7 +33,7 @@
 \begin{abstract}
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built 
 and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
-This pseudo-system has a central charge of 1, thus it contains only one
+This pseudo-system has a central charge of $Z=1$, thus it contains only one
 electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics
 including first ionisation and excitation energies, as well as the HOMO energy, 
 are found to be well-reproduced by the pseudo-system.
@@ -58,13 +58,13 @@ are found to be well-reproduced by the pseudo-system.
 
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
-an active one, where most of the chemistry takes place, and an (apparently) inactive
-one, which must be taken into account in order to fulfill chemical requirements.
+an active one, where most of the chemistry takes place, and an inactive
+one, both of which must be taken into account in order to fulfill chemical requirements.
 Based on this general statement, many successful theoretical approaches have been developed.
 Among them can be cited QM/QM' or QM/MM methods, where 
 the active region that usually contains several atoms is
 treated at a high level of calculation, while the inactive part is treated at a 
-lower level of theory.\cite{chung_oniom_2015,
+lower level of theory, allowing for increased computational efficiency at a minimal cost in accuracy.\cite{chung_oniom_2015,
 ihrig_specific_2011,
 zhang_pseudobond_1998,
 dilabio_simple_2002,
@@ -94,22 +94,23 @@ its surroundings,
 by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
 They are an extension of the frozen core approximation, already used to reduce
 the number of parameters to be optimised in the self consistent field calculation.
-In the framework of this work, the pioneering work of Rivail \emph{et al.} must be mentionned:
-the total wave function is optimized with some molecular orbitals kept frozen.\cite{ASSFELD1996100}.
+In the context of this work, the pioneering efforts of Rivail \emph{et al.} must be mentioned, in which the total wavefunction is optimised with some molecular orbitals kept frozen.\cite{ASSFELD1996100}.
 
 
-The problem of treating the QM/MM boundary is well-known and several groups of methods have been developed to try to resolve it. The most common method involves substituting the boundary atoms by Hydrogen capping atoms. However, another approach is to use pseudo-potential atoms. Among the earliest were Zhang \emph{et al.} \cite{zhang_pseudobond_1998}, who created pseudo-carbon atoms with 7 valence electrons, and an ECP designed to reproduce geometric characteristics of bonds between Carbon and other atoms. There have also been the "Quantum Capping Potentials" (QCPs) of Dilabio \emph{et al.} \cite{dilabio_simple_2002}, in which they take a pseudo-carbon with four electrons, pushing three into the core by means of an ECP, and adding shielding and Pauli repulsion terms in order to reproduce the Mulliken charges of a methyl group. More recently, in 2011, Ihrig \emph{et al.} \cite{ihrig_specific_2011} had been working on refining the QCP method via stochastic algorithms for use with biomolecular groups, with a view to preserving the electronic density of QM fragments in QM/MM calculations.
+The problem of treating the QM/MM boundary is well-known and several groups of methods have been developed to try to resolve it. The most common method involves substituting the boundary atoms by Hydrogen capping atoms. However, another approach is to use pseudo-potential atoms. Among the earliest were Zhang \emph{et al.} \cite{zhang_pseudobond_1998}, who created pseudo-carbon atoms with 7 valence electrons, and an ECP designed to reproduce geometric characteristics of bonds between Carbon and other atoms. There have also been the "Quantum Capping Potentials" (QCPs) of Dilabio \emph{et al.} \cite{dilabio_simple_2002}, in which they began by taking a pseudo-carbon with four electrons, pushing three into the core by means of an ECP, and adding shielding and Pauli repulsion terms in order to reproduce the Mulliken charges of a methyl group. More recently, in 2011, Ihrig \emph{et al.} \cite{ihrig_specific_2011} had been working on refining the QCP method via stochastic algorithms for use with biomolecular groups, with a view to preserving the electronic density of QM fragments in QM/MM calculations.
 
-[THOUGHTS: 
+[THOUGHTS:
+ 
 - I could make some comment here about the way in which all these methods have tried to reproduce different molecular features, bond length, mulliken etc. and then make some comparisons with what we do?
-- Also question of optimisation algorithm, pseudobonds use training set and powell, sebastiani uses the artificial bee colony]
+
+- Also question of optimisation algorithm, pseudobonds use training set and powell, sebastiani uses the artificial bee 
+colony
+]
 
 HALOGENES
 
+ The underlying theory used in many of these methods was set out by Huzinaga in 1991 \cite{huzinaga_effective_1991}. In this paper he emphasised that the 'dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a 'no-collapse' term.
 
-In 1992 Katsuki built molecular potentials based on Huzinaga's model potentials.\cite{katsuki_molecular_1992,katsuki_spectral_1993}
- In his work on this subject, Huzinaga emphasises that pseudo-potentials should maintain three effects of the
-'dormant' electrons on the active ones: the Coulomb, the exchange and the 'no-collapse' term.\cite{huzinaga_effective_1991}
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
 \begin{equation}
 \label{eq:atomicHamiltonian}
@@ -126,7 +127,7 @@ where $\Delta_i$ is the Laplacian of the coordinates of electron $i$, and
 $Z_C$ is the number of core electrons withdrawn from the reference system.
 The operator $\hat{\sigma}(i)$ is the 'no-collapse' term that prevents active electrons
 collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
-Coulomb and exchange interactions, for which Hunzinaga proposed a spectral formulation:
+Coulomb and exchange interactions, for which Huzinaga proposed a spectral formulation:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
 \hat{V} = r^{-n}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right] \text{with}\;n=1
@@ -139,19 +140,13 @@ In this operator we notice that the \(r^{-1}\) behavior is mantained for the fir
 (the Coulomb one).
 %
 
-In this article, we intend to split the electronic structure of molecule with $\pi$
-electrons into two parts: $\sigma$ electrons as the inactive part and the $\pi$ electrons
-as the active part.
-The Schr\"odinger equation is solved for the later part only in the field of the dormant part.
-The aim is to propose a methodology for extracting a potential for
-a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be
-used as a building block for constructing chemical systems. This carbon atom
-will contain explicitly one nuclear charge and one electron.
-Moreover, the method should be usable 
-out of the box in any standard quantum chemistry software.
+In this article, we performed the active/inactive split on a molecule with $\pi$ electrons: the $\sigma$ electrons comprising the inactive part and the $\pi$ electrons the active part.
+The Schr\"odinger equation was solved for the later part only in the field of the dormant part.
+The aim is to propose a methodology for extracting a potential for a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be used as a building block for constructing chemical systems. This carbon pseudo-atom contains but one explicit nuclear charge and one electron.
+Moreover, the method should be usable ``out of the box", in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
-This supplementary constraint will be fulfilled by strategically positioning the pseudo-potentials.
-We intend to produce basic properties of the electronic structure of the sp$^2$ carbon in a molecular framework (HOMO energy, ionization potential and excitation energies).
+This supplementary constraint is fulfilled by strategically positioning the pseudo-potentials.
+We aim to reproduce basic properties of the electronic structure of the sp$^2$ carbon in a molecular framework (HOMO energy, ionisation potential and excitation energies).
 
 %Pseudo-potentials for hybridised carbon
 %atoms have been already successfully extracted in a previous work of ours.\cite{drujon_pseudopotentials_2013}
@@ -173,10 +168,7 @@ difference from the HALOGENES
 
 This article is structured as follows.
 In the first part, the method is defined in detail.
-The second part shows the results obtained, from the most crude to the most refined
-version of the method.
-The extracted pseudo-potentials are then employed for extended systems.
-Perspectives are presented in the conclusion.
+The second part shows the results obtained using the most refined version of the method. The extracted pseudo-potentials are then employed for extended systems, with results and discussion. A final perspective is presented in the conclusion.
 
 \section*{\sffamily \Large METHODOLOGY}
 
@@ -184,10 +176,7 @@ Perspectives are presented in the conclusion.
 
 As in our previous work\cite{drujon_pseudopotentials_2013},
 we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
-It is the smallest system containing one and only one sp$^2$ hybridised carbon atom.
-This choice allows us to isolate the different electrostatic interactions
-to build a physically meaningful model.
-We make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
@@ -197,25 +186,21 @@ The multi-centered pseudo-potentials that we build read as follows:
 \underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
 \right]
 \end{equation}
-with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics and $r^0_J$ the relative fixed position of the $J^{th}$
-potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
+with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics and $r^0_J$ the relative fixed position of the $J^{th}$ potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
 By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
 we can say that the $p$ projectors aim to mimic a coulombic interaction,
 while the $s$ potentials have the task of recovering part of the bi-electronic interaction
-between the dormant and the active electrons.
+between the dormant and the active electrons, explaining their position \textit{around} the pseudo-atom.
 Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as they aim at recovering
-the bi-eletronic interactions and the no-collapse term.
+the bi-electronic interactions and the no-collapse term.
 This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
 
-As will be discussed in the following sections,
-the \(p\) pseudo-potential allows to reproduce atomic properties, when the
-\(s\)-potentials mimic electrostatic electron pair repulsion.
+As discussed in the following sections,
+the \(p\) pseudo-potential allows us to reproduce atomic properties, while the \(s\)-potentials mimic electrostatic electron pair repulsion.
 The pseudo-potentials are mono-electronic operators, thus they shall not be able to reproduce fully bi-electronic interactions.
-Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties,
-such as spatial extent, energy and excitation energies, are as close as possible to those of the reference system.
+Knowing this, we adjust the parameters of the \(s\)-potentials for the pseudo-system to have a wavefunction in which properties such as spatial extent, energy and excitation energies are as close as possible to those of the reference system.
 
-Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by
-a hydrogen-like "pseudo-carbon", with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
+Figure \ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by a hydrogen-like ``pseudo-carbon", with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
 There are now no H atoms, and the system is surrounded by three potential sets at a planar distance of \(d\), each consisting of 
 two \(s\)-shaped potentials with a distance above and below the \(xy\)-plane of \(c\). A further \(p\)-shaped potential is applied
 directly to the pseudo-carbon.
@@ -226,37 +211,10 @@ as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
 In this article, we fix \(c = 0.25\;a.u.\).
 
 \section*{\sffamily \Large RESULTS, DEVELOPMENT AND DISCUSSION}
-\subsection*{\sffamily \large Step by step extraction}
-In order to determine the quality of the pseudo-potentials that we extract, we base our
-reasoning on Figure~\ref{figure:diagram}.
-In a first step, we focus our work on getting guess potentials, which reproduce the
-$p_z$ orbital of an sp$^2$ carbon in the field of surrounding electron pairs.
-We chose the CH$_3^\bullet$ system for that.
-This will provide us with a guess that we will use as a starting point in
-molecular frameworks were this $p_z$ orbital will be involved in $\pi$ bonds.
-Hence the $\epsilon_{CH_3}$ parameter is relevant to the extraction.
-
-In a second time, starting from this guess, we will optimize parameters for the smallest $\pi$
-bonded system, ethylene.
-Thus, as in this molecule more constraint apply to the $\pi$ space, we optimize
-the full set of the pseudo-potentials we have setup in order to reproduce
-$\epsilon_{HOMO}$, IP and $\Delta_{ST}$.
-As shown in Figure~\ref{figure:diagram}, these parameters allow us to fully define the energetical
-bond parameters.
-$\epsilon_{HOMO}$ ensures that the orbital should be energetically well positioned to interact
-with chemical moieties.
-The reproduction of the ionization potential shows to what extent, the system with pseudo-potentials
-can rearrange when losing one electron.
-Finally, $\Delta_{ST}$ ensures that the first virtual orbitals are well positioned, which is an
-indicator of the quality of the system in the reproduction of spectroscopic and chemical interactions.
-
-In the following subsections, the following steps are detailed: extraction of a guess pseudo-potential
-for the CH$_3^\bullet$ system, extraction of the complete set of parameters on the ethylene molecule,
-application on different PAH.
 
 \subsubsection*{\sffamily \large Obtaining a guess for a minimal pseudo-potential}
 
-It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we can make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
+It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
 
 The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
 \begin{equation}
@@ -296,13 +254,44 @@ We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the
 \subsubsection*{\sffamily \large CH\(_{3}\): obtaining a guess for the \(s\)-potentials}
 
 We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
-This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF).
-The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u.
-as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials.
+This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). At first we thought to place the $s$-potentials at the C - H bond distance from the pseudo-carbon ($r_{C - H} = 2.0446$ a.u. in our reference geometry), before realising such potentials would quickly begin to interfere with other atoms once we started building molecules with our pseudo-carbon. Thinking therefore that we would attempt to keep the effects of the $s$-potentials as possible, we chose $d=0.5$ a.u., approximately the shortest atom-atom distance possible in Turbomole before geometry problems are encountered.
+
 The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials,
 as well as selecting the correct orbital for the remaining electron.
 Table \ref{table:ch3_s_potentials} displays some of our results.
-Promisingly, we are able to produce many sets of potentials that give the correct energy.
+
+\subsection*{\sffamily \large Step-by-step extraction}
+
+Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our reference system is CH$_3^\bullet$, and we wish ultimately to simulate $\pi$-bonding, the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice.
+
+After some trial and improvement we discovered it was much more effective to optimise the potentials on the ethylene system itself, having constructed a pseudo-ethylene using the potential setup above. We found it easy to optimise sets of potentials to give us the HOMO energy of ethylene, which was promising as it suggested that we could maintain an accurate HOMO energy for the pseudo-system as we added further optimisation constraints.
+
+%In order to determine the quality of the pseudo-potentials that we extract, we base our
+%reasoning on Figure~\ref{figure:diagram}.
+%In a first step, we focus our work on getting guess potentials, which reproduce the
+%$p_z$ orbital of an sp$^2$ carbon in the field of surrounding electron pairs.
+%We chose the CH$_3^\bullet$ system for that.
+%This will provide us with a guess that we will use as a starting point in
+%molecular frameworks were this $p_z$ orbital will be involved in $\pi$ bonds.
+%Hence the $\epsilon_{HOMO(CH_3)}$ parameter is relevant to the extraction.
+
+In a second time, starting from this guess, we will optimise parameters for the smallest $\pi$
+bonded system, ethylene.
+Thus, as in this molecule more constraint apply to the $\pi$ space, we optimise
+the full set of the pseudo-potentials we have setup in order to reproduce
+$\epsilon_{HOMO}$, IP and $\Delta_{ST}$.
+As shown in Figure~\ref{figure:diagram}, these parameters allow us to fully define the energetical
+bond parameters.
+$\epsilon_{HOMO}$ ensures that the orbital should be energetically well positioned to interact
+with chemical moieties.
+The reproduction of the ionisation potential shows to what extent, the system with pseudo-potentials
+can rearrange when losing one electron.
+Finally, $\Delta_{ST}$ ensures that the first virtual orbitals are well positioned, which is an
+indicator of the quality of the system in the reproduction of spectroscopic and chemical interactions.
+
+In the following subsections, the following steps are detailed: extraction of a guess pseudo-potential
+for the CH$_3^\bullet$ system, extraction of the complete set of parameters on the ethylene molecule,
+application on different larger hydrcarbons.
 
 \subsubsection*{\sffamily \large Ethene: final \(s\) and \(p\)-potentials}
 
