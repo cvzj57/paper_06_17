@@ -373,22 +373,20 @@ in the description of the triplet excited state for
 C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
 As can be seen, the agreement is very good. 
 
+The previous calculations show that the pseudo-potentials that we have extracted
+are able to reproduce the low-lying first excited state as well as the ionisation potential
+of a large range of polycyclic hydrocarbons.
+We could even show that the virtual space was reproduced properly.
+To do so, we compute a large number of $\pi$ excited states and compare
+our results to reference calculations with the PBE0 functional.
+As can be seen from Figure~\ref{cnhn_uv}, the excitation energies as well as the
+intensities of the excitations computed by TD-DFT are in extremely good agreement.
+
 These results show that the pseudo-potentials that we have extracted are able to reproduce the
 $\pi$ systems in a variety of situations which are not part of their extraction set.
 The molecular orbital virtual space is also well described (cf. Table~\ref{tab:coef}),
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
-
-%\subsection*{\sffamily \large Reproduction of the excited space}
-%\hl{The previous calculations show that the pseudo-potentials that we have extracted
-%are able to reproduce the low-lying first excited state as well as the ionisation potential
-%of a large range of polycyclic hydrocarbons.
-%We could even show that the virtual space was reproduced properly.
-%In this section, we study the space of the low energy excited states.
-%To do so, we compute a large number of $\pi$ excited states and compare
-%our results to reference calculations with the PBE0 functional.
-%As can be seen from }Figure~\ref{cnhn_uv},\hl{the excitation energies as well as the
-%intensities of the excitations computed by TD-DFT are in extremely good agreement.}
 
 \clearpage
 
@@ -596,6 +594,19 @@ C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 of the first triplet configuration in a SCF formalism, for reference
 and pseudo-systems.}
 \label{fig:ssquare}
+\end{figure}
+
+\begin{figure}
+%\vspace*{0.1in}   %%% FIGURE 8
+\begin{center}
+\includegraphics[width=12cm,angle=270]{cnhn_uv}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the UV spectra obtained with pseudo potentials and reference
+calculations def2-TZVP/TD-PBE0.
+Pseudo potential calculations were shifted by a factor of 1.15.}
+\label{fig:cnhn_uv}
 \end{figure}
 
 %\begin{figure}
