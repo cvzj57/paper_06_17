@@ -31,12 +31,8 @@
 
 
 \begin{abstract}
-A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built 
-and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
-This pseudo-system has a central charge of $Z=1$, thus it contains only one
-electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics
-including first ionisation and excitation energies, as well as the HOMO energy, 
-are found to be well-reproduced by the pseudo-system.
+A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
+This pseudo-system has a central charge of $Z=1$, thus it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including first ionisation and excitation energies, as well as the HOMO energy, are found to be well-reproduced by the pseudo-system.
 \end{abstract}
 
 \clearpage
@@ -297,28 +293,13 @@ In addition to the HOMO energy of the pseudo-ethylene, we decided we would also 
 
 \subsubsection*{\sffamily \large Ethylene: final \(s\) and \(p\)-potentials}
 
-Table \ref{table:potential_params} displays the data resulting from the step-by-step extraction described in Section REF. We were able to optimise the first set of CH\(^{\bullet}_{3}\) potentials easily, giving us a HOMO energy exactly matching that of the reference system. The next step was to take two pseudo-CH\(^{\bullet}_{3}\) systems to create a pseudo-ethylene. Now we see, again from Table \ref{table:potential_params} that the HOMO energy of the pseudo-system has an error of nearly 50\%. 
-
-WE WERE WRONG
-
-In the final version of the extraction, the pseudo-ethylene system was optimised from several different random starting guesses to give the correct $\Delta_{ST}$ value, and the one that also gave the best HOMO and 1$^{st}$ ionisation energies chosen as the starting guess for a final optimisation, performed by hand, to give the final set of pseudo-potentials used in the rest of this work.
-
-
-Next, we take some of these potentials to create a pseudo-ethylene system, with the results shown in Table \ref{table:potential_params}.
-
-The next step adds a \(p\)-potential centred on the pseudo-carbon, with Table \ref{table:potential_params} displaying the results.
-As before, \(d = 0.5\) a.u.. The \(p_{z}\) potential is selected using the procedure described in Section \ref{section:potential_derivation},
-with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital,
+Table \ref{table:potential_params} displays the data resulting from the step-by-step extraction described in Section REF. The \(p_{z}\) potential is selected using the procedure described, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital,
 and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap.
-The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\).
-We again take these potentials to create a pseudo-ethene molecule, with the results shown in Table \ref{table:potential_params}.
-We can see that these potentials seem to transfer more effectively from the CH\(^{\bullet}_{3}\) system to the ethene,
-suggesting therefore that whilst the \(s\)-potentials can affect both the \(p_{z}\) and \(\pi\) orbitals, they 
-cannot alone describe the relationship between them.
+The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\). We were able to optimise the first set of CH\(^{\bullet}_{3}\) potentials easily, giving us a HOMO energy exactly matching that of the reference system. 
 
-Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
-the singlet-triplet excitation energy ($\Delta_{ST}$) in the SCF framework (energy difference between the triplet and the singlet mono-reference
-calculations), the ionisation energy (IE) and the energy of the HOMO orbital ($\varepsilon_{HOMO}$). Reference values for the singlet-triplet \(\pi-\pi*\) excitation and first ionisation energies of ethene are given in Table \ref{table:potential_params}. Testing the relevant energies for the optimised pseudo-systems above, we can see from Table \ref{table:potential_params} that the early results are not promising. However, after we abandon the notion of sticking strictly to a \(p_{z}\)-potential exponent that gives the maximum overlap with the real orbital, we discover there is a ``sweet spot" of potential coefficients and exponents around which the correct values begin to emerge. Table \ref{table:ethene_excitations} shows our optimal result, chosen to give HOMO, triplet - singlet and ionisation energies closest to the reference values. 
+The next step was to take two pseudo-CH\(^{\bullet}_{3}\) systems to create a pseudo-ethylene. Now we see, again from Table \ref{table:potential_params} that the HOMO energy of the pseudo-system has an error of nearly 50\%. We also see that our other chosen metrics, the $\Delta_{ST}$ and 1$^{st}$ ionisation energy, suffer from even greater errors. We are forced to conclude that the assumptions made earlier in section REF, that the $p_{z}$ orbital shape of CH\(^{\bullet}_{3}\) might not serve well for $C_{2}H_{4}$. This being the case, there is no reason to believe that our $Z_{eff}$ estimate from Equation REF is correct, and so our attempt at an analytical solution is no use for modelling the $\pi$ systems in which we are interested. Once we abandoned the constraints our theoretical solution placed on the potential parameters, and permitted the optimising code to find an entirely empirical solution, we were able to extract a final potential set, the results of which can be seen in Table \ref{table:potential_params}. These potentials are much better than the previous efforts, giving us a 0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
+
+In the final version of the extraction, the pseudo-ethylene system was optimised from several different random starting guesses to give the correct $\Delta_{ST}$ value, and the one that also gave the best HOMO and 1$^{st}$ ionisation energies chosen as the starting guess for a final optimisation, performed by hand, to give us the final set of pseudo-potentials used in the rest of this work.
 
 \subsection*{\sffamily \large Applications}
 
@@ -328,7 +309,7 @@ Taking these new potentials we test them against a series of chain alkenes up to
 before taking the reference geometry and applying the pseudo-potentials from Table \ref{table:ethene_excitations}. 
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
-Also compared are TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
+We also compare TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
 Let us recall here that in our previous work potentials were placed at the center of bonds.
 
 \subsubsection*{\sffamily \large Large Systems}
@@ -391,36 +372,19 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 \subsection*{\sffamily \large Optimisation}
 
 \subsubsection*{Procedure}
-In earlier calculations with only \(s\)-potentials, optimisation was performed by choosing a range of exponent values and attempting to optimise the coefficient at each to produce the HOMO reference energy. Once the \(p_{z}\) potential was added, the \(s\)-potentials were optimised afterward. 
 
-Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the s and p-potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+In the beginning, $s$ and $p$ potentials were extracted for the CH\(^{\bullet}_{3}\) system. The $p$ potentials were set using the procedure described in section REF, while the $s$ potentials were optimised by choosing a series of exponents and attempting for each to optimise a coefficient that would result int he system having the correct reference HOMO energy.
+
+ Later optimisations were performed on the ethylene system directly. Both $s$ and $p$ potentials were extracted empirically, and without the theoretical constraints imposed on the CH\(^{\bullet}_{3}\) system. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
 \section*{\sffamily \Large CONCLUSION}
-In this work, we tackled the two main problems of the initial version of our
-molecular potentials.
-Firstly, the new pseudo-potentials for sp$^2$ hybridised
-atoms are completely atomic and, even if the directionality of the bonding pattern
-has to be fullfilled by correctly positioning the \(s\) potentials, no potentials need to
-be added relative to the position of two atoms.
-Secondly, we gave a physical meaning to all the pseudo-potential
-terms.
-Contrary to our previous attempt, we do not rely on the ``no collapse" term,
-which is modeled here by forcing the molecular occupation (\emph{vide infra}).
-We could show that not only were the occupied orbitals well-reproduced
-by the use of these new potentials, but also that the virtual space is of good quality
-for excited states calculation.
 
-In the framework of this study, there are three logical next steps: the addition of an explicit
-``no collapse" term, the reproduction of the gradient through the parameterisation
-of additional terms, and finally the use of such potentials in the framework
-of QM/MM calculations as a replacement of hydrogen based link atoms.
-The first step is needed in order to avoid forcing the molecular orbital occupation and
-to avoid spurious virtual orbitals in the active space.
-We are confident that the first step could be easily done, as we have already extracted such
-terms in the previous version of our potentials.
-The reproduction of the gradient is more of a challenge as many electrons were removed from the system.
-Finally, QM/MM tests can be started quickly, as we could fix the local geometry of the potentials
-in the QM part. The MM part would be taken care of without modification of the standard parameters.
+In this paper pseudo-potentials have been developed for sp$^{2}$-hybridised carbon units containing only one nuclear charge and one electron. Their main features are that: (1) They are fully atomic, meaning that they can be placed relative only to the carbon atom itself and the direction of its bonds. (2) They are able to reproduce basic electronic properties including HOMO, 1$^{st}$ ionisation and singlet-triplet gap energies, as well as reproduce physically reasonable emission spectra (3) They can be employed with both Hartree-Fock and DFT methods including PBE0, PBE, TPSS and TPSSh functionals. (4) They have been shown to function well whether the sp$^{2}$ bonds would be to another pseudo-carbon or to a hydrogen atom. (5) They offer a significant gain in computational time as compared to all-electron calculations.
+
+We could show that not only were the occupied orbitals well-reproduced by the use of these new potentials, but also that the virtual space is of good quality
+for excited states calculation. The logical next steps are the addition of an explicit ``no collapse" term, the reproduction of the gradient through the parameterisation of additional terms. The first step is needed in order to avoid forcing the molecular orbital occupation and to avoid spurious virtual orbitals in the active space. We are confident that the first step could be easily done, as we have already extracted such terms in the previous version of our potentials. The reproduction of the gradient is more of a challenge, given the number of electrons removed from the system.
+
+Potential uses for such potentials include: (1) As link atoms in QM/MM calculations, as a replacement for hydrogen capping. (2) A general method for increasing computational efficency in large systems in which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of emission spectra. This could be particularly useful in large molecules which are optically active.
 
 \clearpage
 
