@@ -52,10 +52,31 @@ This pseudo-system has a central charge of $Z=1$, thus it contains only one elec
 %%BEGTXT
 \section*{\sffamily \Large INTRODUCTION}
 
+[NOTES
+
+The whole introduction is currently framed by talking about QM/MM. If we want to avoid saying our potentials are specifically a QM/MM solution then we need to re-write it. I suggest opening with a bigger overview of pseudo-potential uses before zeroing in on ECP methods instead, and from there leading to our research.
+
+Uses of pseudopotentials:
+
+plane-wave stuff for condensed matter
+
+ECPs and RECPs
+
+QM/MM
+
+treatment of dispersion errors
+
+]
+
+Another common use of pseudo-potential methods are in ECPs, where the replacement of core electrons in heavy atoms with relativistic effective core potentials (RECPs) permits calculations on molecules involving such atoms to be more efficient. 
+	This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to make use of potentials for use on some light atoms, such those of Topiol \emph{et al.} or Gresh and Pullman, who MNMMN. These methods were aimed at reducing computation time for calculations performed on 1970s-era computers on what were then considered large molecules to simulate. However, since then the growth of computing power available to chemists has been easily rivalled by the need for chemists to simulated larger and more complicated molecules. 
+
+We propose taking the pseudo-potential concept to a new extreme. Our goal is to investigate the feasibility of pseudo-potentials designed not only to replace the core electrons of light atoms, which is itself unusual, but also to replace specific valence electrons that don't take part in the electronic behaviour in which we are interested.
+
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
 an active one, where most of the chemistry takes place, and an inactive
-one, both of which must be taken into account in order to fulfill chemical requirements.
+one, both of which must be taken into account in order to fulfil chemical requirements.
 Based on this general statement, many successful theoretical approaches have been developed.
 Among them can be cited QM/QM' or QM/MM methods, where 
 the active region that usually contains several atoms is
@@ -83,7 +104,7 @@ hitzenberger_probing_2015,
 collins_energy-based_2015,
 pezeshki_recent_2015,
 von_lilienfeld_force_2013}%
-Fragmentation methods split the complete problem into smaller parts and combine individual calculations
+ Fragmentation methods split the complete problem into smaller parts and combine individual calculations
 on these fragments to recover the properties of the overall system.\cite{gordon_effective_2001,steinmann_effective_2012}
 Frozen density embedding techniques replace part of a molecule, or 
 its surroundings,
@@ -94,16 +115,6 @@ In the context of this work, the pioneering efforts of Rivail \emph{et al.} must
 
 
 The problem of treating the QM/MM boundary is well-known and several groups of methods have been developed to try to resolve it. The most common method involves substituting the boundary atoms by Hydrogen capping atoms. However, another approach is to use pseudo-potential atoms. Among the earliest were Zhang \emph{et al.} \cite{zhang_pseudobond_1998}, who created pseudo-carbon atoms with 7 valence electrons, and an ECP designed to reproduce geometric characteristics of bonds between Carbon and other atoms. There have also been the ``Quantum Capping Potentials" (QCPs) of Dilabio \emph{et al.} \cite{dilabio_simple_2002}, in which they began by taking a pseudo-carbon with four electrons, pushing three into the core by means of an ECP, and adding shielding and Pauli repulsion terms in order to reproduce the Mulliken charges of a methyl group. More recently, in 2011, Ihrig \emph{et al.} \cite{ihrig_specific_2011} had been working on refining the QCP method via stochastic algorithms for use with biomolecular groups, with a view to preserving the electronic density of QM fragments in QM/MM calculations.
-
-[THOUGHTS:
- 
-- I could make some comment here about the way in which all these methods have tried to reproduce different molecular features, bond length, mulliken etc. and then make some comparisons with what we do?
-
-- Also question of optimisation algorithm, pseudobonds use training set and powell, sebastiani uses the artificial bee 
-colony
-]
-
-HALOGENES
 
  The underlying theory used in many of these methods was set out by Huzinaga in 1991 \cite{huzinaga_effective_1991}. In this paper he emphasised that the 'dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a 'no-collapse' term.
 
@@ -212,12 +223,13 @@ In the following subsections, the following steps are detailed: extraction of a 
 for the CH$_3^\bullet$ system, extraction of the complete set of parameters on the ethylene molecule,
 application on different larger hydrcarbons.
 
-\subsubsection*{\sffamily \large Obtaining a guess for a minimal pseudo-potential}
+\subsubsection*{\sffamily \large Obtaining a guess for a minimal pseudo-potential} \label{minimalpotguess}
 
 It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
 
-The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is\cite{nyu_h_solutions}
+The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is \cite{nyu_h_solutions}
 \begin{equation}
+\label{equation:analyticalpz}
 \phi_{210} = \frac{1}{\sqrt{\pi}} \frac{Z_{eff}}{2a_{0}} ^{\frac{5}{2}} re^{-\frac{Z_{eff}r}{2a_{0}}} \cos \theta
 \end{equation}
 and from this we obtain 
@@ -259,11 +271,11 @@ This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised un
 The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying $p$ and $s$ pseudo-potentials,
 as well as selecting the correct orbital for the remaining electron.
 
-\subsection*{\sffamily \large Choice of pseudo-potential criteria and Step-by-step extraction}
+\subsection*{\sffamily \large Choice of pseudo-potential criteria and Step-by-step extraction} \label{stepbystep}
 
-Previous pseudo-potential methods have made use of different optimisation criteria, based on the pseudo-potentials' intended use. The pseudo-bond method, for example, is intended for use during geometry-optimisation, and uses a series of reference data, including bond lengths and angles, across a training set of different molecules REF. We too must choose some reference criteria for our potentials. Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our aim is to simulate the electronic behaviour of $\pi$ systems, and our reference system is CH$_3^\bullet$, the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice, and should ensure the orbital of the pseudo-system is well-positioned to interact with other chemical moieties.
+Previous pseudo-potential methods have made use of different optimisation criteria, based on the pseudo-potentials' intended use. The pseudo-bond method, for example, is intended for use during geometry-optimisation, and uses a series of reference data, including bond lengths and angles, across a training set of different molecules \cite{zhang_pseudobond_1998}. We too must choose some reference criteria for our potentials. Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our aim is to simulate the electronic behaviour of $\pi$ systems, and our reference system is CH$_3^\bullet$, the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice, and should ensure the orbital of the pseudo-system is well-positioned to interact with other chemical moieties.
 
-We would then take our CH$_3^{\bullet}$ pseudo-potentials and create from them a pseudo-ethylene, the smallest $\pi$ system. From this we would be able to see how well our CH$_3^\bullet$ potentials, based on our hypothesis and assumptions in section REF, held up. 
+We would then take our CH$_3^{\bullet}$ pseudo-potentials and create from them a pseudo-ethylene, the smallest $\pi$ system. From this we would be able to see how well our CH$_3^\bullet$ potentials, based on our hypothesis and assumptions in Section \ref{minimalpotguess}, held up. 
 
 In addition to the HOMO energy of the pseudo-ethylene, we decided we would also compare the $\pi-\pi*$ singlet-triplet energy gap, and the 1$^{st}$ ionisation energy. The reproduction of the ionisation potential shows the extent to which the pseudo-system can still behave like the reference system upon losing an electron, whilst the $\Delta_{ST}$ ensures that the first virtual orbitals are well positioned, which is an indicator of the quality of the system for the reproduction of spectroscopic and chemical interactions.
 
@@ -293,11 +305,11 @@ In addition to the HOMO energy of the pseudo-ethylene, we decided we would also 
 
 \subsubsection*{\sffamily \large Ethylene: final \(s\) and \(p\)-potentials}
 
-Table \ref{table:potential_params} displays the data resulting from the step-by-step extraction described in Section REF. The \(p_{z}\) potential is selected using the procedure described, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital,
+Table \ref{table:potential_params} displays the data resulting from the step-by-step extraction described in Section \ref{stepbystep}. The \(p_{z}\) potential is selected using the procedure described, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital,
 and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap.
 The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\). We were able to optimise the first set of CH\(^{\bullet}_{3}\) potentials easily, giving us a HOMO energy exactly matching that of the reference system. 
 
-The next step was to take two pseudo-CH\(^{\bullet}_{3}\) systems to create a pseudo-ethylene. Now we see, again from Table \ref{table:potential_params} that the HOMO energy of the pseudo-system has an error of nearly 50\%. We also see that our other chosen metrics, the $\Delta_{ST}$ and 1$^{st}$ ionisation energy, suffer from even greater errors. We are forced to conclude that the assumptions made earlier in section REF, that the $p_{z}$ orbital shape of CH\(^{\bullet}_{3}\) might not serve well for $C_{2}H_{4}$. This being the case, there is no reason to believe that our $Z_{eff}$ estimate from Equation REF is correct, and so our attempt at an analytical solution is no use for modelling the $\pi$ systems in which we are interested. Once we abandoned the constraints our theoretical solution placed on the potential parameters, and permitted the optimising code to find an entirely empirical solution, we were able to extract a final potential set, the results of which can be seen in Table \ref{table:potential_params}. These potentials are much better than the previous efforts, giving us a 0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
+The next step was to take two pseudo-CH\(^{\bullet}_{3}\) systems to create a pseudo-ethylene. Now we see, again from Table \ref{table:potential_params} that the HOMO energy of the pseudo-system has an error of nearly 50\%. We also see that our other chosen metrics, the $\Delta_{ST}$ and 1$^{st}$ ionisation energy, suffer from even greater errors. We are forced to conclude that the assumptions made earlier in Section \ref{minimalpotguess}, that the $p_{z}$ orbital shape of CH\(^{\bullet}_{3}\) might not serve well for $C_{2}H_{4}$. This being the case, there is no reason to believe that our $Z_{eff}$ estimate, obtained from Equation \ref{equation:analyticalpz} is correct, and so our attempt at an analytical solution is no use for modelling the $\pi$ systems in which we are interested. Once we abandoned the constraints our theoretical solution placed on the potential parameters, and permitted the optimising code to find an entirely empirical solution, we were able to extract a final potential set, the results of which can be seen in Table \ref{table:potential_params}. These potentials are much better than the previous efforts, giving us a 0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
 
 In the final version of the extraction, the pseudo-ethylene system was optimised from several different random starting guesses to give the correct $\Delta_{ST}$ value, and the one that also gave the best HOMO and 1$^{st}$ ionisation energies chosen as the starting guess for a final optimisation, performed by hand, to give us the final set of pseudo-potentials used in the rest of this work.
 
@@ -373,7 +385,7 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 
 \subsubsection*{Procedure}
 
-In the beginning, $s$ and $p$ potentials were extracted for the CH\(^{\bullet}_{3}\) system. The $p$ potentials were set using the procedure described in section REF, while the $s$ potentials were optimised by choosing a series of exponents and attempting for each to optimise a coefficient that would result int he system having the correct reference HOMO energy.
+In the beginning, $s$ and $p$ potentials were extracted for the CH\(^{\bullet}_{3}\) system. The $p$ potentials were set using the procedure described in Section \ref{minimalpotguess}, while the $s$ potentials were optimised by choosing a series of exponents and attempting for each to optimise a coefficient that would result int he system having the correct reference HOMO energy.
 
  Later optimisations were performed on the ethylene system directly. Both $s$ and $p$ potentials were extracted empirically, and without the theoretical constraints imposed on the CH\(^{\bullet}_{3}\) system. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi*\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
