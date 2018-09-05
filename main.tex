@@ -52,36 +52,14 @@ This pseudo-system has a central charge of $Z=1$, thus it contains only one elec
 %%BEGTXT
 \section*{\sffamily \Large INTRODUCTION}
 
-[NOTES
+Since Hellmann and Gomb\'as' development of the first pseudo-potentials in the 1930s REF, pseudo-potential methods have been employed in a variety of theoretical chemistry problems. Recently, pseudo-potentials have been used to provide enhancements or corrections to other methods, with examples including their use as link atoms in QM/MM calculations, or the efforts by REF to use them alongside DFT calculations in correcting for DFT dispersion errors. Their primary use, however, has always been that of increasing computational efficiency as compared with more analytical solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP) (REF), where the replacement of core electrons in larger atoms with ECPS and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on some lighter atoms, such those of Topiol \emph{et al.} or Gresh and Pullman REF. 
 
-The whole introduction is currently framed by talking about QM/MM. If we want to avoid saying our potentials are specifically a QM/MM solution then we need to re-write it. I suggest opening with a bigger overview of pseudo-potential uses before zeroing in on ECP methods instead, and from there leading to our research.
-
-Uses of pseudopotentials:
-
-plane-wave stuff for condensed matter
-
-ECPs and RECPs
-
-QM/MM
-
-treatment of dispersion errors
-
-]
-
-Another common use of pseudo-potential methods are in ECPs, where the replacement of core electrons in heavy atoms with relativistic effective core potentials (RECPs) permits calculations on molecules involving such atoms to be more efficient. 
-	This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to make use of potentials for use on some light atoms, such those of Topiol \emph{et al.} or Gresh and Pullman, who MNMMN. These methods were aimed at reducing computation time for calculations performed on 1970s-era computers on what were then considered large molecules to simulate. However, since then the growth of computing power available to chemists has been easily rivalled by the need for chemists to simulated larger and more complicated molecules. 
-
-We propose taking the pseudo-potential concept to a new extreme. Our goal is to investigate the feasibility of pseudo-potentials designed not only to replace the core electrons of light atoms, which is itself unusual, but also to replace specific valence electrons that don't take part in the electronic behaviour in which we are interested.
+In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that don't take part in the electronic behaviour in which we are interested.
 
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
-an active one, where most of the chemistry takes place, and an inactive
-one, both of which must be taken into account in order to fulfil chemical requirements.
-Based on this general statement, many successful theoretical approaches have been developed.
-Among them can be cited QM/QM' or QM/MM methods, where 
-the active region that usually contains several atoms is
-treated at a high level of calculation, while the inactive part is treated at a 
-lower level of theory, allowing for increased computational efficiency at a minimal cost in accuracy.\cite{chung_oniom_2015,
+an active one, where most of the chemistry takes place, and an inactive one, both of which must be taken into account in order to fulfil chemical requirements.
+Based on this general statement, many successful theoretical approaches have been developed. Among them can be cited QM/QM' or QM/MM methods \cite{chung_oniom_2015,
 ihrig_specific_2011,
 zhang_pseudobond_1998,
 dilabio_simple_2002,
@@ -103,18 +81,50 @@ hitzenberger_optimizing_2016,
 hitzenberger_probing_2015,
 collins_energy-based_2015,
 pezeshki_recent_2015,
-von_lilienfeld_force_2013}%
- Fragmentation methods split the complete problem into smaller parts and combine individual calculations
-on these fragments to recover the properties of the overall system.\cite{gordon_effective_2001,steinmann_effective_2012}
-Frozen density embedding techniques replace part of a molecule, or 
-its surroundings,
-by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
-They are an extension of the frozen core approximation, already used to reduce
-the number of parameters to be optimised in the self consistent field calculation.
-In the context of this work, the pioneering efforts of Rivail \emph{et al.} must be mentioned, in which the total wavefunction is optimised with some molecular orbitals kept frozen.\cite{ASSFELD1996100}.
+von_lilienfeld_force_2013}, 
+fragmentation methods 
+\cite{gordon_effective_2001,
+steinmann_effective_2012}, and frozen core and frozen density embedding methods \cite{ASSFELD1996100, wesolowski_frozen-density_2015}.
+  
 
+%It is a common idea that a chemical system can be thought of as comprised of (at least) 
+%two parts:
+%an active one, where most of the chemistry takes place, and an inactive one, both of which must be taken into account in order to fulfil chemical requirements.
+%Based on this general statement, many successful theoretical approaches have been developed.
+%Among them can be cited QM/QM' or QM/MM methods, where the active region that usually contains several atoms is treated at a high level of calculation, while the inactive part is treated at a lower level of theory, allowing for increased computational efficiency at a minimal cost in accuracy.\cite{chung_oniom_2015,
+%ihrig_specific_2011,
+%zhang_pseudobond_1998,
+%dilabio_simple_2002,
+%dilabio_efficient_2005,
+%gao_generalized_1998,
+%assfeld_quantum_1996,
+%jacob_calculation_2006,
+%von_lilienfeld_variational_2004,
+%von_lilienfeld_performance_2005,
+%von_lilienfeld_optimization_2004,
+%goedecker_separable_1996,
+%hartwigsen_relativistic_1998,
+%singh_combined_1986,
+%zhang_pseudobond_1998-1,
+%zhang_improved_2004,
+%parks_pseudobond_2008,
+%dilabio_simple_2002-1,
+%hitzenberger_optimizing_2016,
+%hitzenberger_probing_2015,
+%collins_energy-based_2015,
+%pezeshki_recent_2015,
+%von_lilienfeld_force_2013}%
+% Fragmentation methods split the complete problem into smaller parts and combine individual calculations
+%on these fragments to recover the properties of the overall system.\cite{gordon_effective_2001,steinmann_effective_2012}
+%Frozen density embedding techniques replace part of a molecule, or 
+%its surroundings,
+%by a frozen electronic density extracted on a reference system.\cite{wesolowski_frozen-density_2015}
+%They are an extension of the frozen core approximation, already used to reduce
+%the number of parameters to be optimised in the self consistent field calculation.
+%In the context of this work, the pioneering efforts of Rivail \emph{et al.} must be mentioned, in which the total wavefunction is optimised with some molecular orbitals kept frozen.\cite{ASSFELD1996100}.
 
-The problem of treating the QM/MM boundary is well-known and several groups of methods have been developed to try to resolve it. The most common method involves substituting the boundary atoms by Hydrogen capping atoms. However, another approach is to use pseudo-potential atoms. Among the earliest were Zhang \emph{et al.} \cite{zhang_pseudobond_1998}, who created pseudo-carbon atoms with 7 valence electrons, and an ECP designed to reproduce geometric characteristics of bonds between Carbon and other atoms. There have also been the ``Quantum Capping Potentials" (QCPs) of Dilabio \emph{et al.} \cite{dilabio_simple_2002}, in which they began by taking a pseudo-carbon with four electrons, pushing three into the core by means of an ECP, and adding shielding and Pauli repulsion terms in order to reproduce the Mulliken charges of a methyl group. More recently, in 2011, Ihrig \emph{et al.} \cite{ihrig_specific_2011} had been working on refining the QCP method via stochastic algorithms for use with biomolecular groups, with a view to preserving the electronic density of QM fragments in QM/MM calculations.
+%
+%The problem of treating the QM/MM boundary is well-known and several groups of methods have been developed to try to resolve it. The most common method involves substituting the boundary atoms by Hydrogen capping atoms. However, another approach is to use pseudo-potential atoms. Among the earliest were Zhang \emph{et al.} \cite{zhang_pseudobond_1998}, who created pseudo-carbon atoms with 7 valence electrons, and an ECP designed to reproduce geometric characteristics of bonds between Carbon and other atoms. There have also been the ``Quantum Capping Potentials" (QCPs) of Dilabio \emph{et al.} \cite{dilabio_simple_2002}, in which they began by taking a pseudo-carbon with four electrons, pushing three into the core by means of an ECP, and adding shielding and Pauli repulsion terms in order to reproduce the Mulliken charges of a methyl group. More recently, in 2011, Ihrig \emph{et al.} \cite{ihrig_specific_2011} had been working on refining the QCP method via stochastic algorithms for use with biomolecular groups, with a view to preserving the electronic density of QM fragments in QM/MM calculations.
 
  The underlying theory used in many of these methods was set out by Huzinaga in 1991 \cite{huzinaga_effective_1991}. In this paper he emphasised that the 'dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a 'no-collapse' term.
 
@@ -265,13 +275,13 @@ We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the
 
 \subsubsection*{\sffamily \large CH\(_{3}\): obtaining a guess for the \(s\)-potentials}
 
-We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:ch3_s_potentials}. 
-This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). At first we thought to place the $s$-potentials at the C - H bond distance from the pseudo-carbon ($r_{C - H} = 2.0446$ a.u. in our reference geometry), before realising such potentials would quickly begin to interfere with other atoms once we started building molecules with our pseudo-carbon. Thinking therefore that we would attempt to keep the effects of the $s$-potentials as possible, we chose $d=0.5$ a.u., approximately the shortest atom-atom distance possible in Turbomole before geometry problems are encountered.
+We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table \ref{table:potential_params}. 
+This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). At first we thought to place the $s$-potentials at the C - H bond distance from the pseudo-carbon ($r_{C - H} = 2.0446$ a.u. in our reference geometry), before realising such potentials would quickly begin to interfere with other atoms once we started building molecules with our pseudo-carbon. Thinking therefore that we would attempt to keep the effects of the $s$-potentials as localised possible, we chose $d=0.5$ a.u., approximately the shortest atom-atom distance possible in QM programs before geometry problems are encountered.
 
 The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying $p$ and $s$ pseudo-potentials,
 as well as selecting the correct orbital for the remaining electron.
 
-\subsection*{\sffamily \large Choice of pseudo-potential criteria and Step-by-step extraction} \label{stepbystep}
+\subsection*{\sffamily \large Choice of pseudo-potential criteria} \label{stepbystep}
 
 Previous pseudo-potential methods have made use of different optimisation criteria, based on the pseudo-potentials' intended use. The pseudo-bond method, for example, is intended for use during geometry-optimisation, and uses a series of reference data, including bond lengths and angles, across a training set of different molecules \cite{zhang_pseudobond_1998}. We too must choose some reference criteria for our potentials. Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our aim is to simulate the electronic behaviour of $\pi$ systems, and our reference system is CH$_3^\bullet$, the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice, and should ensure the orbital of the pseudo-system is well-positioned to interact with other chemical moieties.
 
@@ -303,10 +313,9 @@ In addition to the HOMO energy of the pseudo-ethylene, we decided we would also 
 %indicator of the quality of the system in the reproduction of spectroscopic and chemical interactions.
 
 
-\subsubsection*{\sffamily \large Ethylene: final \(s\) and \(p\)-potentials}
+\subsubsection*{\sffamily \large Step-by-step extraction and final \(s\) and \(p\)-potentials}
 
-Table \ref{table:potential_params} displays the data resulting from the step-by-step extraction described in Section \ref{stepbystep}. The \(p_{z}\) potential is selected using the procedure described, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital,
-and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap.
+Table \ref{table:potential_params} displays the data resulting from the potential extraction process. The \(p_{z}\) potential is selected using the procedure described in Section \ref{minimalpotguess}, with the exponent chosen to give the maximum possible overlap with the \(p_{z}\) orbital, and the matching \(Z_{eff}\) coefficient calculated from the exponent and overlap.
 The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\). We were able to optimise the first set of CH\(^{\bullet}_{3}\) potentials easily, giving us a HOMO energy exactly matching that of the reference system. 
 
 The next step was to take two pseudo-CH\(^{\bullet}_{3}\) systems to create a pseudo-ethylene. Now we see, again from Table \ref{table:potential_params} that the HOMO energy of the pseudo-system has an error of nearly 50\%. We also see that our other chosen metrics, the $\Delta_{ST}$ and 1$^{st}$ ionisation energy, suffer from even greater errors. We are forced to conclude that the assumptions made earlier in Section \ref{minimalpotguess}, that the $p_{z}$ orbital shape of CH\(^{\bullet}_{3}\) might not serve well for $C_{2}H_{4}$. This being the case, there is no reason to believe that our $Z_{eff}$ estimate, obtained from Equation \ref{equation:analyticalpz} is correct, and so our attempt at an analytical solution is no use for modelling the $\pi$ systems in which we are interested. Once we abandoned the constraints our theoretical solution placed on the potential parameters, and permitted the optimising code to find an entirely empirical solution, we were able to extract a final potential set, the results of which can be seen in Table \ref{table:potential_params}. These potentials are much better than the previous efforts, giving us a 0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
