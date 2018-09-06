@@ -22,7 +22,7 @@
 \graphicspath{{data/}{images/}}
 
 %\title{Atomic pseudo-potentials for sp$^2$ carbon atoms}
-\title{Atomic pseudo-potentials for reproducing the valence electron behaviour of sp$^2$ carbon atoms}
+\title{Atomic pseudo-potentials for reproducing $\pi$-orbital electron behaviour in sp$^2$ carbon atoms}
 \author{Alexander Punter, Paola Nava, Yannick Carissan \thanks{Aix Marseille Univ, CNRS, Centrale Marseille, iSm2, Marseille, France}}
 
 \begin{document}
@@ -32,7 +32,7 @@
 
 \begin{abstract}
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
-This pseudo-system has a central charge of $Z=1$, thus it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including first ionisation and excitation energies, as well as the HOMO energy, are found to be well-reproduced by the pseudo-system.
+This pseudo-system has a central charge of $Z=1$, thus it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including the HOMO and first ionisation energies, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system.
 \end{abstract}
 
 \clearpage
@@ -54,7 +54,7 @@ This pseudo-system has a central charge of $Z=1$, thus it contains only one elec
 
 Since Hellmann and Gomb\'as' development of the first pseudo-potentials in the 1930s \cite{hellmann_1935, gombas_1935}, pseudo-potential methods have been employed in a variety of theoretical chemistry problems. Recently, pseudo-potentials have been used to provide enhancements or corrections to other methods, with examples including their use as link atoms in QM/MM calculations, or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces \cite{dilabio_2008}. Their primary use, however, has always been that of increasing computational efficiency as compared with more analytical solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP) \cite{dolg_2000}, where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on some lighter atoms, such those of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}. 
 
-In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested.
+In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately, having been designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested.
 
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
