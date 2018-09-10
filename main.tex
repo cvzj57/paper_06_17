@@ -208,7 +208,7 @@ can still behave like the reference system upon losing an electron, whilst the $
 orbitals are well positioned, which is an indicator of the quality of the system for the reproduction of spectroscopic and 
 chemical interactions.
 
-\subsection*{\sffamily \large Pseudo-potential definition}
+\subsection*{\sffamily \large Pseudo-potential definition} \label{secpotdef}
 
 As in our previous work\cite{drujon_pseudopotentials_2013},
 we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
@@ -227,8 +227,8 @@ By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1
 we can say that the $p$ projectors aim to mimic a coulombic interaction (see the first term in Equation~\ref{eq:HuzinagaMPVersion1Potential}),
 while the $s$ potentials have the task of recovering part of the bi-electronic interaction
 between the dormant and the active electrons, explaining their position \textit{around} the pseudo-atom.
-Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as it aims at recovering
-the bi-electronic interactions and the no-collapse term.
+Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as our $s$ potentials aim at recovering
+the bi-electronic interactions \textit{and} the no-collapse term.
 This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
 
 %As discussed in the following sections,
@@ -248,7 +248,7 @@ In this article, we fix \(c = 0.25\;a.u.\) and \(d = 0.5\;a.u.\).
 Those values were chosen to keep the pseudo-potentials as compact as possible.
 At first we thought to place the $s$-potentials at the C - H bond distance from the pseudo-carbon ($r_{C - H} = 2.0446$ a.u. 
 in our reference Hartree-Fock geometry), before realising that such potentials would quickly begin to interfere with other 
-atoms once we started building molecules with our pseudo-carbon. Thinking therefore that we would attempt to keep the effects 
+atoms once we started building molecules. Thinking therefore that we would attempt to keep the effects 
 of the $s$-potentials as localised possible, we chose $d=0.5$ a.u., approximately the shortest atom-atom distance possible in 
 QM programs before geometry problems are encountered.
 
@@ -371,26 +371,64 @@ physically grounded.
 
 \subsection*{\sffamily \large Physical meaning of the \(p_{z}\) pseudo-potential} \label{minimalpotguess}
 
-It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. Clearly the assumption that \(Z = 1\) is unrealistic. Slater's Rules\cite{slatersrules} suggest that, with the screening effect, the \(p_{z}\) electron of a carbon atom should experience a charge of \(Z = 2.4\). To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
+%As mentioned in Section~\ref{secpotdef}, $s$ potentials aim at recovering
+As mentioned above, $s$ potentials aim at recovering
+the bi-electronic interactions \textit{and} the no-collapse term. The \(p\) pseudo-potential has the 
+major role of correcting the incomplete screening effect of the missing electrons.
+%It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. 
 
-The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is \cite{nyu_h_solutions}
+Clearly the assumption that \(Z = 1\) is unrealistic for a carbon atom. Slater's Rules\cite{slatersrules} suggest that
+the \(p_{z}\) electron should experience a larger charge, of \(Z = 2.4\). 
+In order to evaluate the screening effect in the real CH\(^{\bullet}_{3}\) system, we computed the expected 
+distance of the electron from the nucleus \( \langle r \rangle \)~:
+\begin{equation}
+\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle \approx 1.8\;a.u.\
+\label{equation:exp_r}
+\end{equation}
+
+where \(\psi_{p_{z}}\) is the molecular orbital extracted from a reference calculation of CH\(^{\bullet}_{3}\). 
+
+Since the CH\(^{\bullet}_{3}\) pseudo system has only one electron (as in a hydrogen-like atom), 
+the analytical form of the \(p_{z}\) orbital is:~\cite{nyu_h_solutions} 
 \begin{equation}
 \label{equation:analyticalpz}
 \phi_{210} = \frac{1}{\sqrt{\pi}} \frac{Z_{eff}}{2a_{0}} ^{\frac{5}{2}} re^{-\frac{Z_{eff}r}{2a_{0}}} \cos \theta
 \end{equation}
-and from this we obtain 
+
+where \(Z_{eff}\) is the total nuclear attraction the electron 
+would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be 
+present in the all-electron system.
+This leads to the following expression for \( \langle r \rangle (Z_{eff}) \); 
+
 \begin{equation}
 \label{equation:PsirPsi}
 \langle \phi_{210} | r | \phi_{210} \rangle = \frac{5a_{0}}{Z_{eff}}
 \end{equation}
-Next, we need to find a value for \( \langle r \rangle \). We can do this by calculating
 
-\begin{equation}
-\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle
-\label{equation:exp_r}
-\end{equation}
+From Equations~\ref{equation:exp_r} and ~\ref{equation:PsirPsi}, we obtain that \(Z_{eff} \approx 3.6\).
 
-where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
+%d therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
+%  
+%To mimic the effect of an electron-screened nucleus, we can use a \(p_{z}\) pseudo-potential. In order to make an educated guess of the parameters of this new potential, we need to find an expression for \(Z_{eff}(\langle r \rangle)\); \(Z_{eff}\) being the total nuclear attraction the electron would feel in the real CH\(^{\bullet}_{3}\) system, taking into account the screening effect of the core electrons that would be present in an all-electron model; and \( \langle r \rangle \) being the expected distance of the electron from the nucleus.
+%
+%The analytical form of the \(p_{z}\) orbital for a hydrogen-like atom is \cite{nyu_h_solutions}
+%and from this we obtain 
+%Next, we need to find a value for \( \langle r \rangle \). We can do this by calculating
+
+%\begin{equation}
+%\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle
+%\label{equation:exp_r}
+%\end{equation}
+
+%where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). 
+
+The \(\psi_{p_{z}}\) molecular orbital is influenced strongly by the $p$ pseudo-potential,
+because of their overlap. Thus,
+to mimic the effect of the electron-screened nucleus, the \(p\) pseudo-potential is essential. 
+Even if we used a semi-local pseudo-potential definition in our work, 
+we assume a non-local pseudo-potential $\widehat{p}$ in this paragraph, which allows 
+for a quick evaluation of overlap effects between the basis set
+and the pseudo-potential. We define:
 \begin{equation}
 S = \langle \psi_{p_{z}} | \chi \rangle
 \end{equation}
@@ -398,16 +436,27 @@ the overlap between a molecular orbital \(\psi_{p_{z}}\), and \(\chi\), taken fr
 \begin{equation}
 \chi = e^{-\alpha r^{2}},\qquad \widehat{p} = Z_{pseudo} | \chi \rangle \langle \chi |
 \end{equation}
-leading us to
+leading us to evaluate the effect of the pseudo-potential on the \(\psi_{p_{z}}\) molecular orbital as:
 \begin{equation}
-\langle \widehat{Z} \rangle = \langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} | Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = Z_{pseudo} S^{2}
+\langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} | Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = Z_{pseudo} S^{2}
 \end{equation}
-Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), which we subtract from the desired \(Z_{eff}\) with which we want to influence our \(p_{z}\) electron, leaving us with
+Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), 
+the coefficient $Z_{pseudo}$ of the pseudo-potential becomes:
 \begin{equation}
 Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \end{equation}
 
-We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
+By using this expression and by maximizing the overlap, we obtained for the CH\(^{\bullet}_{3}\) system 
+a $p$ potential with a negative coefficient of -3.27 and an exponent of 0.30. 
+This set allowed us to recover the correct HOMO energy of the CH\(^{\bullet}_{3}\) system.
+Finally, we used this set as an informed guess at some starting parameters from which to optimise, even if
+it is possible to obtain the potential parameters entirely by empirical means. The reoptimization
+that was necessary for describing molecular settings, modified as expected the initial values, even if the
+coefficient of the final $p$ pseudo-potential (-3.9) contains this information on 
+the incomplete screening effect of the missing electrons. 
+
+
+%We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
 
 %\clearpage
 
