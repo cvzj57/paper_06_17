@@ -32,7 +32,7 @@
 
 \begin{abstract}
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
-This pseudo-system has a central charge of $Z=1$, thus it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including the HOMO and first ionisation energies, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system.
+This pseudo-system has a central charge of $Z=1$, and only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including the HOMO and first ionisation energies, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system.
 \end{abstract}
 
 \clearpage
@@ -107,7 +107,7 @@ collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the
 Coulomb and exchange interactions, for which Huzinaga proposed a spectral formulation:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
-\hat{V} = r^{-n}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right] \text{with}\;n=1
+\hat{V} = r^{-1}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
 \end{equation}
 To take into account the fact that dormant electrons are removed from the
 system, the nuclear charge is modified by the $Z_c$ value.
@@ -119,7 +119,7 @@ In this operator we notice that the \(r^{-1}\) behavior is mantained for the fir
 
 In this article, we performed the active/inactive split on a molecule with $\pi$ electrons: the $\sigma$ electrons comprising the inactive part and the $\pi$ electrons the active part.
 The Schr\"odinger equation was solved for the later part only in the field of the dormant part.
-The aim is to propose a methodology for extracting a potential for a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be used as a building block for constructing chemical systems. This carbon pseudo-atom contains but one explicit nuclear charge and one electron.
+The aim is to propose a methodology for extracting a potential for a hybridised carbon atom (here an $sp^2$ carbon atom), which can then be used as a building block for constructing chemical systems. This carbon pseudo-atom contains one explicit nuclear charge and one electron.
 Moreover, the method should be usable ``out of the box", in any standard quantum chemistry software.
 Thus, no modification of the source code should be done.
 This supplementary constraint is fulfilled by strategically positioning the pseudo-potentials.
@@ -170,11 +170,11 @@ chemical interactions.
 
 As in our previous work\cite{drujon_pseudopotentials_2013},
 we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
-It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose a value of \(n = 1\) to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials \cite{me_structure_theory}, of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
-\hat{W} = r^{-n}\left[%
+\hat{W} = r^{-1}\left[%
 \underbrace{\sum_IA_I\exp(-\alpha_I r^2)\sum_m\left|Y_{1,m}\right>\left<Y_{1,m}\right|}_{\text{p projectors}}%
 +%
 \underbrace{\sum_JC_Jr\exp(-\gamma_J (r-r^0_J)^2)\left|Y_{0,0}\right>\left<Y_{0,0}\right|}_{\text{s projectors}}%
@@ -208,7 +208,7 @@ At first we thought to place the $s$ potentials at the C - H bond distance from 
 in our reference Hartree-Fock geometry), before realising that such potentials would quickly begin to interfere with other 
 atoms once we started building molecules. Thinking therefore that we would attempt to keep the effects 
 of the $s$ potentials as localised possible, we chose $d=0.5$ a.u., approximately the shortest atom-atom distance possible in 
-QM programs before geometry problems are encountered.
+QM programs.
 
 
 %\subsubsection*{\sffamily \large Extraction of \(s\) and \(p\)-potentials}
@@ -276,7 +276,8 @@ before taking the reference geometry and applying the final pseudo-potentials fr
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
 We also compare TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
-Let us recall here that in our previous work potentials were placed at the center of bonds.
+Let us recall here that in our previous work potentials were placed at the center of bonds, which led to
+pseudo-potential very difficult to transfert from on system to another.
 
 \subsubsection*{\sffamily \large Large Systems}
 
@@ -421,7 +422,7 @@ Their main features are that: (1) They are fully atomic, meaning that they can b
 (2) We could show that not only were the occupied orbitals well-reproduced by the use of these new potentials, 
 but also that the virtual space is of good quality for excited states calculation. 
 They are able to reproduce basic electronic properties including HOMO, 1$^{st}$ ionisation and singlet-triplet gap energies, 
-as well as reproduce physically reasonable emission spectra 
+as well as reproduce physically reasonable absorption spectra 
 (3) They can be employed with both Hartree-Fock and DFT methods including PBE0, PBE, TPSS and TPSSh functionals. 
 (4) They have been shown to function well whether the sp$^{2}$ bonds would be to another pseudo-carbon or to a hydrogen atom. 
 (5) They offer a significant gain in computational time as compared to all-electron calculations.
@@ -606,8 +607,7 @@ and pseudo-systems.}
 \vspace{0.25in}
 \hspace*{3in}
 \caption{Comparison of the UV spectra obtained with pseudo potentials and reference
-calculations def2-TZVP/TD-PBE0.
-Pseudo potential calculations were shifted by a factor of 1.15.}
+calculations def2-TZVP/TD-PBE0.}
 \label{fig:cnhn_uv}
 \end{figure}
 
@@ -967,7 +967,7 @@ best pseudo-CH$^{\bullet}_{3}$ & -3.268 & 0.295 & 10.381 & 10.0 & -10.537 & - & 
 \hline
 initial pseudo-C$_{2}$H$_{4}$ & -3.268 & 0.295 & 10.381 & 10.0 & -14.061 & -9.214 & -14.021\\
 \hline
-final pseudo-CH$^{\bullet}_{3}$ & -3.910 & 0.624 & 1.5 & 0.5 & -10.0 & - & - \\
+final pseudo-CH$^{\bullet}_{3}$ & -3.910 & 0.624 & 1.5 & 0.5 & -10.000 & - & - \\
 \hline
 final pseudo-C$_{2}$H$_{4}$ & -3.910 & 0.624 & 1.5 & 0.5 & -10.062 & -3.533 & -9.806 \\
 \hline
