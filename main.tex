@@ -32,7 +32,7 @@
 
 \begin{abstract}
 A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
-This pseudo-system has a central charge of $Z=1$, thus it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including the HOMO and first ionisation energies, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system.
+This pseudo-system has a central charge of $Z=1$, thus it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including the orbital and first ionisation energies, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system. This approach is capable of reproducing the $\pi$ electron systems of small or large, planar hydrocarbons at low computational cost.
 \end{abstract}
 
 \clearpage
@@ -52,9 +52,9 @@ This pseudo-system has a central charge of $Z=1$, thus it contains only one elec
 %%BEGTXT
 \section*{\sffamily \Large INTRODUCTION}
 
-Since Hellmann and Gomb\'as' development of the first pseudo-potentials in the 1930s \cite{hellmann_1935, gombas_1935}, pseudo-potential methods have been employed in a variety of theoretical chemistry problems. Recently, pseudo-potentials have been used to provide enhancements or corrections to other methods, with examples including their use as link atoms in QM/MM calculations, or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces \cite{dilabio_2008}. Their primary use, however, has always been that of increasing computational efficiency as compared with more analytical solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP) \cite{dolg_2000}, where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on some lighter atoms, such those of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}. 
+Since Hellmann and Gomb\'as' development of the first pseudo-potentials in the 1930s \cite{hellmann_1935, gombas_1935}, pseudo-potential methods have been employed in a variety of theoretical chemistry problems. In recent years, pseudo-potentials have been used to provide enhancements or corrections to other methods, with examples including their use as link atoms in QM/MM calculations, or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces \cite{dilabio_2008}. Their primary use, however, has always been that of increasing computational efficiency as compared with more analytical solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP) \cite{dolg_2000}, where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on some lighter atoms, such those of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}. 
 
-In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately, having been designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested.
+In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately, having been designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested. We are unaware of any comparable work in the literature, and such potentials could find ready use in performing QM calculations on large hydrocarbons and polycyclic, aromatic hydrocarbons.
 
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
@@ -147,7 +147,7 @@ The second part shows the results obtained using the most refined version of the
 
 \section*{\sffamily \Large METHODOLOGY}
 
-\subsection*{\sffamily \large Choice of pseudo-potential criteria} \label{section:pseudocrit}
+\subsection*{\sffamily \large Choice of pseudo-potential criteria \label{section:pseudocrit}} 
 
 Previous pseudo-potential methods have made use of different optimisation criteria, based on the pseudo-potentials' intended function. 
 The pseudo-bond method, for example, is intended to facilitate geometry-optimisation in QM/MM calculations, and uses a series of reference data, 
@@ -417,20 +417,19 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 \section*{\sffamily \Large CONCLUSION}
 
 In this paper pseudo-potentials have been developed for sp$^{2}$-hybridised carbon units containing only one nuclear charge and one electron. 
-Their main features are that: (1) They are fully atomic, meaning that they can be placed relative only to the carbon atom itself and the direction of its bonds. 
-(2) We could show that not only were the occupied orbitals well-reproduced by the use of these new potentials, 
-but also that the virtual space is of good quality for excited states calculation. 
-They are able to reproduce basic electronic properties including HOMO, 1$^{st}$ ionisation and singlet-triplet gap energies, 
-as well as reproduce physically reasonable emission spectra 
+Their main features are that: 
+(1) They are fully atomic, meaning that they can be placed relative only to the carbon atom itself and the direction of its bonds. 
+(2) We could show that not only were the occupied orbitals well-reproduced by the use of these new potentials, but also that the virtual space is of good quality for excited states calculation. 
+They are able to reproduce basic electronic properties including HOMO, 1$^{st}$ ionisation and singlet-triplet gap energies, as well as reproduce physically reasonable absorption spectra. 
 (3) They can be employed with both Hartree-Fock and DFT methods including PBE0, PBE, TPSS and TPSSh functionals. 
-(4) They have been shown to function well whether the sp$^{2}$ bonds would be to another pseudo-carbon or to a hydrogen atom. 
+(4) They have been shown to function well whether their neighbouring atoms are other pseudo-carbons, hydrogen atoms, or a mixture of both. 
 (5) They offer a significant gain in computational time as compared to all-electron calculations.
 
 %We could show that not only were the occupied orbitals well-reproduced by the use of these new potentials, but also that the virtual space is of good quality
 %for excited states calculation. 
 %The logical next steps are the addition of an explicit ``no collapse" term, the reproduction of the gradient through the parameterisation of additional terms. The first step is needed in order to avoid forcing the molecular orbital occupation and to avoid spurious virtual orbitals in the active space. We are confident that the first step could be easily done, as we have already extracted such terms in the previous version of our potentials. The reproduction of the gradient is more of a challenge, given the number of electrons removed from the system.
 
-Potential uses for such potentials include: (1) As link atoms in QM/MM calculations, as a replacement for hydrogen capping. (2) A general method for increasing computational efficency in large systems in which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of emission spectra. This could be particularly useful in large molecules which are optically active.
+Our work remains ongoing, and we envisage two areas for further development (1) We would like to create potentials that can successfully interact with neighbouring all-electron atoms. This will mean producing potentials which are capable of bonding covalently with their neighbours, i.e. adding another electron to the pseudo-carbon for every bonding, all-electron neighbouring atom. Such potentials could be easily serve as link atoms in QM/MM calculations, functioning similarly to QCPs, though this is not our primary motivation. (2) We would like further to test and to expand this work into a general method for increasing computational efficency in large systems in which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of UV spectra. This could be particularly useful in large molecules which are optically active.
 
 \clearpage
 
