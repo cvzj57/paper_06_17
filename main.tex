@@ -372,7 +372,7 @@ This leads to the following expression for \( \langle r \rangle (Z_{eff}) \);
 \langle \phi_{210} | r | \phi_{210} \rangle = \frac{5a_{0}}{Z_{eff}}
 \end{equation}
 
-From Equations~\ref{equation:exp_r} and ~\ref{equation:PsirPsi}, we obtain that \(Z_{eff} \approx 2.77\).
+From Equations~\ref{equation:exp_r} and ~\ref{equation:PsirPsi}, we obtain the theoretical value of \(Z_{eff} \approx 2.77\).
 
 %d therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). Even if we shall use the semi-local pseudo-potential definition for the calculations, for a quick evaluation of overlap effects between the basis set and the pseudo-potential, we assume a non-local pseudo-potential definition. We define:
 %  
@@ -401,21 +401,28 @@ S = \langle \psi_{p_{z}} | \chi \rangle
 \end{equation}
 the overlap between a molecular orbital \(\psi_{p_{z}}\), and \(\chi\), taken from our non-local pseudo-potential definition \cite{huzinaga_effective_1991}
 \begin{equation}
-\chi = e^{-\alpha r^{2}},\qquad \widehat{p} = Z_{pseudo} | \chi \rangle \langle \chi |
+\chi = e^{-\alpha r^{2}},\qquad \widehat{p} = -Z_{pseudo} | \chi \rangle \langle \chi |
 \end{equation}
 leading us to evaluate the effect of the pseudo-potential on the \(\psi_{p_{z}}\) molecular orbital as:
 \begin{equation}
-\langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} | Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = Z_{pseudo} S^{2}
+\langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} |-Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = -Z_{pseudo} S^{2}
 \end{equation}
 Finally, knowing that our hydrogen-like pseudo-system already contains a charge, \(Z_{nucleus}=1\), 
-the coefficient $Z_{pseudo}$ of the pseudo-potential becomes:
+we expect that:
+%the coefficient $-Z_{pseudo}$ of the pseudo-potential becomes:
 \begin{equation}
-Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
+-Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
+\label{eqpseudo}
 \end{equation}
 
-By using this expression and by maximising the overlap, we obtained a $p$ potential for the CH\(^{\bullet}_{3}\) system with a negative coefficient of -3.27 and an exponent of 0.30. 
-This $p$ potential, combined with the $s$ potentials, allowed us to recover the correct HOMO energy of the CH\(^{\bullet}_{3}\) system.
-It should, of course, be possible to obtain the potential parameters entirely by empirical means, but we found this reasoning gave us an informed guess at some starting parameters from which to optimise. We expected this optimisation (using the criteria described in Section \ref{section:pseudocrit}, to modify the initial values, as indeed it did. However, the final coefficient of the final $p$ pseudo-potential (-3.9) still contains this information on the incomplete screening effect of the missing electrons. 
+By using this expression, the value $Z_{eff} \approx 2.92$ is obtained for our final potential set, which is very close to the theoretical value, 
+supporting the idea that the $p$ potential retrieves the incomplete screening effect of the missing electrons. 
+We mention that, indeed, we used  Equation~\ref{eqpseudo} to get informed guesses for the coefficients of the starting parameters 
+from which we optimised the pseudo-potential. 
+
+%By using this expression and by maximising the overlap, we obtained a $p$ potential for the CH\(^{\bullet}_{3}\) system with a negative coefficient of -3.27 and an exponent of 0.30. 
+%This $p$ potential, combined with the $s$ potentials, allowed us to recover the correct HOMO energy of the CH\(^{\bullet}_{3}\) system.
+%It should, of course, be possible to obtain the potential parameters entirely by empirical means, but we found this reasoning gave us an informed guess at some starting parameters from which to optimise. We expected this optimisation (using the criteria described in Section \ref{section:pseudocrit}, to modify the initial values, as indeed it did. However, the final coefficient of the final $p$ pseudo-potential (-3.9) still contains this information on the incomplete screening effect of the missing electrons. 
 
 
 %We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
