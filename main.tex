@@ -340,12 +340,14 @@ physically grounded.
 
 \subsection*{\sffamily \large Physical meaning of the \(p_{z}\) pseudo-potential} \label{minimalpotguess}
 
-%As mentioned in Section~\ref{secpotdef}, $s$ potentials aim at recovering
-As mentioned above, the $s$ potentials aim at recovering both the bi-electronic interactions \textit{and} the no-collapse term. The \(p\) pseudo-potential has the role of providing a correction which represents the incomplete screening effect of the missing electrons.
-%It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. 
+The pseudo-system contains only one proton. However, the effective charge felt by the $p$ electron in a carbon atom should be larger: for instance Slater's rules suggest an effective charge of $Z_{eff}=2.4$. Thus we must account for this difference. We shall see that this role is filled by the $p$ potential once optimised. 
 
-Clearly the assumption that \(Z_{nucleus} = 1\) is unrealistic for a carbon atom. Slater's Rules\cite{slatersrules} suggest that
-a \(p\) electron should experience a larger charge, of \(Z = 2.4\). 
+%%As mentioned in Section~\ref{secpotdef}, $s$ potentials aim at recovering
+%As mentioned above, the $s$ potentials aim at recovering both the bi-electronic interactions \textit{and} the no-collapse term. The \(p\) pseudo-potential has the role of providing a correction which represents the incomplete screening effect of the missing electrons.
+%It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. 
+%
+%Clearly the assumption that \(Z_{nucleus} = 1\) is unrealistic for a carbon atom. Slater's Rules\cite{slatersrules} suggest that
+%a \(p\) electron should experience a larger charge, of \(Z = 2.4\). 
 In order to evaluate the screening effect in the real CH\(^{\bullet}_{3}\) system, we computed the expected 
 distance of the electron from the nucleus \( \langle r \rangle \)~:
 \begin{equation}
@@ -390,19 +392,15 @@ From Equations~\ref{equation:exp_r} and ~\ref{equation:PsirPsi}, we obtain the t
 %where \(\psi_{p_{z}}\) are the molecular orbitals extracted from a reference calculation of CH\(^{\bullet}_{3}\). From Equation \ref{equation:exp_r}, we have \( \langle r \rangle \approx 1.8\;a.u.\) and therefore we can see from Equation \ref{equation:PsirPsi} that \(Z_{eff} \approx 3.6\). 
 
 The \(\psi_{p_{z}}\) molecular orbital is influenced strongly by the $p$ pseudo-potential,
-because of their overlap. Thus,
-to mimic the effect of the electron-screened nucleus, the \(p\) pseudo-potential is essential. 
-Even if we used a semi-local pseudo-potential definition in our work, 
-we assume a non-local pseudo-potential $\widehat{p}$ in this paragraph, which allows 
-for a quick evaluation of overlap effects between the basis set
-and the pseudo-potential. We define:
-\begin{equation}
-S = \langle \psi_{p_{z}} | \chi \rangle
-\end{equation}
-the overlap between a molecular orbital \(\psi_{p_{z}}\), and \(\chi\), taken from our non-local pseudo-potential definition \cite{huzinaga_effective_1991}
+because of their overlap. In this pargraph we use a simplified definition $\widehat{p}$ of the $p$ pseudo-potential, which allows for a quick evaluation of overlap effects with the basis set: 
 \begin{equation}
 \chi = e^{-\alpha r^{2}},\qquad \widehat{p} = -Z_{pseudo} | \chi \rangle \langle \chi |
 \end{equation}
+We define
+\begin{equation}
+S = \langle \psi_{p_{z}} | \chi \rangle
+\end{equation}
+the overlap between a molecular orbital \(\psi_{p_{z}}\), and \(\chi\),
 leading us to evaluate the effect of the pseudo-potential on the \(\psi_{p_{z}}\) molecular orbital as:
 \begin{equation}
 \langle \psi_{p_{z}} | \widehat{Z} | \psi_{p_{z}} \rangle = \langle \psi_{p_{z}} |-Z_{pseudo} | \chi \rangle \langle \chi | \psi_{p_{z}} \rangle = -Z_{pseudo} S^{2}
@@ -415,10 +413,10 @@ Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \label{eqpseudo}
 \end{equation}
 
-By using this expression, the value $Z_{eff} \approx 2.92$ is obtained for our final potential set, which is very close to the theoretical value, 
+Ultimately, we used this expression to make informed guesses for the starting coefficients of the $p$ functions, from which we optimised the pseudo-potential.
+By using Equation \ref{eqpseudo}, and the optimised exponent of $\alpha=0.624$, an estimated value of $A=3.614$ is obtained.  
+The optimised coefficient $A=3.909$ of our final potential set is very close to this estimation, 
 supporting the idea that the $p$ potential retrieves the incomplete screening effect of the missing electrons. 
-We mention that, indeed, we used  Equation~\ref{eqpseudo} to get informed guesses for the starting coefficients of the $p$ functions,
-from which we optimised the pseudo-potential. 
 
 %By using this expression and by maximising the overlap, we obtained a $p$ potential for the CH\(^{\bullet}_{3}\) system with a negative coefficient of -3.27 and an exponent of 0.30. 
 %This $p$ potential, combined with the $s$ potentials, allowed us to recover the correct HOMO energy of the CH\(^{\bullet}_{3}\) system.
