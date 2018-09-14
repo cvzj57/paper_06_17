@@ -344,8 +344,8 @@ physically grounded.
 As mentioned above, the $s$ potentials aim at recovering both the bi-electronic interactions \textit{and} the no-collapse term. The \(p\) pseudo-potential has the role of providing a correction which represents the incomplete screening effect of the missing electrons.
 %It is possible to obtain the potential parameters entirely by empirical means, in principle. However, we felt we ought to be able to make a more informed guess at some starting parameters from which to optimise. 
 
-Clearly the assumption that \(Z = 1\) is unrealistic for a carbon atom. Slater's Rules\cite{slatersrules} suggest that
-the \(p_{z}\) electron should experience a larger charge, of \(Z = 2.4\). 
+Clearly the assumption that \(Z_{nucleus} = 1\) is unrealistic for a carbon atom. Slater's Rules\cite{slatersrules} suggest that
+a \(p\) electron should experience a larger charge, of \(Z = 2.4\). 
 In order to evaluate the screening effect in the real CH\(^{\bullet}_{3}\) system, we computed the expected 
 distance of the electron from the nucleus \( \langle r \rangle \)~:
 \begin{equation}
@@ -411,13 +411,13 @@ Finally, knowing that our hydrogen-like pseudo-system already contains a charge,
 we expect that:
 %the coefficient $-Z_{pseudo}$ of the pseudo-potential becomes:
 \begin{equation}
--Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
+Z_{pseudo} = (Z_{eff} - Z_{nucleus})S^{-2}
 \label{eqpseudo}
 \end{equation}
 
 By using this expression, the value $Z_{eff} \approx 2.92$ is obtained for our final potential set, which is very close to the theoretical value, 
 supporting the idea that the $p$ potential retrieves the incomplete screening effect of the missing electrons. 
-We mention that, indeed, we used  Equation~\ref{eqpseudo} to get informed guesses for the coefficients of the starting parameters 
+We mention that, indeed, we used  Equation~\ref{eqpseudo} to get informed guesses for the starting coefficients of the $p$ functions,
 from which we optimised the pseudo-potential. 
 
 %By using this expression and by maximising the overlap, we obtained a $p$ potential for the CH\(^{\bullet}_{3}\) system with a negative coefficient of -3.27 and an exponent of 0.30. 
