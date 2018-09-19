@@ -31,8 +31,8 @@
 
 
 \begin{abstract}
-A pseudo-potential system for recreating an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
-This pseudo-system has a central charge of $Z=1$, it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characterstics including the orbital and first ionisation energies, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system. This approach is capable of reproducing the $\pi$ electron systems of small or large, planar hydrocarbons at low computational cost.
+A pseudo-potential system for an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon chain and ring systems.  
+This pseudo-system has a central charge of $Z=1$, it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characteristics including the orbital energies and first ionisation energy, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system. This approach is capable of reproducing the $\pi$ electron systems of small or large, planar hydrocarbons at low computational cost.
 \end{abstract}
 
 \clearpage
@@ -74,7 +74,7 @@ hitzenberger_optimizing_2016,
 hitzenberger_probing_2015,
 collins_energy-based_2015,
 pezeshki_recent_2015,
-von_lilienfeld_force_2013}, or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces \cite{dilabio_2008}. Their primary use, however, has always been that of increasing computational efficiency as compared with more analytical solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP) \cite{dolg_2000}, where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on some lighter atoms, such as those of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}. 
+von_lilienfeld_force_2013}, or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces \cite{dilabio_2008}. Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP) \cite{dolg_2000}, where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on some lighter atoms, such as those of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}. 
 
 In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately, having been designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested. Such potentials could find ready use in performing QM calculations on large hydrocarbons and polycyclic, aromatic hydrocarbons.
 
@@ -93,14 +93,14 @@ Following his proposal, for an atom where active and dormant electrons have been
 \hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
 \end{equation}
 with $\frac{1}{r_{ij}}$ the bi-electronic interaction
-between explicitly treated active electrons and
+between explicitly treated active electrons, and
 the mono-electronic operator:
 \begin{equation}
 \label{eq:monoElectronicOperator}
 \hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
 \end{equation}
 where $\Delta_i$ is the Laplacian of the coordinates of electron $i$, and 
-$Z_C$ is the number of core electrons withdrawn from the reference system.
+$Z_C$ is the number of dormant electrons withdrawn from the reference system.
 The operator $\hat{\sigma}(i)$ is the `no-collapse' term that prevents active electrons
 collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
 Coulomb and exchange interactions, for which Huzinaga proposed a spectral formulation:
@@ -132,7 +132,7 @@ Previous pseudo-potential methods have made use of different optimisation criter
 The pseudo-bond method, for example, is intended to facilitate geometry-optimisation in QM/MM calculations, and uses a series of reference data, 
 including bond lengths and angles, across a training set of different molecules \cite{zhang_pseudobond_1998}. 
 In our case, the aim is to simulate the electronic behaviour of $\pi$ systems.
-Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our reference system is CH$_3^\bullet$, the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice, and should ensure the orbital of the pseudo-system is well-positioned to interact with other chemical moieties.
+Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our reference system is the planar CH$_3^\bullet$ radical, the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice, and should ensure the orbital of the pseudo-system is well-positioned to interact with other chemical moieties.
 
 We would then take our CH$_3^{\bullet}$ pseudo-potentials and create from them a pseudo-ethylene, the smallest $\pi$ system.
 In addition to the HOMO energy of the pseudo-ethylene, we decided we would also compare the $\pi-\pi^{*}$ singlet-triplet energy gap, 
@@ -144,7 +144,7 @@ chemical interactions.
 \subsection*{\sffamily \large Pseudo-potential definition} \label{secpotdef}
 
 As in our previous work\cite{drujon_pseudopotentials_2013},
-we take CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
+we take the planar CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials, \cite{me_structure_theory} of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
@@ -172,11 +172,8 @@ directly to the pseudo-carbon.
 This gives multiple variables we can use to manipulate the properties of the system.
 We can alter the strength and diffuseness of the \(p\) and \(s\) potentials themselves,
 as well as vary the distances \(d\) and \(c\) by moving the \(s\)-potentials.
-In this article, we fix \(c = 0.25\;a.u.\) and \(d = 0.5\;a.u.\).
-Those values were chosen to keep the pseudo-potentials as compact as possible.
 In the effort to keep the effects 
-of the $s$ potentials as localised as possible, we chose $d=0.5$ a.u., approximately the shortest atom-atom distance permitted in 
-QM programs.
+of the $s$ potentials as localised as possible, we chose $d=0.5$ a.u. and \(c = 0.25\;a.u.\), making the atom-atom distance approximately the shortest permitted in QM programs.
 
 Table \ref{table:potential_params} displays the data resulting from the potential extraction process. 
 Initially, we optimised potentials for the CH$_3^\bullet$ system (initial pseudo).
@@ -189,10 +186,10 @@ This implied a refinement of the exponents and coefficients (final pseudo).
 %We also see that our other chosen metrics, the $\Delta_{ST}$ and 1$^{st}$ ionisation energy, suffer from even greater errors. 
 %We are forced to conclude that a refinement of the exponents and coefficients is necessary.
 %We are forced to conclude that the assumptions made earlier in Section \ref{minimalpotguess}, that the $p_{z}$ orbital shape of CH\(^{\bullet}_{3}\) might not serve well for $C_{2}H_{4}$. This being the case, there is no reason to believe that our $Z_{eff}$ estimate, obtained from Equation \ref{equation:analyticalpz} is correct, and so our attempt at an analytical solution is no use for modelling the $\pi$ systems in which we are interested. Once we abandoned the constraints our theoretical solution placed on the potential parameters, and permitted the optimising code to find an entirely empirical solution, we were able to extract a final potential set, the results of which can be seen in Table \ref{table:potential_params}. These potentials are much better than the previous efforts, giving us a 0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
-In the final version of the extraction, the pseudo-ethylene system was optimised from several different starting guesses to give the correct $\Delta_{ST}$ value, and the one that also gave the best HOMO and 1$^{st}$ ionisation energies chosen as the starting guess for a final optimisation, performed by hand, to give us the final set of pseudo-potentials used in the rest of this work.
+In the final version of the extraction, the pseudo-ethylene system was: (1) Optimised from several different starting guesses to give the correct $\Delta_{ST}$ value. (2) The pseudo-potentials from step (1) that also gave the best HOMO and 1$^{st}$ ionisation energies were chosen as the starting guess for a final optimisation, performed by hand, to give us the final set of pseudo-potentials used in the rest of this work.
 The final potential set gives an error of 5.1\% for the HOMO energy of CH\(^{\bullet}_{3}\), but it
 performs much better than the initial for the ethylene,
-giving us a 0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
+giving us a 0.0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
 
 The potentials were extracted on the basis of Hartree-Fock calculations, but they are transferable
 to other methods and they are employed within the DFT and TD-DFT frameworks in the application section (see the
@@ -294,20 +291,33 @@ The molecular orbital virtual space is also well described (cf. Table~\ref{tab:c
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
 
+\subsubsection*{\sffamily \large Timings}
+The model that we develop in this work allows significant computational gains.
+To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
+alkene chain.
+Calculations were performed with two different basis sets: def2-SV(P) and QZVPPD.
+When using the pseudo-potential, the basis set was truncated by removing all
+basis functions not necessary to reproduce the
+$\pi$ system.
+In other words, only $p$ functions or those of higher angular momentum were kept.
+As can be seen from Table \ref{tab:time}, the gain increases
+with the size of the basis set as expected.
+The gain ranges from 2.4 (def2-SV(P)) to 8 (QZVPPD).
+
 \subsection*{\sffamily \large Physical meaning of the \(p_{z}\) pseudo-potential} \label{minimalpotguess}
 
 The pseudo-system contains only one proton. However, the effective charge felt by the $p$ electron in a carbon atom should be larger: for instance Slater's rules suggest an effective charge of $Z_{eff}=2.4$. Thus we must account for this difference. We shall see that this role is filled by the $p$ potential once optimised. 
 
 In order to evaluate the screening effect in the real CH\(^{\bullet}_{3}\) system, we computed the expectation value of the distance of the electron from the nucleus \( \langle r \rangle \)~:
 \begin{equation}
-\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle \approx 1.8\;a.u.\
+\langle r \rangle = \langle \psi_{p_{z}} | r | \psi_{p_{z}} \rangle = 1.80\;a.u.\
 \label{equation:exp_r}
 \end{equation}
 
 where \(\psi_{p_{z}}\) is the molecular orbital extracted from a reference calculation of CH\(^{\bullet}_{3}\). 
 
 Since the CH\(^{\bullet}_{3}\) pseudo system has only one electron (as in a hydrogen-like atom), 
-the analytical form of the \(p_{z}\) orbital is:~\cite{nyu_h_solutions} 
+the analytical form of the \(p_{z}\) orbital is:~\cite{me_structure_theory} 
 \begin{equation}
 \label{equation:analyticalpz}
 \phi_{210} = \frac{1}{\sqrt{\pi}} \frac{Z_{eff}}{2a_{0}} ^{\frac{5}{2}} re^{-\frac{Z_{eff}r}{2a_{0}}} \cos \theta
@@ -323,12 +333,12 @@ This leads to the following expression for \( \langle r \rangle (Z_{eff}) \);
 \langle \phi_{210} | r | \phi_{210} \rangle = \frac{5a_{0}}{Z_{eff}}
 \end{equation}
 
-From Equations~\ref{equation:exp_r} and ~\ref{equation:PsirPsi}, we obtain the theoretical value of \(Z_{eff} \approx 2.77\).
+From Equations~\ref{equation:exp_r} and ~\ref{equation:PsirPsi}, we obtain the theoretical value of \(Z_{eff} = 2.77\).
 
 The \(\psi_{p_{z}}\) molecular orbital is influenced strongly by the $p$ pseudo-potential,
-because of their overlap. In this pargraph we use a simplified definition $\widehat{p}$ of the $p$ pseudo-potential, which allows for a quick evaluation of overlap effects with the basis set: 
+because of their overlap. In this paragraph we use a simplified definition $\widehat{p}$ of the $p$ pseudo-potential, which allows for a quick evaluation of overlap effects with the basis set: 
 \begin{equation}
-\chi = e^{-\alpha r^{2}}\sum_{m=-1}^{+1}\left|Y_{1,m}\right>,\qquad \widehat{p} = -Z_{pseudo} | \chi \rangle \langle \chi |
+\chi = e^{-\alpha r^{2}}\sum_{m=-1}^{+1}\left|Y_{1,m}\right>,\qquad \widehat{p} = -A | \chi \rangle \langle \chi |
 \end{equation}
 We define
 \begin{equation}
@@ -366,20 +376,7 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 
 \textbf{Chain Alkenes, Ring Molecules}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
-\section*{Timings}
-The model that we develop in this work allows significant computational gains.
-To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
-alkene chain.
-Calculations were performed with two different basis sets: def2-SV(P) and QZVPPD.
-When using the pseudo-potential, the basis set was truncated by removing all
-basis functions not necessary to reproduce the
-$\pi$ system.
-In other words, only $p$ functions or those of higher angular momentum were kept.
-As can be seen from Table \ref{tab:time}, the gain increases
-with the size of the basis set as expected.
-The gain ranges from 2.4 (def2-SV(P)) to 8 (QZVPPD).
-
-\section*{\sffamily \Large CONCLUSION}
+\section*{\sffamily \Large CONCLUSION AND PERSPECTIVE}
 
 In this paper pseudo-potentials have been developed for sp$^{2}$-hybridised carbon units containing only one nuclear charge and one electron. 
 Their main features are that: 
@@ -390,12 +387,7 @@ They are able to reproduce basic electronic properties including HOMO, 1$^{st}$ 
 (4) They have been shown to function well whether their neighbouring atoms are other pseudo-carbons (as with fused carbon rings), hydrogen atoms (as in CH\(^{\bullet}_{3}\)), or a mixture of both (as in the chain alkenes or at the edge of fused ring systems). 
 (5) They offer a significant gain in computational time as compared to all-electron calculations.
 
-%We could show that not only were the occupied orbitals well-reproduced by the use of these new potentials, but also that the virtual space is of good quality
-%for excited states calculation. 
-%The logical next steps are the addition of an explicit ``no collapse" term, the reproduction of the gradient through the parameterisation of additional terms. The first step is needed in order to avoid forcing the molecular orbital occupation and to avoid spurious virtual orbitals in the active space. We are confident that the first step could be easily done, as we have already extracted such terms in the previous version of our potentials. The reproduction of the gradient is more of a challenge, given the number of electrons removed from the system.
-
-Our work remains ongoing, and we envisage two areas for further development (1) We would like to create potentials that can successfully interact with neighbouring all-electron atoms. This will mean producing potentials which are capable of bonding covalently with their neighbours, i.e. adding another electron to the pseudo-carbon for every bonding, all-electron neighbouring atom. Such potentials could be easily serve as link atoms in QM/MM calculations, functioning similarly to QCPs, though this is not our primary motivation. (2) We would like further to test and to expand this work into a general method for increasing computational efficency in large systems in which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of electronic spectra. This could be particularly useful in large molecules which are optically active, to reproduce 
- ECD spectra.
+Our work remains ongoing, and we envisage two areas for further development (1) We would like to create potentials that can successfully interact with neighbouring all-electron atoms. This will mean producing potentials which are capable of bonding covalently with their neighbours, i.e. adding another electron to the pseudo-carbon for every bonding, all-electron neighbouring atom. Such potentials could be useful as link atoms in QM/MM calculations, functioning similarly to Quantum Capping Potentials \cite{dilabio_simple_2002}, though this is not our primary motivation. (2) We would like further to test and to expand this work into a general method for increasing computational efficency in large systems in which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of electronic spectra. This could be particularly useful in large molecules which are optically active, such as helicenes, to simulate ECD spectra.
 
 \clearpage
 
