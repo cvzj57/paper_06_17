@@ -238,18 +238,17 @@ computational details for further information).
 
 \subsubsection*{\sffamily \large C\(\mathbf{_{2n}}\)H\(\mathbf{_{2n+2}}\), \(\mathbf{2 \leq n \leq 12}\)}
 
-Taking the final potentials we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the reference system is optimised according to the method used, 
-before taking the reference geometry and applying the final pseudo-potentials from Table \ref{table:potential_params}. 
+Taking the final potentials, we test them against a series of chain alkenes up to length C\(_{12}\)H\(_{14}\), using a variety of functionals. In each case, the geometry of the all-electron system is optimised according to the method (HF or DFT functional) used, before taking the this geometry and applying the final pseudo-potentials from Table \ref{table:potential_params}. 
 Figures \ref{fig:alkenes_hf_dft} and \ref{fig:alkenes_tddft} show the results. Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested. The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 
 We also compare TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\%.\cite{drujon_pseudopotentials_2013}
-Let us recall here that in our previous work potentials were placed at the center of bonds, which led to pseudo-potentials which were very difficult to transfer from one system to another.
+Let us recall here that in our previous work potentials were placed at the center of bonds, meaning that the pseudo-potentials generated, whilst effective, were time-consuming to set up for each molecule.
 
 \subsubsection*{\sffamily \large Large Systems}
 
 The potentials derived above are also tested on larger systems.
 Figure \ref{fig:rings_graphs} shows the $\Delta_{ST}$, the IE and
-HOMO energy values for several ring systems.
+HOMO energy values for several Polycyclic Aromatic Hydrocarbon (PAH) systems.
 As with the short chain alkenes, the general trend of the results is well-replicated
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
@@ -280,9 +279,9 @@ As can be seen, the agreement is very good.
 
 The previous calculations show that the pseudo-potentials that we have extracted
 are able to reproduce the low-lying first excited state as well as the ionisation potential
-of a large range of polycyclic hydrocarbons.
+of a large range of PAH.
 
-Encouraged by this, we decided to explore further the virtual space by computing a large number of $\pi$ excited states, and to compare the results to reference calculations using the PBE0 functional. As can be seen from Figure~\ref{fig:cnhn_uv}, the shape of the spectra is well reproduced. We can see from the fit of the pairs of spectra that the scaling of 1.15 necessary for a near-perfect overlap is a constant throughout.
+Encouraged by this, we decided to explore the virtual space further by computing a large number of $\pi$ excited states, and to compare the results to all-electron calculations using the PBE0 functional. As can be seen from Figure~\ref{fig:cnhn_uv}, which compares the absorption spectra of pseudo-potential and all-electron calculations for a selection of PAH, the shape of the spectra is well-reproduced. A red-shift of factor 1.15 is applied to the pseudo-potential systems to align them with their all-electron counterparts. We can see from the fit of the pairs of spectra that the scaling generates a near-perfect absorption curve across all systems.
 %, making it something we believe we could fix with a better optimised potential.
 
 These results show that the pseudo-potentials that we have extracted are able to reproduce the
@@ -481,7 +480,7 @@ Our work remains ongoing, and we envisage two areas for further development (1) 
 \vspace{0.25in}
 \hspace*{3in}
 
-\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
+\caption{DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of chain alkenes.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
@@ -516,7 +515,7 @@ Our work remains ongoing, and we envisage two areas for further development (1) 
 \vspace{0.25in}
 \hspace*{3in}
 
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
+\caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of Polycyclic Aromatic Hydrocarbons. 
 C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \label{fig:rings_graphs}
 \end{figure}
@@ -534,7 +533,7 @@ C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \vspace{0.25in}
 \hspace*{3in}
 
-\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
+\caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
 
@@ -550,8 +549,7 @@ C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \vspace{0.25in}
 \hspace*{3in}
 \caption{Comparison of $S^2$ expectation values obtained for the calculation
-of the first triplet configuration in a SCF formalism, for reference
-and pseudo-systems.}
+of the first triplet configuration in a SCF formalism, for all-electron and pseudo-systems.}
 \label{fig:ssquare}
 \end{figure}
 
@@ -562,8 +560,7 @@ and pseudo-systems.}
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-\caption{Comparison of the UV spectra obtained with pseudo potentials and reference
-calculations def2-TZVP/TD-PBE0.}
+\caption{Comparison of the UV spectra obtained with pseudo-potentials (ps) and all-electron (ref) calculations (def2-TZVP/TD-PBE0). The pseudo-potential systems have been red-shifted by a factor of 1.15.}
 \label{fig:cnhn_uv}
 \end{figure}
 
@@ -740,7 +737,7 @@ calculations def2-TZVP/TD-PBE0.}
 
 
 \begin{table}[h]
-\caption{\label{table:potential_params} Comparison of molecular properties of pseudo-CH$^{\bullet}_{3}$ and pseudo-C$_{2}$H$_{4}$ molecules, along with pseudo-potential parameters and reference values.}
+\caption{\label{table:potential_params} Comparison of molecular properties of pseudo-CH$^{\bullet}_{3}$ and pseudo-C$_{2}$H$_{4}$ molecules, along with pseudo-potential parameters and all-electron values.}
 \begin{tabular}{c | c c c c | c c c}
 \hline
  & \multicolumn{2}{c}{$p$} & \multicolumn{2}{c}{$s$} & \multicolumn{3}{|c}{Energy (eV)} \\
