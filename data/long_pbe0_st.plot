@@ -1,7 +1,7 @@
 set title "{/Symbol D}_{ST}"
 set ylabel 'eV'
 set xrange [-.5:4.5]
-set yrange [-1:1.5]
+set yrange [0:2.0]
 set style data histogram
 set style histogram cluster gap 1
 set style fill solid border -1
