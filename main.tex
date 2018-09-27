@@ -271,7 +271,7 @@ by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
 This is not as surprising as it could sound as aromaticity arises from the fact that
 the $p$ orbitals overlap and are forming a ring.
-As both these requirements are fulfilled, the aromatic character of the $pi$ ring
+As both these requirements are fulfilled, the aromatic character of the $\pi$ ring
 appears.
 
 %However, differences in the triplet-singlet energies between the reference and pseudo-systems 
@@ -310,40 +310,42 @@ physically grounded.
 A Bader analysis can be performed on the electronic density obtained with the pseudo potentials.\cite{AIM}
 This gives a vision of the $pi$ only electronic cloud, which is not straightforward to get
 in all electron calculations.
-Figure \ref{fig:aim_c6h6} shows the critical points obtained in a reference calculation (details on
-how to obtain this analysis are described in the SI)
-and with pseudo potentials at the same level of theory.
 Critical points are characterized by the sign of the eigenvalues of the hessian of the electronic density
 at their position
-and are classified according to their sum.
-In an all electron AIM analysis, atoms are characterized by three negative eigenvalues
-of the hessian of the density noted (3, -3): they are a maximum of the electronic density along all
-directions.
-Bond critical points are a minimum along the bond direction and a maximum along the normals,
+and are classified as follows.
+As at the nuclei there are maxima of the electronic density, in all electron AIM analysis,
+atoms are characterized by three negative eigenvalues
+of the hessian of the density noted (3, -3).
+Bond critical points are minima along the bond direction and maxima along the normals,
 thus noted (3, -1) and cycle critical points are minima on the hyper surface of the cycle
-and a maximum along the direction perpendicular to it, so they are noted (3, +1).
+and maxima along the direction perpendicular to it, so they are noted (3, +1).
 A last kind of critical point (cage critical point) is characterized by three positive eigenvalues
-(3, +3) but no such point is found in this study.
-The critical paths are obtained by connecting the critical points along a direction of null gradient.
-Before going further, one should note that, as the critical point analysis were obtained
+(3, +3).
+The critical paths are obtained by connecting the critical points along a direction of zero gradient.
+
+For the benzene case, we compare the critical points of the $\pi$ cloud 
+obtained in a reference calculation (details on how to obtain this analysis are described in the SI)
+and with pseudo potentials at the same level of theory.
+In our case, as the critical point analysis were obtained
 with $\pi$ clouds only, the points which are maxima of the electronic density are not
 located at the nucleus but rather at the maxima of the $\pi$ density, \emph{i.e.} were the
 lobes of the $p$ orbitals admit a maximum.
-Then, according to this vision, it is not one, but two bond critical points that are to be found,
+Then, according to this vision, two bond critical points rather than one are expected,
 one above and one below the molecular plane.
-Finally, due to the topology of the density, two cycle critical points are found above in below the molecular
+Moreover, due to the topology of the density, two cycle critical points are found above in below the molecular
 plane on the C$_6$ axis of symmetry.
-It is remarkable that none of the algorithm we have used to obtain these plots find a cage critical
-point exactly at the center of the molecule.
+It is remarkable that none of the algorithms we have used to obtain these plots finds a cage critical
+point exactly at the center of the molecule, either in the reference or in the pseudo potential 
+calculations.
 This should be required to fulfill the Poincarré-Hopf relationship.
-Yet, after a careful inspection of the results, it turns out that the electronic density
-is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$.
+After a careful inspection of the results, it turns out that the electronic density
+is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$).
 Thus, one can consider that there is formerly a cage critical point at the center of
 the molecule even if it is not detected.
-The Poincarré-Hopf relationship can be considered to be fulfilled and no more critical points
+The Poincarré-Hopf relationship can be considered fulfilled and no more critical points
 are to be found.
 
-Figure \ref{fig:aim_c6h6} confirms that the description of the bond pattern is the same
+Figure \ref{fig:aim_c6h6} shows that the description of the bond pattern is the same
 in the reference and in the pseudo potential calculation.
 This confirms that the results obtained are not artefactual but that the pseudo potentials
 lead to a physically relevant electronic density.
@@ -539,9 +541,9 @@ and the distances \(d\) and \(c\).}
 \begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 3
 \begin{center}
-\includegraphics[width=8cm]{short_pbe0_tddft}
 \includegraphics[width=8cm]{short_pbe0_homo}
 \includegraphics[width=8cm]{short_pbe0_ie}
+\includegraphics[width=8cm]{short_pbe0_tddft}
 %\includegraphics[width=8cm]{short_pbe0_st}
 %\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of
@@ -571,9 +573,9 @@ polyenes.}
 %\vspace*{0.1in}   %%% FIGURE 5
 \begin{center}
 %\includegraphics[width=8cm]{long_pbe0_st}
-\includegraphics[width=8cm]{long_pbe0_tddft}
-\includegraphics[width=8cm]{long_pbe0_ie}
 \includegraphics[width=8cm]{long_pbe0_homo}
+\includegraphics[width=8cm]{long_pbe0_ie}
+\includegraphics[width=8cm]{long_pbe0_tddft}
 %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 %\label{fig:long_chain_graphs}
 \end{center}
@@ -588,9 +590,9 @@ polyenes.}
 %\vspace*{0.1in}   %%% FIGURE 4
 \begin{center}
 %\includegraphics[width=8cm]{ring_pbe0_st}
-\includegraphics[width=8cm]{ring_pbe0_tddft}
-\includegraphics[width=8cm]{ring_pbe0_ie}
 \includegraphics[width=8cm]{ring_pbe0_homo}
+\includegraphics[width=8cm]{ring_pbe0_ie}
+\includegraphics[width=8cm]{ring_pbe0_tddft}
 %\includegraphics[width=5cm]{19_ring_diagram}
 \fbox{\includegraphics[width=5cm]{c54h18}}
 %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
