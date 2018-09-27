@@ -306,6 +306,51 @@ The molecular orbital virtual space is also well described (cf. Table~\ref{tab:c
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
 
+\subsubsection*{\sffamily \large Topological analysis of the density}
+A Bader analysis can be performed on the electronic density obtained with the pseudo potentials.\cite{AIM}
+This gives a vision of the $pi$ only electronic cloud, which is not straightforward to get
+in all electron calculations.
+Figure \ref{fig:aim_c6h6} shows the critical points obtained in a reference calculation (details on
+how to obtain this analysis are described in the SI)
+and with pseudo potentials at the same level of theory.
+Critical points are characterized by the sign of the eigenvalues of the hessian of the electronic density
+at their position
+and are classified according to their sum.
+In an all electron AIM analysis, atoms are characterized by three negative eigenvalues
+of the hessian of the density noted (3, -3): they are a maximum of the electronic density along all
+directions.
+Bond critical points are a minimum along the bond direction and a maximum along the normals,
+thus noted (3, -1) and cycle critical points are minima on the hyper surface of the cycle
+and a maximum along the direction perpendicular to it, so they are noted (3, +1).
+A last kind of critical point (cage critical point) is characterized by three positive eigenvalues
+(3, +3) but no such point is found in this study.
+The critical paths are obtained by connecting the critical points along a direction of null gradient.
+Before going further, one should note that, as the critical point analysis were obtained
+with $\pi$ clouds only, the points which are maxima of the electronic density are not
+located at the nucleus but rather at the maxima of the $\pi$ density, \emph{i.e.} were the
+lobes of the $p$ orbitals admit a maximum.
+Then, according to this vision, it is not one, but two bond critical points that are to be found,
+one above and one below the molecular plane.
+Finally, due to the topology of the density, two cycle critical points are found above in below the molecular
+plane on the C$_6$ axis of symmetry.
+It is remarkable that none of the algorithm we have used to obtain these plots find a cage critical
+point exactly at the center of the molecule.
+This should be required to fulfill the Poincarré-Hopf relationship.
+Yet, after a careful inspection of the results, it turns out that the electronic density
+is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$.
+Thus, one can consider that there is formerly a cage critical point at the center of
+the molecule even if it is not detected.
+The Poincarré-Hopf relationship can be considered to be fulfilled and no more critical points
+are to be found.
+
+Figure \ref{fig:aim_c6h6} confirms that the description of the bond pattern is the same
+in the reference and in the pseudo potential calculation.
+This confirms that the results obtained are not artefactual but that the pseudo potentials
+lead to a physically relevant electronic density.
+Yet, one can note that the position of the critical points are not exactly the same in both
+calculations and that the pseudo potential lead to a more diffuse $\pi$ bonding pattern.
+However, as both images are obtained with the same scale, 
+
 \subsubsection*{\sffamily \large Timings}
 The model that we develop in this work allows significant computational gains.
 To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
@@ -385,11 +430,6 @@ supporting the idea that the $p$ potential retrieves the incomplete screening ef
 
 %\clearpage
 
-\subsection*{\sffamily \large Computational Details}
-
-All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
-
-\textbf{Chain Alkenes, Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 \section*{\sffamily \Large CONCLUSION AND PERSPECTIVE}
 
@@ -403,6 +443,15 @@ They are able to reproduce basic electronic properties including HOMO, 1$^{st}$ 
 (5) They offer a significant gain in computational time as compared to all-electron calculations.
 
 Our work remains ongoing, and we envisage two areas for further development (1) We would like to create potentials that can successfully interact with neighbouring all-electron atoms. This will mean producing potentials which are capable of bonding covalently with their neighbours, i.e. adding another electron to the pseudo-carbon for every bonding, all-electron neighbouring atom. Such potentials could be useful as link atoms in QM/MM calculations, functioning similarly to Quantum Capping Potentials \cite{dilabio_simple_2002}, though this is not our primary motivation. (2) We would like further to test and to expand this work into a general method for increasing computational efficency in large systems in which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of electronic spectra. This could be particularly useful in large molecules which are optically active, such as helicenes, to simulate ECD spectra.
+
+\section*{\sffamily \large Computational Details}
+
+All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+
+\textbf{All trans polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
+
+\textbf{Topological analysis of the density}. The topological analysis was performed using the Multiwfn
+program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
 
 \clearpage
 
@@ -583,173 +632,22 @@ C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \label{fig:cnhn_uv}
 \end{figure}
 
-%\begin{figure}
-%%\vspace*{0.1in}   %%% FIGURE 8
-%\begin{center}
-%\includegraphics[width=\textwidth]{cnhn_uv}
-%\end{center}
-%\vspace{0.25in}
-%\hspace*{3in}
-%\caption{Comparison of the UV spectra obtained with pseudo potentials from the previous section (green), the current section (blue) and reference calculations def2-TZVP/TD-PBE0 (red).}
-%\label{fig:cnhn_uv}
-%\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+%\vspace*{1.1in}   %%% FIGURE 6
+\begin{center}
+\includegraphics[width=12cm]{aim_c6h6.eps}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{\ref{fig:aim_c6h6}Comparison of the bond critical points and bond critical paths obtained at the PBE0/def2-SV(P)
+level for the
+reference $\pi$ system of benzene (left) and the $\pi$ system obtained with the final
+pseudo-potentials (right). Colors indicate the nature of the critical points according to the sign of the Hessian
+of the density at their position: in cyan the atom critical points (3, -3) in blue the bond
+critical points (3, 1) and in red the cycle critical points (3, -1). The critical paths are drawn in yellow.}
+\label{fig:cnhn_uv}
+\end{figure}
 
-% FIGURES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FIGURES % FIGURE FILES
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 1
-% FIGURES \begin{center}
-% FIGURES %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
-% FIGURES \includegraphics[width=8cm]{ch3.png}
-% FIGURES \includegraphics[width=8cm]{pseudoch3.png}
-% FIGURES \includegraphics[width=8cm]{tm_sp2_potentials.png}
-% FIGURES %\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
-% FIGURES %\label{figure:ref_pseudo_diagram}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 1 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 2
-% FIGURES \begin{center}
-% FIGURES %\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
-% FIGURES \fbox{\includegraphics[width=0.45\textwidth]{hires_long_r_crop.png}}%
-% FIGURES \fbox{\includegraphics[width=0.45\textwidth]{hires_short_r_crop.png}}
-% FIGURES %\caption{Diagrams of pseudo-ethene with \(d =\) 2.0 a.u. (left), and \(d = 0.5\) a.u. (right). The first pseudo-carbon is displayed in blue, with its \(s\) pseudo-potentials in cyan, and the second pseudo-carbon is in red, with its potentials in pink.}
-% FIGURES %\label{fig:long_r_ethene}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 2 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 3
-% FIGURES \begin{center}
-% FIGURES \includegraphics[width=8cm]{short_pbe0_homo}
-% FIGURES \includegraphics[width=8cm]{short_pbe0_ie}
-% FIGURES \includegraphics[width=8cm]{short_pbe0_st}
-% FIGURES %\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
-% FIGURES %\label{fig:alkenes_hf_dft}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 3 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 4
-% FIGURES \begin{center}
-% FIGURES \includegraphics[width=8cm]{short_pbe0_tddft_2013}
-% FIGURES \includegraphics[width=8cm]{short_pbe0_tddft}
-% FIGURES %\caption{Comparison of pseudo-alkenes with previous\cite{drujon_pseudopotentials_2013} and current potentials using TD-DFT excitation energies.}
-% FIGURES %\label{fig:alkenes_tddft}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 4 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 5
-% FIGURES \begin{center}
-% FIGURES \includegraphics[width=8cm]{ring_pbe0_st}
-% FIGURES \includegraphics[width=8cm]{ring_pbe0_ie}
-% FIGURES \includegraphics[width=8cm]{ring_pbe0_homo}
-% FIGURES \includegraphics[width=8cm]{ring_pbe0_tddft}
-% FIGURES %\includegraphics[width=5cm]{19_ring_diagram}
-% FIGURES \fbox{\includegraphics[width=5cm]{c54h18}}
-% FIGURES %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
-% FIGURES %C\(_{54}\)H\(_{18}\) is shown in the bottom.}
-% FIGURES %\label{fig:rings_graphs}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 5 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 6
-% FIGURES \begin{center}
-% FIGURES \includegraphics[width=8cm]{long_pbe0_st}
-% FIGURES \includegraphics[width=8cm]{long_pbe0_ie}
-% FIGURES \includegraphics[width=8cm]{long_pbe0_homo}
-% FIGURES \includegraphics[width=8cm]{long_pbe0_tddft}
-% FIGURES %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
-% FIGURES %\label{fig:long_chain_graphs}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 6 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
-% FIGURES \clearpage
-% FIGURES 
-% FIGURES %\vspace*{0.1in}   %%% FIGURE 7
-% FIGURES \begin{center}
-% FIGURES \includegraphics[width=8cm]{long_pbe0_s2}
-% FIGURES %\caption{Comparison of $S^2$ expectation values obtained for the calculation
-% FIGURES %of the first triplet configuration in a SCF formalism, for reference
-% FIGURES %and pseudo-systems.}
-% FIGURES %\label{fig:ssquare}
-% FIGURES \end{center}
-% FIGURES \vspace{0.25in}
-% FIGURES \hspace*{3in}
-% FIGURES {\Large
-% FIGURES \begin{minipage}[t]{3in}
-% FIGURES \baselineskip = .5\baselineskip
-% FIGURES Figure 7 \\
-% FIGURES Alexander Punter, Paola Nava, Yannick Carissan \\
-% FIGURES J.\ Comput.\ Chem.
-% FIGURES \end{minipage}
-% FIGURES }
-% FIGURES 
 \clearpage
 %ENDFIG
 %BEGTAB
