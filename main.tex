@@ -244,10 +244,19 @@ in the Hartree Fock framework as it is the method used for extraction.
 The agreement is also very good with the hybrid PBE0 functional and we shall use this functional
 in the rest of this article as it is more likely to be used in actual cases than pure Hartree Fock.
 
-Figure \ref{fig:alkenes_hf_dft} show in detail the results obtained with the smaller polyenes.
-The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
+Figure \ref{fig:alkenes_hf_dft} shows in detail the results obtained with the smaller polyenes.
+In the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference, but 
+absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies
+with the size of the chain is well replicated. As a consequence of this underestimation, 
+ionization energies are slightly higher than in reference calculations, even if errors are small and
+ tendencies are well reproduced. 
+More interestingly, a very good agreement between reference and pseudo-systems is obtained for TD-DFT
+calculations (for the $\pi-\pi^*$ excitation), which suggests that the virtual space is of good
+quality.
+%The pattern of increasing HOMO energy and decreasing cation-singlet and triplet-singlet energies seen in the reference systems is well replicated by the pseudo-alkenes, with the energies following the same gradient.
 We also compare TD-DFT results for this system and results of a previous work of some of the authors, which match to within 3\% (see SI).\cite{drujon_pseudopotentials_2013}
 Let us recall here that in our previous work potentials were placed at the center of bonds, meaning that the pseudo-potentials generated, whilst effective, were time-consuming to set up for each molecule.
+For the smaller polyenes, the $\Delta_{ST}$ values were also computed and a good agreement is achieved (see SI).
 
 Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refer to longer 
 alkene chains (\(n\) up to 100).
@@ -306,9 +315,9 @@ The molecular orbital virtual space is also well described (cf. Table~\ref{tab:c
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
 
-\subsubsection*{\sffamily \large Topological analysis of the density}
+\subsection*{\sffamily \large Topological analysis of the density}
 A Bader analysis can be performed on the electronic density obtained with the pseudo potentials.\cite{AIM}
-This gives a vision of the $pi$ only electronic cloud, which is not straightforward to get
+This gives a vision of the $\pi$ only electronic cloud, which is not straightforward to get
 in all electron calculations.
 Critical points are characterized by the sign of the eigenvalues of the hessian of the electronic density
 at their position
@@ -353,7 +362,7 @@ Yet, one can note that the position of the critical points are not exactly the s
 calculations and that the pseudo potential lead to a more diffuse $\pi$ bonding pattern.
 However, as both images are obtained with the same scale, 
 
-\subsubsection*{\sffamily \large Timings}
+\subsection*{\sffamily \large Timings}
 The model that we develop in this work allows significant computational gains.
 To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
 alkene chain.
