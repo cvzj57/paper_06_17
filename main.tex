@@ -295,14 +295,14 @@ appears.
 %C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
 %As can be seen, the agreement is very good. 
 
-These calculations show that the pseudo-potentials that we have extracted
-are able to reproduce the low-lying first excited state as well as the ionisation potential of a large range of PAH.
-
-Encouraged by this, we decided to explore the virtual space further by computing the 20 first singlet and 20 first triplet 
+Encouraged by the fact that low-lying first excited states as well as the ionisation potentials of a large range of PAHs are 
+well reproduced by our pseudo-potentials,
+we decided to explore the virtual space further by computing the 20 first singlet and 20 first triplet 
 $\pi$ excited states, and to compare the results to all-electron calculations using the PBE0 functional.
 Singlet and triplet spectra are shown in Figure~\ref{fig:cnhn_uv}, which compares the absorption spectra of pseudo-potential and all-electron calculations for a selection of PAH.
 As the pseudo-potential contains only $\pi$ orbitals, the excitations in the reference
-calculation which involve excitation from $\sigma$ to $\sigma$ orbitals cannot be reproduced. These are denoted by a * above the peaks in the graphs.
+calculation which involve excitation from $\sigma$ to $\sigma$ orbitals cannot be reproduced 
+(these are denoted by a * above the peaks in the graphs).
 The overall agreement is very satisfactory.
 Excitation energies computed with the pseudo-potential are systematically lower: by 10\%
 for the singlet and by a very small amount for the triplet.
@@ -313,22 +313,22 @@ is reproduced as well (see Figure~\ref{fig:transitiondensities} and Table~\ref{t
 The most remarkable feature to us is the neatness of the agreement of the excitation intensities in both singlet and triplet cases, both between peaks of the same molecule and also between molecules.
 This certainly shows again that the pseudo-carbon we have extracted captures a lot of the physics of the reference system as the intensities are related to the transition dipole moment.
 
-These results show that the pseudo-potentials that we have extracted are able to reproduce the $\pi$ systems in a variety of situations which are not part of their extraction set.
-We have also shown that the pseudo-potentials presented herein can be analysed through state-of-the-art methods (AIM in the present work).
-The molecular orbital virtual space is also well described up to a high number of excited states,
-which demonstrates that the good agreement with reference calculations is
-physically grounded.
-
+%These results show that the pseudo-potentials that we have extracted are able to reproduce the $\pi$ systems in a variety of situations which are not part of their extraction set.
+%We have also shown that the pseudo-potentials presented herein can be analysed through state-of-the-art methods (AIM in the present work).
+%The molecular orbital virtual space is also well described up to a high number of excited states,
+%which demonstrates that the good agreement with reference calculations is
+%physically grounded.
+ 
 \subsection*{\sffamily \large Topological analysis of the density}
 A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{AIM}
-This gives a vision of the $\pi$-only electronic cloud, which is not straightforward to get in all electron calculations.
-Critical points are characterised by the sign of the eigenvalues of the hessian of the electronic density at their position
-and are classified as follows.
-As at the nuclei there are maxima of the electronic density, in all electron AIM analysis,
-atoms are characterised by three negative eigenvalues of the hessian of the density noted (3, -3).
-Bond critical points are minima along the bond direction and maxima along the normals,
-thus noted (3, -1) and cycle critical points are minima on the hyper-surface of the cycle
-and maxima along the direction perpendicular to it, so they are noted (3, +1).
+This gives a vision of the $\pi$-only electronic cloud, which is not straightforward to retrieve in all electron calculations.
+In the AIM framework, critical points are characterised by the sign of the eigenvalues of the hessian of 
+the electronic density and are classified as follows:
+as the maxima of the electronic density is located at the nuclear positions,
+atom critical points are characterised by three negative eigenvalues, noted (3, -3);
+a bond critical point is a saddle point, showing a minimum along the bond direction,
+thus noted (3, -1); cycle critical points are minima on the hyper-surface of the cycle
+and maxima along the direction perpendicular to it, noted (3, +1).
 A last kind of critical point (cage critical point) is characterised by three positive eigenvalues
 (3, +3).
 The critical paths are obtained by connecting the critical points along a direction of zero gradient.
@@ -337,31 +337,32 @@ For the benzene case, we compare the critical points of the $\pi$ cloud
 obtained in a reference calculation (details on how to obtain this analysis are described in the SI)
 and with pseudo-potentials at the same level of theory.
 In our case, as the critical point analyses were obtained
-with $\pi$ clouds only, the points which are maxima of the electronic density are not
-located at the nucleus but rather at the maxima of the $\pi$ density, \emph{i.e.} were the lobes of the $p$ orbitals admit a maximum.
-Then, according to this vision, two bond critical points rather than one are expected,
-one above and one below the molecular plane.
-Moreover, due to the topology of the density, two cycle critical points are found above in below the molecular
-plane on the C$_6$ axis of symmetry.
-It is remarkable that none of the algorithms we have used to obtain these plots finds a cage critical
-point exactly at the center of the molecule, either in the reference or in the pseudo-potential 
+with the $\pi$ system only, the electronic density maxima are not
+located at the nucleus but rather at the maxima of the $\pi$ density, 
+\emph{i.e.} above and below the nuclei. %were the lobes of the $p$ orbitals admit a maximum.
+Accordingly, twelve bond critical points rather than six are expected,
+above and below the molecular plane.
+Moreover, due to the topology of the density, two cycle critical points are found above and below the molecular
+plane on the C$_6$ symmetry axis.
+To fulfill the Poincarré-Hopf relationship, a cage critical point is required. However,
+none of the algorithms we have used (REF???) finds this cage critical point 
+at the center of the molecule, either in the reference or in the pseudo-potential 
 calculations.
-This should be required to fulfill the Poincarré-Hopf relationship.
 After a careful inspection of the results, it turns out that the electronic density
 is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$).
-Thus, one can consider that there is formerly a cage critical point at the center of
-the molecule even if it is not detected.
-The Poincarré-Hopf relationship can be considered fulfilled and no more critical points
-are to be found.
+Eventually, there is a cage critical point at the center of
+the molecule but it can not be detected.
+%The Poincarré-Hopf relationship can be considered fulfilled and no more critical points
+%are to be found.
 
-Figure \ref{fig:aim_c6h6} shows that the description of the bond pattern is the same
-in the reference and in the pseudo-potential calculation.
+Finally, Figure \ref{fig:aim_c6h6} shows that the description of the bond pattern by the pseudo-potential
+calculation corresponds to that by the reference, in terms of types of found critical points.
+The position of the critical points are not exactly the same and the pseudo-potential calculation
+leads to a slightly more diffuse $\pi$ bonding pattern.
+However, as both images have the same scale, one can see that the topologies
+of the electronic densities are very similar.
 This confirms that the results obtained are not artefactual but that the pseudo-potentials
 lead to a physically relevant electronic density.
-Yet, one can note that the position of the critical points are not exactly the same in both
-calculations and that the pseudo-potentials lead to a more diffuse $\pi$ bonding pattern.
-However, as both images are obtained with the same scale, one can see that the topology
-of the electronic density is in both cases very similar.
 
 \subsection*{\sffamily \large Timings}
 The model that we develop in this work allows significant computational gains.
