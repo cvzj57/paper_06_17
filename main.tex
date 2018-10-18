@@ -233,23 +233,18 @@ computational details for further information).
 
 \subsection*{\sffamily \large Applications}
 
-\subsubsection*{\sffamily \large All trans polyenes}
+\subsubsection*{\sffamily \large All trans-polyenes}
 
-Taking the final potentials, we test them against a series of all trans polyenes up to length C\(_{100}\)H\(_{102}\).
+Taking the final potentials, we test them against a series of all trans-polyenes up to length C\(_{100}\)H\(_{102}\).
 
-In order to check how the pseudo potentials behave with different functionals, we did a survey of four functionals plus Hartree Fock.
+In order to check how the pseudo-potentials behave with different functionals, we performed a survey of four functionals plus Hartree-Fock.
 Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested.
-As one could expect, the pseudo potentials are in better agreement with the reference calculations
-in the Hartree Fock framework as it is the method used for extraction.
-The agreement is also very good with the hybrid PBE0 functional and we shall use this functional
-in the rest of this article as it is more likely to be used in actual cases than pure Hartree Fock.
+As one might expect, the pseudo-potentials are in better agreement with the reference calculations in the Hartree-Fock framework as it is the method used for extraction.
+The agreement is also very good with the hybrid PBE0 functional and we shall use this functional in the rest of this article as it is more likely to be used in actual cases than pure Hartree-Fock.
 
 Figure \ref{fig:alkenes_hf_dft} shows in detail the results obtained with the smaller polyenes.
-In the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference, but 
-absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies
-with the size of the chain is well replicated. As a consequence of this underestimation, 
-ionization energies are slightly higher than in reference calculations, even if errors are small and
- tendencies are well reproduced. 
+In the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference, but absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies with the size of the chain is well replicated. As a consequence of this underestimation, 
+ionisation energies are slightly higher than in reference calculations, even if errors are small and tendencies are well reproduced. 
 More interestingly, a very good agreement between reference and pseudo-systems is obtained for TD-DFT
 calculations (for the $\pi-\pi^*$ excitation), which suggests that the virtual space is of good
 quality.
@@ -260,18 +255,15 @@ For the smaller polyenes, the $\Delta_{ST}$ values were also computed and a good
 
 Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refer to longer 
 alkene chains (\(n\) up to 100).
-As for the smaller chains, the properties of large all trans polyenes are well reproduced,
+As for the smaller chains, the properties of large all-trans-polyenes are well reproduced,
 which indicates that the results do not degrade with the size of the system.
-In the larger polyenes, spin contamination is non negligible neither in the reference, 
-nor in the pseudo potential calculations and the $\Delta_{ST}$ approach
-is not viable as it is for small polyenes (see SI).
-Thus, the computation of the excited state has to be done through TD-DFT, which leads to an
-excellent agreement between full electron and pseudo potential calculations.
+In the larger polyenes spin contamination is non-negligible, both in the reference and the pseudo-potential calculations, and the $\Delta_{ST}$ approach is not viable as it is for small polyenes (see SI).
+Thus, the computation of the excited state has to be done through TD-DFT, which leads to an excellent agreement between all-electron and pseudo-potential calculations.
 
 \subsubsection*{\sffamily \large Polycyclic aromatic hydrocarbons}
 
 The potentials derived above are also tested on polycyclic aromatic hydrocarbons
-in order to chek if they are able to reproduce the effect of aromaticity.
+in order to check if they are able to reproduce the effect of aromaticity.
 This is particularly critical as the system used for the extraction, ethylene, has no such feature.
 Figure \ref{fig:rings_graphs} shows the excitation energies, the IE and
 HOMO energy values for several Polycyclic Aromatic Hydrocarbon (PAH) systems.
@@ -303,69 +295,56 @@ appears.
 %C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
 %As can be seen, the agreement is very good. 
 
-The previous calculations show that the pseudo-potentials that we have extracted
-are able to reproduce the low-lying first excited state as well as the ionisation potential
-of a large range of PAH.
+These calculations show that the pseudo-potentials that we have extracted
+are able to reproduce the low-lying first excited state as well as the ionisation potential of a large range of PAH.
 
-Encouraged by this, we decided to explore the virtual space further by computing the 20 first singlet
-and 20 first triplet 
+Encouraged by this, we decided to explore the virtual space further by computing the 20 first singlet and 20 first triplet 
 $\pi$ excited states, and to compare the results to all-electron calculations using the PBE0 functional.
-Singlet and triplet spectra are shown in Figure~\ref{fig:cnhn_uv}, which compares the absorption
-spectra of pseudo-potential and all-electron calculations for a selection of PAH.
-As the pseudo-potential contains only $\pi$ orbitals, the excications in the reference
-calculation which involve $\sigma$ orbitals cannot be reproduced.
-It is signaled by a * mark in the graphs.
+Singlet and triplet spectra are shown in Figure~\ref{fig:cnhn_uv}, which compares the absorption spectra of pseudo-potential and all-electron calculations for a selection of PAH.
+As the pseudo-potential contains only $\pi$ orbitals, the excitations in the reference
+calculation which involve excitation from $\sigma$ to $\sigma$ orbitals cannot be reproduced. These are denoted by a * above the peaks in the graphs.
 The overall agreement is very satisfactory.
 Excitation energies computed with the pseudo-potential are systematically lower: by 10\%
 for the singlet and by a very small amount for the triplet.
-This is a very pleasing surprise owing to the fact that the pseudo-potential used
-to obtain these results was extracted on the first excited state of ethylene.
+This is a very pleasing surprise owing to the fact that the pseudo-potentials used
+to obtain these results were extracted on the first excited state of ethylene.
 Furthermore, the analysis of the transition densities show that the physics of the excitations
 is reproduced as well (see Figure~\ref{fig:transitiondensities} and Table~\ref{tab:coef}).
-The most astounishing to us is the beautiful agreement of the excitation intensities in
-both singlet and triplet cases between peaks of the same molecule and also between
-molecules.
-This certainly shows again that the pseudo carbon we have extracted captures a lot of the
-physics of the reference system as the intensities are related to the transition dipole moment.
+The most remarkable feature to us is the neatness of the agreement of the excitation intensities in both singlet and triplet cases, both between peaks of the same molecule and also between molecules.
+This certainly shows again that the pseudo-carbon we have extracted captures a lot of the physics of the reference system as the intensities are related to the transition dipole moment.
 
-These results show that the pseudo-potentials that we have extracted are able to reproduce the
-$\pi$ systems in a variety of situations which are not part of their extraction set.
-We have also shown that the pseudo-potentials presented herein can be analyzed throught state of the
-art methods (AIM in the present work).
+These results show that the pseudo-potentials that we have extracted are able to reproduce the $\pi$ systems in a variety of situations which are not part of their extraction set.
+We have also shown that the pseudo-potentials presented herein can be analysed through state-of-the-art methods (AIM in the present work).
 The molecular orbital virtual space is also well described up to a high number of excited states,
 which demonstrates that the good agreement with reference calculations is
 physically grounded.
 
 \subsection*{\sffamily \large Topological analysis of the density}
-A Bader analysis can be performed on the electronic density obtained with the pseudo potentials.\cite{AIM}
-This gives a vision of the $\pi$ only electronic cloud, which is not straightforward to get
-in all electron calculations.
-Critical points are characterized by the sign of the eigenvalues of the hessian of the electronic density
-at their position
+A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{AIM}
+This gives a vision of the $\pi$-only electronic cloud, which is not straightforward to get in all electron calculations.
+Critical points are characterised by the sign of the eigenvalues of the hessian of the electronic density at their position
 and are classified as follows.
 As at the nuclei there are maxima of the electronic density, in all electron AIM analysis,
-atoms are characterized by three negative eigenvalues
-of the hessian of the density noted (3, -3).
+atoms are characterised by three negative eigenvalues of the hessian of the density noted (3, -3).
 Bond critical points are minima along the bond direction and maxima along the normals,
-thus noted (3, -1) and cycle critical points are minima on the hyper surface of the cycle
+thus noted (3, -1) and cycle critical points are minima on the hyper-surface of the cycle
 and maxima along the direction perpendicular to it, so they are noted (3, +1).
-A last kind of critical point (cage critical point) is characterized by three positive eigenvalues
+A last kind of critical point (cage critical point) is characterised by three positive eigenvalues
 (3, +3).
 The critical paths are obtained by connecting the critical points along a direction of zero gradient.
 
 For the benzene case, we compare the critical points of the $\pi$ cloud 
 obtained in a reference calculation (details on how to obtain this analysis are described in the SI)
-and with pseudo potentials at the same level of theory.
-In our case, as the critical point analysis were obtained
+and with pseudo-potentials at the same level of theory.
+In our case, as the critical point analyses were obtained
 with $\pi$ clouds only, the points which are maxima of the electronic density are not
-located at the nucleus but rather at the maxima of the $\pi$ density, \emph{i.e.} were the
-lobes of the $p$ orbitals admit a maximum.
+located at the nucleus but rather at the maxima of the $\pi$ density, \emph{i.e.} were the lobes of the $p$ orbitals admit a maximum.
 Then, according to this vision, two bond critical points rather than one are expected,
 one above and one below the molecular plane.
 Moreover, due to the topology of the density, two cycle critical points are found above in below the molecular
 plane on the C$_6$ axis of symmetry.
 It is remarkable that none of the algorithms we have used to obtain these plots finds a cage critical
-point exactly at the center of the molecule, either in the reference or in the pseudo potential 
+point exactly at the center of the molecule, either in the reference or in the pseudo-potential 
 calculations.
 This should be required to fulfill the Poincarré-Hopf relationship.
 After a careful inspection of the results, it turns out that the electronic density
@@ -376,11 +355,11 @@ The Poincarré-Hopf relationship can be considered fulfilled and no more critica
 are to be found.
 
 Figure \ref{fig:aim_c6h6} shows that the description of the bond pattern is the same
-in the reference and in the pseudo potential calculation.
-This confirms that the results obtained are not artefactual but that the pseudo potentials
+in the reference and in the pseudo-potential calculation.
+This confirms that the results obtained are not artefactual but that the pseudo-potentials
 lead to a physically relevant electronic density.
 Yet, one can note that the position of the critical points are not exactly the same in both
-calculations and that the pseudo potential lead to a more diffuse $\pi$ bonding pattern.
+calculations and that the pseudo-potentials lead to a more diffuse $\pi$ bonding pattern.
 However, as both images are obtained with the same scale, one can see that the topology
 of the electronic density is in both cases very similar.
 
@@ -481,7 +460,7 @@ Our work remains ongoing, and we envisage two areas for further development (1) 
 
 All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1 \cite{TURBOMOLE}. The basis set used throughout is def-SV(P) \cite{defsvp}. Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
-\textbf{All trans polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
+\textbf{All trans-polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals. \cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) \cite{tammdancoff} is switched on to avoid triplet instability.
 
 \textbf{Topological analysis of the density}. The topological analysis was performed using the Multiwfn
 program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
@@ -572,8 +551,8 @@ and the distances \(d\) and \(c\).}
 \begin{figure}
 %\vspace*{0.1in}   %%% FIGURE 3
 \begin{center}
-\includegraphics[width=8cm]{short_pbe0_homo}
-\includegraphics[width=8cm]{short_pbe0_ie}
+\includegraphics[width=8cm]{short_pbe0_homo_uhf}
+\includegraphics[width=8cm]{short_pbe0_ie_uhf}
 \includegraphics[width=8cm]{short_pbe0_tddft}
 %\includegraphics[width=8cm]{short_pbe0_st}
 %\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
@@ -604,8 +583,8 @@ polyenes.}
 %\vspace*{0.1in}   %%% FIGURE 5
 \begin{center}
 %\includegraphics[width=8cm]{long_pbe0_st}
-\includegraphics[width=8cm]{long_pbe0_homo}
-\includegraphics[width=8cm]{long_pbe0_ie}
+\includegraphics[width=8cm]{long_pbe0_homo_uhf}
+\includegraphics[width=8cm]{long_pbe0_ie_uhf}
 \includegraphics[width=8cm]{long_pbe0_tddft}
 %\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
 %\label{fig:long_chain_graphs}
@@ -621,8 +600,8 @@ polyenes.}
 %\vspace*{0.1in}   %%% FIGURE 4
 \begin{center}
 %\includegraphics[width=8cm]{ring_pbe0_st}
-\includegraphics[width=8cm]{ring_pbe0_homo}
-\includegraphics[width=8cm]{ring_pbe0_ie}
+\includegraphics[width=8cm]{ring_pbe0_homo_uhf}
+\includegraphics[width=8cm]{ring_pbe0_ie_uhf}
 \includegraphics[width=8cm]{ring_pbe0_tddft}
 %\includegraphics[width=5cm]{19_ring_diagram}
 \fbox{\includegraphics[width=5cm]{c54h18}}
