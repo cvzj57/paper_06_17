@@ -139,8 +139,6 @@ Once we started to look at excitation and ionisation energies however, optimisat
 \label{fig:alkenes_tddft}
 \end{figure}
 
-
-
 \section*{Timings}
 The reduction of computational time necessary for calculations was not our primary aim, however the model that we develop in this work does allow significant gains.
 To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
@@ -167,4 +165,62 @@ Gain (no unit)   &       2.4 &   8.0 \\
 \caption{\label{tab:time}Time (in seconds) per SCF iteration and relative
 gain (time ratio all-electron/pseudo-potential) for a standard and a large basis set.} 
 \end{table}
+
+\section*{Full Excited states analysis: singlet and triplet and RPA vs CIS}
+As can be seen from figures \ref{fig:cnhn_uv_rpas}, \ref{fig:cnhn_uv_rpat},
+\ref{fig:cnhn_uv_ciss} and \ref{fig:cnhn_uv_cist}, random phase approximation (RPA)
+and configuration interaction singles (CIS) lead to very similar spectra.
+Yet, RPA leads to a better agreement for the calculated intensities.
+However, it is worth noting that the decision to use or not the Tamm Dancoff approximation
+does not affect the overall good agrement between reference and pseudo-potential.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{grand_rpas}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the absorption spectra for the 20 first singlet excitations obtained with
+pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0) within the RPA
+framework.
+Unlike in the main text, the singlet spectra were not shifted by a 0.91 factor.}
+\label{fig:cnhn_uv_rpas}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{grand_rpat}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the absorption spectra for the 20 first triplet excitations obtained with
+pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0) within the RPA
+framework.}
+\label{fig:cnhn_uv_rpat}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{grand_ciss}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the absorption spectra for the 20 first singlet excitations obtained with
+pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0) within the CIS
+framework.}
+\label{fig:cnhn_uv_cist}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{grand_cist}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the absorption spectra for the 20 first triplet excitations obtained with
+pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0) within the CIS
+framework.}
+\label{fig:cnhn_uv_ciss}
+\end{figure}
+
 \end{document}
