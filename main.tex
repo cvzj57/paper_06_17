@@ -321,7 +321,7 @@ This certainly shows again that the pseudo-carbon we have extracted captures a l
  
 \subsection*{\sffamily \large Topological analysis of the density}
 A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{AIM}
-This gives a vision of the $\pi$-only electronic cloud, which is not straightforward to retrieve in all electron calculations.
+This gives a vision of the $\pi$-only electronic cloud.
 In the AIM framework, critical points are characterised by the sign of the eigenvalues of the hessian of 
 the electronic density and are classified as follows:
 as the maxima of the electronic density is located at the nuclear positions,
@@ -333,20 +333,20 @@ A last kind of critical point (cage critical point) is characterised by three po
 (3, +3).
 The critical paths are obtained by connecting the critical points along a direction of zero gradient.
 
-For the benzene case, we compare the critical points of the $\pi$ cloud 
-obtained in a reference calculation (details on how to obtain this analysis are described in the SI)
-and with pseudo-potentials at the same level of theory.
+For the benzene case, we compare the critical points of the $\pi$ cloud obtained in a reference calculation
+with pseudo-potentials at the same level of theory.
+The $\pi$ system of the all-electrons calculation is obtained  by populating the converged $\pi$ molecular orbitals only.
+As the AIM procedure deals with the elctronic density, no reoptimization of the orbitals is necessary.
 In our case, as the critical point analyses were obtained
 with the $\pi$ system only, the electronic density maxima are not
-located at the nucleus but rather at the maxima of the $\pi$ density, 
+located at the nuclei but rather at the maxima of the $\pi$ density, 
 \emph{i.e.} above and below the nuclei. %were the lobes of the $p$ orbitals admit a maximum.
 Accordingly, twelve bond critical points rather than six are expected,
 above and below the molecular plane.
 Moreover, due to the topology of the density, two cycle critical points are found above and below the molecular
 plane on the C$_6$ symmetry axis.
-To fulfill the Poincarré-Hopf relationship, a cage critical point is required. However,
-none of the algorithms we have used (REF???) finds this cage critical point 
-at the center of the molecule, either in the reference or in the pseudo-potential 
+To fulfill the Poincarré-Hopf relationship, a cage critical point is required. However, this cage critical point 
+at the center of the molecule could not be found, either in the reference or in the pseudo-potential 
 calculations.
 After a careful inspection of the results, it turns out that the electronic density
 is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$).
