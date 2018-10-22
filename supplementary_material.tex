@@ -139,33 +139,6 @@ Once we started to look at excitation and ionisation energies however, optimisat
 \label{fig:alkenes_tddft}
 \end{figure}
 
-\section*{Timings}
-The reduction of computational time necessary for calculations was not our primary aim, however the model that we develop in this work does allow significant gains.
-To illustrate this, we provide in Table \ref{tab:time} a small study done on the C$_{50}$H$_{52}$
-alkene chain.
-Calculations were performed with two different basis sets: def2-SV(P) and QZVPPD.
-When using the pseudo-potential, the basis set was truncated by removing all
-basis functions not necessary to reproduce the
-$\pi$ system.
-In other words, only $p$ functions or those of higher angular momentum were kept.
-As can be seen from Table \ref{tab:time}, the gain increases
-with the size of the basis set as expected.
-The gain ranges from 2.4 (def2-SV(P)) to 8 (QZVPPD).
-
-\begin{table}[ht]
-\begin{tabular}{lrr}
-\hline\hline
-Model            & def2-SV(P) & QZVPPD \\
-\hline
-All electrons    &        67 & 68928 \\
-Pseudo-potential &        28 &  8566 \\
-Gain (no unit)   &       2.4 &   8.0 \\
-\hline\hline
-\end{tabular}
-\caption{\label{tab:time}Time (in seconds) per SCF iteration and relative
-gain (time ratio all-electron/pseudo-potential) for a standard and a large basis set.} 
-\end{table}
-
 \section*{Full Excited states analysis: singlet and triplet and RPA vs CIS}
 As can be seen from figures \ref{fig:cnhn_uv_rpas}, \ref{fig:cnhn_uv_rpat},
 \ref{fig:cnhn_uv_ciss} and \ref{fig:cnhn_uv_cist}, random phase approximation (RPA)
@@ -173,6 +146,8 @@ and configuration interaction singles (CIS) lead to very similar spectra.
 Yet, RPA leads to a better agreement for the calculated intensities.
 However, it is worth noting that the decision to use or not the Tamm Dancoff approximation
 does not affect the overall good agrement between reference and pseudo-potential.
+
+\section*{Triplet Instability}
 
 \begin{figure}
 \begin{center}
@@ -221,6 +196,16 @@ framework.}
 pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0) within the CIS
 framework.}
 \label{fig:cnhn_uv_ciss}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{long_pbe0_s2}
+\end{center}
+\caption{Comparison of $S^2$ expectation values obtained for the calculation
+of the first $\pi^*$ triplet configuration in a SCF formalism, for reference
+and pseudo-systems.}
+\label{fig:ssquare}
 \end{figure}
 
 \end{document}
