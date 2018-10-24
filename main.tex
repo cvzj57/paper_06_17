@@ -27,10 +27,10 @@
 
 \maketitle
 
-
 \begin{abstract}
 A pseudo-potential system for an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon polyenes and polycyclic aromatic hydrocarbons.  
-This pseudo-system has a central charge of $Z=1$, it contains only one electron. It is employed in \textsl{ab-initio} calculations in which several physical characteristics 
+This pseudo-system has a central charge of $Z=1$, it contains only one electron.
+It is employed in \textsl{ab-initio} calculations in which several physical characteristics 
 including the orbital energies and first ionisation energy, as well as first excitation energy and UV spectra, are found to be well-reproduced by the pseudo-system. 
 Remarkably, not only are the $\pi$ excitation energies in good agreement with the reference calculations, but also transition
 densities and intensities, confirming that the virtual space obtained with the pseudo-potentials is of excellent quality.
@@ -42,6 +42,22 @@ Pseudo-potentials, $sp^2 carbon$, PAH, aromaticity, $\pi$ system.
 \end{wileykeywords}
 
 \clearpage
+
+\begin{figure}[h]
+\centering
+\colorbox{background-color}{
+\fbox{
+\begin{minipage}{1.0\textwidth}
+\includegraphics[width=50mm,height=50mm]{graphical_abstract.eps} % Pick only one of the two styles by uncommenting the corresponding \includegraphics
+%\includegraphics[width=110mm,height=20mm]{cc.eps}
+A pseudo-potential system for an sp\(^{2}\) carbon atom is built and tested as a building block for various pseudo-hydrocarbon polyenes and polycyclic aromatic hydrocarbons.  
+It is employed in \textsl{ab-initio} calculations in which several physical characteristics are found to be well-reproduced by the pseudo-system. 
+This approach is capable of reproducing the $\pi$ electron systems of planar hydrocarbons at low computational cost.
+\\
+\end{minipage}
+}}
+\end{figure}
+
 
 \makeatletter
 \renewcommand\@biblabel[1]{#1.}
@@ -581,8 +597,8 @@ J.\ Comput.\ Chem.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8cm]{short_pbe0_homo_uhf}
-\includegraphics[width=8cm]{short_pbe0_ie_uhf}
+\includegraphics[width=8cm]{short_pbe0_homo_uhf}\\
+\includegraphics[width=8cm]{short_pbe0_ie_uhf}\\
 \includegraphics[width=8cm]{short_pbe0_tddft}
 \end{center}
 {\Large
@@ -599,8 +615,8 @@ J.\ Comput.\ Chem.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8cm]{long_pbe0_homo_uhf}
-\includegraphics[width=8cm]{long_pbe0_ie_uhf}
+\includegraphics[width=8cm]{long_pbe0_homo_uhf}\\
+\includegraphics[width=8cm]{long_pbe0_ie_uhf}\\
 \includegraphics[width=8cm]{long_pbe0_tddft}
 \end{center}
 {\Large
@@ -617,9 +633,9 @@ J.\ Comput.\ Chem.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8cm]{ring_pbe0_homo_uhf}
-\includegraphics[width=8cm]{ring_pbe0_ie_uhf}
-\includegraphics[width=8cm]{ring_pbe0_tddft}
+\includegraphics[width=8cm]{ring_pbe0_homo_uhf}\\
+\includegraphics[width=8cm]{ring_pbe0_ie_uhf}\\
+\includegraphics[width=8cm]{ring_pbe0_tddft}\\
 \fbox{\includegraphics[width=5cm]{c54h18}}
 \end{center}
 {\Large
@@ -636,7 +652,7 @@ J.\ Comput.\ Chem.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=16cm]{grand_rpa_singlet}
+\includegraphics[width=8cm]{grand_rpa_singlet}
 \end{center}
 {\Large
 \begin{minipage}[t]{3in}
@@ -653,14 +669,14 @@ J.\ Comput.\ Chem.
 \begin{figure}
 \begin{tabular}{|c|c|}
 \hline
-\includegraphics[width=7cm, height=7cm]{pyrene_peak1_ref_white} &
-\includegraphics[width=7cm, height=7cm]{pyrene_peak1_ps_white} \\
-\includegraphics[width=7cm, height=7cm]{pyrene_peak2_ref_white} &
-\includegraphics[width=7cm, height=7cm]{pyrene_peak2_ps_white} \\
+\includegraphics[width=4cm]{pyrene_peak1_ref_white} &
+\includegraphics[width=4cm]{pyrene_peak1_ps_white} \\
+\includegraphics[width=4cm]{pyrene_peak2_ref_white} &
+\includegraphics[width=4cm]{pyrene_peak2_ps_white} \\
 \hline
-All electron & Pseudo-potential\\
+All-electron & Pseudo-potential\\
 \hline
-\end{tabular}
+\end{tabular}\\
 \vspace{0.25in}
 \hspace*{3in}
 {\Large
@@ -678,7 +694,7 @@ J.\ Comput.\ Chem.
 \begin{figure}
 %\vspace*{1.1in}   %%% FIGURE 6
 \begin{center}
-\includegraphics[width=12cm]{aim_c6h6.eps}
+\includegraphics[width=8cm]{aim_c6h6.eps}
 \end{center}
 {\Large
 \begin{minipage}[t]{3in}
@@ -754,7 +770,7 @@ Mean TD-DFT Excitation error (\%) & 4.4 & 2.6 & 5.9 & 6.5 \\
 
 \newpage
 \begin{table}
-\caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudo-potentials)
+\caption{\label{tab:coef}Comparison of the weights (all-electron \emph{vs.} pseudo-potentials)
 of the excitations obtained with TD-DFT
 to represent the triplet excited state from the closed shell singlet state.
 Example case of C$_{50}$H$_{52}$.}
