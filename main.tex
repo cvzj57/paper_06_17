@@ -107,7 +107,7 @@ Coulomb and exchange interactions, for which Huzinaga proposed a spectral formul
 \end{equation}
 
 In this article, we performed the active/inactive split on a molecule with $\pi$ electrons: the $\sigma$ electrons comprising the inactive part and the $\pi$ electrons the active part.
-The Schr\"odinger equation was solved for the later part only in the field of the dormant part.
+The Schr\"odinger equation was solved for the latter part only in the field of the dormant part.
 The aim is to propose a method for extracting a potential for a hybridised carbon atom 
 ($sp^2$), with a focus on reproducing basic properties of the electronic structure of the sp$^2$ carbon in a molecular framework 
 (HOMO energy, ionisation potential and excitation energies). Our potentials can then be used as 
@@ -135,7 +135,7 @@ We would then take our CH$_3^{\bullet}$ pseudo-potentials and create from them a
 In addition to the HOMO energy of the pseudo-ethylene, we decided we would also compare the $\pi-\pi^{*}$ singlet-triplet energy gap, 
 and the 1$^{st}$ ionisation energy. The reproduction of the ionisation potential shows the extent to which the pseudo-system 
 can still behave like the reference system upon losing an electron, whilst the $\Delta_{ST}$ ensures that the first virtual 
-orbitals are well positioned, which is an indicator of the quality of the system for the reproduction of spectroscopic and 
+orbitals are well-positioned, which is an indicator of the quality of the system for the reproduction of spectroscopic and 
 chemical interactions.
 
 \subsection*{\sffamily \large Pseudo-potential definition} \label{secpotdef}
@@ -175,7 +175,7 @@ of the $s$ potentials as localised as possible, we chose $d=0.5$ a.u. and \(c = 
 Table \ref{table:potential_params} displays the data resulting from the potential extraction process. 
 Initially, we optimised potentials for the CH$_3^\bullet$ system (initial pseudo).
 The next step was to take two pseudo-CH\(^{\bullet}_{3}\) systems to create a pseudo-ethylene. 
-This implied a refinement of the exponents and coefficients (final pseudo).
+This meant a refinement of the exponents and coefficients (final pseudo).
 %, by fixing the \(p_{z}\) potential.
 %The \(s\)-potentials are then optimised once more to give the correct HOMO energy for CH\(^{\bullet}_{3}\). We were able to optimise the first set of CH\(^{\bullet}_{3}\) potentials easily, giving us a HOMO energy exactly matching that of the reference system. 
 %However, those initial pseudo-potentials lead to non-negligible errors:
@@ -223,11 +223,11 @@ computational details for further information).
 %$\epsilon_{HOMO}$, IP and $\Delta_{ST}$.
 %As shown in Figure~\ref{figure:diagram}, these parameters allow us to fully define the energetical
 %bond parameters.
-%$\epsilon_{HOMO}$ ensures that the orbital should be energetically well positioned to interact
+%$\epsilon_{HOMO}$ ensures that the orbital should be energetically well-positioned to interact
 %with chemical moieties.
 %The reproduction of the ionisation potential shows to what extent, the system with pseudo-potentials
 %can rearrange when losing one electron.
-%Finally, $\Delta_{ST}$ ensures that the first virtual orbitals are well positioned, which is an
+%Finally, $\Delta_{ST}$ ensures that the first virtual orbitals are well-positioned, which is an
 %indicator of the quality of the system in the reproduction of spectroscopic and chemical interactions.
 
 
@@ -243,8 +243,8 @@ As one might expect, the pseudo-potentials are in better agreement with the refe
 The agreement is also very good with the hybrid PBE0 functional and we shall use this functional in the rest of this article as it is more likely to be used in actual cases than pure Hartree-Fock.
 
 Figure \ref{fig:alkenes_hf_dft} shows in detail the results obtained with the smaller polyenes.
-In the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference, but absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies with the size of the chain is well replicated. As a consequence of this underestimation, 
-ionisation energies are slightly higher than in reference calculations, even if errors are small and tendencies are well reproduced. 
+In the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference, but absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies with the size of the chain is well-replicated. As a consequence of this underestimation, 
+ionisation energies are slightly higher than in reference calculations, even if errors are small and tendencies are well-reproduced. 
 More interestingly, a very good agreement between reference and pseudo-systems is obtained for TD-DFT
 calculations (for the $\pi-\pi^*$ excitation), which suggests that the virtual space is of good
 quality.
@@ -255,7 +255,7 @@ For the smaller polyenes, the $\Delta_{ST}$ values were also computed and a good
 
 Figure~\ref{fig:long_chain_graphs} and Table \ref{table:long_alkene_errors} refer to longer 
 alkene chains (\(n\) up to 100).
-As for the smaller chains, the properties of large all-trans-polyenes are well reproduced,
+As for the smaller chains, the properties of large all-trans-polyenes are well-reproduced,
 which indicates that the results do not degrade with the size of the system.
 In the larger polyenes spin contamination is non-negligible, both in the reference and the pseudo-potential calculations, and the $\Delta_{ST}$ approach is not viable as it is for small polyenes (see SI).
 Thus, the computation of the excited state has to be done through TD-DFT, which leads to an excellent agreement between all-electron and pseudo-potential calculations.
@@ -266,12 +266,12 @@ The potentials derived above are also tested on polycyclic aromatic hydrocarbons
 in order to check if they are able to reproduce the effect of aromaticity.
 This is particularly critical as the system used for the extraction, ethylene, has no such feature.
 Figure \ref{fig:rings_graphs} shows the excitation energies, the IE and
-HOMO energy values for several Polycyclic Aromatic Hydrocarbon (PAH) systems.
+HOMO energy values for several polycyclic aromatic hydrocarbon (PAH) systems.
 As with the polyenes, the general trend of the results is well-replicated
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
 This is not as surprising as it could sound as aromaticity arises from the fact that
-the $p$ orbitals overlap and are forming a ring.
+the $p$ orbitals overlap and form a ring.
 As both these requirements are fulfilled, the aromatic character of the $\pi$ ring
 appears.
 
@@ -296,7 +296,7 @@ appears.
 %As can be seen, the agreement is very good. 
 
 Encouraged by the fact that low-lying first excited states as well as the ionisation potentials of a large range of PAHs are 
-well reproduced by our pseudo-potentials,
+well-reproduced by our pseudo-potentials,
 we decided to explore the virtual space further by computing the 20 first singlet
 $\pi$ excited states, and to compare the results to all-electron calculations using the PBE0 functional.
 Absorption spectra are shown in Figure~\ref{fig:cnhn_uv}, which pseudo-potential and all-electron
@@ -328,19 +328,19 @@ A Bader analysis can be performed on the electronic density obtained with the ps
 This gives a vision of the $\pi$-only electronic cloud.
 In the AIM framework, critical points are characterised by the sign of the eigenvalues of the hessian of 
 the electronic density and are classified as follows:
-as the maxima of the electronic density is located at the nuclear positions,
+as the maxima of the electronic density are located at the nuclear positions,
 atom critical points are characterised by three negative eigenvalues, noted (3, -3);
 a bond critical point is a saddle point, showing a minimum along the bond direction,
 thus noted (3, -1); cycle critical points are minima on the hyper-surface of the cycle
-and maxima along the direction perpendicular to it, noted (3, +1).
+and maxima along the direction perpendicular to the cycle, noted (3, +1).
 A last kind of critical point (cage critical point) is characterised by three positive eigenvalues
 (3, +3).
 The critical paths are obtained by connecting the critical points along a direction of zero gradient.
 
 For the benzene case, we compare the critical points of the $\pi$ cloud obtained in a reference calculation
 with pseudo-potentials at the same level of theory.
-The $\pi$ system of the all-electrons calculation is obtained  by populating the converged $\pi$ molecular orbitals only.
-As the AIM procedure deals with the elctronic density, no reoptimization of the orbitals is necessary.
+The $\pi$ system of the all-electron calculation is obtained by populating the converged $\pi$ molecular orbitals only.
+As the AIM procedure deals with the electronic density, no reoptimisation of the orbitals is necessary.
 In our case, as the critical point analyses were obtained
 with the $\pi$ system only, the electronic density maxima are not
 located at the nuclei but rather at the maxima of the $\pi$ density, 
@@ -349,7 +349,7 @@ Accordingly, twelve bond critical points rather than six are expected,
 above and below the molecular plane.
 Moreover, due to the topology of the density, two cycle critical points are found above and below the molecular
 plane on the C$_6$ symmetry axis.
-To fulfill the Poincarré-Hopf relationship, a cage critical point is required. However, this cage critical point 
+To fulfil the Poincarré-Hopf relationship, a cage critical point is required. However, this cage critical point 
 at the center of the molecule could not be found, either in the reference or in the pseudo-potential 
 calculations.
 After a careful inspection of the results, it turns out that the electronic density
@@ -463,8 +463,8 @@ or a mixture of both (as in the polyenes or at the edge of fused ring systems).
 
 Our work remains ongoing, and we envisage two areas for further development
 (1) we are at the early stages of creating potentials that can successfully interact with neighbouring all-electron atoms.
-This will mean producing potentials which are capable of bonding covalently with their all-electron neighbours, i.e. adding another electron to the pseudo-carbon for every bonding.
-Our to be published preliminary results show that geometry optimization of the bond distances are possible.
+This will mean producing potentials which are capable of bonding covalently with their all-electron neighbours, i.e. adding another electron to the pseudo-carbon for every bond.
+Our preliminary results (to be published) show that geometry optimisation of the bond distances is possible.
 Such potentials could be useful as link atoms in QM/MM calculations, functioning similarly to Quantum Capping Potentials \cite{dilabio_simple_2002},
 though this is not our primary motivation.
 (2) We would like further to test and to expand this work into a general method for increasing computational efficiency in large systems in
@@ -521,7 +521,7 @@ program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
 \end{center}
 \vspace{0.25in}
 \hspace*{3in}
-	\caption{Definition of the criteria chosen to optimize the pseudo-potentials
+	\caption{Definition of the criteria chosen to optimise the pseudo-potentials
 	(IP: ionisation potential, $\Delta_{ST}$: singlet-triplet excitation energy, $\epsilon_{HOMO}$: energy of the HOMO orbital).
 	IP allow the inclusion of the relaxation of the orbitals when the system is ionised, whereas $\epsilon_{HOMO}$ is more important
 	in a chemical framework.}
@@ -542,7 +542,7 @@ program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
 \end{center}
 \caption{Diagrams of the planar CH\(^{\bullet}_{3}\) radical (left) and the pseudo-C\(^{\bullet}\) (right)
 used to mimic the p$_z$ orbital.
-The mono occupied p$_z$ orbital is represented in gray.
+The mono occupied p$_z$ orbital is represented in grey.
 The pseudo-C\(^{\bullet}\) diagram displays the \(s\) and \(p\)-potentials in blue,
 and the distances \(d\) and \(c\).}
 \label{figure:ref_pseudo_diagram}
@@ -664,20 +664,6 @@ Excitation energies obtained with the pseudo-potentials were corrected by a fact
 \end{figure}
 
 \begin{figure}
-%\vspace*{1.1in}   %%% FIGURE 6
-\begin{center}
-\includegraphics[width=12cm]{aim_c6h6.eps}
-\end{center}
-\vspace{0.25in}
-\hspace*{3in}
-\caption{Comparison of the bond critical points and bond critical paths obtained at the PBE0/def2-SV(P)
-level for the
-reference $\pi$ system of benzene (left) and the $\pi$ system obtained with the final pseudo-potentials (right). Colours indicate the nature of the critical points according to the sign of the Hessian
-of the density at their position. Shown are the atom critical points (3, -3) (cyan), the bond critical points (3, 1) (blue) and the cycle critical points (3, -1) (red). The critical paths are drawn in yellow.}
-\label{fig:aim_c6h6}
-\end{figure}
-
-\begin{figure}
 \begin{tabular}{|c|c|}
 \hline
 \includegraphics[width=7cm, height=7cm]{pyrene_peak1_ref_white} &
@@ -690,6 +676,20 @@ All electron & Pseudo-potential\\
 \end{tabular}
 \caption{Transition densities of the first two (lowest-energy) pyrene absorption peaks, for singlet-singlet excitation spectra, as seen in Figure \ref{fig:cnhn_uv}, with all-electron spectra (left) and pseudo-molecule spectra (right). In each transition, the electron density is decreased in the blue-coloured lobes and increased in the red.}
 \label{fig:transitiondensities}
+\end{figure}
+
+\begin{figure}
+%\vspace*{1.1in}   %%% FIGURE 6
+\begin{center}
+\includegraphics[width=12cm]{aim_c6h6.eps}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the bond critical points and bond critical paths obtained at the PBE0/def2-SV(P)
+level for the
+reference $\pi$ system of benzene (left) and the $\pi$ system obtained with the final pseudo-potentials (right). Colours indicate the nature of the critical points according to the sign of the Hessian
+of the density at their position. Shown are the atom critical points (3, -3) (cyan), the bond critical points (3, 1) (blue) and the cycle critical points (3, -1) (red). The critical paths are drawn in yellow.}
+\label{fig:aim_c6h6}
 \end{figure}
 
 \clearpage
