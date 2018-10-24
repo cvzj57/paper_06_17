@@ -16,6 +16,9 @@ data:
 
 suppl:
 	$(latex) supplementary_material.tex
+	bibtex supplementary_material
+	$(latex) supplementary_material.tex
+	$(latex) supplementary_material.tex
 	$(latex) supplementary_material.tex
 
 abstract:
