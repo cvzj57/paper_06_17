@@ -189,8 +189,7 @@ performs much better than the initial for the ethylene,
 giving us a 0.0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
 
 The potentials were extracted on the basis of Hartree-Fock calculations, but they are transferable
-to other methods and they are employed within the DFT and TD-DFT frameworks in the application section (see the
-computational details for further information).
+to other methods and they are employed within the DFT and TD-DFT frameworks in the application section.
 
 \section*{\sffamily \Large RESULTS AND DISCUSSION}
 
@@ -238,13 +237,15 @@ computational details for further information).
 Taking the final potentials, we test them against a series of all trans-polyenes up to length C\(_{100}\)H\(_{102}\).
 
 In order to check how the pseudo-potentials behave with different functionals, we performed a survey of four functionals plus Hartree-Fock.
-Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across all molecules tested.
-As one might expect, the pseudo-potentials are in better agreement with the reference calculations in the Hartree-Fock framework as it is the method used for extraction.
-The agreement is also very good with the hybrid PBE0 functional and we shall use this functional in the rest of this article as it is more likely to be used in actual cases than pure Hartree-Fock.
 
-Figure \ref{fig:alkenes_hf_dft} shows in detail the results obtained with the smaller polyenes.
+Table \ref{table:alkene_errors} gives a breakdown of the percentage errors for each method across
+a range of small all-trans-polyenes, up to length C$_{12}$H$_{14}$.
+Absolute values are shown in Figure \ref{fig:alkenes_hf_dft}.
+The agreement is very good with the hybrid PBE0 functional despite the fact that the pseudo-potentials
+were extracted in the Hartree-Fock framework.
 In the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference, but absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies with the size of the chain is well-replicated. As a consequence of this underestimation, 
 ionisation energies are slightly higher than in reference calculations, even if errors are small and tendencies are well-reproduced. 
+
 More interestingly, a very good agreement between reference and pseudo-systems is obtained for TD-DFT
 calculations (for the $\pi-\pi^*$ excitation), which suggests that the virtual space is of good
 quality.
@@ -262,7 +263,7 @@ Thus, the computation of the excited state has to be done through TD-DFT, which 
 
 \subsubsection*{\sffamily \large Polycyclic aromatic hydrocarbons}
 
-The potentials derived above are also tested on polycyclic aromatic hydrocarbons
+The potentials derived above are also tested on polycyclic aromatic hydrocarbons (PAH)
 in order to check if they are able to reproduce the effect of aromaticity.
 This is particularly critical as the system used for the extraction, ethylene, has no such feature.
 Figure \ref{fig:rings_graphs} shows the excitation energies, the IE and
@@ -274,26 +275,6 @@ This is not as surprising as it could sound as aromaticity arises from the fact 
 the $p$ orbitals overlap and form a ring.
 As both these requirements are fulfilled, the aromatic character of the $\pi$ ring
 appears.
-
-%However, differences in the triplet-singlet energies between the reference and pseudo-systems 
-%become significant, notably for the largest case.
-%
-%Unlike for the previous systems, there is a large discrepancy between $\Delta_{ST}$
-%and TD-DFT results. The pseudo-system TD-DFT results match the reference systems well, but the $\Delta_{ST}$ results do not.
-%The reason for this failure is to be found in the representation of the triplet state. The expectation values of the $S^2$ operator for the triplet calculations
-%are plotted in Figure \ref{fig:ssquare}, which shows that the spin contamination
-%of the triplet state computed as a single configuration (\emph{i.e.} in a SCF
-%framework) increases in both reference and pseudo-potential cases.
-%Yet, this effect is strengthened in the pseudo-potential calculations.
-%These results suggest that the triplet state cannot be represented as one configuration
-%but as a linear combination of mono-electronic excitations as done through TD-DFT.
-%
-%In order to show that the recovering of the agreement between the pseudo-potential
-%and the reference calculations is not an artefact, we give in Table~\ref{tab:coef}
-%the weight and nature of each excitation (weight larger than 3\%)
-%in the description of the triplet excited state for
-%C$_{50}$H$_{52}$ (other values can be found in the SI, which exhibit the same trends).
-%As can be seen, the agreement is very good. 
 
 Encouraged by the fact that low-lying first excited states as well as the ionisation potentials of a large range of PAHs are 
 well-reproduced by our pseudo-potentials,
@@ -317,12 +298,6 @@ The same analysis done on the triplet excited states is available in the SI, whi
 excellent agreement.
 This certainly shows again that the pseudo-carbon we have extracted captures a lot of the physics of the reference system as the intensities are related to the transition dipole moment.
 
-%These results show that the pseudo-potentials that we have extracted are able to reproduce the $\pi$ systems in a variety of situations which are not part of their extraction set.
-%We have also shown that the pseudo-potentials presented herein can be analysed through state-of-the-art methods (AIM in the present work).
-%The molecular orbital virtual space is also well described up to a high number of excited states,
-%which demonstrates that the good agreement with reference calculations is
-%physically grounded.
- 
 \subsection*{\sffamily \large Topological analysis of the density}
 A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{bader}
 This gives a vision of the $\pi$-only electronic cloud.
@@ -438,16 +413,6 @@ By using Equation \ref{eqpseudo}, and the optimised exponent of $\alpha=0.624$, 
 The optimised coefficient $A=3.909$ of our final potential set is very close to this estimation, 
 supporting the idea that the $p$ potential retrieves the incomplete screening effect of the missing electrons. 
 
-%By using this expression and by maximising the overlap, we obtained a $p$ potential for the CH\(^{\bullet}_{3}\) system with a negative coefficient of -3.27 and an exponent of 0.30. 
-%This $p$ potential, combined with the $s$ potentials, allowed us to recover the correct HOMO energy of the CH\(^{\bullet}_{3}\) system.
-%It should, of course, be possible to obtain the potential parameters entirely by empirical means, but we found this reasoning gave us an informed guess at some starting parameters from which to optimise. We expected this optimisation (using the criteria described in Section \ref{section:pseudocrit}, to modify the initial values, as indeed it did. However, the final coefficient of the final $p$ pseudo-potential (-3.9) still contains this information on the incomplete screening effect of the missing electrons. 
-
-
-%We now have the power to choose a \(p_{z}\) pseudo-potential solely based on the Gaussian exponent, and the \(Z_{eff}\) then follows from the above. Clearly, the exponent should be chosen to give us a strong overlap with the molecular orbital we wish to influence. Hence we arrive at a \(p_{z}\)-potential that should be physically meaningful. We chose the exponent in Table \ref{table:p_potentials}, which gave the maximum overlap possible ($\approx$ 0.79).
-
-%\clearpage
-
-
 \section*{\sffamily \Large CONCLUSION AND PERSPECTIVE}
 
 In this paper pseudo-potentials have been developed for sp$^{2}$-hybridised carbon units containing only one nuclear charge and one electron. 
@@ -470,7 +435,8 @@ though this is not our primary motivation.
 (2) We would like further to test and to expand this work into a general method for increasing computational efficiency in large systems in
 which there are many sp$^{2}$ carbon units, both in SCF calculations and the generation of electronic spectra.
 This could be particularly useful in large molecules which are optically active, such as helicenes, to simulate ECD spectra.
-The challenge is 
+The challenge is to ensure the right occupation of the $\pi$-like orbitals despite the loss of the
+$\sigma-\pi$ separation.
 
 \section*{\sffamily \large Computational Details}
 
@@ -754,39 +720,6 @@ Mean TD-DFT Excitation error (\%) & 2.6 & 2.7 & 5.9 & 6.4 \\
 \newpage
 
 \begin{table}[h]
-\caption{Errors across calculation types for PAH}
-\begin{tabular}{c c c c c }
-\hline
-Calculation Type & PBE0 & PBE & TPSS & TPSSH \\
-\hline
-Mean Ionisation  error (\%) & 12.0 & 15.4 & 18.0 & 16.1 \\
-Mean Singlet HOMO  error (\%) & 11.5 & 17.1 & 22.3 & 18.7 \\
-Mean TD-DFT Excitation error (\%) & 4.4 & 2.6 & 5.9 & 6.5 \\ 
-\hline
-\end{tabular}
-\label{table:ring_system_errors}
-\end{table}
-%\begin{table}[h]
-%\caption{\%-errors across calculation types for PAH}
-%\begin{tabular}{c c c c c c }
-%\hline
-%Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
-%\hline
-%Mean \(\pi - \pi*\) Triplet-Singlet (RHF) error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
-%Mean \(\pi - \pi*\) Triplet-Singlet (UHF) error (\%) & 9.1 & 2.1 & 5.7 & 6.7 & 7.1 \\
-%Mean Ionisation (RHF) error (\%) & 7.9 & 12.0 & 15.4 & 18.0 & 16.1 \\
-%Mean Ionisation (UHF) error (\%) & 13.4 & 12.0 & 18.8 & 18.0 & 16.1 \\
-%Mean Singlet HOMO (RHF) error (\%) & 4.7 & 11.5 & 17.1 & 22.3 & 18.7 \\
-%Mean Singlet HOMO (UHF) error (\%) & 2.3 & 11.5 & 18.1 & 21.1 & 21.2 \\
-%Mean TD-DFT Excitation error (\%) & 11.8 & 4.4 & 2.6 & 5.9 & 6.5 \\ 
-%\hline
-%\end{tabular}
-%\label{table:ring_system_errors}
-%\end{table}
-
-\newpage
-
-\begin{table}[h]
 \caption{Errors across calculation types for long polyenes (C\(_{20}\)-C\(_{100}\))}
 \begin{tabular}{c c c c c }
 \hline
@@ -819,6 +752,38 @@ Mean TD-DFT Excitation error (\%) & 1.0 & 6.8 & 6.1 & 2.9 \\
 
 \newpage
 
+\begin{table}[h]
+\caption{Errors across calculation types for PAH}
+\begin{tabular}{c c c c c }
+\hline
+Calculation Type & PBE0 & PBE & TPSS & TPSSH \\
+\hline
+Mean Ionisation  error (\%) & 12.0 & 15.4 & 18.0 & 16.1 \\
+Mean Singlet HOMO  error (\%) & 11.5 & 17.1 & 22.3 & 18.7 \\
+Mean TD-DFT Excitation error (\%) & 4.4 & 2.6 & 5.9 & 6.5 \\ 
+\hline
+\end{tabular}
+\label{table:ring_system_errors}
+\end{table}
+%\begin{table}[h]
+%\caption{\%-errors across calculation types for PAH}
+%\begin{tabular}{c c c c c c }
+%\hline
+%Calculation Type & HF & PBE0 & PBE & TPSS & TPSSH \\
+%\hline
+%Mean \(\pi - \pi*\) Triplet-Singlet (RHF) error (\%) & 3.3 & 1.9 & 1.7 & 6.8 & 6.7 \\
+%Mean \(\pi - \pi*\) Triplet-Singlet (UHF) error (\%) & 9.1 & 2.1 & 5.7 & 6.7 & 7.1 \\
+%Mean Ionisation (RHF) error (\%) & 7.9 & 12.0 & 15.4 & 18.0 & 16.1 \\
+%Mean Ionisation (UHF) error (\%) & 13.4 & 12.0 & 18.8 & 18.0 & 16.1 \\
+%Mean Singlet HOMO (RHF) error (\%) & 4.7 & 11.5 & 17.1 & 22.3 & 18.7 \\
+%Mean Singlet HOMO (UHF) error (\%) & 2.3 & 11.5 & 18.1 & 21.1 & 21.2 \\
+%Mean TD-DFT Excitation error (\%) & 11.8 & 4.4 & 2.6 & 5.9 & 6.5 \\ 
+%\hline
+%\end{tabular}
+%\label{table:ring_system_errors}
+%\end{table}
+
+\newpage
 \begin{table}
 \caption{\label{tab:coef}Comparison of the weights (all electron \emph{vs.} pseudo-potentials)
 of the excitations obtained with TD-DFT
