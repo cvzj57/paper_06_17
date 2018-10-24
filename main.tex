@@ -10,6 +10,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}% Include figure files
 \usepackage{caption}
+\usepackage{bm}
 \usepackage{color}% Include colors for document elements
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage[numbers,super,comma,sort&compress]{natbib}
@@ -710,9 +711,9 @@ J.\ Comput.\ Chem.
 
 \begin{table}[h]
 \caption{\label{table:potential_params} Comparison of molecular properties of pseudo-CH$^{\bullet}_{3}$ and pseudo-C$_{2}$H$_{4}$ molecules, along with pseudo-potential parameters and all-electron values.}
-\begin{tabular}{c | c c c c | c c c}
+\begin{tabular}{| c | c | c | c | c | c | c | c| }
 \hline
- & \multicolumn{2}{c}{$p$} & \multicolumn{2}{c}{$s$} & \multicolumn{3}{|c}{Energy (eV)} \\
+ & \multicolumn{2}{c}{\textbf{$\bm{p}$}} & \multicolumn{2}{c|}{$\bm{s}$} & \multicolumn{3}{c|}{\textbf{Energy (eV)}} \\
 System & coeff. & exp & coeff. & exp. & HOMO & $\Delta_{ST}$ & 1$^{st}$ Ionisation \\
 \hline
 ref. CH$^{\bullet}_{3}$ & - & - & - & - & -10.537 & - & - \\
@@ -732,21 +733,21 @@ final pseudo-C$_{2}$H$_{4}$ & -3.910 & 0.624 & 1.500 & 0.500 & -10.062 & -3.533 
 
 \begin{table}[h]
 \caption{Errors across calculation types for all-trans-polyenes C$_n$H$_{n+2}$}
-\begin{tabular}{l c c c c }
+\begin{tabular}{|l| c| c| c| c |}
 \hline
-Calculation Type & PBE0 & PBE & TPSS & TPSSh \\
+\textbf{Calculation Type} & \textbf{PBE0} & \textbf{PBE} & \textbf{TPSS} & \textbf{TPSSh} \\
 \hline
-\multicolumn{5}{c}{Short polyenes (n=2,4,6,8,10)}\\
+\multicolumn{5}{|c|}{Short polyenes (n=2,4,6,8,10)}\\
 \hline
-Mean Ionisation  error (\%) & 7.0 & 8.8 & 11.3 & 9.9 \\
-Mean Singlet HOMO  error (\%) & 4.2 & 9.3 & 13.7 & 10.7 \\
+Mean Ionisation  error (\%) & 7.0 & 8.8 & 11.3 & 9.9 \\\hline
+Mean Singlet HOMO  error (\%) & 4.2 & 9.3 & 13.7 & 10.7 \\\hline
 Mean TD-DFT Excitation error (\%) & 2.6 & 2.7 & 5.9 & 6.4 \\ 
 \hline
-\multicolumn{5}{c}{Long polyenes (n=20, 30, 40, 50, 100)}\\
+\multicolumn{5}{|c|}{Long polyenes (n=20, 30, 40, 50, 100)}\\
 \hline
-Mean Ionisation  error (\%) & 6.6 & 10.3 & 11.3 & 11.2 \\
-Mean Singlet HOMO  error (\%) & 7.8 & 12.8 & 20.1 & 15.7 \\
-Mean TD-DFT Excitation error (\%) & 1.0 & 6.8 & 6.1 & 2.9 \\ 
+Mean Ionisation  error (\%) & 6.6 & 10.3 & 11.3 & 11.2 \\\hline
+Mean Singlet HOMO  error (\%) & 7.8 & 12.8 & 20.1 & 15.7 \\\hline
+Mean TD-DFT Excitation error (\%) & 1.0 & 6.8 & 6.1 & 2.9 \\
 \hline
 \end{tabular}
 \label{table:alkene_errors}
@@ -756,13 +757,13 @@ Mean TD-DFT Excitation error (\%) & 1.0 & 6.8 & 6.1 & 2.9 \\
 
 \begin{table}[h]
 \caption{Errors across calculation types for PAH}
-\begin{tabular}{l c c c c }
+\begin{tabular}{|l |c |c |c |c |}
 \hline
-Calculation Type & PBE0 & PBE & TPSS & TPSSh \\
+\textbf{Calculation Type} & \textbf{PBE0} & \textbf{PBE} & \textbf{TPSS} & \textbf{TPSSh} \\
 \hline
-Mean Ionisation  error (\%) & 12.0 & 15.4 & 18.0 & 16.1 \\
-Mean Singlet HOMO  error (\%) & 11.5 & 17.1 & 22.3 & 18.7 \\
-Mean TD-DFT Excitation error (\%) & 4.4 & 2.6 & 5.9 & 6.5 \\ 
+Mean Ionisation  error (\%) & 12.0 & 15.4 & 18.0 & 16.1 \\\hline
+Mean Singlet HOMO  error (\%) & 11.5 & 17.1 & 22.3 & 18.7 \\\hline
+Mean TD-DFT Excitation error (\%) & 4.4 & 2.6 & 5.9 & 6.5 \\
 \hline
 \end{tabular}
 \label{table:ring_system_errors}
@@ -774,14 +775,14 @@ Mean TD-DFT Excitation error (\%) & 4.4 & 2.6 & 5.9 & 6.5 \\
 of the excitations obtained with TD-DFT
 to represent the triplet excited state from the closed shell singlet state.
 Example case of C$_{50}$H$_{52}$.}
-\begin{tabular}{c c c c}
+\begin{tabular}{|c |c |c |c|}
 \hline
-\multicolumn{2}{c}{Excitation} & \multicolumn{2}{c}{Weight(\%)}\\
-\multicolumn{2}{c}{MO} & Ref. & Pseudo.\\
+\multicolumn{2}{|c|}{\textbf{Excitation}} & \multicolumn{2}{c|}{\textbf{Weight(\%)}}\\
+\multicolumn{2}{|c|}{MO} & Ref. & Pseudo.\\
 \hline
-\multicolumn{2}{c}{25 a" \(\rightarrow\) 26 a"} & 77.0 &   67.1  \\
-\multicolumn{2}{c}{24 a" \(\rightarrow\) 27 a"} & 10.5 &   13.1  \\
-\multicolumn{2}{c}{23 a" \(\rightarrow\) 28 a"} & 3.6  &    5.2  \\
+\multicolumn{2}{|c|}{25 a" \(\rightarrow\) 26 a"} & 77.0 &   67.1  \\\hline
+\multicolumn{2}{|c|}{24 a" \(\rightarrow\) 27 a"} & 10.5 &   13.1  \\\hline
+\multicolumn{2}{|c|}{23 a" \(\rightarrow\) 28 a"} & 3.6  &    5.2  \\
 \hline
 \end{tabular}
 \end{table}
@@ -790,12 +791,12 @@ Example case of C$_{50}$H$_{52}$.}
 \begin{table}[ht]
 \caption{\label{tab:time}Time (in seconds) per SCF iteration and relative
 gain (time ratio all-electron/pseudo-potential) for a standard and a large basis set.} 
-\begin{tabular}{lrr}
+\begin{tabular}{|l|r|r|}
 \hline
-Model            & def2-SV(P) & QZVPPD \\
+\textbf{Model}            & \textbf{def2-SV(P)} & \textbf{QZVPPD} \\
 \hline
-All electrons    &        67 & 68928 \\
-Pseudo-potential &        28 &  8566 \\
+All electrons    &        67 & 68928 \\\hline
+Pseudo-potential &        28 &  8566 \\\hline
 Gain (no unit)   &       2.4 &   8.0 \\
 \hline
 \end{tabular}
