@@ -5,7 +5,7 @@
 \setlength{\textwidth}{6.5in}    %width of text=8.5-1in-1in for margin
 \setlength{\topmargin}{-0.5in}    %reference is at 1.5in, -.5in gives a start of about 1in from top
 \setlength{\textheight}{9in}     %length of text=11in-1in-1in (top and bot. marg.) 
-
+\newenvironment{wileykeywords}{\textsf{Keywords:}\hspace{\stretch{1}}}{\hspace{\stretch{1}}\rule{1ex}{1ex}}
 
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}% Include figure files
@@ -37,11 +37,15 @@ densities and intensities, confirming that the virtual space obtained with the p
 Finally, this approach is capable of reproducing the $\pi$ electron systems of small or large, planar hydrocarbons at low computational cost.
 \end{abstract}
 
+\begin{wileykeywords}
+Pseudo-potentials, $sp^2 carbon$, PAH, aromaticity, $\pi$ system.
+\end{wileykeywords}
+
 \clearpage
 
-  \makeatletter
-  \renewcommand\@biblabel[1]{#1.}
-  \makeatother
+\makeatletter
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
 
 \bibliographystyle{apsrev}
 
@@ -127,7 +131,7 @@ The second part shows the results obtained using the most refined version of the
 
 \section*{\sffamily \Large METHODOLOGY}
 
-\subsection*{\sffamily \large Choice of pseudo-potential criteria \label{section:pseudocrit}} 
+\section*{\sffamily \large Choice of pseudo-potential criteria \label{section:pseudocrit}} 
 
 Previous pseudo-potential methods have made use of different optimisation criteria, based on the pseudo-potentials' intended function. 
 The pseudo-bond method, for example, is intended to facilitate geometry-optimisation in QM/MM calculations, and uses a series of reference data, 
@@ -142,7 +146,7 @@ can still behave like the reference system upon losing an electron, whilst the $
 orbitals are well positioned, which is an indicator of the quality of the system for the reproduction of spectroscopic and 
 chemical interactions.
 
-\subsection*{\sffamily \large Pseudo-potential definition} \label{secpotdef}
+\section*{\sffamily \large Pseudo-potential definition} \label{secpotdef}
 
 As in our previous work,\cite{drujon_pseudopotentials_2013}
 we take the planar CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
@@ -197,12 +201,12 @@ to other methods and they are employed within the DFT and TD-DFT frameworks in t
 
 \section*{\sffamily \Large RESULTS AND DISCUSSION}
 
-%In the following subsections, the following steps are detailed: extraction of a guess pseudo-potential
+%In the following sections, the following steps are detailed: extraction of a guess pseudo-potential
 %for the CH$_3^\bullet$ system, extraction of the complete set of parameters on the ethylene molecule,
 %application on different larger hydrcarbons.
 
 
-%\subsubsection*{\sffamily \large CH\(_{3}\): obtaining a guess for the \(s\)-potentials}
+%\subsection*{\sffamily \large CH\(_{3}\): obtaining a guess for the \(s\)-potentials}
 %
 %We aim first at reproducing the values for the CH\(^{\bullet}_{3}\) radical as given in Table~\ref{table:potential_params}. 
 %This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF). 
@@ -234,9 +238,9 @@ to other methods and they are employed within the DFT and TD-DFT frameworks in t
 %indicator of the quality of the system in the reproduction of spectroscopic and chemical interactions.
 
 
-\subsection*{\sffamily \large Applications}
+\section*{\sffamily \large APPLICATIONS}
 
-\subsubsection*{\sffamily \large All-trans-polyenes}
+\subsection*{\sffamily \large All-trans-polyenes}
 
 Taking the final potentials, we test them against a series of all-trans-polyenes up to length C\(_{100}\)H\(_{102}\).
 In order to check how the pseudo-potentials behave with different functionals, we performed a survey of four of them: one GGA (PBE), one meta-GGA (TPSS), and their hybrid counterparts PBE0 and TPSSh.\cite{pbe0,pbe,tpss,tpssh}
@@ -266,7 +270,7 @@ which indicates that the results do not degrade with the size of the system.
 In the larger polyenes spin contamination is non-negligible, both in the reference and the pseudo-potential calculations, and the $\Delta_{ST}$ approach is not viable as it is for small polyenes (see SI).
 Thus, the computation of the excited state has to be done through TD-DFT, which leads to an excellent agreement between all-electron and pseudo-potential calculations.
 
-\subsubsection*{\sffamily \large Polycyclic aromatic hydrocarbons}
+\subsection*{\sffamily \large Polycyclic aromatic hydrocarbons}
 
 The potentials derived above are also tested on polycyclic aromatic hydrocarbons (PAH)
 in order to check if they are able to reproduce the effect of aromaticity.
@@ -301,7 +305,7 @@ excellent agreement.
 The most remarkable feature to us is the neatness of the agreement of the relative excitation intensities in both singlet and triplet cases.
 This certainly shows again that the pseudo-carbon we have extracted captures a lot of the physics of the reference system as the intensities are related to the transition dipole moment.
 
-\subsection*{\sffamily \large Topological analysis of the density}
+\section*{\sffamily \large Topological analysis of the density}
 A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{bader}
 This gives a vision of the $\pi$-only electronic cloud.
 In the AIM framework, critical points are characterised by the sign of the eigenvalues of the Hessian of 
@@ -346,7 +350,7 @@ of the electronic densities are very similar.
 This confirms that the results obtained are not artefactual but that the pseudo-potentials
 lead to a physically relevant electronic density.
 
-\subsection*{\sffamily \large Timings}
+\section*{\sffamily \large Timings}
 The model that we develop in this work allows significant computational gains.
 To illustrate this, we provide in Table~\ref{tab:time} a small study done on the C$_{50}$H$_{52}$
 alkene chain.
@@ -359,7 +363,7 @@ As can be seen from Table~\ref{tab:time}, the gain increases
 with the size of the basis set as expected.
 The gain ranges from 2.4 (def2-SV(P)) to 8 (QZVPPD).
 
-\subsection*{\sffamily \large Physical meaning of the \(p_{z}\) pseudo-potential} \label{minimalpotguess}
+\section*{\sffamily \large Physical meaning of the \(p_{z}\) pseudo-potential} \label{minimalpotguess}
 
 The pseudo-system contains only one proton. However, the effective charge felt by the $p$ electron in a carbon atom should be larger: for instance Slater's rules suggest an effective charge of $Z_{eff}=2.4$. Thus we must account for this difference. We shall see that this role is filled by the $p$ potential once optimised. 
 
@@ -441,7 +445,7 @@ This could be particularly useful in large molecules which are optically active,
 The challenge is to ensure the right occupation of the $\pi$-like orbitals despite the loss of the
 $\sigma-\pi$ separation.
 
-\section*{\sffamily \large Computational Details}
+\section*{\sffamily \large COMPUTATIONAL DETAILS}
 
 All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
@@ -450,6 +454,8 @@ All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are pe
 \textbf{Topological analysis of the density}. The topological analysis was performed using the Multiwfn
 program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
 
+\subsection*{\sffamily \large ACKNOWLEDGMENTS}
+We are grateful to the French Research Ministry, Aix-Marseille University and CNRS for financial support.
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -482,33 +488,15 @@ program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FIGURE CAPTIONS
 
-%BEGFIG
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 0
-\begin{center}
-\includegraphics[width=6cm]{diagram.png}
-\end{center}
-\vspace{0.25in}
-\hspace*{3in}
-	\caption{Definition of the criteria chosen to optimise the pseudo-potentials
-	(IP: ionisation potential, $\Delta_{ST}$: singlet-triplet excitation energy, $\epsilon_{HOMO}$: energy of the HOMO orbital).
-	IP allow the inclusion of the relaxation of the orbitals when the system is ionised, whereas $\epsilon_{HOMO}$ is more important
-	in a chemical framework.}
+\caption{Definition of the criteria chosen to optimise the pseudo-potentials
+(IP: ionisation potential, $\Delta_{ST}$: singlet-triplet excitation energy, $\epsilon_{HOMO}$: energy of the HOMO orbital).
+IP allow the inclusion of the relaxation of the orbitals when the system is ionised, whereas $\epsilon_{HOMO}$ is more important
+in a chemical framework.}
 \label{figure:diagram}
 \end{figure}
 
-%%%%% FIGURE ---- cc.eps
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 1
-\begin{center}
-%\includegraphics[width=0.2\columnwidth,keepaspectratio=true]{cc.eps}
-%\includegraphics[width=8cm]{ch3.png}
-%\includegraphics[width=8cm]{pseudoch3.png}
-%\includegraphics[width=8cm]{tm_sp2_potentials.png}
-\includegraphics[width=8cm]{scheme_complete.eps}
-%\caption{Diagrams of CH\(^{\bullet}_{3}\) (left) and pseudo-CH\(^{\bullet}_{3}\) (right, below) molecules. The pseudo-CH\(^{\bullet}_{3}\) diagrams display the \(s\) and \(p\)-potential positions, and the distances \(d\) and \(c\).}
-%\label{figure:ref_pseudo_diagram}
-\end{center}
 \caption{Diagrams of the planar CH\(^{\bullet}_{3}\) radical (left) and the pseudo-C\(^{\bullet}\) (right)
 used to mimic the p$_z$ orbital.
 The mono occupied p$_z$ orbital is represented in grey.
@@ -518,69 +506,146 @@ and the distances \(d\) and \(c\).}
 \end{figure}
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 3
-\begin{center}
-\includegraphics[width=8cm]{short_pbe0_homo_uhf}
-\includegraphics[width=8cm]{short_pbe0_ie_uhf}
-\includegraphics[width=8cm]{short_pbe0_tddft}
-%\includegraphics[width=8cm]{short_pbe0_st}
-%\caption{DFT (PBE0) comparison of reference and pseudo-system energies across a range of chain alkenes.}
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of
 polyenes.}
 \label{fig:alkenes_hf_dft}
-\end{center}
-\vspace{0.25in}
-\hspace*{3in}
 \end{figure}
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 5
-\begin{center}
-%\includegraphics[width=8cm]{long_pbe0_st}
-\includegraphics[width=8cm]{long_pbe0_homo_uhf}
-\includegraphics[width=8cm]{long_pbe0_ie_uhf}
-\includegraphics[width=8cm]{long_pbe0_tddft}
-%\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of long chain alkenes (C\(_{20}\)-C\(_{100}\)).}
-%\label{fig:long_chain_graphs}
-\end{center}
-\vspace{0.25in}
-\hspace*{3in}
-
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of long polyenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 4
-\begin{center}
-%\includegraphics[width=8cm]{ring_pbe0_st}
-\includegraphics[width=8cm]{ring_pbe0_homo_uhf}
-\includegraphics[width=8cm]{ring_pbe0_ie_uhf}
-\includegraphics[width=8cm]{ring_pbe0_tddft}
-%\includegraphics[width=5cm]{19_ring_diagram}
-\fbox{\includegraphics[width=5cm]{c54h18}}
-%\caption{DFT and TD-DFT (PBE0) comparison of reference and pseudo-system energies across a range of ring molecules. 
-%C\(_{54}\)H\(_{18}\) is shown in the bottom.}
-%\label{fig:rings_graphs}
-\end{center}
-\vspace{0.25in}
-\hspace*{3in}
-
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of Polycyclic Aromatic Hydrocarbons. 
 C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \label{fig:rings_graphs}
 \end{figure}
 
 \begin{figure}
-%\vspace*{0.1in}   %%% FIGURE 6
-\begin{center}
-\includegraphics[width=16cm]{grand_rpa_singlet}
-\end{center}
 \caption{Comparison of the absorption spectra for the first 20 excitations obtained with
 pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0). Peaks marked
 with * cannot be reproduced by the pseudo-potentials as they are $\sigma$ to $\sigma$ excitations.
 Excitation energies obtained with the pseudo-potentials were corrected by a factor 0.91.}
 \label{fig:cnhn_uv}
+\end{figure}
+
+\begin{figure}
+\caption{Transition densities of the first two (lowest-energy) pyrene absorption peaks, for singlet-singlet excitation spectra, as seen in Figure~\ref{fig:cnhn_uv}, with all-electron spectra (left) and pseudo-molecule spectra (right). In each transition, the electron density is decreased in the blue-coloured lobes and increased in the red.}
+\label{fig:transitiondensities}
+\end{figure}
+
+\begin{figure}
+\caption{Comparison of the bond critical points and bond critical paths obtained at the PBE0/def2-SV(P)
+level for the
+reference $\pi$ system of benzene (left) and the $\pi$ system obtained with the final pseudo-potentials (right).
+Colours indicate the nature of the critical points: cyan for (3, -3), blue for (3, 1) and red for (3, -1).
+The critical paths are drawn in yellow.}
+\label{fig:aim_c6h6}
+\end{figure}
+
+%BEGFIG
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=6cm]{diagram.png}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 1 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{scheme_complete.eps}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 2 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{short_pbe0_homo_uhf}
+\includegraphics[width=8cm]{short_pbe0_ie_uhf}
+\includegraphics[width=8cm]{short_pbe0_tddft}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 3 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{long_pbe0_homo_uhf}
+\includegraphics[width=8cm]{long_pbe0_ie_uhf}
+\includegraphics[width=8cm]{long_pbe0_tddft}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 4 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{ring_pbe0_homo_uhf}
+\includegraphics[width=8cm]{ring_pbe0_ie_uhf}
+\includegraphics[width=8cm]{ring_pbe0_tddft}
+\fbox{\includegraphics[width=5cm]{c54h18}}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 5 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{grand_rpa_singlet}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 6 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
 \end{figure}
 
 \clearpage
@@ -596,8 +661,16 @@ Excitation energies obtained with the pseudo-potentials were corrected by a fact
 All electron & Pseudo-potential\\
 \hline
 \end{tabular}
-\caption{Transition densities of the first two (lowest-energy) pyrene absorption peaks, for singlet-singlet excitation spectra, as seen in Figure~\ref{fig:cnhn_uv}, with all-electron spectra (left) and pseudo-molecule spectra (right). In each transition, the electron density is decreased in the blue-coloured lobes and increased in the red.}
-\label{fig:transitiondensities}
+\vspace{0.25in}
+\hspace*{3in}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 7 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
 \end{figure}
 
 \clearpage
@@ -607,14 +680,14 @@ All electron & Pseudo-potential\\
 \begin{center}
 \includegraphics[width=12cm]{aim_c6h6.eps}
 \end{center}
-\vspace{0.25in}
-\hspace*{3in}
-\caption{Comparison of the bond critical points and bond critical paths obtained at the PBE0/def2-SV(P)
-level for the
-reference $\pi$ system of benzene (left) and the $\pi$ system obtained with the final pseudo-potentials (right).
-Colours indicate the nature of the critical points: cyan for (3, -3), blue for (3, 1) and red for (3, -1).
-The critical paths are drawn in yellow.}
-\label{fig:aim_c6h6}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 8 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
 \end{figure}
 
 \clearpage
