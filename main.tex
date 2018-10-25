@@ -74,39 +74,47 @@ This approach is capable of reproducing the $\pi$ electron systems of planar hyd
 %%BEGTXT
 \section*{\sffamily \Large INTRODUCTION}
 
-Since Hellmann and Gomb\'as' development of the first pseudo-potentials in the 1930s,\cite{hellmann_1935, gombas_1935} pseudo-potential methods have been employed in a variety of theoretical chemistry problems. In recent years, pseudo-potentials have been used to provide enhancements or corrections to other methods, with examples including their use as link atoms in QM/MM calculations,\cite{chung_oniom_2015,
-ihrig_specific_2011,
+Since Hellmann and Gomb\'as' development of the first pseudo-potentials in the 1930s,\cite{hellmann_1935, gombas_1935} pseudo-potential methods have been employed in a variety of theoretical chemistry problems. In recent years, pseudo-potentials have been used to provide enhancements or corrections to other methods, with examples including their use as link atoms in QM/MM calculations,%
+\cite{%
+singh_combined_1986,
+assfeld_quantum_1996,
+goedecker_separable_1996,
+gao_generalized_1998,
+hartwigsen_relativistic_1998,
 zhang_pseudobond_1998,
 dilabio_simple_2002,
-dilabio_efficient_2005,
-gao_generalized_1998,
-assfeld_quantum_1996,
-jacob_calculation_2006,
 von_lilienfeld_variational_2004,
-von_lilienfeld_performance_2005,
 von_lilienfeld_optimization_2004,
-goedecker_separable_1996,
-hartwigsen_relativistic_1998,
-singh_combined_1986,
 zhang_improved_2004,
+von_lilienfeld_performance_2005,
+dilabio_efficient_2005,
+jacob_calculation_2006,
 parks_pseudobond_2008,
-hitzenberger_optimizing_2016,
+lewin_modified_2008,
+ihrig_specific_2011,
+von_lilienfeld_force_2013,
 hitzenberger_probing_2015,
 collins_energy-based_2015,
 pezeshki_recent_2015,
-von_lilienfeld_force_2013} or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces.\cite{dilabio_2008} Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP),\cite{dolg_2000} where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient.
+chung_oniom_2015,
+hitzenberger_optimizing_2016} or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces.\cite{dilabio_2008} Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP),\cite{dolg_2000} where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient.
 This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on light
 atoms from the early work of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}
 to the libraries spanning the whole periodic table (see the review by Dolg\cite{dolg_relativistic_2012} and references therein) which are still under active development.\cite{zou_open_2018}
 
-In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons. We propose a different formulation. Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately, having been designed not only to replace the core electrons of light atoms, but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested. Such potentials could find ready use in performing QM calculations on large hydrocarbons and polycyclic, aromatic hydrocarbons.
+In all of these methods, the technique has revolved around separating the electrons of an atom into core and valence electrons.
+We propose a different formulation.
+Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately,
+having been designed not only to replace the core electrons of light atoms,
+but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested.
+Such potentials could find ready use in performing QM calculations on large hydrocarbons and polycyclic, aromatic hydrocarbons.
 
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
 an active one, where most of the chemistry takes place, and an inactive one, both of which must be taken into account in order to fulfil chemical requirements.
 Based on this general statement, many successful theoretical approaches have been developed. Among them can be cited QM/QM' or QM/MM methods,\cite{chung_oniom_2015} fragmentation methods,
 \cite{gordon_effective_2001,
-steinmann_effective_2012,collins_energy-based_2015} and frozen core and frozen density embedding methods.\cite{assfeld_quantum_1996,jacob_calculation_2006,wesolowski_frozen-density_2015}
+steinmann_effective_2012,collins_energy-based_2015} and frozen core and frozen density embedding methods.\cite{assfeld_quantum_1996,jacob_calculation_2006,artemyev_photoelectron_2015,wesolowski_frozen-density_2015}
 In 1991 Huzinaga emphasised that the `dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a no-collapse term.\cite{huzinaga_effective_1991}
 
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
@@ -135,7 +143,8 @@ In this article, we performed the active/inactive split on a molecule with $\pi$
 The Schr\"odinger equation was solved for the latter part only in the field of the dormant part.
 The aim is to propose a method for extracting a potential for a hybridised carbon atom 
 ($sp^2$), with a focus on reproducing basic properties of the electronic structure of the sp$^2$ carbon in a molecular framework 
-(HOMO energy, ionisation potential and excitation energies). Our potentials can then be used as 
+(HOMO energy, ionisation potential and excitation energies).
+Our potentials can then be used as 
 building blocks for constructing chemical systems, as several carbon pseudo-atoms,
 each containing one explicit nuclear charge and one electron, can be connected to create extended
 systems.
