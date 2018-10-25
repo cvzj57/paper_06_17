@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -50,6 +52,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -58,7 +61,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -105,8 +111,7 @@ Fax (33) +4.91.28.91.79
 \end_layout
 
 \begin_layout Name
-Dr.
- Yannick Carissan
+Yannick Carissan
 \end_layout
 
 \begin_layout Opening
@@ -114,46 +119,71 @@ Dear editor,
 \end_layout
 
 \begin_layout Standard
-In the submitted article, entitled 
+This is the second submission of this article entitled 
 \series bold
 
 \begin_inset Quotes eld
 \end_inset
 
 Atomic pseudo-potentials for reproducing the valence electron behaviour
- of sp2 carbon atoms 
+ of sp
+\begin_inset Formula $\bm{^{2}}$
+\end_inset
+
+ carbon atoms 
 \begin_inset Quotes erd
 \end_inset
 
 
 \series default
-, we present new pseudo-potentials to be used for sp² carbon atoms.
- Our strategy consists in reproducing the anisotropy of hybridised carbon
+ in which we present new pseudo-potentials to be used for sp² carbon atoms.
+ It was not accepted for publication in the Journal of Computational Chemistry
+ but we would like to be given a second chance for publication in this journal
+ as we strongly believe that it is a work relevant to this journal.
+ We have worked on improving the manuscript over the last year.
+ We have taken into account all remarks made by the referees, improved the
+ presentation and the discussion to clarify some important points, added
+ new results and an analysis of our results by use of a topological analysis
+ of the density (AIM).
+\end_layout
+
+\begin_layout Standard
+In this work, we aim at reproducing the anisotropy of the hybridised carbon
  atom by employing semi-local atomic pseudo-potentials as already implemented
  in most quantum chemistry program packages.
  Thus, no programming from the user is required.
  Only the parameters we extract and publish in this work are needed to reproduce
  these potentials for any molecule with such carbons.
-\end_layout
-
-\begin_layout Standard
-These pseudo-potentials for recreating sp² carbon atoms are built and tested
- as a building block for various hydrocarbon chain and ring systems.
- This pseudo-system has a nuclear charge of 1, thus only one electron is
- treated explicitly.
+ These pseudo-potentials for recreating sp² carbon atoms are built and tested
+ as a building block for various all-trans-polyenes and polycyclic aromatic
+ hydrocarbons.
+ The pseudo-carbon we develop has a nuclear charge of 1, thus only one electron
+ is treated explicitly.
  It is employed in ab-initio calculations in which several physical characterist
 ics including 1st ionisation and excitation energies, as well as the HOMO
  energy, are found to be well-reproduced by the pseudo-system.
-\begin_inset Newline newline
+ Furthermore and newly, we show in this work that highly excited states
+ (20 singlets and 20 triplets using TD-DFT) can be reproduced with our method
+ at low computational cost.
+ Finally an AIM study shows that the 
+\begin_inset Formula $\pi$
 \end_inset
 
+ density is very similar to the 
+\begin_inset Formula $\pi$
+\end_inset
+
+ density of all-electron calculations.
+\end_layout
+
+\begin_layout Standard
 To the best of our knowledge, this is the first time such a potential, localised
  fully to the atom which it replaces, has been developed.
 \end_layout
 
 \begin_layout Standard
-We think, this work is in line with aims and scope of the Journal Computational
- and Theoretical Chemistry.
+We think, this work is in line with aims and scope of the Journal of Computation
+al Chemistry.
 \end_layout
 
 \begin_layout Standard
@@ -174,16 +204,11 @@ Dr.
  Yannick Carissan, corresponding author (see address in the header)
 \end_layout
 
-\begin_layout Standard
-We suggested a set of 3 reviewers, with no preference.
- According to us, the three of them are relevant to review this paper.
-\end_layout
-
 \begin_layout Closing
 With our Best Regards,
 \end_layout
 
-\begin_layout Signature
+\begin_layout Name
 Yannick Carissan
 \end_layout
 
