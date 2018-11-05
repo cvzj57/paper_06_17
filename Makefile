@@ -8,6 +8,9 @@ defaut: clean data
 	$(latex) $(radical).tex
 	$(latex) $(radical).tex
 
+toc:
+	$(latex) toc.tex
+
 fast:
 	$(latex) $(radical).tex
 
