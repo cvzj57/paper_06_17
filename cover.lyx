@@ -119,7 +119,7 @@ Dear editor,
 \end_layout
 
 \begin_layout Standard
-This is the second submission of this article entitled 
+This article entitled 
 \series bold
 
 \begin_inset Quotes eld
@@ -130,25 +130,17 @@ Atomic pseudo-potentials for reproducing the valence electron behaviour
 \begin_inset Formula $\bm{^{2}}$
 \end_inset
 
- carbon atoms 
+carbon atoms
 \begin_inset Quotes erd
 \end_inset
 
 
 \series default
- in which we present new pseudo-potentials to be used for sp² carbon atoms.
- It was not accepted for publication in the Journal of Computational Chemistry
- but we would like to be given a second chance for publication in this journal
- as we strongly believe that it is a work relevant to this journal.
- We have worked on improving the manuscript over the last year.
- We have taken into account all remarks made by the referees, improved the
- presentation and the discussion to clarify some important points, added
- new results and an analysis of our results by use of a topological analysis
- of the density (AIM).
-\end_layout
-
-\begin_layout Standard
-In this work, we aim at reproducing the anisotropy of the hybridised carbon
+ was transferred to you from our submission to the Journal of Computational
+ Chemistry.
+ In this work, we present new pseudo-potentials to be used for sp² carbon
+ atoms.
+ In this work, we aim at reproducing the anisotropy of the hybridised carbon
  atom by employing semi-local atomic pseudo-potentials as already implemented
  in most quantum chemistry program packages.
  Thus, no programming from the user is required.
@@ -162,9 +154,9 @@ In this work, we aim at reproducing the anisotropy of the hybridised carbon
  It is employed in ab-initio calculations in which several physical characterist
 ics including 1st ionisation and excitation energies, as well as the HOMO
  energy, are found to be well-reproduced by the pseudo-system.
- Furthermore and newly, we show in this work that highly excited states
- (20 singlets and 20 triplets using TD-DFT) can be reproduced with our method
- at low computational cost.
+ Furthermore, we show in this work that highly excited states (20 singlets
+ and 20 triplets using TD-DFT) can be reproduced with our method at low
+ computational cost.
  Finally an AIM study shows that the 
 \begin_inset Formula $\pi$
 \end_inset
@@ -182,8 +174,8 @@ To the best of our knowledge, this is the first time such a potential, localised
 \end_layout
 
 \begin_layout Standard
-We think, this work is in line with aims and scope of the Journal of Computation
-al Chemistry.
+We think, this work is in line with aims and scope of the International
+ Journal of Quantum Chemistry.
 \end_layout
 
 \begin_layout Standard
