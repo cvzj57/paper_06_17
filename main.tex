@@ -122,7 +122,7 @@ Following his proposal, for an atom where active and dormant electrons have been
 \label{eq:atomicHamiltonian}
 \hat{H} = \sum_{i=1}^n \hat{h}(i) +\sum_{i<j}\frac{1}{r_{ij}}
 \end{equation}
-with $\frac{1}{r_{ij}}$ the bi-electronic interaction
+with $\frac{1}{r_{ij}}$ being the bi-electronic interaction
 between explicitly treated active electrons, and
 the mono-electronic operator:
 \begin{equation}
@@ -473,7 +473,7 @@ $\sigma-\pi$ separation.
 
 \section*{\sffamily \large COMPUTATIONAL DETAILS}
 
-All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)H (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)H for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)E\textsubscript{h} (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)E\textsubscript{h} for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
 \textbf{All-trans-polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals.\cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) is switched on to avoid triplet instability.\cite{tammdancoff}
 
