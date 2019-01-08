@@ -129,6 +129,8 @@ In earlier calculations with only \(s\) potentials, optimisation was performed b
 
 Once we started to look at excitation and ionisation energies however, optimisation became more complicated. Optimisations were at first performed of the $s$ and $p$ potentials to reach the HOMO energy of ethene as before. With the different potential variables available, we produced a range of optimised potential sets. The best set of these potentials was then chosen and the values altered by hand in order to match as closely as possible three separate reference values: the singlet HOMO energy, the singlet-triplet \(\pi-\pi^{*}\) excitation energy, and the cation-singlet energy. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.
 
+\section*{Comparison with Frozen Orbitals}
+
 \section*{Comparison with our previous study}
 \begin{figure}
 \begin{center}
@@ -173,6 +175,8 @@ does not affect the overall good agrement between reference and pseudo-potential
 \section*{Triplet Instability}
 The correct treatment of electronic correlation is essential to recover the physics of the ground
 and excited states of all-trans-polyenes.\cite{paldus_bond_1983, houk_polyacene_2001, colvin_energies_1998, castano_instabilities_1982, ukrainsky_electronic_1972, sokolov_time-dependent_2017, nakayama_theoretical_1998}
+
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=16cm]{grand_rpas}
@@ -185,6 +189,7 @@ framework.
 Unlike in the main text, the singlet spectra were not shifted by a 0.91 factor.}
 \label{fig:cnhn_uv_rpas}
 \end{figure}
+
 
 \begin{figure}
 \begin{center}
@@ -220,6 +225,20 @@ framework.}
 pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-PBE0) within the CIS
 framework.}
 \label{fig:cnhn_uv_ciss}
+\end{figure}
+
+\section*{B3-LYP Calculations}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=16cm]{b3_rings_rpas}
+\end{center}
+\vspace{0.25in}
+\hspace*{3in}
+\caption{Comparison of the absorption spectra for the 20 first singlet excitations obtained with
+pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-B3LYP) within the RPA
+framework. The wavelength is shifted by a factor of 1.15.}
+\label{fig:cnhn_uv_rpas}
 \end{figure}
 
 \bibliography{biblio_pseudo_alex}
