@@ -548,6 +548,7 @@ We are grateful to the French Research Ministry, Aix-Marseille University and CN
 % FIGURE CAPTIONS
 
 \begin{figure}
+%fig1
 \caption{Definition of the criteria chosen to optimise the pseudo-potentials
 (IP: ionisation potential, $\Delta_{ST}$: singlet-triplet excitation energy, $\epsilon_{HOMO}$: energy of the HOMO orbital).
 IP allow the inclusion of the relaxation of the orbitals when the system is ionised, whereas $\epsilon_{HOMO}$ is more important
@@ -556,6 +557,7 @@ in a chemical framework.}
 \end{figure}
 
 \begin{figure}
+%fig2
 \caption{Diagrams of the planar CH\(^{\bullet}_{3}\) radical (left) and the pseudo-C\(^{\bullet}\) (right)
 used to mimic the p$_z$ orbital.
 The mono occupied p$_z$ orbital is represented in grey.
@@ -565,23 +567,27 @@ and the distances \(d\) and \(c\).}
 \end{figure}
 
 \begin{figure}
+%fig3
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of
 polyenes.}
 \label{fig:alkenes_hf_dft}
 \end{figure}
 
 \begin{figure}
+%fig4
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of long polyenes (C\(_{20}\)-C\(_{100}\)).}
 \label{fig:long_chain_graphs}
 \end{figure}
 
 \begin{figure}
+%fig5
 \caption{DFT and TD-DFT (PBE0) comparison of all-electron and pseudo-system energies across a range of Polycyclic Aromatic Hydrocarbons. 
 C\(_{54}\)H\(_{18}\) is shown in the bottom.}
 \label{fig:rings_graphs}
 \end{figure}
 
 \begin{figure}
+%fig6
 \caption{Comparison of the absorption spectra the first 20 excitations of PAH obtained with
 pseudo-potentials (blue) and all-electron (red) calculations (def2-SV(P)/TD-PBE0). Peaks marked
 with * cannot be reproduced by the pseudo-potentials as they are $\sigma$ to $\sigma$ excitations.
@@ -590,17 +596,28 @@ Excitation energies obtained with the pseudo-potentials were corrected by a fact
 \end{figure}
 
 \begin{figure}
-\caption{Comparison of the absorption and ECD spectra of the first 20 excitations of a series of helicene molecules obtained with pseudo-potentials (blue) and all-electron (red) calculations (def2-SV(P)/TD-PBE0). 
-Excitation energies obtained with the pseudo-potentials were corrected by a shift of 32nm.}
-\label{fig:helicene_spectra}
-\end{figure}
-
-\begin{figure}
+%fig7
 \caption{Transition densities of the first two (lowest-energy) pyrene absorption peaks, for singlet-singlet excitation spectra, as seen in Figure~\ref{fig:cnhn_uv}, with all-electron spectra (left) and pseudo-molecule spectra (right). In each transition, the electron density is decreased in the blue-coloured lobes and increased in the red.}
 \label{fig:transitiondensities}
 \end{figure}
 
 \begin{figure}
+%fig8
+\caption{Comparison of the absorption and ECD spectra of the first 20 excitations of a series of helicene molecules obtained with pseudo-potentials (blue) and all-electron (red) calculations (def2-SV(P)/TD-PBE0). 
+Excitation energies obtained with the pseudo-potentials were corrected by a shift of 32nm.}
+\label{fig:helicene_spectra}
+\end{figure}
+
+
+\begin{figure}
+%fig9
+\caption{TD-DFT (PBE0) and CASPT2 comparison of all-electron and pseudo-system first singlet-singlet and
+singlet-triplet transition energies for benzene, naphtalene and anthracene.}
+\label{fig:caspt2}
+\end{figure}
+
+\begin{figure}
+%fig10
 \caption{Comparison of the bond critical points and bond critical paths obtained at the PBE0/def2-SV(P)
 level for the
 reference $\pi$ system of benzene (left) and the $\pi$ system obtained with the final pseudo-potentials (right).
@@ -717,23 +734,6 @@ J.\ Comput.\ Chem.
 \clearpage
 
 \begin{figure}
-
-\begin{center}
-\includegraphics[angle=-90,width=8cm]{pbe0_grand_rpas}
-\end{center}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 7 \\
-Alexander Punter, Paola Nava, Yannick Carissan\\
-J.\ Comput.\ Chem.
-\end{minipage}
-}
-\end{figure}
-
-\clearpage
-
-\begin{figure}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
@@ -750,7 +750,41 @@ All-electron & Pseudo-potential\\
 {\Large
 \begin{minipage}[t]{3in}
 \baselineskip = .5\baselineskip
+Figure 7 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+
+\begin{center}
+\includegraphics[angle=-90,width=8cm]{pbe0_grand_rpas}
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
 Figure 8 \\
+Alexander Punter, Paola Nava, Yannick Carissan\\
+J.\ Comput.\ Chem.
+\end{minipage}
+}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{methodcomp_s_excitations.eps}\\
+\includegraphics[width=8cm]{methodcomp_t_excitations.eps}\\
+\end{center}
+{\Large
+\begin{minipage}[t]{3in}
+\baselineskip = .5\baselineskip
+Figure 9 \\
 Alexander Punter, Paola Nava, Yannick Carissan\\
 J.\ Comput.\ Chem.
 \end{minipage}
@@ -766,7 +800,7 @@ J.\ Comput.\ Chem.
 {\Large
 \begin{minipage}[t]{3in}
 \baselineskip = .5\baselineskip
-Figure 9 \\
+Figure 10 \\
 Alexander Punter, Paola Nava, Yannick Carissan\\
 J.\ Comput.\ Chem.
 \end{minipage}
