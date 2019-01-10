@@ -1,0 +1,44 @@
+#set terminal pngcairo size 1000, 1200
+set terminal postscript landscape enhanced color solid
+#set termoption enhanced
+set output 'pbe0_grand_rpas.eps'
+set multiplot layout 4,2 columnsfirst
+set label "Helicene UV Spectra" at graph 0.0,1.08
+set title "6 rings" offset -15,-2.5
+unset xtics
+unset ytics
+fact=1.0
+const=32.0
+ps_colour=3
+plot 'ref/ch_06_/convolution.csv' w l lw 2 t 'ref', 'ps/ch_06_/convolution.csv' u ($1*fact+const):2 w l lw 2 lc ps_colour t 'ps'
+unset label
+unset ylabel
+unset xlabel
+set title "7 rings"
+plot 'ref/ch_07_/convolution.csv' w l lw 2 t 'ref', 'ps/ch_07_/convolution.csv' u ($1*fact+const):2 w l lw 2  lc ps_colour t 'ps'
+set title "8 rings"
+plot 'ref/ch_08_/convolution.csv' w l lw 2 t 'ref', 'ps/ch_08_/convolution.csv' u ($1*fact+const):2 w l lw 2  lc ps_colour t 'ps'
+set title "9 rings"
+set xtics
+set xlabel 'Wavelength (nm)'
+plot 'ref/ch_09_/convolution.csv' w l lw 2 t 'ref', 'ps/ch_09_/convolution.csv' u ($1*fact+const):2 w l lw 2  lc ps_colour t 'ps'
+#set title "10 rings"
+#plot 'ref/ch_10_/convolution.csv' w l lw 2 t 'ref', 'ps/ch_10_/convolution.csv' u ($1*fact+const):2 w l lw 2  lc ps_colour t 'ps'
+set label "ECD Spectra" at graph 0.0,1.08
+unset xtics
+unset xlabel
+set title "6 rings" offset -15,-2.5
+plot 'ref/ch_06_/convolution.csv' u 1:3 w l lw 2 t 'ref', 'ps/ch_06_/convolution.csv' u ($1*fact+const):3 w l lw 2 lc ps_colour t 'ps'
+unset label
+set title "7 rings" offset -15,-2.5
+plot 'ref/ch_07_/convolution.csv' u 1:3 w l lw 2 t 'ref', 'ps/ch_07_/convolution.csv' u ($1*fact+const):3 w l lw 2 lc ps_colour t 'ps'
+set title "8 rings" offset -15,-2.5
+plot 'ref/ch_08_/convolution.csv' u 1:3 w l lw 2 t 'ref', 'ps/ch_08_/convolution.csv' u ($1*fact+const):3 w l lw 2 lc ps_colour t 'ps'
+set title "9 rings" offset -15,-2.5
+set xtics
+set xlabel 'Wavelength (nm)'
+plot 'ref/ch_09_/convolution.csv' u 1:3 w l lw 2 t 'ref', 'ps/ch_09_/convolution.csv' u ($1*fact+const):3 w l lw 2 lc ps_colour t 'ps'
+#set title "10 rings" offset -15,-2.5
+#plot 'ref/ch_10_/convolution.csv' u 1:3 w l lw 2 t 'ref', 'ps/ch_10_/convolution.csv' u ($1*fact+const):3 w l lw 2 lc ps_colour t 'ps'
+
+unset multiplot
