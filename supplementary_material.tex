@@ -42,6 +42,10 @@ We aim first to reproduce the values for the CH\(^{\bullet}_{3}\) radical as giv
 This reference CH\(^{\bullet}_{3}\) is created and has its geometry optimised under Hartree-Fock (HF/def-SV(P)). The reference geometry gives a C - H distance of 2.0466 a.u., and so we pick \(d = 2.0\) a.u. as a starting guess for the planar distance from the pseudo-carbon, \(d\), of our pseudo-potentials. The pseudo-system is then set up, erasing the hydrogen atoms, setting the carbon charge \(Z_{nucleus} = 1\) and applying \(s\) pseudo-potentials, as well as selecting the correct orbital for the remaining electron. Table \ref{table:ch3_s_potentials} displays some of our results. Promisingly, we are able to produce many sets of potentials that give the correct energy.
 
 \begin{table}[ht]
+\caption{Coefficients and exponents for \(s\)-only pseudo-potentials for CH\(^{\bullet}_{3}\), optimised to give 
+the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0). 
+\(d = 0.5\) a.u., as defined in Figure 1.}
+\label{table:ch3_s_potentials}
 \begin{tabular}{c c c}
 \hline\hline
  & Coefficient & Exponent \\ 
@@ -55,10 +59,6 @@ PBE0 & -2.605 & 1.0 \\
  & -7.678 & 10.0 \\
 \hline\hline
 \end{tabular}
-\caption{Coefficients and exponents for \(s\)-only pseudo-potentials for CH\(^{\bullet}_{3}\), optimised to give 
-the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0). 
-\(d = 0.5\) a.u., as defined in Figure 1.}
-\label{table:ch3_s_potentials}
 \end{table}
 
 \subsection*{Ethene, with \(s\) and \(p\) potentials}
@@ -66,6 +66,10 @@ the all-electron HOMO reference energy of  -10.537~eV (HF) and -6.726~eV (PBE0).
 Next, we take some of these potentials to create a pseudo-ethene system, with the results shown in Table \ref{table:ethene_s_pseudo}. All potentials tested with \(d = 2.0\) a.u. gave results several orders of magnitude away from the reference value. From Figure \ref{fig:long_r_ethene} we may see the reason. One of the potential sets from each carbon is closer to the neighbouring carbon than the neighbour's own potential sets, thus both pseudo-carbons are affected by potentials which do not belong to them. At the shorter range \(d = 0.5\) a.u., the HOMO energy is of the right magnitude, though with errors of \(~ 30\%\). Attempts to eliminate this error lead us to the additional use of the \(p_{z}\) potential \textit{alongside} the \(s\) potentials.
 
 \begin{table}[ht]
+\caption{HOMO energies ($\pi$, eV) for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
+pseudo-CH\(^{\bullet}_{3}\) with only \(s\) potentials and an exponent of 10.0. $d$ (a.u.) as defined 
+in Figure 1.}
+\label{table:ethene_s_pseudo}
 \begin{tabular}{c c c c}
 \hline\hline
 & $d$ & \(s\) coefficient & \( \pi \)  \\
@@ -78,10 +82,6 @@ PBE0     & 0.5 &-7.678  & -8.447 \\
 \hline\hline
 \multicolumn{4}{l}{$^a$ All-electron reference values.}\\
 \end{tabular}
-\caption{HOMO energies ($\pi$, eV) for ethene and pseudo-ethene. The pseudo-potentials used in the pseudo-ethene are taken from optimised values for 
-pseudo-CH\(^{\bullet}_{3}\) with only \(s\) potentials and an exponent of 10.0. $d$ (a.u.) as defined 
-in Figure 1.}
-\label{table:ethene_s_pseudo}
 \end{table}
 
 \begin{figure}
@@ -97,6 +97,9 @@ The next step adds a \(p\) potential centred on the pseudo-carbon, with Table \r
 cannot alone describe the relationship between them.
 
 \begin{table}[ht]
+\caption{\(\pi\) orbital energy values (eV) for pseudo-ethene, using \(s\) and \(p\) pseudo-potentials.
+The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimised to give the correct all-electron HOMO energy.}
+\label{table:p_potentials}
 \begin{tabular}{c c c c}
 \hline\hline
 & \(p\) coefficient & \(p\) exponent \\
@@ -114,9 +117,6 @@ PBE0 & 3.483 & 1.0 & -10.325 \\
  & 18.351 & 10.0 & -12.543 \\
 \hline\hline
 \end{tabular}
-\caption{\(\pi\) orbital energy values (eV) for pseudo-ethene, using \(s\) and \(p\) pseudo-potentials.
-The pseudo-potentials are taken from a pseudo-CH\(^{\bullet}_{3}\) system optimised to give the correct all-electron HOMO energy.}
-\label{table:p_potentials}
 \end{table}
 
 Having successfully created a pseudo-ethene with the correct HOMO, we attempt to have the pseudo-system replicate other properties of the real system:
@@ -131,24 +131,53 @@ Once we started to look at excitation and ionisation energies however, optimisat
 
 \section*{Method Comparison: Frozen Orbitals}
 
+We computed the ionisation potentials of the small alkenes at the Hartree-Fock level in the frozen approximation in order to
+quantify the effect of neglecting the reorganisation of the $\sigma$ molecular orbitals in the cation. To do that, we froze
+the $\sigma$ doubly-occupied orbitals in the cations, as they were obtained in the calculations for the neutral system, Table~\ref{tab:froz_comp}
+and Figure~\ref{fig:froz_comp}.
+Those calculations were performed with the MOLCAS program package.
+
+\begin{table} 
+\caption{All-electron Hartree-Fock ionisation energies computed for short alkene chains. 
+The frozen values are obtained by freezing the doubly-occupied $\sigma$ molecular orbitals in the cation
+as they obtained in the neutral system.}
+\label{tab:froz_comp}
+\begin{tabular}{lrrrr}
+\hline
+\multicolumn{5}{c}{Ionisation Energies (IE) in eV} \\
+              & IE Reference  &  IE Frozen& Error & \% Error \\
+\hline
+$\text{C}_{2}\text{H}_{4}$  & 10.06  &   9.11 &  0.95  & 10.38 \\
+$\text{C}_{4}\text{H}_{6}$  & 8.82   &   8.09 &  0.73  & 9.04 \\
+$\text{C}_{6}\text{H}_{8}$  & 8.10   &   7.38 &  0.72  & 9.70 \\
+$\text{C}_{8}\text{H}_{10}$ & 7.65   &   6.96 &  0.69  & 9.86 \\
+$\text{C}_{10}\text{H}_{12}$& 7.35   &   6.67 &  0.68  & 10.21 \\
+$\text{C}_{12}\text{H}_{14}$& 7.15   &   6.47 &  0.67  & 10.40 \\
+\hline
+Average &&&                        0.74  & 9.93 \\
+\hline
+\end{tabular}
+\end{table} 
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=8cm]{froz_comp}
 \end{center}
-\caption{Comparison of CASSCF (ROHF) calculations for frozen-orbital and pseudo-molecule systems across a series of short chain alkenes.}
+\caption{Computed ionisation energies for small alkene-chains. Reference calculations are all-electron Hartree-Fock calculations, frozen calculation 
+are all-electron calculation where the $\sigma$ orbitals were frozen in the cation as they were obtained in the neutral system.}
 \label{fig:froz_comp}
 \end{figure}
 
-\section*{Method Comparison: TDDFT and CASPT2}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=8cm]{methodcomp_s_excitations}
-\includegraphics[width=8cm]{methodcomp_t_excitations}
-\end{center}
-\caption{Comparison of all-electron and pseudo-molecules for TDDFT-PBE0 and CASPT2 methods across ethylene, benzene, naphthalene and anthracene systems.}
-\label{fig:method_comp}
-\end{figure}
+%\section*{Method Comparison: TDDFT and CASPT2}
+%
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=8cm]{methodcomp_s_excitations}
+%\includegraphics[width=8cm]{methodcomp_t_excitations}
+%\end{center}
+%\caption{Comparison of all-electron and pseudo-molecules for TDDFT-PBE0 and CASPT2 methods across ethylene, benzene, naphthalene and anthracene systems.}
+%\label{fig:method_comp}
+%\end{figure}
 
 \section*{Comparison with our previous study}
 \begin{figure}
@@ -241,18 +270,21 @@ framework.}
 \label{fig:cnhn_uv_ciss}
 \end{figure}
 
+\clearpage
 \section*{B3-LYP Calculations}
 
-\begin{figure}
+Here we report calculations with the B3LYP functional on the spectra of small rings and helicenes.
+
+\begin{figure}[b]
 \begin{center}
-\includegraphics[width=16cm]{b3_rings_rpas}
+\includegraphics[width=11cm]{b3_rings_rpas}
 \end{center}
-\vspace{0.25in}
+%\vspace{0.25in}
 \hspace*{3in}
 \caption{Comparison of the absorption spectra for the 20 first singlet excitations obtained with
 pseudo-potentials (ps) and all-electron (ref) calculations (def2-SV(P)/TD-B3LYP) within the RPA
 framework. The wavelength is shifted by a factor of 1.15.}
-\label{fig:cnhn_uv_rpas}
+\label{fig:cnhn_uv_rpas_b3lyp}
 \end{figure}
 
 \begin{figure}
@@ -265,6 +297,8 @@ framework. The wavelength is shifted by a factor of 1.15.}
 framework. The pseudo-molecule wavelength has been corrected by a 32nm shift.}
 \label{fig:helicene_spectra_b3lyp}
 \end{figure}
+
+\clearpage
 
 \bibliography{biblio_pseudo_alex}
 \end{document}
