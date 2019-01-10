@@ -243,11 +243,15 @@ to other methods and they are employed within the DFT and TD-DFT frameworks in t
 
 All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)E\textsubscript{h} (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)E\textsubscript{h} for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
-All CASPT2 calculations and calculations with frozen orbitals were performed with the 
-MOLCAS program package.~\cite{MOLCAS}
+Structures are optimized for the ground state at the all-electron level for each functional and Hartree-Fock,
+and the pseudo-systems are built by preserving the optimised carbon-carbon distances.
+The structures obtained for the ground state are then used for the calculations on the triplet states and
+the cations.
 
-Structures are optimized at the all-electron levels and the pseudo-systems are built by preserving
-the optimised carbon-carbon distances.
+All CASPT2 calculations and calculations with frozen orbitals were performed with the 
+MOLCAS program package.~\cite{MOLCAS} The PBE0 structures were employed for the
+CASPT2 calculations.
+
 
 \textbf{All-trans-polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals.\cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) is switched on to avoid triplet instability.\cite{tammdancoff}
 
