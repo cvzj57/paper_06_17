@@ -239,6 +239,22 @@ our potentials (error of 0.715~eV).
 The potentials were extracted on the basis of Hartree-Fock calculations, but they are transferable
 to other methods and they are employed within the DFT and TD-DFT frameworks in the application section.
 
+\section*{\sffamily \large COMPUTATIONAL DETAILS}
+
+All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)E\textsubscript{h} (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)E\textsubscript{h} for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+
+All CASPT2 calculations and calculations with frozen orbitals were performed with the 
+MOLCAS program package.~\cite{MOLCAS}
+
+Structures are optimized at the all-electron levels and the pseudo-systems are built by preserving
+the optimised carbon-carbon distances.
+
+\textbf{All-trans-polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals.\cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) is switched on to avoid triplet instability.\cite{tammdancoff}
+
+\textbf{Topological analysis of the density}. The topological analysis was performed using the Multiwfn
+program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
+
+
 \section*{\sffamily \Large RESULTS AND DISCUSSION}
 
 %In the following sections, the following steps are detailed: extraction of a guess pseudo-potential
@@ -318,6 +334,10 @@ As for the smaller chains, the properties of large all-trans-polyenes are well-r
 which indicates that the results do not degrade with the size of the system.
 In the larger polyenes spin contamination is non-negligible, both in the reference and the pseudo-potential calculations, and the $\Delta_{ST}$ approach is not viable as it is for small polyenes (see SI).
 Thus, the computation of the excited state has to be done through TD-DFT, which leads to an excellent agreement between all-electron and pseudo-potential calculations.
+
+Finally, our pseudo-potentials are tested within the CASPT2 framework, by computing the first 
+singlet-singlet and singlet-triplet excitation energies for benzene, naphtalene and anthracene. Results are
+reported and compared to the TD-DFT data in Figure~\ref{fig:caspt2}. 
 
 \subsection*{\sffamily \large Polycyclic aromatic hydrocarbons}
 
@@ -504,17 +524,9 @@ This could be particularly useful in large molecules which are optically active,
 The challenge is to ensure the right occupation of the $\pi$-like orbitals despite the loss of the
 $\sigma-\pi$ separation.
 
-\section*{\sffamily \large COMPUTATIONAL DETAILS}
-
-All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)E\textsubscript{h} (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)E\textsubscript{h} for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
-
-\textbf{All-trans-polyenes and Polycyclic Aromatic Hydrocarbons}. In additional to Hartree-Fock calculations, DFT is used with PBE0, PBE, TPSS and TPSSh functionals.\cite{pbe0,pbe,tpss,tpssh} The integration grid size is set at \(m4\). Also used are TD-DFT calculations, where the Tamm-Dancoff approximation (CIS) is switched on to avoid triplet instability.\cite{tammdancoff}
-
-\textbf{Topological analysis of the density}. The topological analysis was performed using the Multiwfn
-program on a wfn file obtained from the TURBOMOLE program.\cite{multiwfn}
-
 \subsection*{\sffamily \large ACKNOWLEDGMENTS}
 We are grateful to the French Research Ministry, Aix-Marseille University and CNRS for financial support.
+
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -603,17 +615,16 @@ Excitation energies obtained with the pseudo-potentials were corrected by a fact
 
 \begin{figure}
 %fig8
-\caption{Comparison of the absorption and ECD spectra of the first 20 excitations of a series of helicene molecules obtained with pseudo-potentials (blue) and all-electron (red) calculations (def2-SV(P)/TD-PBE0). 
-Excitation energies obtained with the pseudo-potentials were corrected by a shift of 32nm.}
-\label{fig:helicene_spectra}
-\end{figure}
-
-
-\begin{figure}
-%fig9
 \caption{TD-DFT (PBE0) and CASPT2 comparison of all-electron and pseudo-system first singlet-singlet and
 singlet-triplet transition energies for benzene, naphtalene and anthracene.}
 \label{fig:caspt2}
+\end{figure}
+
+\begin{figure}
+%fig9
+\caption{Comparison of the absorption and ECD spectra of the first 20 excitations of a series of helicene molecules obtained with pseudo-potentials (blue) and all-electron (red) calculations (def2-SV(P)/TD-PBE0). 
+Excitation energies obtained with the pseudo-potentials were corrected by a shift of 32nm.}
+\label{fig:helicene_spectra}
 \end{figure}
 
 \begin{figure}
@@ -760,9 +771,9 @@ J.\ Comput.\ Chem.
 \clearpage
 
 \begin{figure}
-
 \begin{center}
-\includegraphics[angle=-90,width=8cm]{pbe0_grand_rpas}
+\includegraphics[width=8cm]{methodcomp_s_excitations.eps}\\
+\includegraphics[width=8cm]{methodcomp_t_excitations.eps}\\
 \end{center}
 {\Large
 \begin{minipage}[t]{3in}
@@ -777,9 +788,9 @@ J.\ Comput.\ Chem.
 \clearpage
 
 \begin{figure}
+
 \begin{center}
-\includegraphics[width=8cm]{methodcomp_s_excitations.eps}\\
-\includegraphics[width=8cm]{methodcomp_t_excitations.eps}\\
+\includegraphics[angle=-90,width=8cm]{pbe0_grand_rpas}
 \end{center}
 {\Large
 \begin{minipage}[t]{3in}
