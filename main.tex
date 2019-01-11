@@ -97,7 +97,8 @@ hitzenberger_probing_2015,
 collins_energy-based_2015,
 pezeshki_recent_2015,
 chung_oniom_2015,
-hitzenberger_optimizing_2016} or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces.\cite{dilabio_2008} Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP),\cite{dolg_2000} where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient.
+hitzenberger_optimizing_2016} or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces.\cite{dilabio_2008} Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP),\cite{dolg_2000} where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. \textbf{These ECPs may themselves be separated into two further categories: the pseudo-potential, in which the radial nodal electronic structure is simplified, and the model potential, which aims to preserve the correct nodal structure of the valence orbitals.\cite{cao_2011}}
+
 This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on light
 atoms from the early work of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}
 to the libraries spanning the whole periodic table (see the review by Dolg\cite{dolg_relativistic_2012} and references therein) which are still under active development.\cite{zou_open_2018}
@@ -114,8 +115,9 @@ two parts:
 an active one, where most of the chemistry takes place, and an inactive one, both of which must be taken into account in order to fulfil chemical requirements.
 Based on this general statement, many successful theoretical approaches have been developed. Among them can be cited QM/QM' or QM/MM methods,\cite{chung_oniom_2015} fragmentation methods,
 \cite{gordon_effective_2001,
-steinmann_effective_2012,collins_energy-based_2015} and frozen core and frozen density embedding methods.\cite{assfeld_quantum_1996,jacob_calculation_2006,artemyev_photoelectron_2015,wesolowski_frozen-density_2015}
-In 1991 Huzinaga emphasised that the `dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a no-collapse term.\cite{huzinaga_effective_1991}
+steinmann_effective_2012,collins_energy-based_2015} and frozen core and frozen density embedding methods.\cite{assfeld_quantum_1996,jacob_calculation_2006,artemyev_photoelectron_2015,wesolowski_frozen-density_2015}. \textbf{Of particular interest to us is the model potental method, which has seen several iterations as it has advanced, including ab-initio and relativistic formulations.\cite{bonifacic_1974, huzinaga_1987, seino_2014}}
+
+In 1991 Huzinaga emphasised that the `dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a `no-collapse' term.\cite{huzinaga_effective_1991}
 
 Following his proposal, for an atom where active and dormant electrons have been separated, the Hamiltonian reads:
 \begin{equation}
@@ -127,20 +129,21 @@ between explicitly treated active electrons, and
 the mono-electronic operator:
 \begin{equation}
 \label{eq:monoElectronicOperator}
-\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+\hat{V}(i) + \hat{\sigma}(i)
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i} + \hat{V} + \hat{\sigma}
 \end{equation}
 where $\Delta_i$ is the Laplacian of the coordinates of electron $i$, and 
 $Z_C$ is the number of dormant electrons withdrawn from the reference system.
-The operator $\hat{\sigma}(i)$ is the no-collapse term that prevents active electrons
-collapsing into the dormant region. The operator $\hat{V}(i)$ reproduces the 
+The operator $\hat{\sigma}$ is the `no-collapse' term that prevents active electrons
+collapsing into the dormant region; the operator $\hat{V}$ reproduces the 
 Coulomb and exchange interactions, for which Huzinaga proposed a spectral formulation:
 \begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
+%\hat{W} &=& \hat{\sigma}+\hat{V}  \nonumber \\
 \hat{V} = r^{-1}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
 \end{equation}
 
-In this article, we performed the active/inactive split on a molecule with $\pi$ electrons: the $\sigma$ electrons comprising the inactive part and the $\pi$ electrons the active part.
-The Schr\"odinger equation was solved for the latter part only in the field of the dormant part.
+In this article, we perform the active/inactive split on a molecule with $\pi$ electrons: the $\sigma$ electrons comprising the inactive part and the $\pi$ electrons the active part.
+The Schr\"odinger equation is solved for the latter part only in the field of the dormant part.
 The aim is to propose a method for extracting a potential for a hybridised carbon atom 
 ($sp^2$), with a focus on reproducing basic properties of the electronic structure of the sp$^2$ carbon in a molecular framework 
 (HOMO energy, ionisation potential and excitation energies).
@@ -161,7 +164,7 @@ The second part shows the results obtained using the most refined version of the
 
 Previous pseudo-potential methods have made use of different optimisation criteria, based on the pseudo-potentials' intended function. 
 The pseudo-bond method, for example, is intended to facilitate geometry-optimisation in QM/MM calculations, and uses a series of reference data, 
-including bond lengths and angles, across a training set of different molecules.\cite{zhang_pseudobond_1998}.
+including bond lengths and angles, across a training set of different molecules.\cite{zhang_pseudobond_1998}
 In our case, the aim is to simulate the electronic behaviour of $\pi$ systems.
 Figure~\ref{figure:diagram} helps to explain our choice of criteria for gauging the efficacy of our potentials. Since our reference system is the planar CH$_3^\bullet$ radical (with the four atoms in the $(xy)$ plane), the HOMO energy of CH$_3^{\bullet}$, $\epsilon_{HOMO(CH_3)}$, i.e. the $p_{z}$ orbital energy, is an obvious choice, and should ensure the orbital of the pseudo-system is well-positioned to interact with other chemical moieties.
 
@@ -182,6 +185,11 @@ electronic correlation.
 As in our previous work,\cite{drujon_pseudopotentials_2013}
 we take the planar CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials,\cite{me_structure_theory} of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+The mono-electronic operator is written as:
+\begin{equation}
+\label{eq:monoElectronicOperator2}
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i} + \hat{W}
+\end{equation}
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
@@ -193,12 +201,12 @@ The multi-centered pseudo-potentials that we build read as follows:
 \end{equation}
 with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics and $r^0_J$ the relative fixed position of the $J^{th}$ potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
 By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
-we can say that the $p$ projectors aim to mimic a coulombic interaction (see the first term in Equation~\ref{eq:HuzinagaMPVersion1Potential}),
+we can say that the $p$ projectors aim to mimic a coulombic interaction (see $\hat{V}$ in Equation~\ref{eq:HuzinagaMPVersion1Potential}),
 while the $s$ potentials have the task of recovering part of the bi-electronic interaction
 between the dormant and the active electrons, explaining their position \textit{around} the pseudo-atom.
 Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as our $s$ potentials aim at recovering
 the bi-electronic interactions \textit{and} part of the no-collapse term.
-This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation.
+This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation. 
 
 Figure~\ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by a hydrogen-like `pseudo-carbon', with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
 There are now no H atoms, and the system is surrounded by three potential sets at a planar distance of \(d\), each consisting of 
