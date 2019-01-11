@@ -129,20 +129,18 @@ between explicitly treated active electrons, and
 the mono-electronic operator:
 \begin{equation}
 \label{eq:monoElectronicOperator}
-\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i}+ \hat{W}
-%\hat{V}(i) + \hat{\sigma}(i)
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i} + \hat{V} + \hat{\sigma}
 \end{equation}
 where $\Delta_i$ is the Laplacian of the coordinates of electron $i$, and 
 $Z_C$ is the number of dormant electrons withdrawn from the reference system.
-The operator $\hat{W}$ contains two terms:
-the operator $\hat{\sigma}$ is the `no-collapse' term that prevents active electrons
+The operator $\hat{\sigma}$ is the `no-collapse' term that prevents active electrons
 collapsing into the dormant region; the operator $\hat{V}$ reproduces the 
 Coulomb and exchange interactions, for which Huzinaga proposed a spectral formulation:
-\begin{eqnarray}
+\begin{equation}
 \label{eq:HuzinagaMPVersion1Potential}
-\hat{W} &=& \hat{\sigma}+\hat{V}  \nonumber \\
-\hat{V} &=& r^{-1}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
-\end{eqnarray}
+%\hat{W} &=& \hat{\sigma}+\hat{V}  \nonumber \\
+\hat{V} = r^{-1}\left[\sum_IA_I\exp(-\alpha_I r^2)+\sum_JB_Jr\exp(-\beta_J r^2)\right]
+\end{equation}
 
 In this article, we perform the active/inactive split on a molecule with $\pi$ electrons: the $\sigma$ electrons comprising the inactive part and the $\pi$ electrons the active part.
 The Schr\"odinger equation is solved for the latter part only in the field of the dormant part.
@@ -187,6 +185,11 @@ electronic correlation.
 As in our previous work,\cite{drujon_pseudopotentials_2013}
 we take the planar CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
 It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials,\cite{me_structure_theory} of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+The mono-electronic operator is written as:
+\begin{equation}
+\label{eq:monoElectronicOperator2}
+\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z-Z_c)}{r_i} + \hat{W}
+\end{equation}
 The multi-centered pseudo-potentials that we build read as follows:
 \begin{equation}
 \label{eq:ourPP}
@@ -198,16 +201,12 @@ The multi-centered pseudo-potentials that we build read as follows:
 \end{equation}
 with $Y_{0,0}$ the $s$ spherical harmonic, $Y_{1,m}$ the $p$ spherical harmonics and $r^0_J$ the relative fixed position of the $J^{th}$ potential with respect to the origin of the pseudo-atom, which carries the pseudo-potentials.
 By analogy with Huzinaga model potentials defined in (\ref{eq:HuzinagaMPVersion1Potential})
-we can say that the $p$ projectors aim to mimic a coulombic interaction (see $\hat{V}(i)$ in Equation~\ref{eq:HuzinagaMPVersion1Potential}),
+we can say that the $p$ projectors aim to mimic a coulombic interaction (see $\hat{V}$ in Equation~\ref{eq:HuzinagaMPVersion1Potential}),
 while the $s$ potentials have the task of recovering part of the bi-electronic interaction
 between the dormant and the active electrons, explaining their position \textit{around} the pseudo-atom.
 Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as our $s$ potentials aim at recovering
 the bi-electronic interactions \textit{and} part of the no-collapse term.
-This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation. \textbf{We also note that the $Z_{c}$ of Equation~\ref{eq:HuzinagaMPVersion1Potential} is also contained within this $\hat{W}$ (see `Results and Discussion' for further detail). This leaves us with the final mono-electronic Hamiltonian operator:}
-
-\begin{equation}
-\label{eq:ourmonoelec}
-\hat{h}(i) = -\frac{1}{2}\Delta_i - \frac{(Z)}{r_i} + \hat{W}\end{equation}
+This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation. 
 
 Figure~\ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by a hydrogen-like `pseudo-carbon', with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
 There are now no H atoms, and the system is surrounded by three potential sets at a planar distance of \(d\), each consisting of 
