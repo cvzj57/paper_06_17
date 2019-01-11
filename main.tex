@@ -390,66 +390,7 @@ Results are reported and compared to the TD-DFT data in Figure~\ref{fig:caspt2}:
 are well-reproduced and errors with respect to the all-electron calculations are of a similar magnitude
 to those of the TD-DFT calculations. 
 
-\section*{\sffamily \large Coronene encapsulated in a carbon nanotube}
-In a recent work, Nakamura \emph{et al.} have studied the photoexcitation
-spectrum of a coronene polymer encapsulated in a carbon nanotube.\cite{nakamura2018}
-In this work, they show that two absorption bands (at around 1.7 and 3.4 eV)
-lead to a charge transfer from the coronene polymer to the nanotube.
-This charge transfer process is backed up by DFT calculations in the plane wave formalism
-using boundary conditions.
-These calculations do not allow for the computation of excited states.
-Instead, the nature of the transition is assumed from the calculation of band structure
-of a model system (one (19,0) nanotube) the whole system.
-We tried to investigate this problem with our pseudo-potentials in the cluster approximation
-to see if we could find discrete electronic excitations, which would have a charge transfer
-between the coronene and the nanotube character.
 
-An emphasis should be made about the fact that we are trying to use the pseudo-potentials
-out of their scope as they were extracted for planar molecules only.
-However, if the curvature radii is not too small, we are confident enough that our
-pseudo-potentials could still lead to physically relevant results.
-It is to be noted here that the curvature of the nanotube leads to the loss of strict
-$\sigma$ and $\pi$ definition of the electronic cloud.
-We shall refer to an orbital as $\pi$-like on a carbon atom when it exhibits
-one lobe above and one lobe below
-the plane made by the three nearest neighbours of the atom considered.
-We make the hypothesis that it is mainly the $\pi$-like electrons of the molecule that are responsible for the
-photoelectronic properties of the system at low energy, otherwise, we would not be able to
-obtain any sensible result with our method.
-
-The comparison between experiment and such a cluster approach is risky as the system under study
-is a very crude approximation of the experimental system.
-Experimentally, Nakamura \emph{et al.} make measurements over a variety of nanotubes (their
-diameter ranges from 1.0 to 1.5~nm), which each encapsulate one coronene.
-We could study a model system of the experimental system
-using a coronene molecule encapsulated in a nanotube slice as can be seen in figure~\ref{fig:nanotube_model}.
-We chose a non metallic chiral nanotube of an intermediate diameter as the ones used experimentally to
-be as close as possible to the experimental system.
-The calculation of the excited states of this model system is not routine
-at the TD-DFT level as it would require the calculation of a huge number of excited states (probably
-some thousands as many $\sigma$ excitations ).
-Because of the reduction of the system when using our pseudo-potentials
-(only $\pi$-like electrons treated explicitly), we could do such a calculation in the $\pi$-like-only space.
-We performed the calculation of the photoabsorption spectrum with TD-DFT from the
-ground state to the first 200 excited states (see Supplementary Informations).
-The computation of these 200 excitation energies leads to a maximum energy of roughly 3.6~eV.
-A peak appears in the region of interest of the spectrum around 1.7 eV and two excitations (at 748 and 770~nm) 
-have large oscillator strengths.
-The transition densities of these excitations are shown in figure~\ref{fig:trans_55_59}.
-The excitation with the higher oscillator strength at 748~nm shows electronic depletion and
-increase on both the coronene and the nanotube.
-This rearrangement is the reason for the large oscillator strength but cannot be assigned
-to a charge transfer process.
-On the other hand, the second excitation shows a charge transfer from the coronene
-to the nanotube (only blue $\pi$ density on the coronene and the red $\pi$ density
-is only on the tube).
-Such a result confirms the assignment made by Nakamura \emph{et al}.
-
-These calculations, despite their crudeness lead to informative results on the
-electronic structure of large system, provided that the properties of interest involve
-electrons with a strong $\pi$ character.
-They allow for the use of quantum chemistry method on system for which such calculations
-even if strictly not impossible would be computationally intensive to say the least.
 
 \section*{\sffamily \large Topological analysis of the density}
 A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{bader}
@@ -726,25 +667,6 @@ The critical paths are drawn in yellow.}
 \label{fig:aim_c6h6}
 \end{figure}
 
-\begin{figure}
-%fig11
-\caption{Model system of a coronene-polymer-encapsulating single wall carbon nanotube.
-It is made of a slice (1,14) armchair nanotube of length 1.10~nm and of
-diameter 1.25~nm encapsulating a coronene molecule.
-Hydrogen atoms were removed from the representation.
-}
-\label{fig:nanotube_model}
-\end{figure}
-
-\begin{figure}
-%fig12
-\caption{Transition densities for the excitation at 770 nm (left) and 747 nm (right) 
-at the TD-DFT(PBE0) level with the pseudo-potentials developed in this work.
-Blue indicates a diminution of electronic dentiry and red indicates an increase of electronic density.
-}
-\label{fig:trans_55_59}
-\end{figure}
-
 %BEGFIG
 \clearpage
 
@@ -930,28 +852,12 @@ Int. J. Quantum Chem.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=8cm]{nanotube_model_crop.eps}
+\includegraphics[width=4cm]{trans_55_crop.eps}\includegraphics[width=4cm]{trans_59_crop.eps}
 \end{center}
 {\Large
 \begin{minipage}[t]{3in}
 \baselineskip = .5\baselineskip
 Figure 11 \\
-Alexander Punter, Paola Nava, Yannick Carissan\\
-Int. J. Quantum Chem.
-\end{minipage}
-}
-\end{figure}
-
-\clearpage
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=3.8cm]{trans_55_crop.eps}\hspace*{4mm}\includegraphics[width=3.8cm]{trans_59_crop.eps}
-\end{center}
-{\Large
-\begin{minipage}[t]{3in}
-\baselineskip = .5\baselineskip
-Figure 12 \\
 Alexander Punter, Paola Nava, Yannick Carissan\\
 Int. J. Quantum Chem.
 \end{minipage}
