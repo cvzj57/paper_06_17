@@ -375,8 +375,13 @@ The most remarkable feature to us is the neatness of the agreement of the relati
 This certainly shows again that the pseudo-carbon we have extracted captures a lot of the physics of the reference system as the intensities are related to the transition dipole moment.
 
 Finally, our pseudo-potentials are tested within the CASPT2 framework, by computing the first 
-singlet-singlet and singlet-triplet excitation energies for benzene, naphtalene and anthracene. Results are
-reported and compared to the TD-DFT data in Figure~\ref{fig:caspt2}. 
+singlet-singlet and singlet-triplet excitation energies for benzene, naphtalene and anthracene. 
+For both reference and pseudo calculations,
+the active spaces are (6,6), (10,10), and (10,10), respectively for benzene, naphtalene and anthracene. 
+Results are reported and compared to the TD-DFT data in Figure~\ref{fig:caspt2}: trends 
+are well reproduced and errors with respect to the all-electron calculations are of similar magnitude
+as for the TD-DFT calculations. 
+
 
 
 \section*{\sffamily \large Topological analysis of the density}
@@ -513,6 +518,7 @@ model can not recover the effects of the reorganization of the $\sigma$ electron
 in the cation. However, deviations
 from the all-electron calculations decrease with the size of the system.
 (3) They can be employed with both Hartree-Fock and DFT methods including PBE0, PBE, TPSS and TPSSh functionals. 
+CASPT2 calculations have also been positively tested.
 (4) They have been shown to function well whether their neighbouring atoms are other pseudo-carbons (as with fused carbon rings), hydrogen atoms (as in CH\(^{\bullet}_{3}\)),
 or a mixture of both (as in the polyenes or at the edge of fused ring systems). 
 (5) They offer a significant gain in computational time as compared to all-electron calculations.
@@ -621,7 +627,8 @@ Excitation energies obtained with the pseudo-potentials were corrected by a fact
 \begin{figure}
 %fig8
 \caption{TD-DFT (PBE0) and CASPT2 comparison of all-electron and pseudo-system first singlet-singlet and
-singlet-triplet transition energies for benzene, naphtalene and anthracene.}
+singlet-triplet transition energies for benzene, naphtalene and anthracene. The active spaces are 
+(6,6), (10,10), and (10,10), respectively for benzene, naphtalene and anthracene.}
 \label{fig:caspt2}
 \end{figure}
 
