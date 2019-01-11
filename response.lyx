@@ -1,0 +1,393 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrlttr2
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Address
+Aix-Marseille Université
+\begin_inset Newline newline
+\end_inset
+
+ISM2, UMR-CNRS-7313
+\begin_inset Newline newline
+\end_inset
+
+Campus St.
+ Jérôme service 561
+\begin_inset Newline newline
+\end_inset
+
+F-13397 Marseille cedex 20
+\begin_inset Newline newline
+\end_inset
+
+France
+\begin_inset Newline newline
+\end_inset
+
+E-mail Yannick.Carissan@univ-amu.fr
+\begin_inset Newline newline
+\end_inset
+
+Tel (33) +4.91.28.91.68
+\begin_inset Newline newline
+\end_inset
+
+Fax (33) +4.91.28.91.79
+\end_layout
+
+\begin_layout Name
+Yannick Carissan
+\end_layout
+
+\begin_layout Opening
+Dear editor,
+\end_layout
+
+\begin_layout Standard
+Please find below the answer to the referees concerning our article entitled
+ 
+\series bold
+
+\begin_inset Quotes eld
+\end_inset
+
+Atomic pseudo-potentials for reproducing the valence electron behaviour
+ of sp
+\begin_inset Formula $\bm{^{2}}$
+\end_inset
+
+carbon atoms
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+.
+ After the additions we did due to the referees suggestions, we believe
+ that this work is more convincing and we are grateful to the referees to
+ have pushed us to improve this work.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Answers to referee 1:
+\end_layout
+
+\begin_layout Quote
+
+\shape slanted
+Why Hartree-Fock? The parametrisation of the pseodo-potential is based on
+ the results of a HF- calculation results obtained for a CH3● radical and
+ C2H4 molecule.
+ Systems of this size (i.e.
+ 10 and 16 electrons, respecively) can be efficiently treated at a correlated
+ level of theory such as MP2 or coupled- cluster theory (RIMP2 and RI-CC2
+ in case of TURBOMOLE), so the authors have to explain why the Hartree-Fock
+ methods was their method of choice.
+\end_layout
+
+\begin_layout Standard
+We consider Hartree-Fock as method of choice for extraction of our pseudopotenti
+als as it is unbiased in terms of electronic correlation.
+ On top of it, one can add electronic correlation with any method (DFT,
+ CI, etc.).
+\end_layout
+
+\begin_layout Quotation
+
+\shape slanted
+Why not B3LYP? This work compares the results obtained using the pseudo-potentia
+l model to DFT calculations of the rather popular PBE and PBE0 functionals,
+ in addition to the comparably rarely employed TPSS and TPSSh functionals.
+ Although the suitability of the B3LYP functional is (rightly) the focus
+ of continuing debates in the literature, it still represents one of the
+ most influential developments in theoretical/computational chemistry, and
+ cannot be ignored.
+ For this reason, the authors should also compare to results obtained using
+ this method.
+\end_layout
+
+\begin_layout Standard
+The choice of functionals that we use in this work comes from the idea to
+ climb Jacob's ladder in the most systematic manner possible.
+ PBE and PBE0 differ only by the inclusion of exact exchange whereas there
+ is no pure functional that can be directly associated with B3LYP.
+ Hence this choice.
+\end_layout
+
+\begin_layout Quotation
+
+\shape slanted
+One point that is not clearly discussed in the manuscript is the source
+ of the molecular structures employed in the calculations.
+ Were the structures subject to energy minimization at the respective levels,
+ or were the same structures applied for all levels of theory considered?
+ If the latter is true, which method was used to minimize the structures,
+ and why did the authors choose this particular method?
+\end_layout
+
+\begin_layout Standard
+That is entirely true.
+ It was included in a previous version of the manuscript and somehow was
+ delete upon submission.
+ It is back in the main text.
+\end_layout
+
+\begin_layout Quotation
+
+\shape slanted
+A particularly interesting finding in this study highlighted by the authors
+ is the fact that although the system was parameterized using the comparably
+ simple CH3● radical and a C2H4 molecule, the pseudo- potential approach
+ delivers adequate results for aromatic systems as well.
+ In order to further push this benchmarking, the inclusion of a C 60 fullerene
+ molecule into the test set would mark an important and highly challenging
+ milestone of the proposed approach.
+ The authors are highly encouraged to include the respective data into the
+ revised manuscrip
+\shape default
+t.
+\end_layout
+
+\begin_layout Standard
+This suggestion together with the comments of referee 2 on the accuracy
+ and speed of these pseudopotentials led us to use our methods to much larger
+ systems than the one studied in the original version as well as to distorted
+ systems.
+ We have chosen two examples, which we believe address these points: a coronene
+ molecule embedded in a carbon nanotube and increasingly large helicenes.
+ The first example shows that despite the fact accuracy that of our method
+ does not reach chemical accuracy in the case of highly energetical excited
+ states (ionisation potential being the paragon of electronic excitation)
+ it can be useful to determine chemical properties in large systems.
+ The second example, shows that this method can help to solve highly difficult
+ assignations (the determination of absolute configuration of helicenes
+ is not a trivial task) in a limited time, especially if combined with highly
+ efficient semi empirical approaches like the sTDA of Grimme and coworkers.
+\end_layout
+
+\begin_layout Quotation
+
+\shape slanted
+Although some details regarding the pseudo-potential are included in the
+ supplementary material, it appears that no data file (for instance in TURBOMOLE
+ format) is provided.
+ A key aspect justifying the development of basis sets and pseudo-potential
+ is to provide the data in a form that can be employed by other researchers.
+ For this reason an exemplary data file of the pseudo-potential along with
+ suitable basis functions for the remaining electrons should be provided
+ in the revised version of the manuscript.
+\end_layout
+
+\begin_layout Standard
+Such information was included in the revised manuscript
+\end_layout
+
+\begin_layout Standard
+The other corrections suggested by referee 1 were done.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Answers to referee 2:
+\end_layout
+
+\begin_layout Quotation
+
+\shape slanted
+What are the advantages in comparison with the all-electron calculations.
+ The authors showed that the present scheme reduces the prefactor of the
+ calculations.
+ However, the scaling will be the same, which is important for calculations
+ of large molecules.
+ Actually, calculations of the excitation energies for large polyene chains
+ (n = 5-500) and carbon nanotubes were reported using linear-scaling divide-and-
+conquer method at the TDDFT level (J.
+ Chem.
+ Phys.
+ 146, 124123, 2017).
+ In addition, the errors between 0.18 and 0.3 eV or of about 10% for the approxima
+tions in pseudopotentials are too large and not acceptable in the recent
+ quantum chemical calculations.
+ At least, the error with less than 1 millihartree (~0.03 eV) is required.
+\end_layout
+
+\begin_layout Standard
+Let us repeat here that the fact not to have a to place a potential at the
+ center of the bond is not minor.
+ In the following version of these potentials, geometry optimization will
+ be performed with the potentials.
+ This is possible only because the potentials can be placed relatively to
+ one atomic center and not relatively to two or more centers.
+\end_layout
+
+\begin_layout Standard
+As to the comment on the fact that other methods exist to lower scaling
+ of quantum chemistry calculations, we are perfectly aware of such things
+ and very glad about that.
+ As we show in the calculations on helicenes, it is the combination of all
+ these methods (provided that they are used in a relevant framework and
+ can actually be used together) that leads quantum chemistry to tackle problems
+ of larger size.
+ Our point of view is not that we should oppose these methods as one being
+ faster than the other but instead to combine them to become more efficient.
+\end_layout
+
+\begin_layout Standard
+As to the comment on the accuracy, we shall address it together with the
+ next point:
+\end_layout
+
+\begin_layout Quotation
+
+\shape slanted
+The applicabilities of the present scheme is too limited.
+ In large planar pi electron systems such as graphene, the inclusion of
+ the static electron correlation is normally essential.
+ Therefore, the frozen electrons in p orbitals are also important.
+ So the scheme can 
+\strikeout on
+only
+\strikeout default
+ (not?) be applied to nonplanar pi electron systems such as large helicenes
+ and carbonanotubes.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+To the reader: the strikeout of 
+\begin_inset Quotes eld
+\end_inset
+
+only
+\begin_inset Quotes erd
+\end_inset
+
+ and its replacement by 
+\begin_inset Quotes eld
+\end_inset
+
+not
+\begin_inset Quotes erd
+\end_inset
+
+ is ours as we believe this is what referee 2 meant.
+\end_layout
+
+\begin_layout Standard
+As can be seen from the examples, that we have added in the revised version
+ of the manuscript, the curvature of pi system is handled properly by our
+ pseudopotentials.
+\end_layout
+
+\begin_layout Standard
+We think, this work is in line with aims and scope of the International
+ Journal of Quantum Chemistry.
+\end_layout
+
+\begin_layout Standard
+The authors are :
+\end_layout
+
+\begin_layout Itemize
+Alexander Punter
+\end_layout
+
+\begin_layout Itemize
+Dr.
+ Paola Nava
+\end_layout
+
+\begin_layout Itemize
+Dr.
+ Yannick Carissan, corresponding author (see address in the header)
+\end_layout
+
+\begin_layout Closing
+With our Best Regards,
+\end_layout
+
+\begin_layout Name
+Yannick Carissan
+\end_layout
+
+\end_body
+\end_document
