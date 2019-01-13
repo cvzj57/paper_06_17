@@ -119,7 +119,7 @@ Dear editor,
 \end_layout
 
 \begin_layout Standard
-Please find below the answer to the referees concerning our article entitled
+Please find below our reply to the referees concerning our article entitled
  
 \series bold
 
@@ -138,38 +138,54 @@ carbon atoms
 
 \series default
 .
- After the additions we did due to the referees suggestions, we believe
- that this work is more convincing and we are grateful to the referees to
- have pushed us to improve this work.
+ After the changes we have made following the referees' suggestions, we
+ believe that this work is more convincing and we are grateful to the referees
+ to have pushed us to improve this work.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Answers to referee 1:
+Answers to Referee 1:
 \end_layout
 
 \begin_layout Quote
 
 \shape slanted
-1) Why Hartree-Fock? The parametrisation of the pseodo-potential is based
- on the results of a HF- calculation results obtained for a CH3 radical
- and C2H4 molecule.
+1) Why Hartree-Fock? The parametrisation of the pseudo-potential is based
+ on the results of a HF- calculation result obtained for a CH3 radical and
+ C2H4 molecule.
  Systems of this size (i.e.
  10 and 16 electrons, respecively) can be efficiently treated at a correlated
- level of theory such as MP2 or coupled- cluster theory (RIMP2 and RI-CC2
+ level of theory such as MP2 or coupled-cluster theory (RIMP2 and RI-CC2
  in case of TURBOMOLE), so the authors have to explain why the Hartree-Fock
- methods was their method of choice.
+ method was their method of choice.
 \end_layout
 
 \begin_layout Standard
-We consider Hartree-Fock as method of choice for extraction of our pseudopotenti
-als as it is unbiased in terms of electronic correlation (a sentence was
- added at the beginnig of Section: Pseudo-potential definition).
+We consider Hartree-Fock to be the method of choice for extraction of our
+ pseudo-potentials as it is unbiased in terms of electronic correlation.
  On top of it, one can add electronic correlation with any method (DFT,
  CI, etc.).
- We further tested our pseudo-potentials within the CASPT2 framework (end
- of Section: Polycyclic aromatic hydrocarbons).
+ We have added a sentence at the beginning of the 
+\begin_inset Quotes eld
+\end_inset
+
+Pseudo-potential Definition
+\begin_inset Quotes erd
+\end_inset
+
+ section to clarify this.
+ We further tested our pseudo-potentials within the CASPT2 framework (this
+ has been added to the end of the 
+\begin_inset Quotes eld
+\end_inset
+
+Polycyclic aromatic hydrocarbons
+\begin_inset Quotes erd
+\end_inset
+
+ section).
 \end_layout
 
 \begin_layout Quotation
@@ -187,12 +203,18 @@ tial model to DFT calculations of the rather popular PBE and PBE0 functionals,
 \end_layout
 
 \begin_layout Standard
-We chose one functional for each DFT type to systematically climb the Jacob's
- ladder (one GGA, its hybrid formulation, one meta-GGA and its hybrid formulatio
-n).
- We computed the spectra for the polycyclic aromatic hydrocarbons for B3LYP
- and since we obtained similar results as for PBE0, we included the B3LYP
- results in the Supporting Information.
+We chose one functional for each DFT type to systematically climb 
+\begin_inset Quotes eld
+\end_inset
+
+Jacob's ladder
+\begin_inset Quotes erd
+\end_inset
+
+ (one GGA, its hybrid formulation, one meta-GGA and its hybrid formulation).
+ We have computed the spectra for the polycyclic aromatic hydrocarbons for
+ B3LYP and, since we obtained results similar to those of PBE0, we have
+ included the B3LYP results in the Supporting Information.
 \end_layout
 
 \begin_layout Quotation
@@ -207,9 +229,17 @@ n).
 \end_layout
 
 \begin_layout Standard
-That is entirely true.
- We added the missing piece of information in the computational details
- section, which has been moved before the results and discussion section.
+This is entirely true.
+ We added the missing piece of information in the 
+\begin_inset Quotes eld
+\end_inset
+
+Computational Details
+\begin_inset Quotes erd
+\end_inset
+
+ section, which has been placed before the results and discussion section
+ (as per Referee 2's suggestion).
 \end_layout
 
 \begin_layout Quotation
@@ -217,9 +247,9 @@ That is entirely true.
 \shape slanted
 4) A particularly interesting finding in this study highlighted by the authors
  is the fact that although the system was parameterized using the comparably
- simple CH3 radical and a C2H4 molecule, the pseudo- potential approach
- delivers adequate results for aromatic systems as well.
- In order to further push this benchmarking, the inclusion of a C 60 fullerene
+ simple CH3 radical and a C2H4 molecule, the pseudo-potential approach delivers
+ adequate results for aromatic systems as well.
+ In order to further push this benchmarking, the inclusion of a C60 fullerene
  molecule into the test set would mark an important and highly challenging
  milestone of the proposed approach.
  The authors are highly encouraged to include the respective data into the
@@ -229,20 +259,20 @@ t.
 \end_layout
 
 \begin_layout Standard
-This suggestion together with the comments of referee 2 on the accuracy
+This suggestion, together with the comments of Referee 2, on the accuracy
  and speed of these pseudopotentials led us to test our methods for much
  larger systems than the one studied in the original version, as well as
  for distorted systems.
  We have chosen two examples, which we believe address these points: a coronene
  molecule embedded in a carbon nanotube and increasingly larger helicenes.
  The first example shows that despite the fact that of our method does not
- reach chemical accuracy in the case of highly energetical excited states
+ reach chemical accuracy in the case of highly energetic excited states
  (ionisation energies being the extreme case of an electronic excitation),
  it can be useful to determine chemical properties in large systems.
  The second example, shows that this method can help to solve highly difficult
  assignations (the determination of absolute configuration of helicenes
  is not a trivial task) in a limited time.
- It could be beneficially combined with highly efficient semi empirical
+ It could be beneficially combined with highly efficient semi-empirical
  approaches like the sTDA of Grimme and coworkers.
 \end_layout
 
@@ -260,14 +290,14 @@ This suggestion together with the comments of referee 2 on the accuracy
 \end_layout
 
 \begin_layout Standard
-An example of input was included.
- The other minor corrections suggested by referee 1 were also done.
+An example set of Turbomole input files has been included.
+ The other minor corrections suggested by Referee 1 have also been done.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Answers to referee 2:
+Answers to Referee 2:
 \end_layout
 
 \begin_deeper
@@ -293,23 +323,32 @@ Answers to referee 2:
 
 \end_deeper
 \begin_layout Standard
-The fact not to have to place a potential at the center of the bond is not
- minor.
- We are confident that this would allow us for the developpement of a geometry
+The fact that we don't have to place a potential at the center of the bond
+ is not minor.
+ We are confident that this would allow for the development of a geometry
  optimization procedure.
- This is possible only because the potentials can be placed relatively to
- one atomic center and not relatively to two or more centers.
+ This is possible only because the potentials can be placed relative to
+ one atomic center and not relative to two or more centers.
  Furthermore, we propose a physical interpretation of the new pseudo-potentials.
  As we added in Section 
 \begin_inset Quotes eld
 \end_inset
 
-Physical meaning
+Physical meaning of the p
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+z
+\end_layout
+
+\end_inset
+
+ pseudo-potential
 \begin_inset Quotes erd
 \end_inset
 
 : This provides a conceptual advantage with respect to our previous work,
- where the pseudo- potentials were simply relying on a shifting of the orbitals
+ where the pseudo-potentials were simply relying on a shifting of the orbitals
  to map the reference ones.
  OTHER POINTS: DISTORTED SYSTEMS, C1?
 \begin_inset Separator plain
@@ -339,7 +378,7 @@ tions in pseudopotentials are too large and not acceptable in the recent
 \end_layout
 
 \begin_layout Standard
-We are aware that other methods exist to lower scaling of quantum chemistry
+We are aware that other methods exist to lower the scaling of quantum chemistry
  calculations, and we are very glad about that.
  We believe that it is the combination of all these methods (provided that
  they are used in a relevant framework and can actually be used together)
@@ -390,23 +429,24 @@ not
 \end_layout
 
 \begin_layout Standard
-About accuracy, we expect errors that are inherent in the method: we do
- not treat explicitely the σ electrons and the effect of their reorganisation
- can not be entirely recovered, for example in cation calculations for computing
- ionisation energies.
- For comparison, we performed all-electron calculations where the σ orbitals
- are kept frozen in the cation as they are obtained in the neutral system.
- Errors are similar as for the pseudo-systems, as expected.
- We explicitely treat this point in the paper (Sections: Pseudo-potential
+On the question of accuracy, we expect certain errors to be inherent in
+ the method: we do not explicitly treat the σ electrons and the effect of
+ their reorganisation can not be entirely recovered, for example in cation
+ calculations for computing ionisation energies.
+ For comparison, we have performed additional all-electron calculations
+ where the σ-orbitals are kept frozen in the cation as they are obtained
+ in the neutral system.
+ Errors are similar to those of the pseudo-systems, as expected.
+ This is a point which we discuss in the paper (Sections: Pseudo-potential
  definition; All-trans-polyenes).
  However, as discussed here above, we were able to determine chemical properties
  of large systems and we were able to compute distorted systems (helicenes
  and a nanotube containing a coronene molecule, see point 4 in the answer
  to the first referee).
  Furthermore, we test the applicability of our scheme to other methods and
- we used it in the framework of the CASPT2 theory for benzene, naphtlene
+ we used it in the framework of the CASPT2 theory for benzene, naphthalene
  and anthracene.
- Results are added in Section: Polycyclic aromatic hydrocarbons.
+ Results are added in Section: Polycyclic Aromatic Hydrocarbons.
 \end_layout
 
 \begin_layout Standard
@@ -420,19 +460,19 @@ About accuracy, we expect errors that are inherent in the method: we do
 
 \begin_layout Standard
 Suggested references have been added.
- We added the definition of the mono-electronic operator to make the W operator
- to appear and to gain in clarity (Section: Pseudo-potential definition).
+ We have also added a definition of the mono-electronic operator in which
+ the W operator appears explicitly for the sake of clarity (Section: Pseudo-pote
+ntial definition).
 \end_layout
 
 \begin_layout Standard
-Furthermore, the 'computational details' section was moved before the 'results
- and discussion' session.
+Furthermore, the 'Computational Details' section was moved before the 'Results
+ and Discussion' session.
 \end_layout
 
 \begin_layout Standard
-We think, this work is in line with aims and scope of the International
- Journal of Quantum Chemistry and we hope that it could be accepted for
- publication.
+We think this work is in line with aims and scope of the International Journal
+ of Quantum Chemistry and we hope that it could be accepted for publication.
 \end_layout
 
 \begin_layout Standard
