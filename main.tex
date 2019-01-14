@@ -390,6 +390,51 @@ Results are reported and compared to the TD-DFT data in Figure~\ref{fig:caspt2}:
 are well-reproduced and errors with respect to the all-electron calculations are of a similar magnitude
 to those of the TD-DFT calculations. 
 
+\section*{\sffamily \large Topological analysis of the density}
+A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{bader}
+This gives a vision of the $\pi$-only electronic cloud.
+In the AIM framework, critical points are characterised by the sign of the eigenvalues of the Hessian of 
+the electronic density and are classified as follows:
+as the maxima of the electronic density are located at the nuclear positions,
+atom critical points are characterised by three negative eigenvalues, noted (3, -3);
+a bond critical point is a saddle point, showing a minimum along the bond direction,
+thus noted (3, -1); cycle critical points are minima on the hyper-surface of the cycle
+and maxima along the direction perpendicular to the cycle, noted (3, +1).
+A last kind of critical point (cage critical point) is characterised by three positive eigenvalues
+(3, +3).
+The critical paths are obtained by connecting the critical points along a direction of zero gradient.
+
+For benzene, we compare the critical points of the $\pi$ cloud obtained in a reference calculation
+with pseudo-potentials at the same level of theory.
+The $\pi$ system of the all-electrons calculation is obtained  by populating the converged $\pi$ molecular orbitals only.
+As the AIM procedure deals with the electronic density, no reoptimisation of the orbitals is necessary.
+In our case, as the critical point analyses were obtained
+with the $\pi$ system only, the electronic density maxima are not
+located at the nuclei but rather at the maxima of the $\pi$ density, 
+\emph{i.e.} above and below the nuclei. %were the lobes of the $p$ orbitals admit a maximum.
+Accordingly, twelve bond critical points rather than six are expected,
+above and below the molecular plane.
+Moreover, due to the topology of the density, two cycle critical points are found above and below the molecular
+plane on the C$_6$ symmetry axis.
+To fulfil the Poincarré-Hopf relationship, a cage critical point is required. However, this cage critical point 
+at the center of the molecule could not be found, either in the reference or in the pseudo-potential 
+calculations.
+After a careful inspection of the results, it turns out that the electronic density
+is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$).
+Therefore we deduce, there is a cage critical point at the center of
+the molecule but it can not be detected.
+%The Poincarré-Hopf relationship can be considered fulfilled and no more critical points
+%are to be found.
+
+Finally, Figure~\ref{fig:aim_c6h6} shows that the description of the bond pattern by the pseudo-potential
+calculation corresponds to that by the reference, in terms of types of found critical points.
+The position of the critical points are not exactly the same and the pseudo-potential calculation
+leads to a slightly more diffuse $\pi$ bonding pattern.
+However, as both images have the same scale, one can see that the topologies
+of the electronic densities are very similar.
+This confirms that the results obtained are not artefactual but that the pseudo-potentials
+lead to a physically relevant electronic density.
+
 \section*{\sffamily \large Helicene Spectra}
 
 We were insterested to look at some still larger and more complex molecules.
@@ -496,51 +541,6 @@ electronic structure of large system, provided that the properties of interest i
 electrons with a strong $\pi$ character.	
 They allow for the use of quantum chemistry methods on systems for which such calculations	
 even if strictly not impossible would be computationally intensive to say the least.
-
-\section*{\sffamily \large Topological analysis of the density}
-A Bader analysis can be performed on the electronic density obtained with the pseudo-potentials.\cite{bader}
-This gives a vision of the $\pi$-only electronic cloud.
-In the AIM framework, critical points are characterised by the sign of the eigenvalues of the Hessian of 
-the electronic density and are classified as follows:
-as the maxima of the electronic density are located at the nuclear positions,
-atom critical points are characterised by three negative eigenvalues, noted (3, -3);
-a bond critical point is a saddle point, showing a minimum along the bond direction,
-thus noted (3, -1); cycle critical points are minima on the hyper-surface of the cycle
-and maxima along the direction perpendicular to the cycle, noted (3, +1).
-A last kind of critical point (cage critical point) is characterised by three positive eigenvalues
-(3, +3).
-The critical paths are obtained by connecting the critical points along a direction of zero gradient.
-
-For benzene, we compare the critical points of the $\pi$ cloud obtained in a reference calculation
-with pseudo-potentials at the same level of theory.
-The $\pi$ system of the all-electrons calculation is obtained  by populating the converged $\pi$ molecular orbitals only.
-As the AIM procedure deals with the electronic density, no reoptimisation of the orbitals is necessary.
-In our case, as the critical point analyses were obtained
-with the $\pi$ system only, the electronic density maxima are not
-located at the nuclei but rather at the maxima of the $\pi$ density, 
-\emph{i.e.} above and below the nuclei. %were the lobes of the $p$ orbitals admit a maximum.
-Accordingly, twelve bond critical points rather than six are expected,
-above and below the molecular plane.
-Moreover, due to the topology of the density, two cycle critical points are found above and below the molecular
-plane on the C$_6$ symmetry axis.
-To fulfil the Poincarré-Hopf relationship, a cage critical point is required. However, this cage critical point 
-at the center of the molecule could not be found, either in the reference or in the pseudo-potential 
-calculations.
-After a careful inspection of the results, it turns out that the electronic density
-is below computer accuracy at this point (it is evaluated to be around 10$^{-31}$).
-Therefore we deduce, there is a cage critical point at the center of
-the molecule but it can not be detected.
-%The Poincarré-Hopf relationship can be considered fulfilled and no more critical points
-%are to be found.
-
-Finally, Figure~\ref{fig:aim_c6h6} shows that the description of the bond pattern by the pseudo-potential
-calculation corresponds to that by the reference, in terms of types of found critical points.
-The position of the critical points are not exactly the same and the pseudo-potential calculation
-leads to a slightly more diffuse $\pi$ bonding pattern.
-However, as both images have the same scale, one can see that the topologies
-of the electronic densities are very similar.
-This confirms that the results obtained are not artefactual but that the pseudo-potentials
-lead to a physically relevant electronic density.
 
 \section*{\sffamily \large Timings}
 The model that we develop in this work allows significant computational gains.
