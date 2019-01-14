@@ -250,7 +250,7 @@ to other methods and they are employed within the DFT and TD-DFT frameworks for 
 
 \section*{\sffamily \large COMPUTATIONAL DETAILS}
 
-All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)E\textsubscript{h} (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)E\textsubscript{h} for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
+All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)~E$_h$ (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)~E$_h$ for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
 Structures are optimised for the ground state at the all-electron level for each functional and for Hartree-Fock,
 and the pseudo-systems are built by preserving the optimised carbon-carbon distances.
