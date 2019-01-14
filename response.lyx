@@ -141,6 +141,21 @@ carbon atoms
  After the changes we have made following the referees' suggestions, we
  believe that this work is more convincing and we are grateful to the referees
  to have pushed us to improve this work.
+ We have added two applications on non planar systems, which are the subject
+ of two new sections.
+ The first one deals with the ECD spectra of helicenes and we could show
+ that our pseudo-potentials manage to reproduce them with a fairly good
+ accuracy.
+ The second one is the analysis of an experimental work by Nakamura et al.
+ of a coronene polymer embedded in a single wall carbon nanotube.
+ These studies lead also to two new sections in the supplementary information.
+ Furthermore, we have added results obtained with ab-initio methods (CASPT2)
+ to avoid the misunderstanding that our pseudo-potentials could be used
+ only in the DFT framework.
+\end_layout
+
+\begin_layout Standard
+Please find below the answers to the points raised by the referees.
 \end_layout
 
 \begin_layout Itemize
@@ -213,8 +228,10 @@ Jacob's ladder
 
  (one GGA, its hybrid formulation, one meta-GGA and its hybrid formulation).
  We have computed the spectra for the polycyclic aromatic hydrocarbons for
- B3LYP and, since we obtained results similar to those of PBE0, we have
- included the B3LYP results in the Supporting Information.
+ B3LYP.
+ We obtained results similar to those of PBE0 (slightly worse in the case
+ of the ECD spectra of helicenes) and we have included the B3LYP results
+ in the Supporting Information.
 \end_layout
 
 \begin_layout Quotation
@@ -263,17 +280,15 @@ This suggestion, together with the comments of Referee 2, on the accuracy
  and speed of these pseudopotentials led us to test our methods for much
  larger systems than the one studied in the original version, as well as
  for distorted systems.
- We have chosen two examples, which we believe address these points: a coronene
- molecule embedded in a carbon nanotube and increasingly larger helicenes.
- The first example shows that despite the fact that of our method does not
- reach chemical accuracy in the case of highly energetic excited states
- (ionisation energies being the extreme case of an electronic excitation),
- it can be useful to determine chemical properties in large systems.
- The second example, shows that this method can help to solve highly difficult
+ We have chosen two examples, which we believe address these points: increasingl
+y larger helicenes and a coronene molecule embedded in a carbon nanotube.
+ The first example shows that this method can help to solve highly difficult
  assignations (the determination of absolute configuration of helicenes
  is not a trivial task) in a limited time.
- It could be beneficially combined with highly efficient semi-empirical
- approaches like the sTDA of Grimme and coworkers.
+ The second example shows that despite the fact that of our method does
+ not reach chemical accuracy in the case of highly energetic excited states
+ (ionisation energies being the extreme case of an electronic excitation),
+ it can be useful to determine chemical properties in large systems.
 \end_layout
 
 \begin_layout Quotation
@@ -350,7 +365,8 @@ z
 : This provides a conceptual advantage with respect to our previous work,
  where the pseudo-potentials were simply relying on a shifting of the orbitals
  to map the reference ones.
- OTHER POINTS: DISTORTED SYSTEMS, C1?
+ The other improvements are listed in the conclusion: possibility to reach
+ high energy excited states and use on distorted systems.
 \begin_inset Separator plain
 \end_inset
 
