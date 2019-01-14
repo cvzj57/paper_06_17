@@ -184,7 +184,7 @@ The potentials were extracted on the basis of Hartree-Fock calculations, as it i
 electronic correlation. 
 As in our previous work,\cite{drujon_pseudopotentials_2013}
 we take the planar CH\(^{\bullet}_{3}\) as our starting system to be reproduced.
-It is the smallest system containing one and only one sp$^2$ hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials,\cite{me_structure_theory} of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
+It is the smallest system containing one and only one sp$^2$-hybridised carbon atom. This choice allows us to isolate the different electrostatic interactions to build a physically meaningful model. We make use of two kinds of Gaussian pseudo-potentials,\cite{me_structure_theory} of \(s\) and \(p\) shapes. As we want to avoid modifying the quantum chemistry software itself, the pseudo-potentials have a semi-local form and we choose to preserve the \(r^{-1}\) behaviour as in Huzinaga's work.
 The mono-electronic operator is written as:
 \begin{equation}
 \label{eq:monoElectronicOperator2}
@@ -234,7 +234,7 @@ In the final version of the extraction, the pseudo-ethylene system was: (1) Opti
 The final potential set gives an error of 5.1\% for the HOMO energy of CH\(^{\bullet}_{3}\), but it
 performs much better than the initial for the ethylene,
 giving us a 0.0\% error on the $\Delta_{ST}$, and errors of 2.9\% and 7.8\% for the HOMO and 1$^{st}$ ionisation energies respectively.
-As the $\sigma$ electrons are not treated explicitely in our model,
+As the $\sigma$ electrons are not treated explicitly in our model,
 the effect of their reorganisation in the cation can not
 be recovered entirely and we expect an error in the ionisation energy that is inherent
 in the method. For comparison, the all-electron energy of the $(\text{C}_2\text{H}_4)^+$ cation
@@ -251,7 +251,7 @@ to other methods and they are employed within the DFT and TD-DFT frameworks in t
 
 All Hartree-Fock, DFT and time-dependent DFT (TD-DFT) energy calculations are performed with TURBOMOLE 7.1.\cite{TURBOMOLE} The basis set used throughout is def-SV(P).\cite{defsvp} Wherever possible, planar (C\(_{S}\)) symmetry is used. The convergence energy is \(10^{-7}\)E\textsubscript{h} (\texttt{\$scfconv = 7}) for SCF and \(10^{-6}\)E\textsubscript{h} for DFT. All optimisations used the Brent method in SciPy's optimisation library, with a tolerance of \(1.48*10^{-08}\), and used standard Hartree-Fock calculations.\cite{scipy}
 
-Structures are optimized for the ground state at the all-electron level for each functional and Hartree-Fock,
+Structures are optimised for the ground state at the all-electron level for each functional and for Hartree-Fock,
 and the pseudo-systems are built by preserving the optimised carbon-carbon distances.
 The structures obtained for the ground state are then used for the calculations on the triplet states and
 the cations.
@@ -325,7 +325,7 @@ For the small polyenes, in the pseudo-systems, the HOMO has systematically a sli
 but absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies with the size of the chain is well-replicated. As a consequence of this underestimation, 
 ionisation energies are slightly higher than in reference calculations, even if tendencies are well-reproduced. 
 We recall here that this quantity is particularly challenging for our method, as we do not account for
-the reorganization of the $\sigma$ electrons in the cation.
+the reorganisation of the $\sigma$ electrons in the cation.
 For comparison, the mean ionisation errors obtained with our pseudo-potentials are between 7\% (PBE0) and 11\% (TPSS) 
 and an average error of 10\% is found in ROHF calculations for the small-polyenes where all the $\sigma$ doubly-occupied 
 orbitals are frozen in the cations, as they are obtained in the calculations for the neutral systems
@@ -359,8 +359,8 @@ As with the polyenes, the general trend of the results is well-replicated
 by the pseudo-systems, and the percentage errors, displayed in Table
 \ref{table:ring_system_errors}, are similar.
 This is not surprising because aromaticity arises from the fact that
-the $p$ orbitals overlap and are forming a ring.
-Since we reproduce well the $p$ orbitals, the aromatic character of the $\pi$ ring
+the $p$ orbitals overlap and are form a ring.
+Since we reproduce the $p$ orbitals well, the aromatic character of the $\pi$ ring
 appears.
 
 Encouraged by the fact that low-lying first excited states as well as the ionisation potentials of a large range of PAH are well-reproduced by our pseudo-potentials,
@@ -593,7 +593,7 @@ Their main features are that:
 They are able to reproduce physically reasonable absorption spectra and the electronic
 density leads to the same AIM view of the bonding pattern. Ionisation energies have
 also been tested and the expected trends are obtained, even if clearly our
-model can not recover the effects of the reorganization of the $\sigma$ electrons
+model can not recover the effects of the reorganisation of the $\sigma$ electrons
 in the cation. However, deviations
 from the all-electron calculations decrease with the size of the system.
 (3) They can be employed with both Hartree-Fock and DFT methods including PBE0, PBE, TPSS and TPSSh functionals. 
