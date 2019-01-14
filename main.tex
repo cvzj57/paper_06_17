@@ -394,13 +394,47 @@ to those of the TD-DFT calculations.
 
 We were insterested to look at some still larger and more complex molecules.
 In particular, we were curious to see how the potentials would perform in a system that wasn't planar,
-as distortions in the plane would, in an all-electron system, alter the influence of the sp$^2$-hybridised electrons.
+as distortions in the plane would, in an all-electron system,
+alter the influence of the sp$^2$-hybridised electrons.
 
-Figure~\ref{fig:helicene_spectra} displays the UV and ECD spectra for a series of [n]helicene molecules of $n=6$ to $n=9$ (structural diagrams are available in the SI), along with their pseudo-molecular counterparts. After shifting the pseudo-spectra by 32nm (a redshift), we can see the general shapes of the pseudo-system UV spectra are qualitatively very similar to the all-electron spectra, both in their spread and their intensities. We can also see that many of the peaks of the all-electron spectra appear to be clearly identifiable in the pseudo-spectra. 
+%yc
+In a comparison between CC2 theoretical calculations and experiment, Nakai \emph{et al.}
+show that ECD spectra of helicences can be accurately computed.\cite{nakai_theoretical_2012}
+First of all let us show here that for small helicenes (6 to 9 rings), it is possible to
+rproduce with good accuracy the experimental spectra with DFT (PBE0/def2-SV(P)).
 
-The ECD spectra are more complex. The general shapes of the pseudo-spectra are distorted compared to the all-electron results, with the distortion increasing from slight to more severe as the helicene becomes longer. We suggest that the reason for this is that with $n > 6$, the ends of the helicene overlap more and more, resulting in a much more complex electronic structure. However, one can still clearly identify the largest peaks for the smaller systems, and the direction of the dichroism remains clear throughout, though the declining accuracy at $n=9$ suggests this might not be so for larger helicene systems.
+In this work, we get interested in carbon based helicenes made of
+ortho-fused-six-member-rings only.
+The agreement between experiment, CC2 and DFT calculations is very good according to
+figure \ref{fig:comparison_EXP_CC2_DFT} (see SI).
+Relative intensities, sign and positions of the absorption peaks are remarkably
+well reproduced by the DFT calculations with no shift on the wavelengths.
+The ECD spectra of M helicenes feature a positive absorption at low energy 
+followed by a negative absorption about 100 nm further (the spectrum of ch[8]
+is ploted with a thicker line to emphasize this feature).
+This characteristic behavior (in the above defined framework), is indicative
+of the chirality M or P of the helicene.
+As a reminder, when the helix followed by a helicene rotates in the counterclockwise
+direction, the helicene is labelled P (plus) and M (minus) otherwise.
+%yc
+
+Figure~\ref{fig:helicene_spectra} displays the UV and ECD spectra for a series of [n]helicene molecules of $n=6$ to $n=9$ (structural diagrams are available in the SI),
+along with their pseudo-molecular counterparts.
+After shifting the pseudo-spectra by 32nm (a redshift), we can see the general shapes of the pseudo-system UV spectra are qualitatively very similar to the all-electron spectra,
+both in their spread and their intensities.
+We can also see that many of the peaks of the all-electron spectra appear to be clearly identifiable in the pseudo-spectra. 
+
+The ECD spectra are more complex.
+The general shapes of the pseudo-spectra are distorted compared to the all-electron results,
+with the distortion increasing from slight to more severe as the helicene becomes longer.
+We suggest that the reason for this is that with $n > 6$, the ends of the helicene overlap more and more,
+resulting in a much more complex electronic structure.
+However, one can still clearly identify the largest peaks for the smaller systems, and the direction of the dichroism remains clear throughout.
 
 These spectra show that we can be confident that our potentials can retain much of the physics of more complex $\pi$-systems, even allowing for some distortion to the molecular plane.
+These calculations show that the ECD spectra of helicenes are mainly due to the $\pi$-like electrons and
+that our pseudo-potentials allow for the reproduction of properties, which are much more difficult to reproduce
+than UV spectra as they are much more sensitive to the environment.
 
 \section*{\sffamily \large Coronene encapsulated in a carbon nanotube}	
 In a recent work, Nakamura \emph{et al.} have studied the photoexcitation	
