@@ -97,7 +97,7 @@ hitzenberger_probing_2015,
 collins_energy-based_2015,
 pezeshki_recent_2015,
 chung_oniom_2015,
-hitzenberger_optimizing_2016} or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces.\cite{dilabio_2008} Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP),\cite{dolg_2000} where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. \textbf{These ECPs may themselves be separated into two further categories: the pseudo-potential, in which the radial nodal electronic structure is simplified, and the model potential, which aims to preserve the correct nodal structure of the valence orbitals.\cite{cao_2011}}
+hitzenberger_optimizing_2016} or the efforts to use them alongside DFT calculations in correcting for DFT errors in the effect of van der Waals forces.\cite{dilabio_2008} Their primary use, however, has always been that of increasing computational efficiency as compared with all-electron solutions for the same systems. Most well-known among these methods is the Effective Core Potential (ECP),\cite{dolg_2000} where the replacement of core electrons in larger atoms with ECPs and RECPs (Relativistic Effective Core Potentials) permits calculations on molecules involving such atoms to be more efficient. These ECPs may themselves be separated into two further categories: the pseudo-potential, in which the radial nodal electronic structure is simplified, and the model potential, which aims to preserve the correct nodal structure of the valence orbitals.\cite{cao_2011}
 
 This is not to say, however, that pseudo-potentials have been employed only in the treatment of heavy atoms. There have been efforts to create potentials for use on light
 atoms from the early work of Topiol \emph{et al.} or Gresh and Pullman \cite{topiol_1976, gresh_1978}
@@ -108,14 +108,14 @@ We propose a different formulation.
 Our goal is to investigate the feasibility of pseudo-potentials reproducing electronic behaviour accurately,
 having been designed not only to replace the core electrons of light atoms,
 but also to replace specific valence electrons that do not take part in the electronic behaviour in which we are interested.
-Such potentials could find ready use in performing QM calculations on large hydrocarbons and polycyclic, aromatic hydrocarbons.
+Such potentials could find ready use in performing QM calculations on large hydrocarbons and polycyclic aromatic hydrocarbons.
 
 It is a common idea that a chemical system can be thought of as comprised of (at least) 
 two parts:
 an active one, where most of the chemistry takes place, and an inactive one, both of which must be taken into account in order to fulfil chemical requirements.
 Based on this general statement, many successful theoretical approaches have been developed. Among them can be cited QM/QM' or QM/MM methods,\cite{chung_oniom_2015} fragmentation methods,
 \cite{gordon_effective_2001,
-steinmann_effective_2012,collins_energy-based_2015} and frozen core and frozen density embedding methods.\cite{assfeld_quantum_1996,jacob_calculation_2006,artemyev_photoelectron_2015,wesolowski_frozen-density_2015}. \textbf{Of particular interest to us is the model potental method, which has seen several iterations as it has advanced, including ab-initio and relativistic formulations.\cite{bonifacic_1974, huzinaga_1987, seino_2014}}
+steinmann_effective_2012,collins_energy-based_2015} and frozen core and frozen density embedding methods.\cite{assfeld_quantum_1996,jacob_calculation_2006,artemyev_photoelectron_2015,wesolowski_frozen-density_2015}. Of particular interest to us is the model potental method, which has seen several iterations as it has advanced, including ab-initio and relativistic formulations.\cite{bonifacic_1974, huzinaga_1987, seino_2014}
 
 In 1991 Huzinaga emphasised that the `dormant' electrons of the inactive region had three main effects upon the active electrons, which any pseudo-potentials should maintain; these were the Coulomb and exchange forces, as well as a `no-collapse' term.\cite{huzinaga_effective_1991}
 
@@ -206,7 +206,7 @@ while the $s$ potentials have the task of recovering part of the bi-electronic i
 between the dormant and the active electrons, explaining their position \textit{around} the pseudo-atom.
 Thus, this second term is not stricly equivalent to Huzinaga's $B_J$ terms as our $s$ potentials aim at recovering
 the bi-electronic interactions \textit{and} part of the no-collapse term.
-This later role was devoted to the $\hat{\sigma}$ operator in Huzinaga's formulation. 
+This later role was served by the $\hat{\sigma}$ operator in Huzinaga's formulation. 
 
 Figure~\ref{figure:ref_pseudo_diagram} displays the final pseudo-system: The CH\(^{\bullet}_{3}\) radical has been replaced by a hydrogen-like `pseudo-carbon', with a nuclear charge of \(Z_{nucleus} = 1\), and one electron occupying the \(p_{z}\) orbital. 
 There are now no H atoms, and the system is surrounded by three potential sets at a planar distance of \(d\), each consisting of 
@@ -320,7 +320,7 @@ Indeed, the best agreement is found with the PBE0 functional for which the quali
 TPSS and TPSSh display larger errors, up to 20\% in the energy of the HOMO, which impacts the ionisation potential.
 However, TD-DFT results are very good.
 
-Figure~\ref{fig:alkenes_hf_dft} and \ref{fig:long_chain_graphs} show in detail the results obtained with the PBE0 functional for the small and large polyenes, respectively.
+Figures~\ref{fig:alkenes_hf_dft} and \ref{fig:long_chain_graphs} show in detail the results obtained with the PBE0 functional for the small and large polyenes, respectively.
 For the small polyenes, in the pseudo-systems, the HOMO has systematically a slightly lower energy than in the reference,
 but absolute errors are small (between 0.18 and 0.3 eV) and the pattern of increasing HOMO energies with the size of the chain is well-replicated. As a consequence of this underestimation, 
 ionisation energies are slightly higher than in reference calculations, even if tendencies are well-reproduced. 
@@ -446,20 +446,20 @@ alter the influence of the sp$^2$-hybridised electrons.
 In a comparison between CC2 theoretical calculations and experiment, Nakai \emph{et al.}
 show that ECD spectra of helicences can be accurately computed.\cite{nakai_theoretical_2012}
 First of all let us show here that for small helicenes (6 to 9 rings), it is possible to
-rproduce with good accuracy the experimental spectra with DFT (PBE0/def2-SV(P)).
+reproduce with good accuracy the experimental spectra with DFT (PBE0/def2-SV(P)).
 
-In this work, we get interested in carbon based helicenes made of
+In this work, we are interested in carbon based helicenes made of
 ortho-fused-six-member-rings only.
 The agreement between experiment, CC2 and DFT calculations is very good according to
-figure \ref{fig:comparison_EXP_CC2_DFT} (see SI).
+Figure \ref{fig:comparison_EXP_CC2_DFT} (see SI).
 Relative intensities, sign and positions of the absorption peaks are remarkably
 well reproduced by the DFT calculations with no shift on the wavelengths.
 The ECD spectra of M helicenes feature a positive absorption at low energy 
 followed by a negative absorption about 100 nm further (the spectrum of ch[8]
-is ploted with a thicker line to emphasize this feature).
-This characteristic behavior (in the above defined framework), is indicative
+is plotted with a thicker line to emphasise this feature).
+This characteristic behavior (in the above defined framework) is indicative
 of the chirality M or P of the helicene.
-As a reminder, when the helix followed by a helicene rotates in the counterclockwise
+As a reminder, when the helix followed by a helicene rotates in the counter-clockwise
 direction, the helicene is labelled P (plus) and M (minus) otherwise.
 %yc
 
@@ -478,7 +478,7 @@ However, one can still clearly identify the largest peaks for the smaller system
 
 These spectra show that we can be confident that our potentials can retain much of the physics of more complex $\pi$-systems, even allowing for some distortion to the molecular plane.
 These calculations show that the ECD spectra of helicenes are mainly due to the $\pi$-like electrons and
-that our pseudo-potentials allow for the reproduction of properties, which are much more difficult to reproduce
+that our pseudo-potentials allow for the reproduction of properties which are much more difficult to reproduce
 than UV spectra as they are much more sensitive to the environment.
 
 \section*{\sffamily \large Coronene encapsulated in a carbon nanotube}	
@@ -539,8 +539,8 @@ Such a result confirms the assignment made by Nakamura \emph{et al}.
  These calculations lead to informative results for the	
 electronic structure of large system, provided that the properties of interest involve	
 electrons with a strong $\pi$ character.	
-They allow for the use of quantum chemistry methods on systems for which such calculations	
-even if strictly not impossible would be computationally intensive to say the least.
+They allow for the use of quantum chemistry methods on systems for which such calculations,	
+even if strictly not impossible, would be computationally intensive to say the least.
 
 \section*{\sffamily \large Timings}
 The model that we develop in this work allows significant computational gains.
